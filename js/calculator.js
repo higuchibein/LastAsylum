@@ -1,6 +1,6 @@
 /**
  * ラストアサイラム攻略Webサイト - 施設強化・資源計算機スクリプト (calculator.js)
- * (https://www.last-asylum.fun/ から抽出された26施設のリアル基礎データに対応)
+ * 正確な資源体系 (🪵 木材, 🌾 穀物・食料, 🌿 薬草・ハーブ) 完全適合版
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     calculate();
   });
 
-  // 抽出実データ対応計算ロジック
+  // 正確な資源体系 (wood, grain, herb, time_seconds, prerequisites)
   function calculate() {
     if (!currentFacility) return;
 
@@ -144,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const totals = { wood: 0, grain: 0, herb: 0 };
     const mergedPrereqs = {};
 
-    // Lv.(fromLv+1) から Lv.toLv までのコストと時間を計算
     for (let lv = fromLv + 1; lv <= toLv; lv++) {
       const lvData = currentFacility.levels.find(l => l.level === lv);
       if (lvData) {
@@ -170,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     rawTimeEl.textContent = `基礎時間: ${formatDuration(totalRawSec)}`;
     savedTimeEl.textContent = `短縮量: ${formatDuration(savedSec)}`;
 
-    // 必要資材リスト表示
+    // 正確な3大資源リスト
     const resMap = [
       { key: 'wood', name: '木材 (Wood)', icon: '🪵' },
       { key: 'grain', name: '穀物・食料 (Grain)', icon: '🌾' },
