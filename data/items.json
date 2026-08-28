@@ -1,282 +1,1297 @@
 [
   {
-    "id": "fac-sanctuary",
-    "name": "聖域 (本部 / Sanctuary)",
-    "category": "facility",
-    "type": "中核施設",
-    "rarity": "UR",
-    "level": "Lv.30 (Max)",
-    "priority": "Sランク (最優先)",
-    "tags": ["聖域", "Sanctuary", "本部", "施設", "中核"],
-    "effects": [
-      "拠点全体の建設可能上限レベルの解放",
-      "出撃部隊規模上限 +45,000",
-      "全ヒーロー基礎ステータス +20%"
-    ],
-    "materials": [
-      {"name": "木材 (Wood)", "amount": 58000000},
-      {"name": "穀物・食料 (Grain)", "amount": 46000000},
-      {"name": "薬草・ハーブ (Herb)", "amount": 22500000}
-    ],
-    "description": "「ラストアサイラム」全ての機能を統括する最重要中核施設。防衛壁・各種倉庫を前提としてレベルを上げ、部隊出撃枠の拡大を目指すのが定石。",
-    "icon": "🏰"
-  },
-  {
-    "id": "fac-1st-lab",
-    "name": "第1研究所 (Research Lab)",
-    "category": "facility",
-    "type": "研究施設",
-    "rarity": "SSR",
-    "level": "Lv.30",
-    "priority": "Sランク",
-    "tags": ["研究所", "Research Lab", "技術研究", "上位兵種"],
-    "effects": [
-      "上位兵種（戦士・レンジャー・ウォーロック）の解放研究",
-      "建設・採集速度研究バフ上限解放"
-    ],
-    "materials": [
-      {"name": "木材 (Wood)", "amount": 25000000},
-      {"name": "穀物・食料 (Grain)", "amount": 25000000},
-      {"name": "薬草・ハーブ (Herb)", "amount": 12000000}
-    ],
-    "description": "内政技術や兵種強化の研究を行う中核施設。上位兵種の早期解禁に向けて優先的にレベルアップを行いましょう。",
-    "icon": "🔬"
-  },
-  {
-    "id": "fac-builders-hut",
-    "name": "大工の小屋 (Builders Hut)",
-    "category": "facility",
-    "type": "建設補助",
-    "rarity": "SSR",
-    "level": "Lv.30",
-    "priority": "Sランク",
-    "tags": ["大工の小屋", "Builders Hut", "建設短縮", "作業効率"],
-    "effects": [
-      "拠点内建設速度 +35%",
-      "同時建設キューの追加・管理"
-    ],
-    "materials": [
-      {"name": "木材 (Wood)", "amount": 18000000},
-      {"name": "穀物・食料 (Grain)", "amount": 18000000},
-      {"name": "薬草・ハーブ (Herb)", "amount": 9000000}
-    ],
-    "description": "建築時間を大幅短縮できる施設。序盤から聖域と同水準レベルに育てることで全建設の回転率が向上します。",
-    "icon": "🔨"
-  },
-  {
-    "id": "fac-barracks",
-    "name": "兵舎 (Barracks)",
-    "category": "facility",
-    "type": "軍事施設",
-    "rarity": "SSR",
-    "level": "Lv.23",
-    "priority": "Aランク",
-    "tags": ["兵舎", "Barracks", "軍事", "訓練", "兵士"],
-    "effects": [
-      "兵士訓練数 +1,500",
-      "訓練速度 +30%"
-    ],
-    "materials": [
-      {"name": "木材 (Wood)", "amount": 12000000},
-      {"name": "穀物・食料 (Grain)", "amount": 12000000},
-      {"name": "薬草・ハーブ (Herb)", "amount": 6000000}
-    ],
-    "description": "兵士部隊を訓練・育成する軍事拠点。研究所での上位兵種解放と連動してレベルを上げていきます。",
-    "icon": "⚔️"
-  },
-
-  {
-    "id": "rune-madness",
-    "name": "狂乱のルーン [星6]",
-    "category": "rune",
-    "type": "攻撃系ルーン",
-    "rarity": "UR",
-    "level": "強化+15",
-    "tags": ["狂乱", "攻撃", "クリティカル", "会心", "防御無視", "アタッカー"],
-    "setEffects": "【2セット】攻撃力+15% / 【4セット】会心ダメージ発動時、対象の防御力を20%無視",
-    "recommended": "アーク, マレーナ",
-    "effects": [
-      "メインステータス: 会心率 +18% / 攻撃力 +32%",
-      "2セット効果: 攻撃力 +15%",
-      "4セット効果: 会心発動時、対象の防御力を20%無視"
-    ],
-    "materials": [
-      {"name": "ルーンの欠片", "amount": 500},
-      {"name": "星輝の粉末", "amount": 120}
-    ],
-    "description": "火力特化アタッカーに必須の最上級ルーン。クリティカル率と防御無視の相乗効果でダメージを極大化します。",
-    "icon": "🗡️"
-  },
-  {
-    "id": "rune-ironwall",
-    "name": "鉄壁のルーン [星6]",
-    "category": "rune",
-    "type": "防御系ルーン",
-    "rarity": "SSR",
-    "level": "強化+15",
-    "tags": ["鉄壁", "防御", "HP", "バリア", "シールド", "タンク"],
-    "setEffects": "【2セット】防御力+20% / 【4セット】戦闘開始時、味方全体に自身の最大HP20%分のシールド付与(2ターン)",
-    "recommended": "ヴェロニカ, 前衛タンクヒーロー",
-    "effects": [
-      "メインステータス: 最大HP +35% / 防御力 +25%",
-      "2セット効果: 防御力 +20%",
-      "4セット効果: 味方全体へ最大HP20%のシールド展開"
-    ],
-    "materials": [
-      {"name": "ルーンの欠片", "amount": 350},
-      {"name": "星輝の粉末", "amount": 80}
-    ],
-    "description": "前衛タンクヒーローの耐久性能を極限まで引き上げる守りの要。開幕シールドで全滅事故を防ぎます。",
-    "icon": "🛡️"
-  },
-  {
-    "id": "rune-gale",
-    "name": "疾風のルーン [星6]",
-    "category": "rune",
-    "type": "補助・先制系ルーン",
-    "rarity": "SSR",
-    "level": "強化+15",
-    "tags": ["疾風", "速度", "行動加速", "サポーター", "先制"],
-    "setEffects": "【2セット】行動速度+25 / 【4セット】戦闘開始時の初期エネルギー+30＆初回行動ゲージ+20%",
-    "recommended": "リリス, バッファー, デバッファー",
-    "effects": [
-      "メインステータス: 行動速度 +30 / 効果命中 +20%",
-      "2セット効果: 行動速度 +25",
-      "4セット効果: 初期エネルギー+30 ＆ 初回行動ゲージ+20%"
-    ],
-    "materials": [
-      {"name": "ルーンの欠片", "amount": 350},
-      {"name": "星輝の粉末", "amount": 80}
-    ],
-    "description": "戦局を左右する先制攻撃と行動ゲージ引き上げを支える最速ルーン。サポーターに最適な構成。",
-    "icon": "💨"
-  },
-
-  {
-    "id": "eq-warrior-blade",
-    "name": "生存者の大剣",
-    "category": "equipment",
-    "type": "武器 (近接)",
-    "rarity": "UR",
-    "level": "Lv.60",
-    "slot": "武器",
-    "tags": ["武器", "近接", "物理攻撃力", "会心"],
-    "effects": [
-      "メインステータス: 物理攻撃力 +2,400",
-      "サブ効果: クリティカルダメージ +25%",
-      "固有スキル: 通常攻撃時、20%の確率で自身の攻撃力+15% (2ターン)"
-    ],
-    "materials": [
-      {"name": "木材 (Wood)", "amount": 50000},
-      {"name": "精錬パーツ", "amount": 10}
-    ],
-    "description": "荒廃した世界を生き抜くための強化近接大工ブレード。圧倒的な切断力で敵を粉砕します。",
-    "icon": "⚔️"
-  },
-  {
-    "id": "eq-survival-armor",
-    "name": "強化サバイバルスーツ",
-    "category": "equipment",
-    "type": "防具 (身体)",
-    "rarity": "SSR",
-    "level": "Lv.50",
-    "slot": "防具",
-    "tags": ["防具", "サバイバル", "HP回復", "物理防御"],
-    "effects": [
-      "メインステータs: 物理防御力 +1,250 / 最大HP +3,800",
-      "固有スキル: 被ダメージ時、10%の確率で自身のHPを5%回復"
-    ],
-    "materials": [
-      {"name": "木材 (Wood)", "amount": 35000},
-      {"name": "薬草・ハーブ (Herb)", "amount": 15000}
-    ],
-    "description": "過酷な汚染環境から着用者を防護する強化スーツ。耐久値補正と自動回復機能を備えます。",
-    "icon": "🥋"
-  },
-
-  {
-    "id": "hero-malena",
-    "name": "マレーナ (深紅の誓い)",
+    "id": "hero-tenacity",
+    "name": "Tenacity",
     "category": "hero",
-    "type": "前衛 / 戦士アタッカー",
-    "rarity": "UR",
-    "troopType": "戦士",
-    "level": "Lv.100 (覚醒5)",
-    "tags": ["マレーナ", "UR", "戦士", "前衛", "アタッカー", "吸血", "範囲攻撃"],
-    "recommended": "狂乱4 + 鉄壁2",
-    "effects": [
-      "必殺技: ブラッドストーム（敵前列に攻撃力の420%ダメージ＋与ダメージの30%HP回復）",
-      "パッシブ1: 戦士部隊の物理攻撃力+25%・攻撃速度+15%",
-      "パッシブ2: HPが50%以下になった時、一度だけ3ターンの間[不屈](致死ダメ無効)を獲得"
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Tenacity",
+    "tags": [
+      "Tenacity",
+      "hero"
     ],
-    "materials": [
-      {"name": "マレーナの記憶核", "amount": 150},
-      {"name": "覚醒の結晶", "amount": 10}
-    ],
-    "description": "範囲攻撃と強力なHP吸血・不屈スキルを併せ持つ最強格の前衛アタッカー。最優先でリソースを投資すべき主要キャラクター。",
-    "icon": "🧛‍♀️"
-  },
-  {
-    "id": "hero-ark",
-    "name": "アーク (撃滅の閃光)",
-    "category": "hero",
-    "type": "前衛 / レンジャーアタッカー",
-    "rarity": "UR",
-    "troopType": "レンジャー",
-    "level": "Lv.100 (覚醒5)",
-    "tags": ["アーク", "UR", "レンジャー", "前衛", "クリティカル", "全体攻撃"],
-    "recommended": "狂乱4 + 疾風2",
-    "effects": [
-      "必殺技: ヴォルテックス・スラッシュ（敵全体に攻撃力の380%ダメージ＋防御20%低下）",
-      "パッシブ: 敵を撃破するたび攻撃力+10%上昇（最大5ストック）"
-    ],
-    "materials": [
-      {"name": "アークの記憶核", "amount": 150},
-      {"name": "覚醒の結晶", "amount": 10}
-    ],
-    "description": "レンジャー部隊を率いて敵陣を縦断崩壊させる最高峰の物理アタッカー。PVP・PVEの双方でトップクラスの評価。",
     "icon": "🦁"
   },
   {
-    "id": "hero-veronica",
-    "name": "ヴェロニカ (聖域の守護者)",
+    "id": "hero-battle-shield",
+    "name": "Battle Shield",
     "category": "hero",
-    "type": "前衛 / 戦士タンク",
     "rarity": "SSR",
-    "troopType": "戦士",
-    "level": "Lv.100 (覚醒4)",
-    "tags": ["ヴェロニカ", "SSR", "戦士", "前衛", "タンク", "挑発", "シールド"],
-    "recommended": "鉄壁4",
-    "effects": [
-      "必殺技: イージス・フィールド（味方全体に最大HP25%シールド展開 ＆ 敵全体を挑発）",
-      "パッシブ: 被ダメージ20%減少、ガード成功時HPを3%回復"
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Battle Shield",
+    "tags": [
+      "Battle Shield",
+      "hero"
     ],
-    "materials": [
-      {"name": "ヴェロニカの記憶核", "amount": 100},
-      {"name": "覚醒の結晶", "amount": 6}
-    ],
-    "description": "味方全体へのバリア付与と敵の攻撃を引きつける挑発スキルを持つメインタンク。",
-    "icon": "🛡️"
+    "icon": "🦁"
   },
   {
-    "id": "hero-lilis",
-    "name": "リリス (虚空の調律師)",
+    "id": "hero-earthshattering",
+    "name": "Earthshattering",
     "category": "hero",
-    "type": "後衛 / ウォーロックサポーター",
     "rarity": "SSR",
-    "troopType": "ウォーロック",
-    "level": "Lv.100 (覚醒3)",
-    "tags": ["リリス", "SSR", "ウォーロック", "後衛", "サポーター", "行動加速", "スタン"],
-    "recommended": "疾風4",
-    "effects": [
-      "必殺技: クロノ・アクセル（味方全体の行動ゲージ+30% ＆ 攻撃速度+25%）",
-      "パッシブ: 毎ターンランダムな敵1体を1ターン[スタン]状態にする"
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Earthshattering",
+    "tags": [
+      "Earthshattering",
+      "hero"
     ],
-    "materials": [
-      {"name": "リリスの記憶核", "amount": 80},
-      {"name": "覚醒の結晶", "amount": 5}
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-rock-solid",
+    "name": "Rock Solid",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Rock Solid",
+    "tags": [
+      "Rock Solid",
+      "hero"
     ],
-    "description": "味方全体の行動スピードを引き上げる最高峰の行動加速サポーター。",
-    "icon": "🧙‍♀️"
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-strong-will",
+    "name": "Strong Will",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Strong Will",
+    "tags": [
+      "Strong Will",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-moon-blade",
+    "name": "Moon Blade",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Moon Blade",
+    "tags": [
+      "Moon Blade",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-moonfall-dance",
+    "name": "Moonfall Dance",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Moonfall Dance",
+    "tags": [
+      "Moonfall Dance",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-lunar-hunt",
+    "name": "Lunar Hunt",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Lunar Hunt",
+    "tags": [
+      "Lunar Hunt",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-moon",
+    "name": "Moon",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Moon",
+    "tags": [
+      "Moon",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-skybreaker-slash",
+    "name": "Skybreaker Slash",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Skybreaker Slash",
+    "tags": [
+      "Skybreaker Slash",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-peerless-blade",
+    "name": "Peerless Blade",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Peerless Blade",
+    "tags": [
+      "Peerless Blade",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-crimson-bloom",
+    "name": "Crimson Bloom",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Crimson Bloom",
+    "tags": [
+      "Crimson Bloom",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-war-god",
+    "name": "War God",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: War God",
+    "tags": [
+      "War God",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-battle-will",
+    "name": "Battle Will",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Battle Will",
+    "tags": [
+      "Battle Will",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-bloodshed-defense",
+    "name": "Bloodshed Defense",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Bloodshed Defense",
+    "tags": [
+      "Bloodshed Defense",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-deadly-pierce",
+    "name": "Deadly Pierce",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Deadly Pierce",
+    "tags": [
+      "Deadly Pierce",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-resolute-fight",
+    "name": "Resolute Fight",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Resolute Fight",
+    "tags": [
+      "Resolute Fight",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-smoke-cartridge",
+    "name": "Smoke Cartridge",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Smoke Cartridge",
+    "tags": [
+      "Smoke Cartridge",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-shadow-hunt",
+    "name": "Shadow Hunt",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Shadow Hunt",
+    "tags": [
+      "Shadow Hunt",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-shadow-strike",
+    "name": "Shadow Strike",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Shadow Strike",
+    "tags": [
+      "Shadow Strike",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-shadow-veil",
+    "name": "Shadow Veil",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Shadow Veil",
+    "tags": [
+      "Shadow Veil",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-ember-dust",
+    "name": "Ember Dust",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Ember Dust",
+    "tags": [
+      "Ember Dust",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-inferno-array",
+    "name": "Inferno Array",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Inferno Array",
+    "tags": [
+      "Inferno Array",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-heartwarming-flame",
+    "name": "Heartwarming Flame",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Heartwarming Flame",
+    "tags": [
+      "Heartwarming Flame",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-flame-soul-power",
+    "name": "Flame Soul Power",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Flame Soul Power",
+    "tags": [
+      "Flame Soul Power",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-candy",
+    "name": "Candy",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Candy",
+    "tags": [
+      "Candy",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-candy-jar",
+    "name": "Candy Jar",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Candy Jar",
+    "tags": [
+      "Candy Jar",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-surprise-gift",
+    "name": "Surprise Gift",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Surprise Gift",
+    "tags": [
+      "Surprise Gift",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-charged-gummies",
+    "name": "Charged Gummies",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Charged Gummies",
+    "tags": [
+      "Charged Gummies",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-deal-cards",
+    "name": "Deal Cards",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Deal Cards",
+    "tags": [
+      "Deal Cards",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-joker-ace",
+    "name": "Joker Ace",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Joker Ace",
+    "tags": [
+      "Joker Ace",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-hearthunt-red-card",
+    "name": "Hearthunt Red Card",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Hearthunt Red Card",
+    "tags": [
+      "Hearthunt Red Card",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-frenzied-emotion",
+    "name": "Frenzied Emotion",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Frenzied Emotion",
+    "tags": [
+      "Frenzied Emotion",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-blood-blade",
+    "name": "Blood Blade",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Blood Blade",
+    "tags": [
+      "Blood Blade",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-crimson-rose",
+    "name": "Crimson Rose",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Crimson Rose",
+    "tags": [
+      "Crimson Rose",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-bloodthirsty-slaughter",
+    "name": "Bloodthirsty Slaughter",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Bloodthirsty Slaughter",
+    "tags": [
+      "Bloodthirsty Slaughter",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-lone-flower",
+    "name": "Lone Flower",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Lone Flower",
+    "tags": [
+      "Lone Flower",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-wooden-frame",
+    "name": "Wooden Frame",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Wooden Frame",
+    "tags": [
+      "Wooden Frame",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-truth-and-lies",
+    "name": "Truth and Lies",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Truth and Lies",
+    "tags": [
+      "Truth and Lies",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-fate",
+    "name": "Fate",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Fate",
+    "tags": [
+      "Fate",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-puppet",
+    "name": "Puppet",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Puppet",
+    "tags": [
+      "Puppet",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-dagger",
+    "name": "Dagger",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Dagger",
+    "tags": [
+      "Dagger",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-forest-hunter",
+    "name": "Forest Hunter",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Forest Hunter",
+    "tags": [
+      "Forest Hunter",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-mountain-god-wrath",
+    "name": "Mountain God Wrath",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Mountain God Wrath",
+    "tags": [
+      "Mountain God Wrath",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-lady-of-the-forest",
+    "name": "Lady of the Forest",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Lady of the Forest",
+    "tags": [
+      "Lady of the Forest",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-musical-note",
+    "name": "Musical Note",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Musical Note",
+    "tags": [
+      "Musical Note",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-inspiration",
+    "name": "Inspiration",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Inspiration",
+    "tags": [
+      "Inspiration",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-healing-sound",
+    "name": "Healing Sound",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Healing Sound",
+    "tags": [
+      "Healing Sound",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-battle-anthem",
+    "name": "Battle Anthem",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Battle Anthem",
+    "tags": [
+      "Battle Anthem",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-bubble",
+    "name": "Bubble",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Bubble",
+    "tags": [
+      "Bubble",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-war-flute-sound",
+    "name": "War Flute Sound",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: War Flute Sound",
+    "tags": [
+      "War Flute Sound",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-vitality-bubble",
+    "name": "Vitality Bubble",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Vitality Bubble",
+    "tags": [
+      "Vitality Bubble",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-warrior",
+    "name": "Warrior",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Warrior",
+    "tags": [
+      "Warrior",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-sharp-claw",
+    "name": "Sharp Claw",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Sharp Claw",
+    "tags": [
+      "Sharp Claw",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-throat-bite",
+    "name": "Throat Bite",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Throat Bite",
+    "tags": [
+      "Throat Bite",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-lunar-howl",
+    "name": "Lunar Howl",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Lunar Howl",
+    "tags": [
+      "Lunar Howl",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-wolf-bloodline",
+    "name": "Wolf Bloodline",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Wolf Bloodline",
+    "tags": [
+      "Wolf Bloodline",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-shackles",
+    "name": "Shackles",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Shackles",
+    "tags": [
+      "Shackles",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-cross-whip",
+    "name": "Cross Whip",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Cross Whip",
+    "tags": [
+      "Cross Whip",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-force-link",
+    "name": "Force Link",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Force Link",
+    "tags": [
+      "Force Link",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "hero-indomitable-spirit",
+    "name": "Indomitable Spirit",
+    "category": "hero",
+    "rarity": "SSR",
+    "type": "Hero",
+    "description": "Hero extracted from last-asylum.fun roster: Indomitable Spirit",
+    "tags": [
+      "Indomitable Spirit",
+      "hero"
+    ],
+    "icon": "🦁"
+  },
+  {
+    "id": "gift-LADCEX1223",
+    "name": "Gift Code: LADCEX1223",
+    "category": "gift_code",
+    "rarity": "SSR",
+    "type": "リディームコード",
+    "description": "公式ギフトコード (特典と引き換え可能): LADCEX1223",
+    "tags": [
+      "LADCEX1223",
+      "gift",
+      "code"
+    ],
+    "icon": "🎁"
+  },
+  {
+    "id": "gift-LA15WPN4D",
+    "name": "Gift Code: LA15WPN4D",
+    "category": "gift_code",
+    "rarity": "SSR",
+    "type": "リディームコード",
+    "description": "公式ギフトコード (特典と引き換え可能): LA15WPN4D",
+    "tags": [
+      "LA15WPN4D",
+      "gift",
+      "code"
+    ],
+    "icon": "🎁"
+  },
+  {
+    "id": "gift-LA26PLAY",
+    "name": "Gift Code: LA26PLAY",
+    "category": "gift_code",
+    "rarity": "SSR",
+    "type": "リディームコード",
+    "description": "公式ギフトコード (特典と引き換え可能): LA26PLAY",
+    "tags": [
+      "LA26PLAY",
+      "gift",
+      "code"
+    ],
+    "icon": "🎁"
+  },
+  {
+    "id": "gift-LADAD26",
+    "name": "Gift Code: LADAD26",
+    "category": "gift_code",
+    "rarity": "SSR",
+    "type": "リディームコード",
+    "description": "公式ギフトコード (特典と引き換え可能): LADAD26",
+    "tags": [
+      "LADAD26",
+      "gift",
+      "code"
+    ],
+    "icon": "🎁"
+  },
+  {
+    "id": "gift-LA20WBZ9",
+    "name": "Gift Code: LA20WBZ9",
+    "category": "gift_code",
+    "rarity": "SSR",
+    "type": "リディームコード",
+    "description": "公式ギフトコード (特典と引き換え可能): LA20WBZ9",
+    "tags": [
+      "LA20WBZ9",
+      "gift",
+      "code"
+    ],
+    "icon": "🎁"
+  },
+  {
+    "id": "gift-LAW7D4V",
+    "name": "Gift Code: LAW7D4V",
+    "category": "gift_code",
+    "rarity": "SSR",
+    "type": "リディームコード",
+    "description": "公式ギフトコード (特典と引き換え可能): LAW7D4V",
+    "tags": [
+      "LAW7D4V",
+      "gift",
+      "code"
+    ],
+    "icon": "🎁"
+  },
+  {
+    "id": "gift-26CHOCO",
+    "name": "Gift Code: 26CHOCO",
+    "category": "gift_code",
+    "rarity": "SSR",
+    "type": "リディームコード",
+    "description": "公式ギフトコード (特典と引き換え可能): 26CHOCO",
+    "tags": [
+      "26CHOCO",
+      "gift",
+      "code"
+    ],
+    "icon": "🎁"
+  },
+  {
+    "id": "gift-LAW83AS",
+    "name": "Gift Code: LAW83AS",
+    "category": "gift_code",
+    "rarity": "SSR",
+    "type": "リディームコード",
+    "description": "公式ギフトコード (特典と引き換え可能): LAW83AS",
+    "tags": [
+      "LAW83AS",
+      "gift",
+      "code"
+    ],
+    "icon": "🎁"
+  },
+  {
+    "id": "item-fac-sanctuary",
+    "name": "聖域 (Sanctuary / HQ)",
+    "category": "facility",
+    "rarity": "UR",
+    "type": "拠点施設",
+    "maxLevel": 30,
+    "description": "公式抽出施設: 聖域 (Sanctuary / HQ) (最大Lv.30)",
+    "tags": [
+      "聖域 (Sanctuary / HQ)",
+      "sanctuary",
+      "施設"
+    ],
+    "icon": "🏰"
+  },
+  {
+    "id": "item-fac-1st-lab",
+    "name": "第1研究所 (Research Lab)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 30,
+    "description": "公式抽出施設: 第1研究所 (Research Lab) (最大Lv.30)",
+    "tags": [
+      "第1研究所 (Research Lab)",
+      "1st-lab",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-builders-hut",
+    "name": "大工の小屋 (Builders Hut)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 30,
+    "description": "公式抽出施設: 大工の小屋 (Builders Hut) (最大Lv.30)",
+    "tags": [
+      "大工の小屋 (Builders Hut)",
+      "builders-hut",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-alliance-hall",
+    "name": "同盟ホール (Alliance Hall)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 30,
+    "description": "公式抽出施設: 同盟ホール (Alliance Hall) (最大Lv.30)",
+    "tags": [
+      "同盟ホール (Alliance Hall)",
+      "alliance-hall",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-training-grounds",
+    "name": "訓練場 (Training Grounds)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 30,
+    "description": "公式抽出施設: 訓練場 (Training Grounds) (最大Lv.30)",
+    "tags": [
+      "訓練場 (Training Grounds)",
+      "training-grounds",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-antitoxin-workshop",
+    "name": "抗毒素工房 (Antitoxin Workshop)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 30,
+    "description": "公式抽出施設: 抗毒素工房 (Antitoxin Workshop) (最大Lv.30)",
+    "tags": [
+      "抗毒素工房 (Antitoxin Workshop)",
+      "antitoxin-workshop",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-farm",
+    "name": "農場 (Farm)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 30,
+    "description": "公式抽出施設: 農場 (Farm) (最大Lv.30)",
+    "tags": [
+      "農場 (Farm)",
+      "farm",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-lumberyard",
+    "name": "木材伐採場 (Lumberyard)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 30,
+    "description": "公式抽出施設: 木材伐採場 (Lumberyard) (最大Lv.30)",
+    "tags": [
+      "木材伐採場 (Lumberyard)",
+      "lumberyard",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-herb-garden",
+    "name": "薬草園 (Herb Garden)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 30,
+    "description": "公式抽出施設: 薬草園 (Herb Garden) (最大Lv.30)",
+    "tags": [
+      "薬草園 (Herb Garden)",
+      "herb-garden",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-warrior-statue",
+    "name": "戦士の像 (Warrior Statue)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 30,
+    "description": "公式抽出施設: 戦士の像 (Warrior Statue) (最大Lv.30)",
+    "tags": [
+      "戦士の像 (Warrior Statue)",
+      "warrior-statue",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-ranger-statue",
+    "name": "レンジャーの像 (Ranger Statue)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 30,
+    "description": "公式抽出施設: レンジャーの像 (Ranger Statue) (最大Lv.30)",
+    "tags": [
+      "レンジャーの像 (Ranger Statue)",
+      "ranger-statue",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-warlock-statue",
+    "name": "ウォーロックの像 (Warlock Statue)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 30,
+    "description": "公式抽出施設: ウォーロックの像 (Warlock Statue) (最大Lv.30)",
+    "tags": [
+      "ウォーロックの像 (Warlock Statue)",
+      "warlock-statue",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-infirmary",
+    "name": "救護所 (Infirmary)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 23,
+    "description": "公式抽出施設: 救護所 (Infirmary) (最大Lv.23)",
+    "tags": [
+      "救護所 (Infirmary)",
+      "infirmary",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-barracks",
+    "name": "兵舎 (Barracks)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 23,
+    "description": "公式抽出施設: 兵舎 (Barracks) (最大Lv.23)",
+    "tags": [
+      "兵舎 (Barracks)",
+      "barracks",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-tavern",
+    "name": "酒場 (Tavern)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 14,
+    "description": "公式抽出施設: 酒場 (Tavern) (最大Lv.14)",
+    "tags": [
+      "酒場 (Tavern)",
+      "tavern",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-walls",
+    "name": "防衛壁 (Walls)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 24,
+    "description": "公式抽出施設: 防衛壁 (Walls) (最大Lv.24)",
+    "tags": [
+      "防衛壁 (Walls)",
+      "walls",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-granary",
+    "name": "穀物倉庫 (Granary)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 12,
+    "description": "公式抽出施設: 穀物倉庫 (Granary) (最大Lv.12)",
+    "tags": [
+      "穀物倉庫 (Granary)",
+      "granary",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-lumber-depot",
+    "name": "木材倉庫 (Lumber Depot)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 13,
+    "description": "公式抽出施設: 木材倉庫 (Lumber Depot) (最大Lv.13)",
+    "tags": [
+      "木材倉庫 (Lumber Depot)",
+      "lumber-depot",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-herb-storage",
+    "name": "薬草・ハーブ倉庫 (Herb Storage)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 15,
+    "description": "公式抽出施設: 薬草・ハーブ倉庫 (Herb Storage) (最大Lv.15)",
+    "tags": [
+      "薬草・ハーブ倉庫 (Herb Storage)",
+      "herb-storage",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-scout-squad",
+    "name": "偵察隊 (Scout Squad)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 18,
+    "description": "公式抽出施設: 偵察隊 (Scout Squad) (最大Lv.18)",
+    "tags": [
+      "偵察隊 (Scout Squad)",
+      "scout-squad",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-squad",
+    "name": "部隊枠 (Squad)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 15,
+    "description": "公式抽出施設: 部隊枠 (Squad) (最大Lv.15)",
+    "tags": [
+      "部隊枠 (Squad)",
+      "squad",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-smelting-workshop",
+    "name": "製錬工房 (Smelting Workshop)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 21,
+    "description": "公式抽出施設: 製錬工房 (Smelting Workshop) (最大Lv.21)",
+    "tags": [
+      "製錬工房 (Smelting Workshop)",
+      "smelting-workshop",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-weaving-workshop",
+    "name": "紡績工房 (Weaving Workshop)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 20,
+    "description": "公式抽出施設: 紡績工房 (Weaving Workshop) (最大Lv.20)",
+    "tags": [
+      "紡績工房 (Weaving Workshop)",
+      "weaving-workshop",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-gear-workshop",
+    "name": "装備・ギア工房 (Gear Workshop)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 21,
+    "description": "公式抽出施設: 装備・ギア工房 (Gear Workshop) (最大Lv.21)",
+    "tags": [
+      "装備・ギア工房 (Gear Workshop)",
+      "gear-workshop",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-watchtower",
+    "name": "監視塔 (Watchtower)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 20,
+    "description": "公式抽出施設: 監視塔 (Watchtower) (最大Lv.20)",
+    "tags": [
+      "監視塔 (Watchtower)",
+      "watchtower",
+      "施設"
+    ],
+    "icon": "🏛️"
+  },
+  {
+    "id": "item-fac-raven-workshop",
+    "name": "レイヴン工房 (Raven Workshop)",
+    "category": "facility",
+    "rarity": "SSR",
+    "type": "拠点施設",
+    "maxLevel": 19,
+    "description": "公式抽出施設: レイヴン工房 (Raven Workshop) (最大Lv.19)",
+    "tags": [
+      "レイヴン工房 (Raven Workshop)",
+      "raven-workshop",
+      "施設"
+    ],
+    "icon": "🏛️"
   }
 ]

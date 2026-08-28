@@ -1,13 +1,11 @@
 /**
- * ラストアサイラム攻略Webサイト - 施設強化・資源計算機スクリプト (calculator.js)
- * 正確な資源体系 (🪵 木材, 🌾 穀物・食料, 🌿 薬草・ハーブ) 完全適合版
+ * Last Asylum Strategy Wiki - Real Data Building Calculator (calculator.js)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   let facilityData = [];
   let currentFacility = null;
 
-  // DOM要素
   const facilitySelect = document.getElementById('facility-select');
   const levelFromInput = document.getElementById('level-from');
   const levelToInput = document.getElementById('level-to');
@@ -15,69 +13,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const levelToVal = document.getElementById('level-to-val');
   const speedBuffInput = document.getElementById('speed-buff');
   const speedBuffVal = document.getElementById('speed-buff-val');
-  
+
   const totalTimeEl = document.getElementById('total-time');
   const rawTimeEl = document.getElementById('raw-time');
-  const savedTimeEl = document.getElementById('saved-time');
   const resourceCostsEl = document.getElementById('resource-costs');
   const prereqBoxEl = document.getElementById('prereq-box');
   const shareBtn = document.getElementById('share-btn');
   const copyResultBtn = document.getElementById('copy-result-btn');
 
-  // URLパラメータの初期設定読み込み
-  const urlParams = new URLSearchParams(window.location.search);
-  const paramFac = urlParams.get('fac');
-  const paramFrom = parseInt(urlParams.get('from'), 10);
-  const paramTo = parseInt(urlParams.get('to'), 10);
-  const paramBuff = parseInt(urlParams.get('buff'), 10);
-
-  // 実データのロード
   fetch('data/facility_costs.json')
-    .then(res => {
-      if (!res.ok) throw new Error('施設コストデータの取得に失敗しました');
-      return res.json();
-    })
+    .then(res => res.json())
     .then(data => {
       facilityData = data;
-      initFacilitySelect();
-
-      if (paramFac && facilityData.some(f => f.id === paramFac)) {
-        facilitySelect.value = paramFac;
-      }
-      onFacilityChange();
-
-      if (!isNaN(paramFrom)) {
-        levelFromInput.value = paramFrom;
-        levelFromVal.textContent = `Lv.${paramFrom}`;
-      }
-      if (!isNaN(paramTo)) {
-        levelToInput.value = paramTo;
-        levelToVal.textContent = `Lv.${paramTo}`;
-      }
-      if (!isNaN(paramBuff)) {
-        speedBuffInput.value = paramBuff;
-        speedBuffVal.textContent = `${paramBuff}%`;
-      }
-
+      initSelect();
       calculate();
     })
     .catch(err => {
       console.error(err);
-      if (resourceCostsEl) {
-        resourceCostsEl.innerHTML = `<div style="color:var(--accent-red); padding:1rem;">データの読み込みエラーが発生しました。</div>`;
-      }
+      if (resourceCostsEl) resourceCostsEl.innerHTML = '<div style="color:var(--accent-red);">データ読込エラー</div>';
     });
 
-  function initFacilitySelect() {
-    facilitySelect.innerHTML = facilityData.map(fac => `
-      <option value="${fac.id}">${fac.icon} ${fac.name} (Max Lv.${fac.maxLevel})</option>
-    `).join('');
+  function initSelect() {
+    facilitySelect.innerHTML = facilityData.map(f => `<option value="${f.id}">${f.icon || '🏛️'} ${f.name} (Max Lv.${f.maxLevel})</option>`).join('');
+    onFacilityChange();
   }
 
   function onFacilityChange() {
-    const selectedId = facilitySelect.value;
-    currentFacility = facilityData.find(f => f.id === selectedId);
-
+    currentFacility = facilityData.find(f => f.id === facilitySelect.value);
     if (!currentFacility) return;
 
     const maxLv = currentFacility.maxLevel;
@@ -93,165 +55,117 @@ document.addEventListener('DOMContentLoaded', () => {
     levelFromInput.value = fromVal;
     levelToInput.value = toVal;
 
-    updateBadgeLabels();
+    updateLabels();
     calculate();
   }
 
-  function updateBadgeLabels() {
+  function updateLabels() {
     levelFromVal.textContent = `Lv.${levelFromInput.value}`;
     levelToVal.textContent = `Lv.${levelToInput.value}`;
     speedBuffVal.textContent = `${speedBuffInput.value}%`;
   }
 
   facilitySelect.addEventListener('change', onFacilityChange);
-
   levelFromInput.addEventListener('input', () => {
-    let fromVal = parseInt(levelFromInput.value, 10);
-    let toVal = parseInt(levelToInput.value, 10);
-    if (fromVal >= toVal) {
-      toVal = fromVal + 1;
-      levelToInput.value = toVal;
+    if (parseInt(levelFromInput.value, 10) >= parseInt(levelToInput.value, 10)) {
+      levelToInput.value = parseInt(levelFromInput.value, 10) + 1;
     }
-    updateBadgeLabels();
+    updateLabels();
     calculate();
   });
-
   levelToInput.addEventListener('input', () => {
-    let fromVal = parseInt(levelFromInput.value, 10);
-    let toVal = parseInt(levelToInput.value, 10);
-    if (toVal <= fromVal) {
-      fromVal = Math.max(1, toVal - 1);
-      levelFromInput.value = fromVal;
+    if (parseInt(levelToInput.value, 10) <= parseInt(levelFromInput.value, 10)) {
+      levelFromInput.value = Math.max(1, parseInt(levelToInput.value, 10) - 1);
     }
-    updateBadgeLabels();
+    updateLabels();
     calculate();
   });
-
   speedBuffInput.addEventListener('input', () => {
-    updateBadgeLabels();
+    updateLabels();
     calculate();
   });
 
-  // 正確な資源体系 (wood, grain, herb, time_seconds, prerequisites)
   function calculate() {
     if (!currentFacility) return;
 
     const fromLv = parseInt(levelFromInput.value, 10);
     const toLv = parseInt(levelToInput.value, 10);
-    const buffPercent = parseInt(speedBuffInput.value, 10);
+    const buff = parseInt(speedBuffInput.value, 10);
 
     let totalRawSec = 0;
     const totals = { wood: 0, grain: 0, herb: 0 };
-    const mergedPrereqs = {};
+    const prereqs = {};
 
     for (let lv = fromLv + 1; lv <= toLv; lv++) {
       const lvData = currentFacility.levels.find(l => l.level === lv);
       if (lvData) {
-        totalRawSec += lvData.time_seconds || lvData.time || 0;
-
-        if (lvData.wood) totals.wood += lvData.wood;
-        if (lvData.grain) totals.grain += lvData.grain;
-        if (lvData.herb) totals.herb += lvData.herb;
+        totalRawSec += lvData.time_seconds || 0;
+        totals.wood += lvData.wood || 0;
+        totals.grain += lvData.grain || 0;
+        totals.herb += lvData.herb || 0;
 
         if (lvData.prerequisites) {
-          for (const [preFac, preReqLv] of Object.entries(lvData.prerequisites)) {
-            mergedPrereqs[preFac] = Math.max(mergedPrereqs[preFac] || 0, preReqLv);
+          for (const [pName, pLv] of Object.entries(lvData.prerequisites)) {
+            prereqs[pName] = Math.max(prereqs[pName] || 0, pLv);
           }
         }
       }
     }
 
-    // 建設短縮バフ計算: 実効時間 = 基礎時間 / (1 + バフ率/100)
-    const effectiveSec = Math.round(totalRawSec / (1 + buffPercent / 100));
-    const savedSec = Math.max(0, totalRawSec - effectiveSec);
+    const effectiveSec = Math.round(totalRawSec / (1 + buff / 100));
 
-    totalTimeEl.textContent = formatDuration(effectiveSec);
-    rawTimeEl.textContent = `基礎時間: ${formatDuration(totalRawSec)}`;
-    savedTimeEl.textContent = `短縮量: ${formatDuration(savedSec)}`;
+    totalTimeEl.textContent = formatTime(effectiveSec);
+    rawTimeEl.textContent = `基礎時間: ${formatTime(totalRawSec)}`;
 
-    // 正確な3大資源リスト
     const resMap = [
-      { key: 'wood', name: '木材 (Wood)', icon: '🪵' },
-      { key: 'grain', name: '穀物・食料 (Grain)', icon: '🌾' },
-      { key: 'herb', name: '薬草・ハーブ (Herb)', icon: '🌿' }
+      { name: '🪵 木材 (Wood)', val: totals.wood },
+      { name: '🌾 穀物・食料 (Grain)', val: totals.grain },
+      { name: '🌿 薬草・ハーブ (Herb)', val: totals.herb }
     ];
 
-    const activeRes = resMap.filter(r => totals[r.key] > 0);
-
+    const activeRes = resMap.filter(r => r.val > 0);
     if (activeRes.length === 0) {
-      resourceCostsEl.innerHTML = '<span class="material-chip">必要資材なし</span>';
+      resourceCostsEl.innerHTML = '<div>必要資材なし</div>';
     } else {
       resourceCostsEl.innerHTML = activeRes.map(r => `
-        <div class="result-stat-card" style="text-align:left;">
-          <div class="result-stat-label">${r.icon} ${r.name}</div>
-          <div class="result-stat-value" style="font-size:1.2rem; color:var(--text-main);">${totals[r.key].toLocaleString()}</div>
+        <div class="res-stat">
+          <div style="font-size:0.8rem; color:var(--text-muted);">${r.name}</div>
+          <div class="res-val">${r.val.toLocaleString()}</div>
         </div>
       `).join('');
     }
 
-    // 前提条件表示
-    if (prereqBoxEl) {
-      const prereqEntries = Object.entries(mergedPrereqs);
-      if (prereqEntries.length > 0) {
-        prereqBoxEl.style.display = 'block';
-        prereqBoxEl.innerHTML = `
-          <div style="font-size:0.85rem; font-weight:700; color:var(--accent-gold); margin-bottom:0.4rem;">⚠️ 建設解放に必要な前提施設条件:</div>
-          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-            ${prereqEntries.map(([fName, rLv]) => `<span class="material-chip" style="border-color:var(--accent-gold);">🏛️ ${escapeHtml(fName)} Lv.${rLv}</span>`).join('')}
-          </div>
-        `;
-      } else {
-        prereqBoxEl.style.display = 'none';
-      }
+    const prereqList = Object.entries(prereqs);
+    if (prereqList.length > 0) {
+      prereqBoxEl.style.display = 'block';
+      prereqBoxEl.innerHTML = `
+        <div style="font-size:0.85rem; color:var(--accent-gold); font-weight:700; margin-bottom:0.4rem;">⚠️ 建設解放に必要な前提施設:</div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          ${prereqList.map(([pName, pLv]) => `<span style="background:var(--bg-primary); padding:0.2rem 0.5rem; border-radius:4px; font-size:0.8rem;">🏛️ ${pName} Lv.${pLv}</span>`).join('')}
+        </div>
+      `;
+    } else {
+      prereqBoxEl.style.display = 'none';
     }
-
-    updateShareUrl(currentFacility.id, fromLv, toLv, buffPercent);
   }
 
-  function formatDuration(totalSeconds) {
-    if (totalSeconds <= 0) return '即時';
-    const days = Math.floor(totalSeconds / 86400);
-    const hours = Math.floor((totalSeconds % 86400) / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const seconds = totalSeconds % 60;
-
+  function formatTime(sec) {
+    if (sec <= 0) return '即時';
+    const d = Math.floor(sec / 86400);
+    const h = Math.floor((sec % 86400) / 3600);
+    const m = Math.floor((sec % 3600) / 60);
+    const s = sec % 60;
     const parts = [];
-    if (days > 0) parts.push(`${days}日`);
-    if (hours > 0) parts.push(`${hours}時間`);
-    if (minutes > 0) parts.push(`${minutes}分`);
-    if (seconds > 0 && days === 0) parts.push(`${seconds}秒`);
-    return parts.join(' ') || '0秒';
+    if (d > 0) parts.push(`${d}日`);
+    if (h > 0) parts.push(`${h}時間`);
+    if (m > 0) parts.push(`${m}分`);
+    if (s > 0 && d === 0) parts.push(`${s}秒`);
+    return parts.join(' ');
   }
 
-  function updateShareUrl(facId, fromLv, toLv, buff) {
-    const url = new URL(window.location.href);
-    url.searchParams.set('fac', facId);
-    url.searchParams.set('from', fromLv);
-    url.searchParams.set('to', toLv);
-    url.searchParams.set('buff', buff);
-    window.history.replaceState({}, '', url.toString());
-  }
-
-  if (shareBtn) {
-    shareBtn.addEventListener('click', () => {
-      window.copyToClipboard(window.location.href, '計算設定の共有リンクをコピーしました！');
-    });
-  }
-
-  if (copyResultBtn) {
-    copyResultBtn.addEventListener('click', () => {
-      if (!currentFacility) return;
-      const text = `【ラストアサイラム 施設強化計算】\n` +
-                   `施設: ${currentFacility.name}\n` +
-                   `強化: Lv.${levelFromInput.value} ➔ Lv.${levelToInput.value}\n` +
-                   `短縮バフ: ${speedBuffInput.value}%\n` +
-                   `実効所要時間: ${totalTimeEl.textContent}\n` +
-                   `URL: ${window.location.href}`;
-      window.copyToClipboard(text, '計算結果テキストをコピーしました！');
-    });
-  }
-
-  function escapeHtml(str) {
-    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  }
+  if (shareBtn) shareBtn.addEventListener('click', () => window.copyToClipboard(window.location.href, '共有URLをコピーしました'));
+  if (copyResultBtn) copyResultBtn.addEventListener('click', () => {
+    const text = `【Last Asylum 施設計算】\n施設: ${currentFacility.name}\nLv.${levelFromInput.value} ➔ Lv.${levelToInput.value}\n所要時間: ${totalTimeEl.textContent}`;
+    window.copyToClipboard(text, '計算結果をコピーしました');
+  });
 });

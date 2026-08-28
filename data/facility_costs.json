@@ -1,10 +1,9 @@
 [
   {
     "id": "sanctuary",
-    "name": "聖域 (本部 / Sanctuary)",
+    "name": "聖域 (Sanctuary / HQ)",
     "name_en": "Sanctuary",
     "icon": "🏰",
-    "category": "拠点施設",
     "maxLevel": 30,
     "levels": [
       {
@@ -354,8 +353,7 @@
     "id": "1st-lab",
     "name": "第1研究所 (Research Lab)",
     "name_en": "Research Lab",
-    "icon": "🔬",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 30,
     "levels": [
       {
@@ -662,8 +660,7 @@
     "id": "builders-hut",
     "name": "大工の小屋 (Builders Hut)",
     "name_en": "Builders Hut",
-    "icon": "🔨",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 30,
     "levels": [
       {
@@ -971,7 +968,6 @@
     "name": "同盟ホール (Alliance Hall)",
     "name_en": "Alliance Hall",
     "icon": "🏛️",
-    "category": "拠点施設",
     "maxLevel": 30,
     "levels": [
       {
@@ -1278,8 +1274,7 @@
     "id": "training-grounds",
     "name": "訓練場 (Training Grounds)",
     "name_en": "Training Grounds",
-    "icon": "🪖",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 30,
     "levels": [
       {
@@ -1586,8 +1581,7 @@
     "id": "antitoxin-workshop",
     "name": "抗毒素工房 (Antitoxin Workshop)",
     "name_en": "Antitoxin Workshop",
-    "icon": "🧪",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 30,
     "levels": [
       {
@@ -1894,8 +1888,7 @@
     "id": "farm",
     "name": "農場 (Farm)",
     "name_en": "Farm",
-    "icon": "🌾",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 30,
     "levels": [
       {
@@ -2202,8 +2195,7 @@
     "id": "lumberyard",
     "name": "木材伐採場 (Lumberyard)",
     "name_en": "Lumberyard",
-    "icon": "🪵",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 30,
     "levels": [
       {
@@ -2510,8 +2502,7 @@
     "id": "herb-garden",
     "name": "薬草園 (Herb Garden)",
     "name_en": "Herb Garden",
-    "icon": "🌿",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 30,
     "levels": [
       {
@@ -2818,8 +2809,7 @@
     "id": "warrior-statue",
     "name": "戦士の像 (Warrior Statue)",
     "name_en": "Warrior Statue",
-    "icon": "🗿",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 30,
     "levels": [
       {
@@ -3126,8 +3116,7 @@
     "id": "ranger-statue",
     "name": "レンジャーの像 (Ranger Statue)",
     "name_en": "Ranger Statue",
-    "icon": "🏹",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 30,
     "levels": [
       {
@@ -3434,8 +3423,7 @@
     "id": "warlock-statue",
     "name": "ウォーロックの像 (Warlock Statue)",
     "name_en": "Warlock Statue",
-    "icon": "🔮",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 30,
     "levels": [
       {
@@ -3742,8 +3730,7 @@
     "id": "infirmary",
     "name": "救護所 (Infirmary)",
     "name_en": "Infirmary",
-    "icon": "🏥",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 23,
     "levels": [
       {
@@ -3970,8 +3957,7 @@
     "id": "barracks",
     "name": "兵舎 (Barracks)",
     "name_en": "Barracks",
-    "icon": "⚔️",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 23,
     "levels": [
       {
@@ -4208,8 +4194,7 @@
     "id": "tavern",
     "name": "酒場 (Tavern)",
     "name_en": "Tavern",
-    "icon": "🍺",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 14,
     "levels": [
       {
@@ -4336,8 +4321,7 @@
     "id": "walls",
     "name": "防衛壁 (Walls)",
     "name_en": "Walls",
-    "icon": "🧱",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 24,
     "levels": [
       {
@@ -4554,8 +4538,7 @@
     "id": "granary",
     "name": "穀物倉庫 (Granary)",
     "name_en": "Granary",
-    "icon": "🌾",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 12,
     "levels": [
       {
@@ -4682,8 +4665,7 @@
     "id": "lumber-depot",
     "name": "木材倉庫 (Lumber Depot)",
     "name_en": "Lumber Depot",
-    "icon": "🪵",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 13,
     "levels": [
       {
@@ -4780,8 +4762,7 @@
     "id": "herb-storage",
     "name": "薬草・ハーブ倉庫 (Herb Storage)",
     "name_en": "Herb Storage",
-    "icon": "🌿",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 15,
     "levels": [
       {
@@ -4898,8 +4879,7 @@
     "id": "scout-squad",
     "name": "偵察隊 (Scout Squad)",
     "name_en": "Scout Squad",
-    "icon": "🔍",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 18,
     "levels": [
       {
@@ -5024,10 +5004,9 @@
   },
   {
     "id": "squad",
-    "name": "部隊出撃枠 (Squad)",
+    "name": "部隊枠 (Squad)",
     "name_en": "Squad",
-    "icon": "🎖️",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 15,
     "levels": [
       {
@@ -5184,8 +5163,7 @@
     "id": "smelting-workshop",
     "name": "製錬工房 (Smelting Workshop)",
     "name_en": "Smelting Workshop",
-    "icon": "⚙️",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 21,
     "levels": [
       {
@@ -5402,8 +5380,7 @@
     "id": "weaving-workshop",
     "name": "紡績工房 (Weaving Workshop)",
     "name_en": "Weaving Workshop",
-    "icon": "🧵",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 20,
     "levels": [
       {
@@ -5610,8 +5587,7 @@
     "id": "gear-workshop",
     "name": "装備・ギア工房 (Gear Workshop)",
     "name_en": "Gear Workshop",
-    "icon": "🔧",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 21,
     "levels": [
       {
@@ -5828,8 +5804,7 @@
     "id": "watchtower",
     "name": "監視塔 (Watchtower)",
     "name_en": "Watchtower",
-    "icon": "🗼",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 20,
     "levels": [
       {
@@ -6036,8 +6011,7 @@
     "id": "raven-workshop",
     "name": "レイヴン工房 (Raven Workshop)",
     "name_en": "Raven Workshop",
-    "icon": "🦅",
-    "category": "拠点施設",
+    "icon": "🏛️",
     "maxLevel": 19,
     "levels": [
       {

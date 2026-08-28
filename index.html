@@ -3,144 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ラストアサイラム攻略Wiki & データベース</title>
-  <meta name="description" content="戦略スマホゲーム「ラストアサイラム」の最新攻略データベース。聖域施設強化、ルーン精錬、最強ヒーロー・おすすめビルド情報を高速検索。">
+  <title>Last Asylum Strategy Wiki</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- ヘッダーナビゲーション -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="site-logo">
         🛡️ LAST ASYLUM <span class="badge">WIKI</span>
       </a>
 
-      <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="menu-toggle" aria-label="メニュー">
+        <span></span><span></span><span></span>
       </button>
 
       <nav class="nav-menu">
         <a href="index.html" class="nav-link active">トップ</a>
-        <a href="database.html" class="nav-link">データベース</a>
         <a href="calculator.html" class="nav-link">資源計算機</a>
-        <a href="strategy.html" class="nav-link">攻略ガイド</a>
+        <a href="database.html" class="nav-link">データベース</a>
       </nav>
     </div>
   </header>
 
-  <!-- ヒーローセクション -->
   <section class="hero">
     <div class="container">
-      <h1 class="hero-title">ラストアサイラム攻略データベース</h1>
+      <h1 class="hero-title">Last Asylum 攻略データベース</h1>
       <p class="hero-subtitle">
-        終末世界を生き抜く戦術指令所。聖域のレベルアップ素材（木材・食料・ハーブ）、ルーンビルド、ヒーロー性能を瞬時に一括検索！
+        公式実データに基づく施設レベルアップ資源・建設時間計算機 ＆ ヒーロー・ギフトコード図鑑。
       </p>
-      <div class="hero-buttons">
-        <a href="database.html" class="btn btn-primary">🔍 データベースを検索</a>
-        <a href="calculator.html" class="btn btn-secondary">⚡ 資源計算機を試す</a>
-        <a href="strategy.html" class="btn btn-secondary">📖 初心者攻略ガイド</a>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="calculator.html" class="btn btn-primary">🧮 施設強化・資源計算機</a>
+        <a href="database.html" class="btn btn-secondary">🔍 実データ検索</a>
       </div>
     </div>
   </section>
 
-  <!-- メインコンテンツ -->
   <main class="main-content">
     <div class="container">
-
-      <!-- お知らせ・更新情報 -->
+      
       <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">最新アップデート & お知らせ</h2>
-        </div>
-        <div class="news-list">
-          <div class="news-item">
-            <span class="news-date">2026.08.29</span>
-            <span class="news-tag">データ更新</span>
-            <span class="news-text">正確な資源体系（🪵木材・🌾食料・🌿ハーブ）および全26施設の実データ（Lv.1〜30）をデータベースへ反映しました。</span>
-          </div>
-          <div class="news-item">
-            <span class="news-date">2026.08.27</span>
-            <span class="news-tag">新機能</span>
-            <span class="news-text">「施設強化・資源計算機」を公開！短縮バフに対応した総建設時間と必要素材が即時計算できます。</span>
-          </div>
-          <div class="news-item">
-            <span class="news-date">2026.08.20</span>
-            <span class="news-tag">攻略記事</span>
-            <span class="news-text">聖域の優先度と大工の小屋の仕組みを解説した「初心者ロードマップ」を公開！</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- 主要カテゴリカードナビ -->
-      <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">主要データベース & ツール</h2>
-        </div>
-        <div class="grid-categories">
-          <a href="calculator.html" class="category-card" style="border-color:var(--accent-gold-dark);">
-            <div class="category-icon">🧮</div>
-            <h3 class="category-title" style="color:var(--accent-gold);">資源計算機</h3>
-            <p class="category-desc">現在Lvと目標Lvから木材・食料・ハーブ素材とバフ適用後建設時間を試算。</p>
+        <h2 class="section-title">提供ツール & 実データ一覧</h2>
+        <div class="grid-cards">
+          
+          <a href="calculator.html" class="card">
+            <div style="font-size:2rem; margin-bottom:0.5rem;">🧮</div>
+            <div style="font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:0.3rem;">施設強化・資源計算機</div>
+            <div style="font-size:0.85rem; color:var(--text-muted);">
+              聖域(Sanctuary/HQ)をはじめとする全26施設の実データ（Lv.1〜30）に基づき、木材・食料・ハーブと建設時間を正確に試算。
+            </div>
           </a>
 
-          <a href="database.html?category=facility" class="category-card">
-            <div class="category-icon">🏰</div>
-            <h3 class="category-title">施設強化</h3>
-            <p class="category-desc">聖域、第1研究所、大工の小屋等のレベル別必要素材と強化効果一覧。</p>
+          <a href="database.html" class="card">
+            <div style="font-size:2rem; margin-bottom:0.5rem;">🔍</div>
+            <div style="font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:0.3rem;">ヒーロー・ギフトコード図鑑</div>
+            <div style="font-size:0.85rem; color:var(--text-muted);">
+              全61ヒーローおよび特典ギフトコード（リディームコード）等の抽出実データを即時検索。
+            </div>
           </a>
 
-          <a href="database.html?category=rune" class="category-card">
-            <div class="category-icon">🔮</div>
-            <h3 class="category-title">ルーン一覧</h3>
-            <p class="category-desc">狂乱・鉄壁・疾風など各セット効果とサブステータス厳選情報。</p>
-          </a>
-
-          <a href="database.html?category=hero" class="category-card">
-            <div class="category-icon">🦁</div>
-            <h3 class="category-title">ヒーロー図鑑</h3>
-            <p class="category-desc">マレーナ、アーク等UR/SSRキャラのスキル・兵種適性解説。</p>
-          </a>
-        </div>
-      </section>
-
-      <!-- 初心者ピックアップセクション -->
-      <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">おすすめ攻略ピックアップ</h2>
-        </div>
-        <div class="grid-categories">
-          <div class="category-card" style="text-align: left;">
-            <div class="category-icon" style="font-size:2rem;">🔨</div>
-            <h3 class="category-title">大工の小屋の最大活用法</h3>
-            <p class="category-desc" style="margin-bottom:1rem;">建設時間を大幅短縮し聖域のレベルアップを最速で進めるコツ。</p>
-            <a href="strategy.html#facility-guide" class="btn btn-secondary btn-sm">解説を読む →</a>
-          </div>
-
-          <div class="category-card" style="text-align: left;">
-            <div class="category-icon" style="font-size:2rem;">🛡️</div>
-            <h3 class="category-title">最速拠点レベルアップ順序</h3>
-            <p class="category-desc" style="margin-bottom:1rem;">聖域Lv.30を目指す最短建設チャートとボトルネック回避法。</p>
-            <a href="strategy.html#facility-guide" class="btn btn-secondary btn-sm">解説を読む →</a>
-          </div>
         </div>
       </section>
 
     </div>
   </main>
 
-  <!-- フッター -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-links">
-        <a href="index.html">トップ</a>
-        <a href="database.html">データベース</a>
-        <a href="calculator.html">資源計算機</a>
-        <a href="strategy.html">攻略ガイド</a>
-      </div>
-      <p>© 2026 Last Asylum Strategy Wiki Project. Non-official Fan Site.</p>
+      <p>© 2026 Last Asylum Strategy Wiki Project. Non-official Fan Site based on real extracted data.</p>
     </div>
   </footer>
 
