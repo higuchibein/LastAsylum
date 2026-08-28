@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>施設強化・資源計算機 | ラストアサイラム攻略Wiki</title>
+  <meta name="description" content="ラストアサイラムの基地本部・ルーン工房等のレベルアップに必要な総資源量と建設短縮バフ対応の所要時間を自動計算。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo">
+        🛡️ LAST ASYLUM <span class="badge">WIKI</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">トップ</a>
+        <a href="database.html" class="nav-link">データベース</a>
+        <a href="calculator.html" class="nav-link active">資源計算機</a>
+        <a href="strategy.html" class="nav-link">攻略ガイド</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ヒーローヘッダー -->
+  <section class="hero" style="padding: 2.5rem 0;">
+    <div class="container">
+      <h1 class="hero-title" style="font-size:2rem;">施設強化・資源計算機</h1>
+      <p class="hero-subtitle" style="margin-bottom:0;">
+        目標レベルまでに必要な各種資材の総数と短縮バフ適用後の実効建設時間を即時に試算します。
+      </p>
+    </div>
+  </section>
+
+  <!-- メインコンテンツ -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- 計算機フォームカード -->
+      <div class="calc-card">
+        
+        <!-- 1. 施設選択 -->
+        <div class="form-group">
+          <label for="facility-select" class="form-label">
+            <span>🏰 対象施設を選択</span>
+          </label>
+          <select id="facility-select" class="form-select">
+            <!-- JS生成 -->
+          </select>
+        </div>
+
+        <!-- 2. 現在レベル -->
+        <div class="form-group">
+          <div class="form-label">
+            <span>現在レベル</span>
+            <span id="level-from-val" class="badge-value">Lv.1</span>
+          </div>
+          <div class="level-slider-wrapper">
+            <input type="range" id="level-from" class="form-range" min="1" max="24" value="1">
+          </div>
+        </div>
+
+        <!-- 3. 目標レベル -->
+        <div class="form-group">
+          <div class="form-label">
+            <span>目標レベル</span>
+            <span id="level-to-val" class="badge-value">Lv.10</span>
+          </div>
+          <div class="level-slider-wrapper">
+            <input type="range" id="level-to" class="form-range" min="2" max="25" value="10">
+          </div>
+        </div>
+
+        <!-- 4. 建設短縮バフ -->
+        <div class="form-group" style="margin-bottom:0;">
+          <div class="form-label">
+            <span>⚡ 建設速度短縮バフ (%)</span>
+            <span id="speed-buff-val" class="badge-value" style="color:var(--accent-blue); background:rgba(0,240,255,0.15);">0%</span>
+          </div>
+          <div class="level-slider-wrapper">
+            <input type="range" id="speed-buff" class="form-range" min="0" max="75" value="0" step="1">
+          </div>
+          <div style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem;">
+            ※ギルドバフ・ルーン効果・研究ツリーによる速度上昇率を指定できます。
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 計算結果表示エリア -->
+      <div class="result-box">
+        <div class="section-header" style="margin-bottom:1rem; border-bottom:1px solid var(--border-color);">
+          <h2 class="section-title" style="font-size:1.3rem;">計算結果サマリー</h2>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <button id="share-btn" class="btn btn-secondary btn-sm">🔗 共有URLをコピー</button>
+            <button id="copy-result-btn" class="btn btn-primary btn-sm">📋 結果テキストをコピー</button>
+          </div>
+        </div>
+
+        <!-- 総所要時間表示 -->
+        <div class="result-summary-grid">
+          <div class="result-stat-card" style="grid-column: 1 / -1; background:linear-gradient(135deg, var(--bg-card), rgba(0,240,255,0.1)); border-color:var(--accent-blue-dark);">
+            <div class="result-stat-label">⏱️ バフ適用後の実効建設時間</div>
+            <div id="total-time" class="result-stat-value" style="font-size:2.2rem; color:var(--accent-gold);">0秒</div>
+            <div style="display:flex; justify-content:center; gap:1.5rem; margin-top:0.5rem; font-size:0.85rem; color:var(--text-muted);">
+              <span id="raw-time">基礎時間: 0秒</span>
+              <span id="saved-time" style="color:var(--accent-blue);">短縮量: 0秒</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 必要資材一覧 -->
+        <h3 style="font-size:1rem; color:var(--accent-gold); margin-bottom:0.75rem;">📦 必要素材の合計一覧</h3>
+        <div id="resource-costs" class="result-summary-grid" style="margin-bottom:0;">
+          <!-- JS生成 -->
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html">トップ</a>
+        <a href="database.html">データベース</a>
+        <a href="calculator.html">資源計算機</a>
+        <a href="strategy.html">攻略ガイド</a>
+      </div>
+      <p>© 2026 Last Asylum Strategy Wiki Project. Non-official Fan Site.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/calculator.js"></script>
+</body>
+</html>

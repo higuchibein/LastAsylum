@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ラストアサイラム攻略Wiki & データベース</title>
+  <meta name="description" content="戦略スマホゲーム「ラストアサイラム」の最新攻略データベース。施設強化、ルーン精錬、最強ヒーロー・おすすめビルド情報を高速検索。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ヘッダーナビゲーション -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo">
+        🛡️ LAST ASYLUM <span class="badge">WIKI</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link active">トップ</a>
+        <a href="database.html" class="nav-link">データベース</a>
+        <a href="calculator.html" class="nav-link">資源計算機</a>
+        <a href="strategy.html" class="nav-link">攻略ガイド</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ヒーローセクション -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">ラストアサイラム攻略データベース</h1>
+      <p class="hero-subtitle">
+        終末世界を生き抜く戦術指令所。施設レベルアップ素材、最先端ルーンビルド、最強ヒーロー性能を瞬時に一括検索！
+      </p>
+      <div class="hero-buttons">
+        <a href="database.html" class="btn btn-primary">🔍 データベースを検索</a>
+        <a href="calculator.html" class="btn btn-secondary">⚡ 資源計算機を試す</a>
+        <a href="strategy.html" class="btn btn-secondary">📖 初心者攻略ガイド</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- メインコンテンツ -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- お知らせ・更新情報 -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">最新アップデート & お知らせ</h2>
+        </div>
+        <div class="news-list">
+          <div class="news-item">
+            <span class="news-date">2026.08.27</span>
+            <span class="news-tag">新機能</span>
+            <span class="news-text">「施設強化・資源計算機」を公開！短縮バフに対応した総建設時間と必要素材が即時計算できます。</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026.08.26</span>
+            <span class="news-tag">データベース</span>
+            <span class="news-text">URヒーロー「アーク（撃滅の閃光）」および「ルーン工房 Lv.15」の最新データを追加しました。</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026.08.20</span>
+            <span class="news-tag">攻略記事</span>
+            <span class="news-text">序盤の施設優先度とルーン合成の仕組みを解説した「初心者ロードマップ」を公開！</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 主要カテゴリカードナビ -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">主要データベース & ツール</h2>
+        </div>
+        <div class="grid-categories">
+          <a href="calculator.html" class="category-card" style="border-color:var(--accent-gold-dark);">
+            <div class="category-icon">🧮</div>
+            <h3 class="category-title" style="color:var(--accent-gold);">資源計算機</h3>
+            <p class="category-desc">現在Lvと目標Lvから必要素材・バフ適用後建設時間を自動試算。</p>
+          </a>
+
+          <a href="database.html?category=facility" class="category-card">
+            <div class="category-icon">🏰</div>
+            <h3 class="category-title">施設強化</h3>
+            <p class="category-desc">本部、ルーン工房、発電所等のレベル別必要素材と強化効果一覧。</p>
+          </a>
+
+          <a href="database.html?category=rune" class="category-card">
+            <div class="category-icon">🔮</div>
+            <h3 class="category-title">ルーン一覧</h3>
+            <p class="category-desc">狂乱・鉄壁・疾風など各セット効果とサブステータス厳選情報。</p>
+          </a>
+
+          <a href="database.html?category=hero" class="category-card">
+            <div class="category-icon">🦁</div>
+            <h3 class="category-title">ヒーロー図鑑</h3>
+            <p class="category-desc">アーク、ヴェロニカ等UR/SSRキャラの必殺技・パッシブ性能解説。</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- 初心者ピックアップセクション -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">おすすめ攻略ピックアップ</h2>
+        </div>
+        <div class="grid-categories">
+          <div class="category-card" style="text-align: left;">
+            <div class="category-icon" style="font-size:2rem;">⚡</div>
+            <h3 class="category-title">ルーン工房の最大活用法</h3>
+            <p class="category-desc" style="margin-bottom:1rem;">星6ルーン精錬の成功率を上げる施設レベルと効率的な素材収集ルート。</p>
+            <a href="strategy.html#rune-guide" class="btn btn-secondary btn-sm">解説を読む →</a>
+          </div>
+
+          <div class="category-card" style="text-align: left;">
+            <div class="category-icon" style="font-size:2rem;">🛡️</div>
+            <h3 class="category-title">最速拠点レベルアップ順序</h3>
+            <p class="category-desc" style="margin-bottom:1rem;">基地本部Lv.25を目指す最短建設チャートとボトルネック回避法。</p>
+            <a href="strategy.html#facility-guide" class="btn btn-secondary btn-sm">解説を読む →</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html">トップ</a>
+        <a href="database.html">データベース</a>
+        <a href="calculator.html">資源計算機</a>
+        <a href="strategy.html">攻略ガイド</a>
+      </div>
+      <p>© 2026 Last Asylum Strategy Wiki Project. Non-official Fan Site.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

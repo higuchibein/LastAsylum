@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>攻略データベース | ラストアサイラム攻略Wiki</title>
+  <meta name="description" content="ラストアサイラムの施設・ルーン・装備・ヒーローの完全データベース。リアルタイムフィルタと詳細モーダル表示機能搭載。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo">
+        🛡️ LAST ASYLUM <span class="badge">WIKI</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">トップ</a>
+        <a href="database.html" class="nav-link active">データベース</a>
+        <a href="calculator.html" class="nav-link">資源計算機</a>
+        <a href="strategy.html" class="nav-link">攻略ガイド</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="main-content">
+    <div class="container">
+
+      <div class="section-header" style="margin-bottom:1.5rem;">
+        <h1 class="section-title">攻略データベース一覧</h1>
+      </div>
+
+      <!-- 検索・フィルタ操作パネル -->
+      <div class="filter-wrapper">
+        <!-- 検索バー -->
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="名称・効果・タイプ・説明文で即時検索..." aria-label="キーワード検索">
+        </div>
+
+        <!-- カテゴリタブ -->
+        <div class="filter-tabs">
+          <button class="tab-btn active" data-category="all">すべて</button>
+          <button class="tab-btn" data-category="facility">🏰 施設</button>
+          <button class="tab-btn" data-category="rune">🔮 ルーン</button>
+          <button class="tab-btn" data-category="equipment">⚔️ 装備</button>
+          <button class="tab-btn" data-category="hero">🦁 ヒーロー</button>
+        </div>
+
+        <!-- コントロールバー -->
+        <div class="controls-row">
+          <span id="result-count" class="result-count">読み込み中...</span>
+          
+          <div class="view-toggle">
+            <button class="view-btn active" data-view="grid">🔲 カード</button>
+            <button class="view-btn" data-view="table">☰ テーブル</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- データ一覧描画ターゲット -->
+      <div id="items-container" class="items-grid">
+        <!-- JSで動的にDOM生成 -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- アイテム詳細モーダルダイアログ -->
+  <div id="modal-overlay" class="modal-overlay">
+    <div class="modal-container">
+      <button id="modal-close" class="modal-close" aria-label="モーダルを閉じる">&times;</button>
+      
+      <div class="modal-header">
+        <div id="modal-icon" class="modal-icon">📦</div>
+        <div>
+          <h2 id="modal-title" class="modal-title">アイテム名</h2>
+          <div style="display:flex; gap:0.5rem; margin-top:0.3rem; align-items:center;">
+            <span id="modal-rarity" class="badge-rarity ur">UR</span>
+            <span id="modal-type" class="badge-type">タイプ</span>
+            <span id="modal-level" style="font-size:0.85rem; color:var(--text-muted);"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">概要・解説</div>
+        <p id="modal-desc" style="font-size:0.9rem; color:var(--text-main);"></p>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">性能・発動効果</div>
+        <ul id="modal-effects" class="item-effects">
+          <!-- JS生成 -->
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">強化・精錬必要素材</div>
+        <div id="modal-materials" class="materials-list">
+          <!-- JS生成 -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html">トップ</a>
+        <a href="database.html">データベース</a>
+        <a href="calculator.html">資源計算機</a>
+        <a href="strategy.html">攻略ガイド</a>
+      </div>
+      <p>© 2026 Last Asylum Strategy Wiki Project. Non-official Fan Site.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/database.js"></script>
+</body>
+</html>
