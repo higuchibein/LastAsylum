@@ -1,5 +1,6 @@
 /**
  * ラストアサイラム攻略Webサイト - 施設強化・資源計算機スクリプト (calculator.js)
+ * (https://www.last-asylum.fun/ から抽出された26施設のリアル基礎データに対応)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -30,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const paramTo = parseInt(urlParams.get('to'), 10);
   const paramBuff = parseInt(urlParams.get('buff'), 10);
 
-  // データロード
+  // 実データのロード
   fetch('data/facility_costs.json')
     .then(res => {
       if (!res.ok) throw new Error('施設コストデータの取得に失敗しました');
@@ -131,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     calculate();
   });
 
-  // 新計算ロジック (wood, food, steel, oil, time_seconds, prerequisites)
+  // 抽出実データ対応計算ロジック
   function calculate() {
     if (!currentFacility) return;
 
@@ -140,27 +141,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const buffPercent = parseInt(speedBuffInput.value, 10);
 
     let totalRawSec = 0;
-    const totals = { wood: 0, food: 0, steel: 0, oil: 0 };
+    const totals = { wood: 0, grain: 0, herb: 0 };
     const mergedPrereqs = {};
 
+    // Lv.(fromLv+1) から Lv.toLv までのコストと時間を計算
     for (let lv = fromLv + 1; lv <= toLv; lv++) {
       const lvData = currentFacility.levels.find(l => l.level === lv);
       if (lvData) {
-        totalRawSec += lvData.time_seconds || lvData.timeSec || 0;
+        totalRawSec += lvData.time_seconds || lvData.time || 0;
 
-        // 資源集計
         if (lvData.wood) totals.wood += lvData.wood;
-        if (lvData.food) totals.food += lvData.food;
-        if (lvData.steel) totals.steel += lvData.steel;
-        if (lvData.oil) totals.oil += lvData.oil;
+        if (lvData.grain) totals.grain += lvData.grain;
+        if (lvData.herb) totals.herb += lvData.herb;
 
-        // 旧プロパティとの後方互換
-        if (lvData.costs) {
-          if (lvData.costs["強化鋼鉄"]) totals.steel += lvData.costs["強化鋼鉄"];
-          if (lvData.costs["プラズマコア"]) totals.oil += lvData.costs["プラズマコア"] * 100;
-        }
-
-        // 前提条件の集計
         if (lvData.prerequisites) {
           for (const [preFac, preReqLv] of Object.entries(lvData.prerequisites)) {
             mergedPrereqs[preFac] = Math.max(mergedPrereqs[preFac] || 0, preReqLv);
@@ -169,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // 建設短縮バフ計算
+    // 建設短縮バフ計算: 実効時間 = 基礎時間 / (1 + バフ率/100)
     const effectiveSec = Math.round(totalRawSec / (1 + buffPercent / 100));
     const savedSec = Math.max(0, totalRawSec - effectiveSec);
 
@@ -177,12 +170,11 @@ document.addEventListener('DOMContentLoaded', () => {
     rawTimeEl.textContent = `基礎時間: ${formatDuration(totalRawSec)}`;
     savedTimeEl.textContent = `短縮量: ${formatDuration(savedSec)}`;
 
-    // 必要資材表示
+    // 必要資材リスト表示
     const resMap = [
       { key: 'wood', name: '木材 (Wood)', icon: '🪵' },
-      { key: 'food', name: '食料 (Food)', icon: '🌾' },
-      { key: 'steel', name: '鋼鉄 (Steel)', icon: '⚙️' },
-      { key: 'oil', name: 'オイル (Oil)', icon: '🛢️' }
+      { key: 'grain', name: '穀物・食料 (Grain)', icon: '🌾' },
+      { key: 'herb', name: '薬草・ハーブ (Herb)', icon: '🌿' }
     ];
 
     const activeRes = resMap.filter(r => totals[r.key] > 0);

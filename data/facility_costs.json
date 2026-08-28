@@ -1,113 +1,6173 @@
 [
   {
-    "id": "hq",
-    "name": "基地本部 (HQ / 教会)",
+    "id": "sanctuary",
+    "name": "聖域 (本部 / Sanctuary)",
+    "name_en": "Sanctuary",
     "icon": "🏰",
-    "category": "中核施設",
+    "category": "拠点施設",
     "maxLevel": 30,
-    "description": "拠点全体の成長を制御する最重要施設。レベルを上げることで全施設のレベル上限が解放され、解放部隊数が増加します。",
     "levels": [
-      { "level": 1, "wood": 0, "food": 0, "steel": 0, "oil": 0, "time_seconds": 0, "prerequisites": {} },
-      { "level": 2, "wood": 1500, "food": 1200, "steel": 0, "oil": 0, "time_seconds": 300, "prerequisites": {} },
-      { "level": 3, "wood": 3200, "food": 2500, "steel": 0, "oil": 0, "time_seconds": 900, "prerequisites": {} },
-      { "level": 4, "wood": 6500, "food": 5000, "steel": 100, "oil": 0, "time_seconds": 1800, "prerequisites": { "Wall": 3 } },
-      { "level": 5, "wood": 12000, "food": 9500, "steel": 300, "oil": 0, "time_seconds": 3600, "prerequisites": { "Wall": 4, "Barracks": 4 } },
-      { "level": 6, "wood": 22000, "food": 18000, "steel": 800, "oil": 0, "time_seconds": 7200, "prerequisites": { "Wall": 5 } },
-      { "level": 7, "wood": 38000, "food": 30000, "steel": 1800, "oil": 0, "time_seconds": 14400, "prerequisites": { "Wall": 6, "Research Lab": 6 } },
-      { "level": 8, "wood": 60000, "food": 48000, "steel": 3500, "oil": 0, "time_seconds": 28800, "prerequisites": { "Wall": 7 } },
-      { "level": 9, "wood": 95000, "food": 75000, "steel": 6500, "oil": 0, "time_seconds": 43200, "prerequisites": { "Wall": 8 } },
-      { "level": 10, "wood": 145000, "food": 115000, "steel": 12000, "oil": 1000, "time_seconds": 86400, "prerequisites": { "Wall": 9, "Rune Workshop": 9 } },
-      { "level": 11, "wood": 210000, "food": 165000, "steel": 20000, "oil": 2500, "time_seconds": 108000, "prerequisites": { "Wall": 10 } },
-      { "level": 12, "wood": 300000, "food": 240000, "steel": 32000, "oil": 5000, "time_seconds": 129600, "prerequisites": { "Wall": 11 } },
-      { "level": 13, "wood": 420000, "food": 330000, "steel": 50000, "oil": 9000, "time_seconds": 172800, "prerequisites": { "Wall": 12, "Barracks": 12 } },
-      { "level": 14, "wood": 580000, "food": 460000, "steel": 75000, "oil": 15000, "time_seconds": 216000, "prerequisites": { "Wall": 13 } },
-      { "level": 15, "wood": 800000, "food": 640000, "steel": 110000, "oil": 24000, "time_seconds": 259200, "prerequisites": { "Wall": 14, "Builder's Hut": 14 } },
-      { "level": 16, "wood": 1100000, "food": 880000, "steel": 160000, "oil": 36000, "time_seconds": 345600, "prerequisites": { "Wall": 15 } },
-      { "level": 17, "wood": 1500000, "food": 1200000, "steel": 230000, "oil": 52000, "time_seconds": 432000, "prerequisites": { "Wall": 16 } },
-      { "level": 18, "wood": 2000000, "food": 1600000, "steel": 320000, "oil": 75000, "time_seconds": 518400, "prerequisites": { "Wall": 17, "Research Lab": 17 } },
-      { "level": 19, "wood": 2700000, "food": 2150000, "steel": 440000, "oil": 105000, "time_seconds": 604800, "prerequisites": { "Wall": 18 } },
-      { "level": 20, "wood": 3600000, "food": 2900000, "steel": 600000, "oil": 150000, "time_seconds": 777600, "prerequisites": { "Wall": 19, "Rune Workshop": 19 } },
-      { "level": 21, "wood": 4800000, "food": 3800000, "steel": 820000, "oil": 210000, "time_seconds": 950400, "prerequisites": { "Wall": 20 } },
-      { "level": 22, "wood": 6400000, "food": 5100000, "steel": 1100000, "oil": 290000, "time_seconds": 1123200, "prerequisites": { "Wall": 21 } },
-      { "level": 23, "wood": 8500000, "food": 6800000, "steel": 1480000, "oil": 400000, "time_seconds": 1296000, "prerequisites": { "Wall": 22, "Barracks": 22 } },
-      { "level": 24, "wood": 11200000, "food": 9000000, "steel": 1980000, "oil": 550000, "time_seconds": 1555200, "prerequisites": { "Wall": 23 } },
-      { "level": 25, "wood": 14800000, "food": 11800000, "steel": 2650000, "oil": 760000, "time_seconds": 1814400, "prerequisites": { "Wall": 24, "Research Lab": 24 } },
-      { "level": 26, "wood": 19500000, "food": 15500000, "steel": 3550000, "oil": 1050000, "time_seconds": 2160000, "prerequisites": { "Wall": 25 } },
-      { "level": 27, "wood": 25500000, "food": 20400000, "steel": 4750000, "oil": 1450000, "time_seconds": 2592000, "prerequisites": { "Wall": 26 } },
-      { "level": 28, "wood": 33500000, "food": 26800000, "steel": 6350000, "oil": 2000000, "time_seconds": 3110400, "prerequisites": { "Wall": 27 } },
-      { "level": 29, "wood": 44000000, "food": 35000000, "steel": 8500000, "oil": 2750000, "time_seconds": 3715200, "prerequisites": { "Wall": 28 } },
-      { "level": 30, "wood": 58000000, "food": 46000000, "steel": 11500000, "oil": 3800000, "time_seconds": 4406400, "prerequisites": { "Wall": 29, "Rune Workshop": 29 } }
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 32,
+        "grain": 32,
+        "herb": 0,
+        "time_seconds": 2,
+        "prerequisites": {}
+      },
+      {
+        "level": 3,
+        "wood": 983,
+        "grain": 983,
+        "herb": 0,
+        "time_seconds": 3,
+        "prerequisites": {
+          "Sanctuary": 1
+        }
+      },
+      {
+        "level": 4,
+        "wood": 2598,
+        "grain": 2598,
+        "herb": 0,
+        "time_seconds": 300,
+        "prerequisites": {
+          "Lumber Depot": 1,
+          "Granary": 1,
+          "Herb Storage": 1
+        }
+      },
+      {
+        "level": 5,
+        "wood": 19700,
+        "grain": 19700,
+        "herb": 0,
+        "time_seconds": 658,
+        "prerequisites": {
+          "Walls": 3
+        }
+      },
+      {
+        "level": 6,
+        "wood": 92700,
+        "grain": 92700,
+        "herb": 0,
+        "time_seconds": 2063,
+        "prerequisites": {
+          "Walls": 5
+        }
+      },
+      {
+        "level": 7,
+        "wood": 236000,
+        "grain": 236000,
+        "herb": 0,
+        "time_seconds": 5440,
+        "prerequisites": {
+          "Training Grounds": 4,
+          "Alliance Hall": 3
+        }
+      },
+      {
+        "level": 8,
+        "wood": 396000,
+        "grain": 396000,
+        "herb": 0,
+        "time_seconds": 10895,
+        "prerequisites": {
+          "Training Grounds": 4,
+          "Alliance Hall": 5
+        }
+      },
+      {
+        "level": 9,
+        "wood": 606000,
+        "grain": 606000,
+        "herb": 209000,
+        "time_seconds": 15410,
+        "prerequisites": {
+          "Walls": 8,
+          "Alliance Hall": 7
+        }
+      },
+      {
+        "level": 10,
+        "wood": 749000,
+        "grain": 749000,
+        "herb": 233000,
+        "time_seconds": 20123,
+        "prerequisites": {
+          "Walls": 9,
+          "Infirmary": 7
+        }
+      },
+      {
+        "level": 11,
+        "wood": 1900000,
+        "grain": 1900000,
+        "herb": 602000,
+        "time_seconds": 26043,
+        "prerequisites": {
+          "Training Grounds": 10,
+          "Research Lab": 7
+        }
+      },
+      {
+        "level": 12,
+        "wood": 3100000,
+        "grain": 3100000,
+        "herb": 959000,
+        "time_seconds": 33857,
+        "prerequisites": {
+          "Research Lab": 11,
+          "Walls": 10,
+          "Antitoxin Workshop": 7
+        }
+      },
+      {
+        "level": 13,
+        "wood": 3500000,
+        "grain": 3500000,
+        "herb": 1100000,
+        "time_seconds": 44013,
+        "prerequisites": {
+          "Research Lab": 12,
+          "Alliance Hall": 11,
+          "Farm": 7
+        }
+      },
+      {
+        "level": 14,
+        "wood": 5157895,
+        "grain": 5157895,
+        "herb": 1684211,
+        "time_seconds": 57218,
+        "prerequisites": {
+          "Research Lab": 13,
+          "Warrior Statue": 12,
+          "Lumberyard": 7
+        }
+      },
+      {
+        "level": 15,
+        "wood": 6736843,
+        "grain": 6736843,
+        "herb": 2421053,
+        "time_seconds": 80105,
+        "prerequisites": {
+          "Research Lab": 14,
+          "Training Grounds": 14,
+          "Herb Garden": 7
+        }
+      },
+      {
+        "level": 16,
+        "wood": 11894737,
+        "grain": 11894737,
+        "herb": 4000000,
+        "time_seconds": 112146,
+        "prerequisites": {
+          "Warrior Statue": 14,
+          "Research Lab": 15,
+          "Granary": 7
+        }
+      },
+      {
+        "level": 17,
+        "wood": 17157895,
+        "grain": 17157895,
+        "herb": 5263158,
+        "time_seconds": 157004,
+        "prerequisites": {
+          "Research Lab": 16,
+          "Barracks": 15,
+          "Lumber Depot": 7
+        }
+      },
+      {
+        "level": 18,
+        "wood": 28253969,
+        "grain": 28253969,
+        "herb": 9312170,
+        "time_seconds": 219807,
+        "prerequisites": {
+          "Research Lab": 17,
+          "Training Grounds": 17,
+          "Herb Storage": 7
+        }
+      },
+      {
+        "level": 19,
+        "wood": 32736843,
+        "grain": 32736843,
+        "herb": 11368422,
+        "time_seconds": 307728,
+        "prerequisites": {
+          "Research Lab": 18,
+          "Warrior Statue": 17,
+          "Antitoxin Workshop": 10
+        }
+      },
+      {
+        "level": 20,
+        "wood": 60317461,
+        "grain": 60317461,
+        "herb": 18518519,
+        "time_seconds": 430820,
+        "prerequisites": {
+          "Research Lab": 19,
+          "Alliance Hall": 18,
+          "Farm": 10
+        }
+      },
+      {
+        "level": 21,
+        "wood": 85925926,
+        "grain": 85925926,
+        "herb": 27830688,
+        "time_seconds": 577211,
+        "prerequisites": {
+          "Research Lab": 20,
+          "Training Grounds": 20,
+          "Lumberyard": 10
+        }
+      },
+      {
+        "level": 22,
+        "wood": 111578948,
+        "grain": 111578948,
+        "herb": 36631579,
+        "time_seconds": 750375,
+        "prerequisites": {
+          "Research Lab": 22,
+          "Infirmary": 22,
+          "Granary": 10
+        }
+      },
+      {
+        "level": 23,
+        "wood": 144973545,
+        "grain": 144973545,
+        "herb": 42751323,
+        "time_seconds": 975487,
+        "prerequisites": {
+          "Research Lab": 22,
+          "Infirmary": 22,
+          "Granary": 10
+        }
+      },
+      {
+        "level": 24,
+        "wood": 176842106,
+        "grain": 176842106,
+        "herb": 58000000,
+        "time_seconds": 1365682,
+        "prerequisites": {
+          "Research Lab": 23,
+          "Walls": 23,
+          "Lumber Depot": 10
+        }
+      },
+      {
+        "level": 25,
+        "wood": 273684211,
+        "grain": 273684211,
+        "herb": 96000000,
+        "time_seconds": 1911955,
+        "prerequisites": {
+          "Research Lab": 24,
+          "Training Grounds": 24,
+          "Herb Storage": 10
+        }
+      },
+      {
+        "level": 26,
+        "wood": 381052632,
+        "grain": 381052632,
+        "herb": 121052632,
+        "time_seconds": 2676737,
+        "prerequisites": {
+          "Research Lab": 25,
+          "Warrior Statue": 25,
+          "Antitoxin Workshop": 13
+        }
+      },
+      {
+        "level": 27,
+        "wood": 538947369,
+        "grain": 538947369,
+        "herb": 166315790,
+        "time_seconds": 3747432,
+        "prerequisites": {
+          "Research Lab": 26,
+          "Training Grounds": 26,
+          "Farm": 13
+        }
+      },
+      {
+        "level": 28,
+        "wood": 720000000,
+        "grain": 720000000,
+        "herb": 250000000,
+        "time_seconds": 5246404,
+        "prerequisites": {
+          "Research Lab": 27,
+          "Barracks": 27,
+          "Lumberyard": 13
+        }
+      },
+      {
+        "level": 29,
+        "wood": 1047368421,
+        "grain": 1047368421,
+        "herb": 316842106,
+        "time_seconds": 6820324,
+        "prerequisites": {
+          "Research Lab": 28,
+          "Alliance Hall": 28,
+          "Herb Garden": 13
+        }
+      },
+      {
+        "level": 30,
+        "wood": 1368421053,
+        "grain": 1368421053,
+        "herb": 436842106,
+        "time_seconds": 8866423,
+        "prerequisites": {
+          "Research Lab": 29,
+          "Training Grounds": 29,
+          "Antitoxin Workshop": 15
+        }
+      }
     ]
   },
   {
-    "id": "rune_workshop",
-    "name": "ルーン工房 (Rune Workshop)",
-    "icon": "🔮",
-    "category": "研究・錬金",
-    "maxLevel": 25,
-    "description": "ルーンの合成、精錬、鑑定を行う重要施設。レベルを上げると星6SSR/URルーンの精錬成功率とスロット枠が拡大します。",
+    "id": "1st-lab",
+    "name": "第1研究所 (Research Lab)",
+    "name_en": "Research Lab",
+    "icon": "🔬",
+    "category": "拠点施設",
+    "maxLevel": 30,
     "levels": [
-      { "level": 1, "wood": 1000, "food": 800, "steel": 0, "oil": 0, "time_seconds": 180, "prerequisites": { "HQ": 3 } },
-      { "level": 2, "wood": 2500, "food": 2000, "steel": 200, "oil": 0, "time_seconds": 600, "prerequisites": { "HQ": 4 } },
-      { "level": 3, "wood": 5500, "food": 4400, "steel": 500, "oil": 0, "time_seconds": 1800, "prerequisites": { "HQ": 5 } },
-      { "level": 4, "wood": 11000, "food": 8800, "steel": 1200, "oil": 0, "time_seconds": 3600, "prerequisites": { "HQ": 6 } },
-      { "level": 5, "wood": 20000, "food": 16000, "steel": 2500, "oil": 200, "time_seconds": 7200, "prerequisites": { "HQ": 7 } },
-      { "level": 6, "wood": 35000, "food": 28000, "steel": 5000, "oil": 600, "time_seconds": 14400, "prerequisites": { "HQ": 8 } },
-      { "level": 7, "wood": 58000, "food": 46000, "steel": 9000, "oil": 1200, "time_seconds": 28800, "prerequisites": { "HQ": 9 } },
-      { "level": 8, "wood": 90000, "food": 72000, "steel": 15000, "oil": 2200, "time_seconds": 43200, "prerequisites": { "HQ": 10 } },
-      { "level": 9, "wood": 140000, "food": 110000, "steel": 24000, "oil": 4000, "time_seconds": 72000, "prerequisites": { "HQ": 11 } },
-      { "level": 10, "wood": 210000, "food": 165000, "steel": 38000, "oil": 7000, "time_seconds": 108000, "prerequisites": { "HQ": 12 } },
-      { "level": 11, "wood": 300000, "food": 240000, "steel": 58000, "oil": 12000, "time_seconds": 144000, "prerequisites": { "HQ": 13 } },
-      { "level": 12, "wood": 420000, "food": 330000, "steel": 85000, "oil": 19000, "time_seconds": 180000, "prerequisites": { "HQ": 14 } },
-      { "level": 13, "wood": 580000, "food": 460000, "steel": 122000, "oil": 29000, "time_seconds": 230400, "prerequisites": { "HQ": 15 } },
-      { "level": 14, "wood": 800000, "food": 640000, "steel": 175000, "oil": 44000, "time_seconds": 288000, "prerequisites": { "HQ": 16 } },
-      { "level": 15, "wood": 1100000, "food": 880000, "steel": 250000, "oil": 65000, "time_seconds": 360000, "prerequisites": { "HQ": 17 } },
-      { "level": 16, "wood": 1500000, "food": 1200000, "steel": 350000, "oil": 95000, "time_seconds": 450000, "prerequisites": { "HQ": 18 } },
-      { "level": 17, "wood": 2000000, "food": 1600000, "steel": 490000, "oil": 135000, "time_seconds": 550000, "prerequisites": { "HQ": 19 } },
-      { "level": 18, "wood": 2700000, "food": 2150000, "steel": 680000, "oil": 190000, "time_seconds": 680000, "prerequisites": { "HQ": 20 } },
-      { "level": 19, "wood": 3600000, "food": 2900000, "steel": 940000, "oil": 270000, "time_seconds": 820000, "prerequisites": { "HQ": 21 } },
-      { "level": 20, "wood": 4800000, "food": 3800000, "steel": 1300000, "oil": 380000, "time_seconds": 980000, "prerequisites": { "HQ": 22 } },
-      { "level": 21, "wood": 6400000, "food": 5100000, "steel": 1800000, "oil": 530000, "time_seconds": 1180000, "prerequisites": { "HQ": 23 } },
-      { "level": 22, "wood": 8500000, "food": 6800000, "steel": 2450000, "oil": 740000, "time_seconds": 1420000, "prerequisites": { "HQ": 24 } },
-      { "level": 23, "wood": 11200000, "food": 9000000, "steel": 3300000, "oil": 1020000, "time_seconds": 1700000, "prerequisites": { "HQ": 25 } },
-      { "level": 24, "wood": 14800000, "food": 11800000, "steel": 4400000, "oil": 1400000, "time_seconds": 2050000, "prerequisites": { "HQ": 26 } },
-      { "level": 25, "wood": 19500000, "food": 15500000, "steel": 5900000, "oil": 1920000, "time_seconds": 2480000, "prerequisites": { "HQ": 27 } }
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 228,
+        "grain": 228,
+        "herb": 0,
+        "time_seconds": 15,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 951,
+        "grain": 951,
+        "herb": 0,
+        "time_seconds": 30,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 2577,
+        "grain": 2577,
+        "herb": 0,
+        "time_seconds": 90,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 20900,
+        "grain": 20900,
+        "herb": 0,
+        "time_seconds": 650,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 87900,
+        "grain": 87900,
+        "herb": 0,
+        "time_seconds": 2000,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 213000,
+        "grain": 213000,
+        "herb": 0,
+        "time_seconds": 5034,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 355000,
+        "grain": 355000,
+        "herb": 0,
+        "time_seconds": 9533,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 533000,
+        "grain": 533000,
+        "herb": 176000,
+        "time_seconds": 13220,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 634000,
+        "grain": 634000,
+        "herb": 204000,
+        "time_seconds": 17206,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 1604279,
+        "grain": 1604279,
+        "herb": 495188,
+        "time_seconds": 22788,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 2736843,
+        "grain": 2736843,
+        "herb": 852632,
+        "time_seconds": 29624,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 3100000,
+        "grain": 3100000,
+        "herb": 860000,
+        "time_seconds": 38452,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 4432990,
+        "grain": 4432990,
+        "herb": 1443299,
+        "time_seconds": 50065,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 6000000,
+        "grain": 6000000,
+        "herb": 1900000,
+        "time_seconds": 64120,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 11000000,
+        "grain": 11000000,
+        "herb": 3400000,
+        "time_seconds": 108916,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 14179895,
+        "grain": 14179895,
+        "herb": 4338625,
+        "time_seconds": 137379,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 22857143,
+        "grain": 22857143,
+        "herb": 7513228,
+        "time_seconds": 192330,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 28191490,
+        "grain": 28191490,
+        "herb": 8829788,
+        "time_seconds": 269262,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 49574469,
+        "grain": 49574469,
+        "herb": 16382979,
+        "time_seconds": 376968,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 73000000,
+        "grain": 73000000,
+        "herb": 23000000,
+        "time_seconds": 548600,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      },
+      {
+        "level": 22,
+        "wood": 99000000,
+        "grain": 99000000,
+        "herb": 31000000,
+        "time_seconds": 737300,
+        "prerequisites": {
+          "Sanctuary": 22
+        }
+      },
+      {
+        "level": 23,
+        "wood": 124000000,
+        "grain": 124000000,
+        "herb": 40000000,
+        "time_seconds": 926000,
+        "prerequisites": {
+          "Sanctuary": 23
+        }
+      },
+      {
+        "level": 24,
+        "wood": 150000000,
+        "grain": 150000000,
+        "herb": 48000000,
+        "time_seconds": 1115000,
+        "prerequisites": {
+          "Sanctuary": 24
+        }
+      },
+      {
+        "level": 25,
+        "wood": 250000000,
+        "grain": 250000000,
+        "herb": 81000000,
+        "time_seconds": 1858000,
+        "prerequisites": {
+          "Sanctuary": 25
+        }
+      },
+      {
+        "level": 26,
+        "wood": 350000000,
+        "grain": 350000000,
+        "herb": 110000000,
+        "time_seconds": 2601000,
+        "prerequisites": {
+          "Sanctuary": 26
+        }
+      },
+      {
+        "level": 27,
+        "wood": 460000000,
+        "grain": 460000000,
+        "herb": 150000000,
+        "time_seconds": 3417000,
+        "prerequisites": {
+          "Sanctuary": 27
+        }
+      },
+      {
+        "level": 28,
+        "wood": 640000000,
+        "grain": 640000000,
+        "herb": 210000000,
+        "time_seconds": 4757000,
+        "prerequisites": {
+          "Sanctuary": 28
+        }
+      },
+      {
+        "level": 29,
+        "wood": 900000000,
+        "grain": 900000000,
+        "herb": 290000000,
+        "time_seconds": 6692000,
+        "prerequisites": {
+          "Sanctuary": 29
+        }
+      },
+      {
+        "level": 30,
+        "wood": 1300000000,
+        "grain": 1300000000,
+        "herb": 400000000,
+        "time_seconds": 9643000,
+        "prerequisites": {
+          "Sanctuary": 30
+        }
+      }
+    ]
+  },
+  {
+    "id": "builders-hut",
+    "name": "大工の小屋 (Builders Hut)",
+    "name_en": "Builders Hut",
+    "icon": "🔨",
+    "category": "拠点施設",
+    "maxLevel": 30,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 228,
+        "grain": 73,
+        "herb": 0,
+        "time_seconds": 20,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 952,
+        "grain": 337,
+        "herb": 0,
+        "time_seconds": 60,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 2378,
+        "grain": 836,
+        "herb": 0,
+        "time_seconds": 240,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 20300,
+        "grain": 6909,
+        "herb": 0,
+        "time_seconds": 640,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 63400,
+        "grain": 20800,
+        "herb": 0,
+        "time_seconds": 1530,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 124000,
+        "grain": 42500,
+        "herb": 0,
+        "time_seconds": 2988,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 184000,
+        "grain": 63000,
+        "herb": 0,
+        "time_seconds": 5766,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 317000,
+        "grain": 102000,
+        "herb": 33600,
+        "time_seconds": 7988,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 387000,
+        "grain": 126000,
+        "herb": 40200,
+        "time_seconds": 10366,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 961291,
+        "grain": 320431,
+        "herb": 102300,
+        "time_seconds": 13022,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 1356934,
+        "grain": 451968,
+        "herb": 149604,
+        "time_seconds": 17514,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 1752578,
+        "grain": 583506,
+        "herb": 196908,
+        "time_seconds": 22006,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 2474227,
+        "grain": 821650,
+        "herb": 248454,
+        "time_seconds": 28609,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 3333334,
+        "grain": 1075269,
+        "herb": 361291,
+        "time_seconds": 40052,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 6105264,
+        "grain": 2000000,
+        "herb": 661053,
+        "time_seconds": 56073,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 8172044,
+        "grain": 2688173,
+        "herb": 813979,
+        "time_seconds": 78502,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 14574469,
+        "grain": 4787235,
+        "herb": 1489362,
+        "time_seconds": 109904,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 17127660,
+        "grain": 5531915,
+        "herb": 1808511,
+        "time_seconds": 153864,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 31443851,
+        "grain": 10481284,
+        "herb": 3208557,
+        "time_seconds": 215410,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 69312170,
+        "grain": 23386244,
+        "herb": 6984127,
+        "time_seconds": 487744,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      },
+      {
+        "level": 22,
+        "wood": 54000000,
+        "grain": 18000000,
+        "herb": 5800000,
+        "time_seconds": 580000,
+        "prerequisites": {
+          "Sanctuary": 22
+        }
+      },
+      {
+        "level": 23,
+        "wood": 68000000,
+        "grain": 23000000,
+        "herb": 7300000,
+        "time_seconds": 720000,
+        "prerequisites": {
+          "Sanctuary": 23
+        }
+      },
+      {
+        "level": 24,
+        "wood": 85000000,
+        "grain": 28000000,
+        "herb": 9100000,
+        "time_seconds": 880000,
+        "prerequisites": {
+          "Sanctuary": 24
+        }
+      },
+      {
+        "level": 25,
+        "wood": 140000000,
+        "grain": 48000000,
+        "herb": 15000000,
+        "time_seconds": 1040000,
+        "prerequisites": {
+          "Sanctuary": 25
+        }
+      },
+      {
+        "level": 26,
+        "wood": 201075269,
+        "grain": 67204302,
+        "herb": 23010753,
+        "time_seconds": 1338369,
+        "prerequisites": {
+          "Sanctuary": 26
+        }
+      },
+      {
+        "level": 27,
+        "wood": 260000000,
+        "grain": 88000000,
+        "herb": 28000000,
+        "time_seconds": 1600000,
+        "prerequisites": {
+          "Sanctuary": 27
+        }
+      },
+      {
+        "level": 28,
+        "wood": 370000000,
+        "grain": 120000000,
+        "herb": 39000000,
+        "time_seconds": 1920000,
+        "prerequisites": {
+          "Sanctuary": 28
+        }
+      },
+      {
+        "level": 29,
+        "wood": 520000000,
+        "grain": 170000000,
+        "herb": 55000000,
+        "time_seconds": 2300000,
+        "prerequisites": {
+          "Sanctuary": 29
+        }
+      },
+      {
+        "level": 30,
+        "wood": 720000000,
+        "grain": 240000000,
+        "herb": 77000000,
+        "time_seconds": 2760000,
+        "prerequisites": {
+          "Sanctuary": 30
+        }
+      }
+    ]
+  },
+  {
+    "id": "alliance-hall",
+    "name": "同盟ホール (Alliance Hall)",
+    "name_en": "Alliance Hall",
+    "icon": "🏛️",
+    "category": "拠点施設",
+    "maxLevel": 30,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 73,
+        "grain": 228,
+        "herb": 0,
+        "time_seconds": 30,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 337,
+        "grain": 952,
+        "herb": 0,
+        "time_seconds": 105,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 836,
+        "grain": 2513,
+        "herb": 0,
+        "time_seconds": 180,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 7087,
+        "grain": 20800,
+        "herb": 0,
+        "time_seconds": 640,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 20800,
+        "grain": 63300,
+        "herb": 0,
+        "time_seconds": 1303,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 42900,
+        "grain": 126000,
+        "herb": 0,
+        "time_seconds": 2930,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 62500,
+        "grain": 183000,
+        "herb": 0,
+        "time_seconds": 5745,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 100000,
+        "grain": 310000,
+        "herb": 104000,
+        "time_seconds": 7966,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 124000,
+        "grain": 383000,
+        "herb": 123000,
+        "time_seconds": 10348,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 310000,
+        "grain": 930000,
+        "herb": 300000,
+        "time_seconds": 16928,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 512372,
+        "grain": 1546392,
+        "herb": 527836,
+        "time_seconds": 16928,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 584537,
+        "grain": 1752578,
+        "herb": 558763,
+        "time_seconds": 22006,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 822106,
+        "grain": 2421053,
+        "herb": 767369,
+        "time_seconds": 28609,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 1100000,
+        "grain": 3400000,
+        "herb": 1100000,
+        "time_seconds": 54000,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 2000000,
+        "grain": 6100000,
+        "herb": 1900000,
+        "time_seconds": 66500,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 2765958,
+        "grain": 8297873,
+        "herb": 2553192,
+        "time_seconds": 78502,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 4468086,
+        "grain": 13617022,
+        "herb": 4468086,
+        "time_seconds": 109904,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 5319149,
+        "grain": 16489362,
+        "herb": 5531915,
+        "time_seconds": 153864,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 9893618,
+        "grain": 29574469,
+        "herb": 9574469,
+        "time_seconds": 215410,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 14000000,
+        "grain": 41789474,
+        "herb": 13157895,
+        "time_seconds": 288606,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      },
+      {
+        "level": 22,
+        "wood": 18201059,
+        "grain": 54708995,
+        "herb": 16613757,
+        "time_seconds": 375187,
+        "prerequisites": {
+          "Sanctuary": 22
+        }
+      },
+      {
+        "level": 23,
+        "wood": 23000000,
+        "grain": 68000000,
+        "herb": 22000000,
+        "time_seconds": 529000,
+        "prerequisites": {
+          "Sanctuary": 23
+        }
+      },
+      {
+        "level": 24,
+        "wood": 28085107,
+        "grain": 85319149,
+        "herb": 27234043,
+        "time_seconds": 682841,
+        "prerequisites": {
+          "Sanctuary": 24
+        }
+      },
+      {
+        "level": 25,
+        "wood": 48000000,
+        "grain": 140000000,
+        "herb": 46000000,
+        "time_seconds": 1010000,
+        "prerequisites": {
+          "Sanctuary": 25
+        }
+      },
+      {
+        "level": 26,
+        "wood": 70270271,
+        "grain": 209729730,
+        "herb": 65297298,
+        "time_seconds": 1338369,
+        "prerequisites": {
+          "Sanctuary": 26
+        }
+      },
+      {
+        "level": 27,
+        "wood": 88000000,
+        "grain": 260000000,
+        "herb": 84000000,
+        "time_seconds": 1600000,
+        "prerequisites": {
+          "Sanctuary": 27
+        }
+      },
+      {
+        "level": 28,
+        "wood": 120000000,
+        "grain": 370000000,
+        "herb": 120000000,
+        "time_seconds": 1920000,
+        "prerequisites": {
+          "Sanctuary": 28
+        }
+      },
+      {
+        "level": 29,
+        "wood": 170000000,
+        "grain": 520000000,
+        "herb": 170000000,
+        "time_seconds": 2300000,
+        "prerequisites": {
+          "Sanctuary": 29
+        }
+      },
+      {
+        "level": 30,
+        "wood": 240000000,
+        "grain": 720000000,
+        "herb": 230000000,
+        "time_seconds": 2760000,
+        "prerequisites": {
+          "Sanctuary": 30
+        }
+      }
+    ]
+  },
+  {
+    "id": "training-grounds",
+    "name": "訓練場 (Training Grounds)",
+    "name_en": "Training Grounds",
+    "icon": "🪖",
+    "category": "拠点施設",
+    "maxLevel": 30,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 28,
+        "grain": 28,
+        "herb": 0,
+        "time_seconds": 63,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 677,
+        "grain": 677,
+        "herb": 0,
+        "time_seconds": 107,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 1683,
+        "grain": 1683,
+        "herb": 0,
+        "time_seconds": 237,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 14500,
+        "grain": 14500,
+        "herb": 0,
+        "time_seconds": 640,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 62300,
+        "grain": 62300,
+        "herb": 0,
+        "time_seconds": 2200,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 124000,
+        "grain": 124000,
+        "herb": 0,
+        "time_seconds": 4358,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 196000,
+        "grain": 196000,
+        "herb": 0,
+        "time_seconds": 8568,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 297000,
+        "grain": 297000,
+        "herb": 117000,
+        "time_seconds": 12015,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 365000,
+        "grain": 365000,
+        "herb": 148000,
+        "time_seconds": 15484,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 936083,
+        "grain": 936083,
+        "herb": 371135,
+        "time_seconds": 19533,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 1546392,
+        "grain": 1546392,
+        "herb": 641238,
+        "time_seconds": 25392,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 1789474,
+        "grain": 1789474,
+        "herb": 703158,
+        "time_seconds": 33010,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 2473119,
+        "grain": 2473119,
+        "herb": 977420,
+        "time_seconds": 42913,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 3280424,
+        "grain": 3280424,
+        "herb": 1481482,
+        "time_seconds": 60078,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 6137567,
+        "grain": 6137567,
+        "herb": 2433863,
+        "time_seconds": 84110,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 8172044,
+        "grain": 8172044,
+        "herb": 3118280,
+        "time_seconds": 117753,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 13862434,
+        "grain": 13862434,
+        "herb": 5396826,
+        "time_seconds": 164855,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 17578948,
+        "grain": 17578948,
+        "herb": 6315790,
+        "time_seconds": 230796,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 30215054,
+        "grain": 30215054,
+        "herb": 11935484,
+        "time_seconds": 323115,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 40105264,
+        "grain": 40105264,
+        "herb": 16315790,
+        "time_seconds": 432909,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      },
+      {
+        "level": 22,
+        "wood": 49100000,
+        "grain": 49100000,
+        "herb": 21700000,
+        "time_seconds": 562781,
+        "prerequisites": {
+          "Sanctuary": 22
+        }
+      },
+      {
+        "level": 23,
+        "wood": 69361703,
+        "grain": 69361703,
+        "herb": 26489362,
+        "time_seconds": 731615,
+        "prerequisites": {
+          "Sanctuary": 23
+        }
+      },
+      {
+        "level": 24,
+        "wood": 88494624,
+        "grain": 88494624,
+        "herb": 34623656,
+        "time_seconds": 1024322,
+        "prerequisites": {
+          "Sanctuary": 24
+        }
+      },
+      {
+        "level": 25,
+        "wood": 135483871,
+        "grain": 135483871,
+        "herb": 55483871,
+        "time_seconds": 1433966,
+        "prerequisites": {
+          "Sanctuary": 25
+        }
+      },
+      {
+        "level": 26,
+        "wood": 200000000,
+        "grain": 200000000,
+        "herb": 81000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 26
+        }
+      },
+      {
+        "level": 27,
+        "wood": 260000000,
+        "grain": 260000000,
+        "herb": 110000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 27
+        }
+      },
+      {
+        "level": 28,
+        "wood": 370000000,
+        "grain": 370000000,
+        "herb": 150000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 28
+        }
+      },
+      {
+        "level": 29,
+        "wood": 520000000,
+        "grain": 520000000,
+        "herb": 210000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 29
+        }
+      },
+      {
+        "level": 30,
+        "wood": 720000000,
+        "grain": 720000000,
+        "herb": 290000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 30
+        }
+      }
+    ]
+  },
+  {
+    "id": "antitoxin-workshop",
+    "name": "抗毒素工房 (Antitoxin Workshop)",
+    "name_en": "Antitoxin Workshop",
+    "icon": "🧪",
+    "category": "拠点施設",
+    "maxLevel": 30,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 148,
+        "grain": 148,
+        "herb": 0,
+        "time_seconds": 5,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 677,
+        "grain": 677,
+        "herb": 0,
+        "time_seconds": 30,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 1628,
+        "grain": 1628,
+        "herb": 0,
+        "time_seconds": 220,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 3555,
+        "grain": 3555,
+        "herb": 0,
+        "time_seconds": 300,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 10500,
+        "grain": 10500,
+        "herb": 0,
+        "time_seconds": 480,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 20900,
+        "grain": 20900,
+        "herb": 0,
+        "time_seconds": 640,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 31959,
+        "grain": 31959,
+        "herb": 0,
+        "time_seconds": 1550,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 52106,
+        "grain": 52106,
+        "herb": 16632,
+        "time_seconds": 2155,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 62737,
+        "grain": 62737,
+        "herb": 19158,
+        "time_seconds": 2687,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 156843,
+        "grain": 156843,
+        "herb": 51264,
+        "time_seconds": 3255,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 258948,
+        "grain": 258948,
+        "herb": 86737,
+        "time_seconds": 4232,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 282106,
+        "grain": 282106,
+        "herb": 927369,
+        "time_seconds": 5501,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 392632,
+        "grain": 392632,
+        "herb": 132632,
+        "time_seconds": 7153,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 573685,
+        "grain": 573685,
+        "herb": 176843,
+        "time_seconds": 10013,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 967742,
+        "grain": 967742,
+        "herb": 330108,
+        "time_seconds": 14018,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 1263158,
+        "grain": 1263158,
+        "herb": 421053,
+        "time_seconds": 19626,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 2315790,
+        "grain": 2315790,
+        "herb": 720000,
+        "time_seconds": 27476,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 2736843,
+        "grain": 2736843,
+        "herb": 878948,
+        "time_seconds": 38466,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 4842106,
+        "grain": 4842106,
+        "herb": 1578948,
+        "time_seconds": 53852,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 7052632,
+        "grain": 7052632,
+        "herb": 2315790,
+        "time_seconds": 72152,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      },
+      {
+        "level": 22,
+        "wood": 9100530,
+        "grain": 9100530,
+        "herb": 2857143,
+        "time_seconds": 93797,
+        "prerequisites": {
+          "Sanctuary": 22
+        }
+      },
+      {
+        "level": 23,
+        "wood": 10860216,
+        "grain": 10860216,
+        "herb": 3440861,
+        "time_seconds": 114736,
+        "prerequisites": {
+          "Sanctuary": 23
+        }
+      },
+      {
+        "level": 24,
+        "wood": 14162163,
+        "grain": 14162163,
+        "herb": 4648649,
+        "time_seconds": 170711,
+        "prerequisites": {
+          "Sanctuary": 24
+        }
+      },
+      {
+        "level": 25,
+        "wood": 24540541,
+        "grain": 24540541,
+        "herb": 7459460,
+        "time_seconds": 238995,
+        "prerequisites": {
+          "Sanctuary": 25
+        }
+      },
+      {
+        "level": 26,
+        "wood": 34918919,
+        "grain": 34918919,
+        "herb": 10810811,
+        "time_seconds": 334592,
+        "prerequisites": {
+          "Sanctuary": 26
+        }
+      },
+      {
+        "level": 27,
+        "wood": 44000000,
+        "grain": 44000000,
+        "herb": 14000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 27
+        }
+      },
+      {
+        "level": 28,
+        "wood": 61000000,
+        "grain": 61000000,
+        "herb": 20000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 28
+        }
+      },
+      {
+        "level": 29,
+        "wood": 86000000,
+        "grain": 86000000,
+        "herb": 28000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 29
+        }
+      },
+      {
+        "level": 30,
+        "wood": 120000000,
+        "grain": 120000000,
+        "herb": 39000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 30
+        }
+      }
+    ]
+  },
+  {
+    "id": "farm",
+    "name": "農場 (Farm)",
+    "name_en": "Farm",
+    "icon": "🌾",
+    "category": "拠点施設",
+    "maxLevel": 30,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 225,
+        "grain": 73,
+        "herb": 0,
+        "time_seconds": 38,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 1040,
+        "grain": 337,
+        "herb": 0,
+        "time_seconds": 107,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 2423,
+        "grain": 836,
+        "herb": 0,
+        "time_seconds": 177,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 5284,
+        "grain": 1761,
+        "herb": 0,
+        "time_seconds": 236,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 15400,
+        "grain": 5231,
+        "herb": 0,
+        "time_seconds": 411,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 15400,
+        "grain": 5231,
+        "herb": 0,
+        "time_seconds": 411,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 47369,
+        "grain": 15474,
+        "herb": 0,
+        "time_seconds": 1500,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 75579,
+        "grain": 25158,
+        "herb": 16211,
+        "time_seconds": 2110,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 93264,
+        "grain": 31053,
+        "herb": 20632,
+        "time_seconds": 2700,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 218948,
+        "grain": 74422,
+        "herb": 52106,
+        "time_seconds": 3255,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 418948,
+        "grain": 135790,
+        "herb": 84737,
+        "time_seconds": 4232,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 452632,
+        "grain": 153685,
+        "herb": 88843,
+        "time_seconds": 5501,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 609474,
+        "grain": 200000,
+        "herb": 133685,
+        "time_seconds": 7153,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 892632,
+        "grain": 301053,
+        "herb": 175790,
+        "time_seconds": 9995,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 1578948,
+        "grain": 528422,
+        "herb": 331579,
+        "time_seconds": 14018,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 2105264,
+        "grain": 683158,
+        "herb": 426316,
+        "time_seconds": 12422,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 3578948,
+        "grain": 1263158,
+        "herb": 723158,
+        "time_seconds": 17390,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 4021165,
+        "grain": 1375662,
+        "herb": 894180,
+        "time_seconds": 38466,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 7659575,
+        "grain": 2553192,
+        "herb": 1595745,
+        "time_seconds": 53852,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 10215054,
+        "grain": 3548388,
+        "herb": 2150538,
+        "time_seconds": 72152,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      },
+      {
+        "level": 22,
+        "wood": 13440861,
+        "grain": 4301076,
+        "herb": 2795699,
+        "time_seconds": 93797,
+        "prerequisites": {
+          "Sanctuary": 22
+        }
+      },
+      {
+        "level": 23,
+        "wood": 17419355,
+        "grain": 5806452,
+        "herb": 3548388,
+        "time_seconds": 121936,
+        "prerequisites": {
+          "Sanctuary": 23
+        }
+      },
+      {
+        "level": 24,
+        "wood": 20864865,
+        "grain": 7027028,
+        "herb": 4432433,
+        "time_seconds": 170711,
+        "prerequisites": {
+          "Sanctuary": 24
+        }
+      },
+      {
+        "level": 25,
+        "wood": 36000000,
+        "grain": 12000000,
+        "herb": 7700000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 25
+        }
+      },
+      {
+        "level": 26,
+        "wood": 51000000,
+        "grain": 17000000,
+        "herb": 11000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 26
+        }
+      },
+      {
+        "level": 27,
+        "wood": 66000000,
+        "grain": 22000000,
+        "herb": 14000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 27
+        }
+      },
+      {
+        "level": 28,
+        "wood": 92000000,
+        "grain": 31000000,
+        "herb": 20000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 28
+        }
+      },
+      {
+        "level": 29,
+        "wood": 130000000,
+        "grain": 43000000,
+        "herb": 28000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 29
+        }
+      },
+      {
+        "level": 30,
+        "wood": 180000000,
+        "grain": 60000000,
+        "herb": 39000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 30
+        }
+      }
+    ]
+  },
+  {
+    "id": "lumberyard",
+    "name": "木材伐採場 (Lumberyard)",
+    "name_en": "Lumberyard",
+    "icon": "🪵",
+    "category": "拠点施設",
+    "maxLevel": 30,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 66,
+        "grain": 225,
+        "herb": 0,
+        "time_seconds": 38,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 337,
+        "grain": 976,
+        "herb": 0,
+        "time_seconds": 107,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 836,
+        "grain": 2411,
+        "herb": 0,
+        "time_seconds": 177,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 1702,
+        "grain": 5107,
+        "herb": 0,
+        "time_seconds": 236,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 4987,
+        "grain": 14700,
+        "herb": 0,
+        "time_seconds": 411,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 10400,
+        "grain": 31300,
+        "herb": 0,
+        "time_seconds": 649,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 16316,
+        "grain": 49895,
+        "herb": 0,
+        "time_seconds": 1500,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 25158,
+        "grain": 75474,
+        "herb": 16211,
+        "time_seconds": 2108,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 30632,
+        "grain": 91790,
+        "herb": 20316,
+        "time_seconds": 2700,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 74316,
+        "grain": 218948,
+        "herb": 49369,
+        "time_seconds": 3255,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 132632,
+        "grain": 408422,
+        "herb": 85895,
+        "time_seconds": 4232,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 148422,
+        "grain": 435790,
+        "herb": 94106,
+        "time_seconds": 5501,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 198948,
+        "grain": 606316,
+        "herb": 129474,
+        "time_seconds": 7153,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 295790,
+        "grain": 877895,
+        "herb": 182106,
+        "time_seconds": 10013,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 502106,
+        "grain": 1473685,
+        "herb": 326316,
+        "time_seconds": 14018,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 670527,
+        "grain": 2000000,
+        "herb": 410527,
+        "time_seconds": 19626,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 1157895,
+        "grain": 3473685,
+        "herb": 770527,
+        "time_seconds": 27476,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 1375662,
+        "grain": 4232805,
+        "herb": 922752,
+        "time_seconds": 38466,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 2553192,
+        "grain": 7553192,
+        "herb": 1702128,
+        "time_seconds": 53852,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 3636364,
+        "grain": 10374332,
+        "herb": 2245990,
+        "time_seconds": 72152,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      },
+      {
+        "level": 22,
+        "wood": 4516130,
+        "grain": 14193549,
+        "herb": 3010753,
+        "time_seconds": 93797,
+        "prerequisites": {
+          "Sanctuary": 22
+        }
+      },
+      {
+        "level": 23,
+        "wood": 5376345,
+        "grain": 16129033,
+        "herb": 3763441,
+        "time_seconds": 121936,
+        "prerequisites": {
+          "Sanctuary": 23
+        }
+      },
+      {
+        "level": 24,
+        "wood": 7027028,
+        "grain": 20864865,
+        "herb": 4540541,
+        "time_seconds": 170711,
+        "prerequisites": {
+          "Sanctuary": 24
+        }
+      },
+      {
+        "level": 25,
+        "wood": 12000000,
+        "grain": 36000000,
+        "herb": 7700000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 25
+        }
+      },
+      {
+        "level": 26,
+        "wood": 17000000,
+        "grain": 51000000,
+        "herb": 11000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 26
+        }
+      },
+      {
+        "level": 27,
+        "wood": 22000000,
+        "grain": 66000000,
+        "herb": 14000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 27
+        }
+      },
+      {
+        "level": 28,
+        "wood": 31000000,
+        "grain": 92000000,
+        "herb": 20000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 28
+        }
+      },
+      {
+        "level": 29,
+        "wood": 43000000,
+        "grain": 130000000,
+        "herb": 28000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 29
+        }
+      },
+      {
+        "level": 30,
+        "wood": 60000000,
+        "grain": 180000000,
+        "herb": 39000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 30
+        }
+      }
+    ]
+  },
+  {
+    "id": "herb-garden",
+    "name": "薬草園 (Herb Garden)",
+    "name_en": "Herb Garden",
+    "icon": "🌿",
+    "category": "拠点施設",
+    "maxLevel": 30,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 135,
+        "grain": 135,
+        "herb": 0,
+        "time_seconds": 38,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 677,
+        "grain": 677,
+        "herb": 0,
+        "time_seconds": 107,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 1688,
+        "grain": 1688,
+        "herb": 0,
+        "time_seconds": 170,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 3469,
+        "grain": 3469,
+        "herb": 0,
+        "time_seconds": 220,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 10100,
+        "grain": 10100,
+        "herb": 0,
+        "time_seconds": 438,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 20900,
+        "grain": 20900,
+        "herb": 0,
+        "time_seconds": 657,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 32100,
+        "grain": 32100,
+        "herb": 0,
+        "time_seconds": 1429,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 48500,
+        "grain": 48500,
+        "herb": 16600,
+        "time_seconds": 2100,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 62422,
+        "grain": 62422,
+        "herb": 19158,
+        "time_seconds": 2700,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 152632,
+        "grain": 152632,
+        "herb": 49053,
+        "time_seconds": 3255,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 256843,
+        "grain": 256843,
+        "herb": 82422,
+        "time_seconds": 4232,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 284211,
+        "grain": 284211,
+        "herb": 95264,
+        "time_seconds": 5501,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 413685,
+        "grain": 413685,
+        "herb": 129474,
+        "time_seconds": 7153,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 573119,
+        "grain": 573119,
+        "herb": 172044,
+        "time_seconds": 10013,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 984947,
+        "grain": 984947,
+        "herb": 334409,
+        "time_seconds": 14018,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 1263158,
+        "grain": 1263158,
+        "herb": 424211,
+        "time_seconds": 19626,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 2315790,
+        "grain": 2315790,
+        "herb": 770527,
+        "time_seconds": 27476,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 2903226,
+        "grain": 2903226,
+        "herb": 902151,
+        "time_seconds": 38466,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 5053764,
+        "grain": 5053764,
+        "herb": 1505377,
+        "time_seconds": 53852,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 6666667,
+        "grain": 6666667,
+        "herb": 2258065,
+        "time_seconds": 72152,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      },
+      {
+        "level": 22,
+        "wood": 9189190,
+        "grain": 9189190,
+        "herb": 2918919,
+        "time_seconds": 93797,
+        "prerequisites": {
+          "Sanctuary": 22
+        }
+      },
+      {
+        "level": 23,
+        "wood": 11000000,
+        "grain": 11000000,
+        "herb": 3600000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 23
+        }
+      },
+      {
+        "level": 24,
+        "wood": 14000000,
+        "grain": 14000000,
+        "herb": 4500000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 24
+        }
+      },
+      {
+        "level": 25,
+        "wood": 24000000,
+        "grain": 24000000,
+        "herb": 7700000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 25
+        }
+      },
+      {
+        "level": 26,
+        "wood": 34000000,
+        "grain": 34000000,
+        "herb": 11000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 26
+        }
+      },
+      {
+        "level": 27,
+        "wood": 44000000,
+        "grain": 44000000,
+        "herb": 14000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 27
+        }
+      },
+      {
+        "level": 28,
+        "wood": 61000000,
+        "grain": 61000000,
+        "herb": 20000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 28
+        }
+      },
+      {
+        "level": 29,
+        "wood": 86000000,
+        "grain": 86000000,
+        "herb": 28000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 29
+        }
+      },
+      {
+        "level": 30,
+        "wood": 120000000,
+        "grain": 120000000,
+        "herb": 39000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 30
+        }
+      }
+    ]
+  },
+  {
+    "id": "warrior-statue",
+    "name": "戦士の像 (Warrior Statue)",
+    "name_en": "Warrior Statue",
+    "icon": "🗿",
+    "category": "拠点施設",
+    "maxLevel": 30,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 228,
+        "grain": 73,
+        "herb": 0,
+        "time_seconds": 30,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 992,
+        "grain": 337,
+        "herb": 0,
+        "time_seconds": 100,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 2457,
+        "grain": 836,
+        "herb": 0,
+        "time_seconds": 228,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 29600,
+        "grain": 9850,
+        "herb": 0,
+        "time_seconds": 1200,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 87732,
+        "grain": 28970,
+        "herb": 0,
+        "time_seconds": 2312,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 172165,
+        "grain": 58351,
+        "herb": 0,
+        "time_seconds": 4407,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 295877,
+        "grain": 98970,
+        "herb": 0,
+        "time_seconds": 8609,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 480413,
+        "grain": 162887,
+        "herb": 99691,
+        "time_seconds": 11914,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 551547,
+        "grain": 187629,
+        "herb": 118557,
+        "time_seconds": 15608,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 1443299,
+        "grain": 488660,
+        "herb": 289691,
+        "time_seconds": 19503,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 2371135,
+        "grain": 789691,
+        "herb": 495877,
+        "time_seconds": 25392,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 2631579,
+        "grain": 877895,
+        "herb": 535790,
+        "time_seconds": 33010,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 3814433,
+        "grain": 1237114,
+        "herb": 78866,
+        "time_seconds": 42913,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 5157895,
+        "grain": 1684211,
+        "herb": 1052632,
+        "time_seconds": 60078,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 9148937,
+        "grain": 2978724,
+        "herb": 1914894,
+        "time_seconds": 84110,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 10957447,
+        "grain": 3829788,
+        "herb": 2446809,
+        "time_seconds": 117753,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 21063830,
+        "grain": 6914894,
+        "herb": 4468086,
+        "time_seconds": 164855,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 23829788,
+        "grain": 7872341,
+        "herb": 5106383,
+        "time_seconds": 230796,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 44631579,
+        "grain": 14842106,
+        "herb": 10000000,
+        "time_seconds": 323115,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 64631579,
+        "grain": 21578948,
+        "herb": 13052632,
+        "time_seconds": 432909,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      },
+      {
+        "level": 22,
+        "wood": 85820106,
+        "grain": 28253969,
+        "herb": 16825397,
+        "time_seconds": 562781,
+        "prerequisites": {
+          "Sanctuary": 22
+        }
+      },
+      {
+        "level": 23,
+        "wood": 110114355,
+        "grain": 36331286,
+        "herb": 21692269,
+        "time_seconds": 793522,
+        "prerequisites": {
+          "Sanctuary": 23
+        }
+      },
+      {
+        "level": 24,
+        "wood": 134408603,
+        "grain": 44408603,
+        "herb": 26559140,
+        "time_seconds": 1024262,
+        "prerequisites": {
+          "Sanctuary": 24
+        }
+      },
+      {
+        "level": 25,
+        "wood": 220430108,
+        "grain": 72043011,
+        "herb": 46344087,
+        "time_seconds": 1433966,
+        "prerequisites": {
+          "Sanctuary": 25
+        }
+      },
+      {
+        "level": 26,
+        "wood": 300000000,
+        "grain": 100000000,
+        "herb": 65000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 26
+        }
+      },
+      {
+        "level": 27,
+        "wood": 390000000,
+        "grain": 130000000,
+        "herb": 84000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 27
+        }
+      },
+      {
+        "level": 28,
+        "wood": 550000000,
+        "grain": 180000000,
+        "herb": 120000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 28
+        }
+      },
+      {
+        "level": 29,
+        "wood": 770000000,
+        "grain": 260000000,
+        "herb": 170000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 29
+        }
+      },
+      {
+        "level": 30,
+        "wood": 1100000000,
+        "grain": 360000000,
+        "herb": 230000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 30
+        }
+      }
+    ]
+  },
+  {
+    "id": "ranger-statue",
+    "name": "レンジャーの像 (Ranger Statue)",
+    "name_en": "Ranger Statue",
+    "icon": "🏹",
+    "category": "拠点施設",
+    "maxLevel": 30,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 228,
+        "grain": 73,
+        "herb": 0,
+        "time_seconds": 30,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 992,
+        "grain": 337,
+        "herb": 0,
+        "time_seconds": 100,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 2457,
+        "grain": 836,
+        "herb": 0,
+        "time_seconds": 228,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 29600,
+        "grain": 9850,
+        "herb": 0,
+        "time_seconds": 1200,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 87732,
+        "grain": 28970,
+        "herb": 0,
+        "time_seconds": 2312,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 172165,
+        "grain": 58351,
+        "herb": 0,
+        "time_seconds": 4407,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 295877,
+        "grain": 98970,
+        "herb": 0,
+        "time_seconds": 8609,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 480413,
+        "grain": 162887,
+        "herb": 99691,
+        "time_seconds": 11914,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 551547,
+        "grain": 187629,
+        "herb": 118557,
+        "time_seconds": 15608,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 1443299,
+        "grain": 488660,
+        "herb": 289691,
+        "time_seconds": 19503,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 2371135,
+        "grain": 789691,
+        "herb": 495877,
+        "time_seconds": 25392,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 2631579,
+        "grain": 877895,
+        "herb": 535790,
+        "time_seconds": 33010,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 3814433,
+        "grain": 1237114,
+        "herb": 78866,
+        "time_seconds": 42913,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 5157895,
+        "grain": 1684211,
+        "herb": 1052632,
+        "time_seconds": 60078,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 9148937,
+        "grain": 2978724,
+        "herb": 1914894,
+        "time_seconds": 84110,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 10957447,
+        "grain": 3829788,
+        "herb": 2446809,
+        "time_seconds": 117753,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 21063830,
+        "grain": 6914894,
+        "herb": 4468086,
+        "time_seconds": 164855,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 23829788,
+        "grain": 7872341,
+        "herb": 5106383,
+        "time_seconds": 230796,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 44631579,
+        "grain": 14842106,
+        "herb": 10000000,
+        "time_seconds": 323115,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 64631579,
+        "grain": 21578948,
+        "herb": 13052632,
+        "time_seconds": 432909,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      },
+      {
+        "level": 22,
+        "wood": 85820106,
+        "grain": 28253969,
+        "herb": 16825397,
+        "time_seconds": 562781,
+        "prerequisites": {
+          "Sanctuary": 22
+        }
+      },
+      {
+        "level": 23,
+        "wood": 110114355,
+        "grain": 36331286,
+        "herb": 21692269,
+        "time_seconds": 793522,
+        "prerequisites": {
+          "Sanctuary": 23
+        }
+      },
+      {
+        "level": 24,
+        "wood": 134408603,
+        "grain": 44408603,
+        "herb": 26559140,
+        "time_seconds": 1024262,
+        "prerequisites": {
+          "Sanctuary": 24
+        }
+      },
+      {
+        "level": 25,
+        "wood": 220430108,
+        "grain": 72043011,
+        "herb": 46344087,
+        "time_seconds": 1433966,
+        "prerequisites": {
+          "Sanctuary": 25
+        }
+      },
+      {
+        "level": 26,
+        "wood": 300000000,
+        "grain": 100000000,
+        "herb": 65000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 26
+        }
+      },
+      {
+        "level": 27,
+        "wood": 390000000,
+        "grain": 130000000,
+        "herb": 84000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 27
+        }
+      },
+      {
+        "level": 28,
+        "wood": 550000000,
+        "grain": 180000000,
+        "herb": 120000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 28
+        }
+      },
+      {
+        "level": 29,
+        "wood": 770000000,
+        "grain": 260000000,
+        "herb": 170000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 29
+        }
+      },
+      {
+        "level": 30,
+        "wood": 1100000000,
+        "grain": 360000000,
+        "herb": 230000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 30
+        }
+      }
+    ]
+  },
+  {
+    "id": "warlock-statue",
+    "name": "ウォーロックの像 (Warlock Statue)",
+    "name_en": "Warlock Statue",
+    "icon": "🔮",
+    "category": "拠点施設",
+    "maxLevel": 30,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 228,
+        "grain": 73,
+        "herb": 0,
+        "time_seconds": 30,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 992,
+        "grain": 337,
+        "herb": 0,
+        "time_seconds": 100,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 2457,
+        "grain": 836,
+        "herb": 0,
+        "time_seconds": 228,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 29600,
+        "grain": 9850,
+        "herb": 0,
+        "time_seconds": 1200,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 87732,
+        "grain": 28970,
+        "herb": 0,
+        "time_seconds": 2312,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 172165,
+        "grain": 58351,
+        "herb": 0,
+        "time_seconds": 4407,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 295877,
+        "grain": 98970,
+        "herb": 0,
+        "time_seconds": 8609,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 480413,
+        "grain": 162887,
+        "herb": 99691,
+        "time_seconds": 11914,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 551547,
+        "grain": 187629,
+        "herb": 118557,
+        "time_seconds": 15608,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 1443299,
+        "grain": 488660,
+        "herb": 289691,
+        "time_seconds": 19503,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 2371135,
+        "grain": 789691,
+        "herb": 495877,
+        "time_seconds": 25392,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 2631579,
+        "grain": 877895,
+        "herb": 535790,
+        "time_seconds": 33010,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 3814433,
+        "grain": 1237114,
+        "herb": 78866,
+        "time_seconds": 42913,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 5157895,
+        "grain": 1684211,
+        "herb": 1052632,
+        "time_seconds": 60078,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 9148937,
+        "grain": 2978724,
+        "herb": 1914894,
+        "time_seconds": 84110,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 10957447,
+        "grain": 3829788,
+        "herb": 2446809,
+        "time_seconds": 117753,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 21063830,
+        "grain": 6914894,
+        "herb": 4468086,
+        "time_seconds": 164855,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 23829788,
+        "grain": 7872341,
+        "herb": 5106383,
+        "time_seconds": 230796,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 44631579,
+        "grain": 14842106,
+        "herb": 10000000,
+        "time_seconds": 323115,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 64631579,
+        "grain": 21578948,
+        "herb": 13052632,
+        "time_seconds": 432909,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      },
+      {
+        "level": 22,
+        "wood": 85820106,
+        "grain": 28253969,
+        "herb": 16825397,
+        "time_seconds": 562781,
+        "prerequisites": {
+          "Sanctuary": 22
+        }
+      },
+      {
+        "level": 23,
+        "wood": 110114355,
+        "grain": 36331286,
+        "herb": 21692269,
+        "time_seconds": 793522,
+        "prerequisites": {
+          "Sanctuary": 23
+        }
+      },
+      {
+        "level": 24,
+        "wood": 134408603,
+        "grain": 44408603,
+        "herb": 26559140,
+        "time_seconds": 1024262,
+        "prerequisites": {
+          "Sanctuary": 24
+        }
+      },
+      {
+        "level": 25,
+        "wood": 220430108,
+        "grain": 72043011,
+        "herb": 46344087,
+        "time_seconds": 1433966,
+        "prerequisites": {
+          "Sanctuary": 25
+        }
+      },
+      {
+        "level": 26,
+        "wood": 300000000,
+        "grain": 100000000,
+        "herb": 65000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 26
+        }
+      },
+      {
+        "level": 27,
+        "wood": 390000000,
+        "grain": 130000000,
+        "herb": 84000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 27
+        }
+      },
+      {
+        "level": 28,
+        "wood": 550000000,
+        "grain": 180000000,
+        "herb": 120000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 28
+        }
+      },
+      {
+        "level": 29,
+        "wood": 770000000,
+        "grain": 260000000,
+        "herb": 170000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 29
+        }
+      },
+      {
+        "level": 30,
+        "wood": 1100000000,
+        "grain": 360000000,
+        "herb": 230000000,
+        "time_seconds": 0,
+        "prerequisites": {
+          "Sanctuary": 30
+        }
+      }
+    ]
+  },
+  {
+    "id": "infirmary",
+    "name": "救護所 (Infirmary)",
+    "name_en": "Infirmary",
+    "icon": "🏥",
+    "category": "拠点施設",
+    "maxLevel": 23,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 73,
+        "grain": 228,
+        "herb": 0,
+        "time_seconds": 30,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 337,
+        "grain": 984,
+        "herb": 0,
+        "time_seconds": 62,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 836,
+        "grain": 2476,
+        "herb": 0,
+        "time_seconds": 88,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 6556,
+        "grain": 19300,
+        "herb": 0,
+        "time_seconds": 638,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 29300,
+        "grain": 88900,
+        "herb": 0,
+        "time_seconds": 2300,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 63600,
+        "grain": 188000,
+        "herb": 0,
+        "time_seconds": 4180,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 95685,
+        "grain": 286316,
+        "herb": 0,
+        "time_seconds": 8556,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 175000,
+        "grain": 462000,
+        "herb": 116000,
+        "time_seconds": 11429,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 156843,
+        "grain": 462106,
+        "herb": 115790,
+        "time_seconds": 12000,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 474469,
+        "grain": 1382979,
+        "herb": 381915,
+        "time_seconds": 19533,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 798937,
+        "grain": 2446809,
+        "herb": 648937,
+        "time_seconds": 25392,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 850262,
+        "grain": 2513090,
+        "herb": 690053,
+        "time_seconds": 33010,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 841490,
+        "grain": 2553192,
+        "herb": 682979,
+        "time_seconds": 33010,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 1720431,
+        "grain": 5053764,
+        "herb": 1397850,
+        "time_seconds": 60078,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 2887701,
+        "grain": 8877006,
+        "herb": 2245990,
+        "time_seconds": 84110,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 3850268,
+        "grain": 11657755,
+        "herb": 3208557,
+        "time_seconds": 117753,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 6984127,
+        "grain": 21269842,
+        "herb": 5502646,
+        "time_seconds": 164855,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 20,
+        "wood": 15132276,
+        "grain": 45291006,
+        "herb": 12275133,
+        "time_seconds": 323115,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 21587302,
+        "grain": 64656085,
+        "herb": 16613757,
+        "time_seconds": 432909,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      },
+      {
+        "level": 22,
+        "wood": 27195768,
+        "grain": 82751323,
+        "herb": 22751323,
+        "time_seconds": 562781,
+        "prerequisites": {
+          "Sanctuary": 22
+        }
+      },
+      {
+        "level": 23,
+        "wood": 32000000,
+        "grain": 94200000,
+        "herb": 24300000,
+        "time_seconds": 731635,
+        "prerequisites": {
+          "Sanctuary": 23
+        }
+      }
     ]
   },
   {
     "id": "barracks",
     "name": "兵舎 (Barracks)",
-    "icon": "🪖",
-    "category": "軍事施設",
-    "maxLevel": 30,
-    "description": "歩兵・弓兵・騎兵を育成・訓練する軍事拠点。レベル向上により上位ランク兵種（T1〜T4）の訓練が解禁されます。",
+    "name_en": "Barracks",
+    "icon": "⚔️",
+    "category": "拠点施設",
+    "maxLevel": 23,
     "levels": [
-      { "level": 1, "wood": 800, "food": 600, "steel": 0, "oil": 0, "time_seconds": 120, "prerequisites": { "HQ": 1 } },
-      { "level": 2, "wood": 1800, "food": 1400, "steel": 100, "oil": 0, "time_seconds": 450, "prerequisites": { "HQ": 2 } },
-      { "level": 3, "wood": 4000, "food": 3000, "steel": 300, "oil": 0, "time_seconds": 1200, "prerequisites": { "HQ": 3 } },
-      { "level": 4, "wood": 8000, "food": 6200, "steel": 800, "oil": 0, "time_seconds": 2700, "prerequisites": { "HQ": 4 } },
-      { "level": 5, "wood": 15000, "food": 11500, "steel": 1800, "oil": 100, "time_seconds": 5400, "prerequisites": { "HQ": 5 } },
-      { "level": 10, "wood": 110000, "food": 85000, "steel": 18000, "oil": 2500, "time_seconds": 64800, "prerequisites": { "HQ": 10 } },
-      { "level": 15, "wood": 620000, "food": 480000, "steel": 130000, "oil": 28000, "time_seconds": 216000, "prerequisites": { "HQ": 15 } },
-      { "level": 20, "wood": 2800000, "food": 2200000, "steel": 700000, "oil": 180000, "time_seconds": 604800, "prerequisites": { "HQ": 20 } },
-      { "level": 25, "wood": 11500000, "food": 9200000, "steel": 3100000, "oil": 880000, "time_seconds": 1451520, "prerequisites": { "HQ": 25 } },
-      { "level": 30, "wood": 45000000, "food": 36000000, "steel": 13500000, "oil": 4200000, "time_seconds": 3528000, "prerequisites": { "HQ": 30 } }
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 13,
+        "grain": 43,
+        "herb": 0,
+        "time_seconds": 63,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 337,
+        "grain": 974,
+        "herb": 0,
+        "time_seconds": 107,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 836,
+        "grain": 2609,
+        "herb": 0,
+        "time_seconds": 237,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 6731,
+        "grain": 19800,
+        "herb": 0,
+        "time_seconds": 781,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 20207,
+        "grain": 61547,
+        "herb": 0,
+        "time_seconds": 1856,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 39469,
+        "grain": 114894,
+        "herb": 0,
+        "time_seconds": 2958,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 65539,
+        "grain": 191795,
+        "herb": 0,
+        "time_seconds": 5316,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 98937,
+        "grain": 306383,
+        "herb": 80958,
+        "time_seconds": 8048,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 123405,
+        "grain": 378724,
+        "herb": 964894,
+        "time_seconds": 10565,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 304256,
+        "grain": 912766,
+        "herb": 250000,
+        "time_seconds": 13022,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 524868,
+        "grain": 1587302,
+        "herb": 400000,
+        "time_seconds": 16928,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 1798942,
+        "grain": 1798942,
+        "herb": 703704,
+        "time_seconds": 33010,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 810639,
+        "grain": 2446809,
+        "herb": 672341,
+        "time_seconds": 28609,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 1060216,
+        "grain": 3225807,
+        "herb": 934409,
+        "time_seconds": 40052,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 2051283,
+        "grain": 6256411,
+        "herb": 1641026,
+        "time_seconds": 56073,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 2688173,
+        "grain": 8064517,
+        "herb": 2043011,
+        "time_seconds": 78502,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 4731183,
+        "grain": 14516130,
+        "herb": 3548388,
+        "time_seconds": 109904,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 5502646,
+        "grain": 16931217,
+        "herb": 4232805,
+        "time_seconds": 153864,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 9677420,
+        "grain": 29139785,
+        "herb": 7956990,
+        "time_seconds": 215410,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 14731183,
+        "grain": 43978495,
+        "herb": 11182796,
+        "time_seconds": 288606,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      },
+      {
+        "level": 22,
+        "wood": 17311828,
+        "grain": 51935484,
+        "herb": 14838710,
+        "time_seconds": 375187,
+        "prerequisites": {
+          "Sanctuary": 22
+        }
+      },
+      {
+        "level": 23,
+        "wood": 23567568,
+        "grain": 69837838,
+        "herb": 17837838,
+        "time_seconds": 487744,
+        "prerequisites": {
+          "Sanctuary": 23
+        }
+      }
     ]
   },
   {
-    "id": "steel_mill",
-    "name": "製鉄所 (Steel Mill)",
-    "icon": "⚙️",
-    "category": "資源施設",
-    "maxLevel": 25,
-    "description": "中盤以降の施設強化・兵器製造に必要な「鋼鉄」を持続生産・貯蔵する採掘施設。",
+    "id": "tavern",
+    "name": "酒場 (Tavern)",
+    "name_en": "Tavern",
+    "icon": "🍺",
+    "category": "拠点施設",
+    "maxLevel": 14,
     "levels": [
-      { "level": 1, "wood": 500, "food": 400, "steel": 0, "oil": 0, "time_seconds": 90, "prerequisites": { "HQ": 4 } },
-      { "level": 5, "wood": 6500, "food": 5000, "steel": 400, "oil": 0, "time_seconds": 3600, "prerequisites": { "HQ": 5 } },
-      { "level": 10, "wood": 55000, "food": 42000, "steel": 5000, "oil": 800, "time_seconds": 43200, "prerequisites": { "HQ": 10 } },
-      { "level": 15, "wood": 340000, "food": 270000, "steel": 45000, "oil": 9000, "time_seconds": 144000, "prerequisites": { "HQ": 15 } },
-      { "level": 20, "wood": 1800000, "food": 1400000, "steel": 280000, "oil": 68000, "time_seconds": 432000, "prerequisites": { "HQ": 20 } },
-      { "level": 25, "wood": 8800000, "food": 7000000, "steel": 1650000, "oil": 450000, "time_seconds": 1123200, "prerequisites": { "HQ": 25 } }
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 13,
+        "grain": 43,
+        "herb": 0,
+        "time_seconds": 10,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 337,
+        "grain": 1031,
+        "herb": 0,
+        "time_seconds": 30,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 836,
+        "grain": 2410,
+        "herb": 0,
+        "time_seconds": 240,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 6796,
+        "grain": 20000,
+        "herb": 0,
+        "time_seconds": 640,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 34316,
+        "grain": 107369,
+        "herb": 0,
+        "time_seconds": 2600,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 69369,
+        "grain": 205264,
+        "herb": 0,
+        "time_seconds": 5155,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 113685,
+        "grain": 351579,
+        "herb": 0,
+        "time_seconds": 9636,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 180646,
+        "grain": 541936,
+        "herb": 173119,
+        "time_seconds": 13238,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 12,
+        "wood": 921277,
+        "grain": 2765958,
+        "herb": 929788,
+        "time_seconds": 29624,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 980646,
+        "grain": 3010753,
+        "herb": 949463,
+        "time_seconds": 38512,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 1405406,
+        "grain": 4432433,
+        "herb": 1405406,
+        "time_seconds": 50065,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      }
+    ]
+  },
+  {
+    "id": "walls",
+    "name": "防衛壁 (Walls)",
+    "name_en": "Walls",
+    "icon": "🧱",
+    "category": "拠点施設",
+    "maxLevel": 24,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 66,
+        "grain": 21,
+        "herb": 0,
+        "time_seconds": 30,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 1029,
+        "grain": 337,
+        "herb": 0,
+        "time_seconds": 60,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 2521,
+        "grain": 836,
+        "herb": 0,
+        "time_seconds": 88,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 20100,
+        "grain": 6848,
+        "herb": 0,
+        "time_seconds": 653,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 7,
+        "wood": 232000,
+        "grain": 78100,
+        "herb": 0,
+        "time_seconds": 5418,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 380000,
+        "grain": 126000,
+        "herb": 0,
+        "time_seconds": 10950,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 619000,
+        "grain": 210000,
+        "herb": 135000,
+        "time_seconds": 15078,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 760000,
+        "grain": 253000,
+        "herb": 163000,
+        "time_seconds": 20138,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 1789474,
+        "grain": 595790,
+        "herb": 406316,
+        "time_seconds": 26043,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 3200000,
+        "grain": 1100000,
+        "herb": 704000,
+        "time_seconds": 33857,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 3703704,
+        "grain": 1269842,
+        "herb": 761905,
+        "time_seconds": 44013,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 5079366,
+        "grain": 1693122,
+        "herb": 1045503,
+        "time_seconds": 57218,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 6560847,
+        "grain": 2222223,
+        "herb": 1481482,
+        "time_seconds": 80105,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 11534392,
+        "grain": 3915344,
+        "herb": 2645503,
+        "time_seconds": 112146,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 18,
+        "wood": 25400000,
+        "grain": 8300000,
+        "herb": 5400000,
+        "time_seconds": 219817,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 34680852,
+        "grain": 11595745,
+        "herb": 6914894,
+        "time_seconds": 307728,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 60000000,
+        "grain": 20000000,
+        "herb": 12978724,
+        "time_seconds": 430820,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 80531915,
+        "grain": 26808511,
+        "herb": 17127660,
+        "time_seconds": 577211,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      },
+      {
+        "level": 22,
+        "wood": 108510639,
+        "grain": 35531915,
+        "herb": 21914894,
+        "time_seconds": 750375,
+        "prerequisites": {
+          "Sanctuary": 22
+        }
+      },
+      {
+        "level": 24,
+        "wood": 163829788,
+        "grain": 54787235,
+        "herb": 34893618,
+        "time_seconds": 1365682,
+        "prerequisites": {
+          "Sanctuary": 24
+        }
+      }
+    ]
+  },
+  {
+    "id": "granary",
+    "name": "穀物倉庫 (Granary)",
+    "name_en": "Granary",
+    "icon": "🌾",
+    "category": "拠点施設",
+    "maxLevel": 12,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 228,
+        "grain": 73,
+        "herb": 0,
+        "time_seconds": 30,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 986,
+        "grain": 337,
+        "herb": 0,
+        "time_seconds": 107,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 2572,
+        "grain": 836,
+        "herb": 0,
+        "time_seconds": 237,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 20300,
+        "grain": 6901,
+        "herb": 0,
+        "time_seconds": 647,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 91341,
+        "grain": 30104,
+        "herb": 0,
+        "time_seconds": 2280,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 177320,
+        "grain": 60000,
+        "herb": 0,
+        "time_seconds": 4350,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 276289,
+        "grain": 92372,
+        "herb": 0,
+        "time_seconds": 8555,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 475790,
+        "grain": 162106,
+        "herb": 146316,
+        "time_seconds": 11468,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 540207,
+        "grain": 183506,
+        "herb": 176289,
+        "time_seconds": 15480,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 1368422,
+        "grain": 468422,
+        "herb": 432632,
+        "time_seconds": 19533,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 2446809,
+        "grain": 822341,
+        "herb": 762766,
+        "time_seconds": 25392,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      }
+    ]
+  },
+  {
+    "id": "lumber-depot",
+    "name": "木材倉庫 (Lumber Depot)",
+    "name_en": "Lumber Depot",
+    "icon": "🪵",
+    "category": "拠点施設",
+    "maxLevel": 13,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 228,
+        "grain": 225,
+        "herb": 73,
+        "time_seconds": 30,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 337,
+        "grain": 1011,
+        "herb": 0,
+        "time_seconds": 107,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 836,
+        "grain": 3606,
+        "herb": 0,
+        "time_seconds": 237,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 6585,
+        "grain": 19400,
+        "herb": 0,
+        "time_seconds": 647,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 8,
+        "wood": 96106,
+        "grain": 287369,
+        "herb": 0,
+        "time_seconds": 8555,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 160000,
+        "grain": 470527,
+        "herb": 154737,
+        "time_seconds": 11468,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 11,
+        "wood": 466316,
+        "grain": 1368422,
+        "herb": 443158,
+        "time_seconds": 19533,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 13,
+        "wood": 878307,
+        "grain": 2645503,
+        "herb": 869842,
+        "time_seconds": 33010,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      }
+    ]
+  },
+  {
+    "id": "herb-storage",
+    "name": "薬草・ハーブ倉庫 (Herb Storage)",
+    "name_en": "Herb Storage",
+    "icon": "🌿",
+    "category": "拠点施設",
+    "maxLevel": 15,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 148,
+        "grain": 148,
+        "herb": 0,
+        "time_seconds": 30,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 677,
+        "grain": 677,
+        "herb": 0,
+        "time_seconds": 107,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 1684,
+        "grain": 1684,
+        "herb": 0,
+        "time_seconds": 237,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 13400,
+        "grain": 13400,
+        "herb": 0,
+        "time_seconds": 647,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 60211,
+        "grain": 60211,
+        "herb": 0,
+        "time_seconds": 2280,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 120000,
+        "grain": 120000,
+        "herb": 0,
+        "time_seconds": 4350,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 11,
+        "wood": 967369,
+        "grain": 967369,
+        "herb": 449474,
+        "time_seconds": 19533,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 1578948,
+        "grain": 1578948,
+        "herb": 748422,
+        "time_seconds": 25392,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 14,
+        "wood": 2473119,
+        "grain": 2473119,
+        "herb": 1182796,
+        "time_seconds": 42913,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 3422460,
+        "grain": 3422460,
+        "herb": 1604279,
+        "time_seconds": 60078,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      }
+    ]
+  },
+  {
+    "id": "scout-squad",
+    "name": "偵察隊 (Scout Squad)",
+    "name_en": "Scout Squad",
+    "icon": "🔍",
+    "category": "拠点施設",
+    "maxLevel": 18,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 73,
+        "grain": 73,
+        "herb": 0,
+        "time_seconds": 100,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 337,
+        "grain": 337,
+        "herb": 0,
+        "time_seconds": 180,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 836,
+        "grain": 836,
+        "herb": 0,
+        "time_seconds": 260,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 7126,
+        "grain": 7126,
+        "herb": 0,
+        "time_seconds": 600,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 29685,
+        "grain": 29685,
+        "herb": 0,
+        "time_seconds": 2308,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 62948,
+        "grain": 62948,
+        "herb": 0,
+        "time_seconds": 3988,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 100106,
+        "grain": 100106,
+        "herb": 0,
+        "time_seconds": 8108,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 158948,
+        "grain": 158948,
+        "herb": 25474,
+        "time_seconds": 11068,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 12,
+        "wood": 814894,
+        "grain": 814894,
+        "herb": 135107,
+        "time_seconds": 25392,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 882796,
+        "grain": 882796,
+        "herb": 133334,
+        "time_seconds": 33010,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 18,
+        "wood": 6559140,
+        "grain": 6559140,
+        "herb": 1182796,
+        "time_seconds": 164855,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      }
+    ]
+  },
+  {
+    "id": "squad",
+    "name": "部隊出撃枠 (Squad)",
+    "name_en": "Squad",
+    "icon": "🎖️",
+    "category": "拠点施設",
+    "maxLevel": 15,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 148,
+        "grain": 148,
+        "herb": 0,
+        "time_seconds": 72,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 677,
+        "grain": 677,
+        "herb": 0,
+        "time_seconds": 106,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 1679,
+        "grain": 1679,
+        "herb": 0,
+        "time_seconds": 240,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 14400,
+        "grain": 14400,
+        "herb": 0,
+        "time_seconds": 648,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 61500,
+        "grain": 61500,
+        "herb": 0,
+        "time_seconds": 2235,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 121053,
+        "grain": 121053,
+        "herb": 0,
+        "time_seconds": 4308,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 187369,
+        "grain": 187369,
+        "herb": 0,
+        "time_seconds": 8566,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 308422,
+        "grain": 308422,
+        "herb": 52211,
+        "time_seconds": 11988,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 374469,
+        "grain": 374469,
+        "herb": 61171,
+        "time_seconds": 15558,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 902128,
+        "grain": 902128,
+        "herb": 154256,
+        "time_seconds": 19533,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 1578948,
+        "grain": 1578948,
+        "herb": 253685,
+        "time_seconds": 25392,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 1729730,
+        "grain": 1729730,
+        "herb": 267028,
+        "time_seconds": 25810,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 2433863,
+        "grain": 2433863,
+        "herb": 385186,
+        "time_seconds": 42913,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 3529412,
+        "grain": 3529412,
+        "herb": 566845,
+        "time_seconds": 60078,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      }
+    ]
+  },
+  {
+    "id": "smelting-workshop",
+    "name": "製錬工房 (Smelting Workshop)",
+    "name_en": "Smelting Workshop",
+    "icon": "⚙️",
+    "category": "拠点施設",
+    "maxLevel": 21,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 148,
+        "grain": 148,
+        "herb": 0,
+        "time_seconds": 20,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 677,
+        "grain": 677,
+        "herb": 0,
+        "time_seconds": 30,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 1737,
+        "grain": 1737,
+        "herb": 0,
+        "time_seconds": 240,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 6926,
+        "grain": 6926,
+        "herb": 0,
+        "time_seconds": 480,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 20300,
+        "grain": 20300,
+        "herb": 0,
+        "time_seconds": 605,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 42600,
+        "grain": 42600,
+        "herb": 0,
+        "time_seconds": 1555,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 64316,
+        "grain": 64316,
+        "herb": 0,
+        "time_seconds": 2999,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 100106,
+        "grain": 100106,
+        "herb": 49790,
+        "time_seconds": 4111,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 118948,
+        "grain": 118948,
+        "herb": 57158,
+        "time_seconds": 5333,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 313685,
+        "grain": 313685,
+        "herb": 156843,
+        "time_seconds": 6511,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 525264,
+        "grain": 525264,
+        "herb": 248422,
+        "time_seconds": 8464,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 569474,
+        "grain": 569474,
+        "herb": 280000,
+        "time_seconds": 11003,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 804211,
+        "grain": 804211,
+        "herb": 406316,
+        "time_seconds": 14305,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 1048422,
+        "grain": 1048422,
+        "herb": 574737,
+        "time_seconds": 20026,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 2010583,
+        "grain": 2010583,
+        "herb": 937567,
+        "time_seconds": 28036,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 2659575,
+        "grain": 2659575,
+        "herb": 1382979,
+        "time_seconds": 39251,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 4408603,
+        "grain": 4408603,
+        "herb": 2258065,
+        "time_seconds": 54952,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 5483871,
+        "grain": 5483871,
+        "herb": 2795699,
+        "time_seconds": 76932,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 9837838,
+        "grain": 9837838,
+        "herb": 4756757,
+        "time_seconds": 107705,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 14486487,
+        "grain": 14486487,
+        "herb": 6486487,
+        "time_seconds": 144303,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      }
+    ]
+  },
+  {
+    "id": "weaving-workshop",
+    "name": "紡績工房 (Weaving Workshop)",
+    "name_en": "Weaving Workshop",
+    "icon": "🧵",
+    "category": "拠点施設",
+    "maxLevel": 20,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 148,
+        "grain": 148,
+        "herb": 0,
+        "time_seconds": 20,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 677,
+        "grain": 677,
+        "herb": 0,
+        "time_seconds": 30,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 1743,
+        "grain": 1743,
+        "herb": 0,
+        "time_seconds": 230,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 7120,
+        "grain": 7120,
+        "herb": 0,
+        "time_seconds": 470,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 19100,
+        "grain": 19100,
+        "herb": 0,
+        "time_seconds": 630,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 41500,
+        "grain": 41500,
+        "herb": 0,
+        "time_seconds": 1565,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 66422,
+        "grain": 66422,
+        "herb": 0,
+        "time_seconds": 2999,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 103895,
+        "grain": 103895,
+        "herb": 52211,
+        "time_seconds": 4055,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 115790,
+        "grain": 115790,
+        "herb": 61790,
+        "time_seconds": 5308,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 317895,
+        "grain": 317895,
+        "herb": 156843,
+        "time_seconds": 6511,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 517205,
+        "grain": 517205,
+        "herb": 253764,
+        "time_seconds": 8464,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 591398,
+        "grain": 591398,
+        "herb": 283871,
+        "time_seconds": 11003,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 822581,
+        "grain": 822581,
+        "herb": 397850,
+        "time_seconds": 14305,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 1157895,
+        "grain": 1157895,
+        "herb": 525264,
+        "time_seconds": 20026,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 2000000,
+        "grain": 2000000,
+        "herb": 993685,
+        "time_seconds": 28036,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 2631579,
+        "grain": 2631579,
+        "herb": 1263158,
+        "time_seconds": 50051,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 4787235,
+        "grain": 4787235,
+        "herb": 2234043,
+        "time_seconds": 54952,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 5376345,
+        "grain": 5376345,
+        "herb": 2580646,
+        "time_seconds": 76932,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 9892474,
+        "grain": 9892474,
+        "herb": 4623656,
+        "time_seconds": 107705,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      }
+    ]
+  },
+  {
+    "id": "gear-workshop",
+    "name": "装備・ギア工房 (Gear Workshop)",
+    "name_en": "Gear Workshop",
+    "icon": "🔧",
+    "category": "拠点施設",
+    "maxLevel": 21,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 228,
+        "grain": 73,
+        "herb": 0,
+        "time_seconds": 11,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 1018,
+        "grain": 337,
+        "herb": 0,
+        "time_seconds": 50,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 2417,
+        "grain": 836,
+        "herb": 0,
+        "time_seconds": 115,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 19800,
+        "grain": 6738,
+        "herb": 0,
+        "time_seconds": 700,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 95200,
+        "grain": 31400,
+        "herb": 0,
+        "time_seconds": 2166,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 201000,
+        "grain": 67900,
+        "herb": 0,
+        "time_seconds": 5034,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 339000,
+        "grain": 110000,
+        "herb": 0,
+        "time_seconds": 9948,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 561703,
+        "grain": 187235,
+        "herb": 56170213,
+        "time_seconds": 13880,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 647873,
+        "grain": 219149,
+        "herb": 71915,
+        "time_seconds": 18007,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 1489362,
+        "grain": 519149,
+        "herb": 168086,
+        "time_seconds": 22788,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 2751323,
+        "grain": 916403,
+        "herb": 285715,
+        "time_seconds": 29624,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 3085107,
+        "grain": 997873,
+        "herb": 322341,
+        "time_seconds": 38512,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 804325,
+        "grain": 804325,
+        "herb": 405406,
+        "time_seconds": 14305,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 5913979,
+        "grain": 1935484,
+        "herb": 625807,
+        "time_seconds": 70091,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 10860216,
+        "grain": 3548388,
+        "herb": 1182796,
+        "time_seconds": 98128,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 14408603,
+        "grain": 4731183,
+        "herb": 1612904,
+        "time_seconds": 137379,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 24193549,
+        "grain": 8172044,
+        "herb": 2473119,
+        "time_seconds": 192330,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 30430108,
+        "grain": 10215054,
+        "herb": 3225807,
+        "time_seconds": 269262,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 49837838,
+        "grain": 16324325,
+        "herb": 5837838,
+        "time_seconds": 376968,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      },
+      {
+        "level": 21,
+        "wood": 72903226,
+        "grain": 23978495,
+        "herb": 7849463,
+        "time_seconds": 505060,
+        "prerequisites": {
+          "Sanctuary": 21
+        }
+      }
+    ]
+  },
+  {
+    "id": "watchtower",
+    "name": "監視塔 (Watchtower)",
+    "name_en": "Watchtower",
+    "icon": "🗼",
+    "category": "拠点施設",
+    "maxLevel": 20,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 2,
+        "wood": 47700,
+        "grain": 47700,
+        "herb": 0,
+        "time_seconds": 2888,
+        "prerequisites": {
+          "Sanctuary": 2
+        }
+      },
+      {
+        "level": 3,
+        "wood": 63618,
+        "grain": 63618,
+        "herb": 0,
+        "time_seconds": 3155,
+        "prerequisites": {
+          "Sanctuary": 3
+        }
+      },
+      {
+        "level": 4,
+        "wood": 89149,
+        "grain": 89149,
+        "herb": 0,
+        "time_seconds": 4668,
+        "prerequisites": {
+          "Sanctuary": 4
+        }
+      },
+      {
+        "level": 5,
+        "wood": 155320,
+        "grain": 155320,
+        "herb": 0,
+        "time_seconds": 6169,
+        "prerequisites": {
+          "Sanctuary": 5
+        }
+      },
+      {
+        "level": 6,
+        "wood": 429320,
+        "grain": 429320,
+        "herb": 0,
+        "time_seconds": 10670,
+        "prerequisites": {
+          "Sanctuary": 6
+        }
+      },
+      {
+        "level": 7,
+        "wood": 630688,
+        "grain": 630688,
+        "herb": 0,
+        "time_seconds": 17886,
+        "prerequisites": {
+          "Sanctuary": 7
+        }
+      },
+      {
+        "level": 8,
+        "wood": 743011,
+        "grain": 743011,
+        "herb": 0,
+        "time_seconds": 24261,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 894055,
+        "grain": 894055,
+        "herb": 125406,
+        "time_seconds": 26133,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 1035676,
+        "grain": 1035676,
+        "herb": 125406,
+        "time_seconds": 31890,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 2127660,
+        "grain": 2127660,
+        "herb": 264894,
+        "time_seconds": 35810,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 2903226,
+        "grain": 2903226,
+        "herb": 362366,
+        "time_seconds": 38088,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 3101605,
+        "grain": 3101605,
+        "herb": 380749,
+        "time_seconds": 46214,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 3655914,
+        "grain": 3655914,
+        "herb": 447312,
+        "time_seconds": 50065,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 5053764,
+        "grain": 5053764,
+        "herb": 643011,
+        "time_seconds": 70091,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 9081082,
+        "grain": 9081082,
+        "herb": 1081082,
+        "time_seconds": 98128,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 19892474,
+        "grain": 19892474,
+        "herb": 2688173,
+        "time_seconds": 192330,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 19891892,
+        "grain": 19891892,
+        "herb": 2702703,
+        "time_seconds": 192330,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 24864865,
+        "grain": 24864865,
+        "herb": 3135136,
+        "time_seconds": 269262,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      },
+      {
+        "level": 20,
+        "wood": 42270271,
+        "grain": 42270271,
+        "herb": 5729730,
+        "time_seconds": 376968,
+        "prerequisites": {
+          "Sanctuary": 20
+        }
+      }
+    ]
+  },
+  {
+    "id": "raven-workshop",
+    "name": "レイヴン工房 (Raven Workshop)",
+    "name_en": "Raven Workshop",
+    "icon": "🦅",
+    "category": "拠点施設",
+    "maxLevel": 19,
+    "levels": [
+      {
+        "level": 1,
+        "wood": 0,
+        "grain": 0,
+        "herb": 0,
+        "time_seconds": 0,
+        "prerequisites": {}
+      },
+      {
+        "level": 8,
+        "wood": 64657,
+        "grain": 64657,
+        "herb": 0,
+        "time_seconds": 3102,
+        "prerequisites": {
+          "Sanctuary": 8
+        }
+      },
+      {
+        "level": 9,
+        "wood": 95979,
+        "grain": 95979,
+        "herb": 51112,
+        "time_seconds": 4106,
+        "prerequisites": {
+          "Sanctuary": 9
+        }
+      },
+      {
+        "level": 10,
+        "wood": 122752,
+        "grain": 122752,
+        "herb": 0,
+        "time_seconds": 5308,
+        "prerequisites": {
+          "Sanctuary": 10
+        }
+      },
+      {
+        "level": 11,
+        "wood": 321277,
+        "grain": 321277,
+        "herb": 148937,
+        "time_seconds": 6466,
+        "prerequisites": {
+          "Sanctuary": 11
+        }
+      },
+      {
+        "level": 12,
+        "wood": 536899,
+        "grain": 536899,
+        "herb": 239573,
+        "time_seconds": 8406,
+        "prerequisites": {
+          "Sanctuary": 12
+        }
+      },
+      {
+        "level": 13,
+        "wood": 555676,
+        "grain": 555676,
+        "herb": 287568,
+        "time_seconds": 8768,
+        "prerequisites": {
+          "Sanctuary": 13
+        }
+      },
+      {
+        "level": 14,
+        "wood": 846487,
+        "grain": 846487,
+        "herb": 401082,
+        "time_seconds": 14305,
+        "prerequisites": {
+          "Sanctuary": 14
+        }
+      },
+      {
+        "level": 15,
+        "wood": 1052632,
+        "grain": 1052632,
+        "herb": 561053,
+        "time_seconds": 20026,
+        "prerequisites": {
+          "Sanctuary": 15
+        }
+      },
+      {
+        "level": 16,
+        "wood": 1925134,
+        "grain": 1925134,
+        "herb": 926204,
+        "time_seconds": 28036,
+        "prerequisites": {
+          "Sanctuary": 16
+        }
+      },
+      {
+        "level": 17,
+        "wood": 2580646,
+        "grain": 2580646,
+        "herb": 1290323,
+        "time_seconds": 39251,
+        "prerequisites": {
+          "Sanctuary": 17
+        }
+      },
+      {
+        "level": 18,
+        "wood": 4623656,
+        "grain": 4623656,
+        "herb": 2258065,
+        "time_seconds": 54952,
+        "prerequisites": {
+          "Sanctuary": 18
+        }
+      },
+      {
+        "level": 19,
+        "wood": 5729730,
+        "grain": 5729730,
+        "herb": 2702703,
+        "time_seconds": 76932,
+        "prerequisites": {
+          "Sanctuary": 19
+        }
+      }
     ]
   }
 ]
