@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
       itemsContainer.innerHTML = `<div style="text-align:center; padding:3rem; color:var(--accent-red);">データの読み込み中にエラーが発生しました。</div>`;
     });
 
-  // イベントリスナー: リアルタイム検索
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       currentSearchQuery = e.target.value.toLowerCase().trim();
@@ -65,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // イベントリスナー: カテゴリタブ
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       tabButtons.forEach(b => b.classList.remove('active'));
@@ -75,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // イベントリスナー: ビュー切替 (Grid / Table)
   viewButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       viewButtons.forEach(b => b.classList.remove('active'));
@@ -85,18 +82,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // フィルタリングと描画処理
+  // 拡張検索・フィルタリング処理
   function renderData() {
     const filtered = allItems.filter(item => {
       // カテゴリ絞り込み
       const matchCategory = (currentCategory === 'all' || item.category === currentCategory);
       
-      // テキスト検索絞り込み (名称, タイプ, 説明文, 効果)
-      const matchSearch = !currentSearchQuery || 
-        item.name.toLowerCase().includes(currentSearchQuery) ||
-        item.type.toLowerCase().includes(currentSearchQuery) ||
-        item.description.toLowerCase().includes(currentSearchQuery) ||
-        (item.effects && item.effects.some(eff => eff.toLowerCase().includes(currentSearchQuery)));
+      // あいまい検索対象フィールドの統合
+      const searchTargetText = [
+        item.name,
+        item.type,
+        item.description,
+        item.troopType || '',
+        item.setEffects || '',
+        item.recommended || '',
+        item.priority || '',
+        item.slot || '',
+        ...(item.tags || []),
+        ...(item.effects || [])
+      ].join(' ').toLowerCase();
+
+      const matchSearch = !currentSearchQuery || searchTargetText.includes(currentSearchQuery);
 
       return matchCategory && matchSearch;
     });
@@ -110,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
           <div style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
           <h3>条件に一致するデータが見つかりませんでした</h3>
-          <p style="font-size: 0.9rem; margin-top: 0.5rem;">検索キーワードやカテゴリ設定を変更してお試しください。</p>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem;">兵種名（歩兵/弓兵/騎兵）、セット効果名（狂乱/鉄壁）、施設名などで検索をお試しください。</p>
         </div>
       `;
       return;
@@ -123,7 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // カードグリッド描画
   function renderGridView(items) {
     itemsContainer.className = 'items-grid';
     itemsContainer.innerHTML = items.map(item => `
@@ -135,21 +140,21 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="item-badges">
               <span class="badge-rarity ${item.rarity.toLowerCase()}">${escapeHtml(item.rarity)}</span>
               <span class="badge-type">${escapeHtml(item.type)}</span>
+              ${item.troopType ? `<span class="badge-type" style="color:var(--accent-gold); border-color:var(--accent-gold);">${escapeHtml(item.troopType)}</span>` : ''}
             </div>
           </div>
         </div>
         <ul class="item-effects">
+          ${item.setEffects ? `<li style="color:var(--accent-gold); font-weight:700;">${escapeHtml(item.setEffects)}</li>` : ''}
           ${item.effects ? item.effects.slice(0, 2).map(eff => `<li>${escapeHtml(eff)}</li>`).join('') : ''}
-          ${item.effects && item.effects.length > 2 ? `<li style="color:var(--text-muted); list-style:none;">...他${item.effects.length - 2}件</li>` : ''}
         </ul>
         <div class="item-card-footer">
-          <span>${escapeHtml(item.level || '')}</span>
-          <button class="btn btn-secondary btn-sm">詳細を見る</button>
+          <span>${escapeHtml(item.priority || item.level || '')}</span>
+          <button class="btn btn-secondary btn-sm">詳細情報</button>
         </div>
       </div>
     `).join('');
 
-    // カードのクリックイベント
     document.querySelectorAll('.item-card').forEach(card => {
       card.addEventListener('click', () => {
         const id = card.dataset.id;
@@ -159,7 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // テーブル一覧描画
   function renderTableView(items) {
     itemsContainer.className = 'table-wrapper';
     itemsContainer.innerHTML = `
@@ -169,9 +173,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <th>アイコン</th>
             <th>名称</th>
             <th>レアリティ</th>
-            <th>タイプ</th>
-            <th>レベル / 段階</th>
-            <th>主な効果</th>
+            <th>タイプ / 兵種</th>
+            <th>推奨ビルド / 優先度</th>
+            <th>主要効果・解説</th>
           </tr>
         </thead>
         <tbody>
@@ -180,16 +184,15 @@ document.addEventListener('DOMContentLoaded', () => {
               <td style="font-size:1.5rem; text-align:center;">${item.icon || '📦'}</td>
               <td style="font-weight:700;">${escapeHtml(item.name)}</td>
               <td><span class="badge-rarity ${item.rarity.toLowerCase()}">${escapeHtml(item.rarity)}</span></td>
-              <td>${escapeHtml(item.type)}</td>
-              <td>${escapeHtml(item.level || '-')}</td>
-              <td style="font-size:0.85rem;">${item.effects ? escapeHtml(item.effects[0]) : '-'}</td>
+              <td>${escapeHtml(item.type)} ${item.troopType ? `(${escapeHtml(item.troopType)})` : ''}</td>
+              <td>${escapeHtml(item.recommended || item.priority || item.level || '-')}</td>
+              <td style="font-size:0.85rem;">${item.setEffects ? escapeHtml(item.setEffects) : (item.effects ? escapeHtml(item.effects[0]) : '-')}</td>
             </tr>
           `).join('')}
         </tbody>
       </table>
     `;
 
-    // 行クリックイベント
     document.querySelectorAll('.data-table tbody tr').forEach(row => {
       row.addEventListener('click', () => {
         const id = row.dataset.id;
@@ -199,37 +202,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // モーダル開く処理
   function openModal(item) {
     modalIcon.textContent = item.icon || '📦';
     modalTitle.textContent = item.name;
     modalRarity.textContent = item.rarity;
     modalRarity.className = `badge-rarity ${item.rarity.toLowerCase()}`;
-    modalType.textContent = item.type;
+    modalType.textContent = item.type + (item.troopType ? ` [${item.troopType}]` : '');
     modalLevel.textContent = item.level ? `(${item.level})` : '';
     modalDesc.textContent = item.description || '詳細説明はありません。';
 
     // 効果一覧
-    if (item.effects && item.effects.length > 0) {
-      modalEffects.innerHTML = item.effects.map(eff => `<li>${escapeHtml(eff)}</li>`).join('');
-    } else {
-      modalEffects.innerHTML = '<li>効果情報なし</li>';
+    let effectsHtml = '';
+    if (item.setEffects) {
+      effectsHtml += `<li style="color:var(--accent-gold); font-weight:700; margin-bottom:0.5rem;">【セット効果】 ${escapeHtml(item.setEffects)}</li>`;
     }
+    if (item.recommended) {
+      effectsHtml += `<li style="color:var(--accent-blue); font-weight:700; margin-bottom:0.5rem;">【推奨装備/編成】 ${escapeHtml(item.recommended)}</li>`;
+    }
+    if (item.effects && item.effects.length > 0) {
+      effectsHtml += item.effects.map(eff => `<li>${escapeHtml(eff)}</li>`).join('');
+    }
+    modalEffects.innerHTML = effectsHtml || '<li>効果情報なし</li>';
 
     // 必要素材一覧
     if (item.materials && item.materials.length > 0) {
       modalMaterials.innerHTML = item.materials.map(mat => `
-        <span class="material-chip">🧪 ${escapeHtml(mat.name)} x${mat.amount.toLocaleString()}</span>
+        <span class="material-chip">🧪 ${escapeHtml(mat.name)} x${typeof mat.amount === 'number' ? mat.amount.toLocaleString() : mat.amount}</span>
       `).join('');
     } else {
       modalMaterials.innerHTML = '<span class="material-chip" style="color:var(--text-muted);">必要素材なし</span>';
     }
 
     modalOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden'; // 背景スクロール禁止
+    document.body.style.overflow = 'hidden';
   }
 
-  // モーダル閉じる処理
   function closeModal() {
     modalOverlay.classList.remove('active');
     document.body.style.overflow = '';
@@ -248,7 +255,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // HTMLエスケープヘルパー
   function escapeHtml(str) {
     if (!str) return '';
     return String(str)

@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const rawTimeEl = document.getElementById('raw-time');
   const savedTimeEl = document.getElementById('saved-time');
   const resourceCostsEl = document.getElementById('resource-costs');
+  const prereqBoxEl = document.getElementById('prereq-box');
   const shareBtn = document.getElementById('share-btn');
   const copyResultBtn = document.getElementById('copy-result-btn');
 
@@ -39,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
       facilityData = data;
       initFacilitySelect();
 
-      // 初期選択
       if (paramFac && facilityData.some(f => f.id === paramFac)) {
         facilitySelect.value = paramFac;
       }
@@ -62,24 +62,23 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(err => {
       console.error(err);
-      resourceCostsEl.innerHTML = `<div style="color:var(--accent-red); padding:1rem;">データの読み込みエラーが発生しました。</div>`;
+      if (resourceCostsEl) {
+        resourceCostsEl.innerHTML = `<div style="color:var(--accent-red); padding:1rem;">データの読み込みエラーが発生しました。</div>`;
+      }
     });
 
-  // セレクトボックスの初期化
   function initFacilitySelect() {
     facilitySelect.innerHTML = facilityData.map(fac => `
       <option value="${fac.id}">${fac.icon} ${fac.name} (Max Lv.${fac.maxLevel})</option>
     `).join('');
   }
 
-  // 施設変更時
   function onFacilityChange() {
     const selectedId = facilitySelect.value;
     currentFacility = facilityData.find(f => f.id === selectedId);
 
     if (!currentFacility) return;
 
-    // スライダーの範囲設定
     const maxLv = currentFacility.maxLevel;
     levelFromInput.max = maxLv - 1;
     levelToInput.max = maxLv;
@@ -103,7 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
     speedBuffVal.textContent = `${speedBuffInput.value}%`;
   }
 
-  // イベントリスナー
   facilitySelect.addEventListener('change', onFacilityChange);
 
   levelFromInput.addEventListener('input', () => {
@@ -133,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     calculate();
   });
 
-  // 計算ロジック
+  // 新計算ロジック (wood, food, steel, oil, time_seconds, prerequisites)
   function calculate() {
     if (!currentFacility) return;
 
@@ -142,50 +140,85 @@ document.addEventListener('DOMContentLoaded', () => {
     const buffPercent = parseInt(speedBuffInput.value, 10);
 
     let totalRawSec = 0;
-    const resourceTotals = {};
+    const totals = { wood: 0, food: 0, steel: 0, oil: 0 };
+    const mergedPrereqs = {};
 
-    // Lv.(fromLv+1) から Lv.toLv までのコストと時間を累計
     for (let lv = fromLv + 1; lv <= toLv; lv++) {
       const lvData = currentFacility.levels.find(l => l.level === lv);
       if (lvData) {
-        totalRawSec += lvData.timeSec || 0;
+        totalRawSec += lvData.time_seconds || lvData.timeSec || 0;
+
+        // 資源集計
+        if (lvData.wood) totals.wood += lvData.wood;
+        if (lvData.food) totals.food += lvData.food;
+        if (lvData.steel) totals.steel += lvData.steel;
+        if (lvData.oil) totals.oil += lvData.oil;
+
+        // 旧プロパティとの後方互換
         if (lvData.costs) {
-          for (const [resName, amount] of Object.entries(lvData.costs)) {
-            resourceTotals[resName] = (resourceTotals[resName] || 0) + amount;
+          if (lvData.costs["強化鋼鉄"]) totals.steel += lvData.costs["強化鋼鉄"];
+          if (lvData.costs["プラズマコア"]) totals.oil += lvData.costs["プラズマコア"] * 100;
+        }
+
+        // 前提条件の集計
+        if (lvData.prerequisites) {
+          for (const [preFac, preReqLv] of Object.entries(lvData.prerequisites)) {
+            mergedPrereqs[preFac] = Math.max(mergedPrereqs[preFac] || 0, preReqLv);
           }
         }
       }
     }
 
-    // 建設短縮バフの計算: 実効時間 = 基礎時間 / (1 + バフ率/100)
+    // 建設短縮バフ計算
     const effectiveSec = Math.round(totalRawSec / (1 + buffPercent / 100));
     const savedSec = Math.max(0, totalRawSec - effectiveSec);
 
-    // 時間表示の更新
     totalTimeEl.textContent = formatDuration(effectiveSec);
     rawTimeEl.textContent = `基礎時間: ${formatDuration(totalRawSec)}`;
     savedTimeEl.textContent = `短縮量: ${formatDuration(savedSec)}`;
 
-    // 必要資材リストの更新
-    const resEntries = Object.entries(resourceTotals);
-    if (resEntries.length === 0) {
+    // 必要資材表示
+    const resMap = [
+      { key: 'wood', name: '木材 (Wood)', icon: '🪵' },
+      { key: 'food', name: '食料 (Food)', icon: '🌾' },
+      { key: 'steel', name: '鋼鉄 (Steel)', icon: '⚙️' },
+      { key: 'oil', name: 'オイル (Oil)', icon: '🛢️' }
+    ];
+
+    const activeRes = resMap.filter(r => totals[r.key] > 0);
+
+    if (activeRes.length === 0) {
       resourceCostsEl.innerHTML = '<span class="material-chip">必要資材なし</span>';
     } else {
-      resourceCostsEl.innerHTML = resEntries.map(([name, amount]) => `
+      resourceCostsEl.innerHTML = activeRes.map(r => `
         <div class="result-stat-card" style="text-align:left;">
-          <div class="result-stat-label">🧪 ${escapeHtml(name)}</div>
-          <div class="result-stat-value" style="font-size:1.2rem; color:var(--text-main);">${amount.toLocaleString()}</div>
+          <div class="result-stat-label">${r.icon} ${r.name}</div>
+          <div class="result-stat-value" style="font-size:1.2rem; color:var(--text-main);">${totals[r.key].toLocaleString()}</div>
         </div>
       `).join('');
     }
 
-    // URL共有パラメータ更新
+    // 前提条件表示
+    if (prereqBoxEl) {
+      const prereqEntries = Object.entries(mergedPrereqs);
+      if (prereqEntries.length > 0) {
+        prereqBoxEl.style.display = 'block';
+        prereqBoxEl.innerHTML = `
+          <div style="font-size:0.85rem; font-weight:700; color:var(--accent-gold); margin-bottom:0.4rem;">⚠️ 建設解放に必要な前提施設条件:</div>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            ${prereqEntries.map(([fName, rLv]) => `<span class="material-chip" style="border-color:var(--accent-gold);">🏛️ ${escapeHtml(fName)} Lv.${rLv}</span>`).join('')}
+          </div>
+        `;
+      } else {
+        prereqBoxEl.style.display = 'none';
+      }
+    }
+
     updateShareUrl(currentFacility.id, fromLv, toLv, buffPercent);
   }
 
   function formatDuration(totalSeconds) {
     if (totalSeconds <= 0) return '即時';
-
     const days = Math.floor(totalSeconds / 86400);
     const hours = Math.floor((totalSeconds % 86400) / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
@@ -196,7 +229,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hours > 0) parts.push(`${hours}時間`);
     if (minutes > 0) parts.push(`${minutes}分`);
     if (seconds > 0 && days === 0) parts.push(`${seconds}秒`);
-
     return parts.join(' ') || '0秒';
   }
 
@@ -209,7 +241,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.history.replaceState({}, '', url.toString());
   }
 
-  // 共有ボタンイベント
   if (shareBtn) {
     shareBtn.addEventListener('click', () => {
       window.copyToClipboard(window.location.href, '計算設定の共有リンクをコピーしました！');
@@ -221,9 +252,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!currentFacility) return;
       const text = `【ラストアサイラム 施設強化計算】\n` +
                    `施設: ${currentFacility.name}\n` +
-                   `強化範囲: Lv.${levelFromInput.value} ➔ Lv.${levelToInput.value}\n` +
-                   `建設バフ: ${speedBuffInput.value}%\n` +
-                   `所要時間: ${totalTimeEl.textContent} (${rawTimeEl.textContent})\n` +
+                   `強化: Lv.${levelFromInput.value} ➔ Lv.${levelToInput.value}\n` +
+                   `短縮バフ: ${speedBuffInput.value}%\n` +
+                   `実効所要時間: ${totalTimeEl.textContent}\n` +
                    `URL: ${window.location.href}`;
       window.copyToClipboard(text, '計算結果テキストをコピーしました！');
     });
