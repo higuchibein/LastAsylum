@@ -906,12 +906,12 @@
   },
   {
     "id": "item-fac-sanctuary",
-    "name": "聖域 (Sanctuary / HQ)",
+    "name": "聖域 (本部 / Sanctuary)",
     "category": "facility",
     "rarity": "UR",
     "type": "拠点施設",
     "maxLevel": 30,
-    "description": "公式抽出施設: 聖域 (Sanctuary / HQ) (最大Lv.30)",
+    "description": "抽出実データ: 聖域 (本部 / Sanctuary) (最大Lv.30)",
     "tags": [
       "聖域 (Sanctuary / HQ)",
       "sanctuary",
@@ -926,13 +926,13 @@
     "rarity": "SSR",
     "type": "拠点施設",
     "maxLevel": 30,
-    "description": "公式抽出施設: 第1研究所 (Research Lab) (最大Lv.30)",
+    "description": "抽出実データ: 第1研究所 (Research Lab) (最大Lv.30)",
     "tags": [
       "第1研究所 (Research Lab)",
       "1st-lab",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🔬"
   },
   {
     "id": "item-fac-builders-hut",
@@ -941,13 +941,13 @@
     "rarity": "SSR",
     "type": "拠点施設",
     "maxLevel": 30,
-    "description": "公式抽出施設: 大工の小屋 (Builders Hut) (最大Lv.30)",
+    "description": "抽出実データ: 大工の小屋 (Builders Hut) (最大Lv.30)",
     "tags": [
       "大工の小屋 (Builders Hut)",
       "builders-hut",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🔨"
   },
   {
     "id": "item-fac-alliance-hall",
@@ -956,7 +956,7 @@
     "rarity": "SSR",
     "type": "拠点施設",
     "maxLevel": 30,
-    "description": "公式抽出施設: 同盟ホール (Alliance Hall) (最大Lv.30)",
+    "description": "抽出実データ: 同盟ホール (Alliance Hall) (最大Lv.30)",
     "tags": [
       "同盟ホール (Alliance Hall)",
       "alliance-hall",
@@ -971,13 +971,13 @@
     "rarity": "SSR",
     "type": "拠点施設",
     "maxLevel": 30,
-    "description": "公式抽出施設: 訓練場 (Training Grounds) (最大Lv.30)",
+    "description": "抽出実データ: 訓練場 (Training Grounds) (最大Lv.30)",
     "tags": [
       "訓練場 (Training Grounds)",
       "training-grounds",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🪖"
   },
   {
     "id": "item-fac-antitoxin-workshop",
@@ -986,13 +986,13 @@
     "rarity": "SSR",
     "type": "拠点施設",
     "maxLevel": 30,
-    "description": "公式抽出施設: 抗毒素工房 (Antitoxin Workshop) (最大Lv.30)",
+    "description": "抽出実データ: 抗毒素工房 (Antitoxin Workshop) (最大Lv.30)",
     "tags": [
       "抗毒素工房 (Antitoxin Workshop)",
       "antitoxin-workshop",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🧪"
   },
   {
     "id": "item-fac-farm",
@@ -1001,13 +1001,13 @@
     "rarity": "SSR",
     "type": "拠点施設",
     "maxLevel": 30,
-    "description": "公式抽出施設: 農場 (Farm) (最大Lv.30)",
+    "description": "抽出実データ: 農場 (Farm) (最大Lv.30)",
     "tags": [
       "農場 (Farm)",
       "farm",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🌾"
   },
   {
     "id": "item-fac-lumberyard",
@@ -1016,13 +1016,13 @@
     "rarity": "SSR",
     "type": "拠点施設",
     "maxLevel": 30,
-    "description": "公式抽出施設: 木材伐採場 (Lumberyard) (最大Lv.30)",
+    "description": "抽出実データ: 木材伐採場 (Lumberyard) (最大Lv.30)",
     "tags": [
       "木材伐採場 (Lumberyard)",
       "lumberyard",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🪵"
   },
   {
     "id": "item-fac-herb-garden",
@@ -1031,13 +1031,13 @@
     "rarity": "SSR",
     "type": "拠点施設",
     "maxLevel": 30,
-    "description": "公式抽出施設: 薬草園 (Herb Garden) (最大Lv.30)",
+    "description": "抽出実データ: 薬草園 (Herb Garden) (最大Lv.30)",
     "tags": [
       "薬草園 (Herb Garden)",
       "herb-garden",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🌿"
   },
   {
     "id": "item-fac-warrior-statue",
@@ -1046,13 +1046,13 @@
     "rarity": "SSR",
     "type": "拠点施設",
     "maxLevel": 30,
-    "description": "公式抽出施設: 戦士の像 (Warrior Statue) (最大Lv.30)",
+    "description": "抽出実データ: 戦士の像 (Warrior Statue) (最大Lv.30)",
     "tags": [
       "戦士の像 (Warrior Statue)",
       "warrior-statue",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🗿"
   },
   {
     "id": "item-fac-ranger-statue",
@@ -1061,13 +1061,13 @@
     "rarity": "SSR",
     "type": "拠点施設",
     "maxLevel": 30,
-    "description": "公式抽出施設: レンジャーの像 (Ranger Statue) (最大Lv.30)",
+    "description": "抽出実データ: レンジャーの像 (Ranger Statue) (最大Lv.30)",
     "tags": [
       "レンジャーの像 (Ranger Statue)",
       "ranger-statue",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🏹"
   },
   {
     "id": "item-fac-warlock-statue",
@@ -1076,28 +1076,28 @@
     "rarity": "SSR",
     "type": "拠点施設",
     "maxLevel": 30,
-    "description": "公式抽出施設: ウォーロックの像 (Warlock Statue) (最大Lv.30)",
+    "description": "抽出実データ: ウォーロックの像 (Warlock Statue) (最大Lv.30)",
     "tags": [
       "ウォーロックの像 (Warlock Statue)",
       "warlock-statue",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🔮"
   },
   {
     "id": "item-fac-infirmary",
-    "name": "救護所 (Infirmary)",
+    "name": "救護所・病院 (Infirmary)",
     "category": "facility",
     "rarity": "SSR",
     "type": "拠点施設",
-    "maxLevel": 23,
-    "description": "公式抽出施設: 救護所 (Infirmary) (最大Lv.23)",
+    "maxLevel": 30,
+    "description": "抽出実データ: 救護所・病院 (Infirmary) (最大Lv.30)",
     "tags": [
       "救護所 (Infirmary)",
       "infirmary",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🏥"
   },
   {
     "id": "item-fac-barracks",
@@ -1105,14 +1105,14 @@
     "category": "facility",
     "rarity": "SSR",
     "type": "拠点施設",
-    "maxLevel": 23,
-    "description": "公式抽出施設: 兵舎 (Barracks) (最大Lv.23)",
+    "maxLevel": 30,
+    "description": "抽出実データ: 兵舎 (Barracks) (最大Lv.30)",
     "tags": [
       "兵舎 (Barracks)",
       "barracks",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "⚔️"
   },
   {
     "id": "item-fac-tavern",
@@ -1120,14 +1120,14 @@
     "category": "facility",
     "rarity": "SSR",
     "type": "拠点施設",
-    "maxLevel": 14,
-    "description": "公式抽出施設: 酒場 (Tavern) (最大Lv.14)",
+    "maxLevel": 30,
+    "description": "抽出実データ: 酒場 (Tavern) (最大Lv.30)",
     "tags": [
       "酒場 (Tavern)",
       "tavern",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🍺"
   },
   {
     "id": "item-fac-walls",
@@ -1135,14 +1135,14 @@
     "category": "facility",
     "rarity": "SSR",
     "type": "拠点施設",
-    "maxLevel": 24,
-    "description": "公式抽出施設: 防衛壁 (Walls) (最大Lv.24)",
+    "maxLevel": 30,
+    "description": "抽出実データ: 防衛壁 (Walls) (最大Lv.30)",
     "tags": [
       "防衛壁 (Walls)",
       "walls",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🧱"
   },
   {
     "id": "item-fac-granary",
@@ -1150,14 +1150,14 @@
     "category": "facility",
     "rarity": "SSR",
     "type": "拠点施設",
-    "maxLevel": 12,
-    "description": "公式抽出施設: 穀物倉庫 (Granary) (最大Lv.12)",
+    "maxLevel": 30,
+    "description": "抽出実データ: 穀物倉庫 (Granary) (最大Lv.30)",
     "tags": [
       "穀物倉庫 (Granary)",
       "granary",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🌾"
   },
   {
     "id": "item-fac-lumber-depot",
@@ -1165,14 +1165,14 @@
     "category": "facility",
     "rarity": "SSR",
     "type": "拠点施設",
-    "maxLevel": 13,
-    "description": "公式抽出施設: 木材倉庫 (Lumber Depot) (最大Lv.13)",
+    "maxLevel": 30,
+    "description": "抽出実データ: 木材倉庫 (Lumber Depot) (最大Lv.30)",
     "tags": [
       "木材倉庫 (Lumber Depot)",
       "lumber-depot",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🪵"
   },
   {
     "id": "item-fac-herb-storage",
@@ -1180,14 +1180,14 @@
     "category": "facility",
     "rarity": "SSR",
     "type": "拠点施設",
-    "maxLevel": 15,
-    "description": "公式抽出施設: 薬草・ハーブ倉庫 (Herb Storage) (最大Lv.15)",
+    "maxLevel": 30,
+    "description": "抽出実データ: 薬草・ハーブ倉庫 (Herb Storage) (最大Lv.30)",
     "tags": [
       "薬草・ハーブ倉庫 (Herb Storage)",
       "herb-storage",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🌿"
   },
   {
     "id": "item-fac-scout-squad",
@@ -1195,29 +1195,29 @@
     "category": "facility",
     "rarity": "SSR",
     "type": "拠点施設",
-    "maxLevel": 18,
-    "description": "公式抽出施設: 偵察隊 (Scout Squad) (最大Lv.18)",
+    "maxLevel": 30,
+    "description": "抽出実データ: 偵察隊 (Scout Squad) (最大Lv.30)",
     "tags": [
       "偵察隊 (Scout Squad)",
       "scout-squad",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🔍"
   },
   {
     "id": "item-fac-squad",
-    "name": "部隊枠 (Squad)",
+    "name": "部隊出撃枠 (Squad)",
     "category": "facility",
     "rarity": "SSR",
     "type": "拠点施設",
-    "maxLevel": 15,
-    "description": "公式抽出施設: 部隊枠 (Squad) (最大Lv.15)",
+    "maxLevel": 30,
+    "description": "抽出実データ: 部隊出撃枠 (Squad) (最大Lv.30)",
     "tags": [
       "部隊枠 (Squad)",
       "squad",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🎖️"
   },
   {
     "id": "item-fac-smelting-workshop",
@@ -1225,14 +1225,14 @@
     "category": "facility",
     "rarity": "SSR",
     "type": "拠点施設",
-    "maxLevel": 21,
-    "description": "公式抽出施設: 製錬工房 (Smelting Workshop) (最大Lv.21)",
+    "maxLevel": 30,
+    "description": "抽出実データ: 製錬工房 (Smelting Workshop) (最大Lv.30)",
     "tags": [
       "製錬工房 (Smelting Workshop)",
       "smelting-workshop",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "⚙️"
   },
   {
     "id": "item-fac-weaving-workshop",
@@ -1240,14 +1240,14 @@
     "category": "facility",
     "rarity": "SSR",
     "type": "拠点施設",
-    "maxLevel": 20,
-    "description": "公式抽出施設: 紡績工房 (Weaving Workshop) (最大Lv.20)",
+    "maxLevel": 30,
+    "description": "抽出実データ: 紡績工房 (Weaving Workshop) (最大Lv.30)",
     "tags": [
       "紡績工房 (Weaving Workshop)",
       "weaving-workshop",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🧵"
   },
   {
     "id": "item-fac-gear-workshop",
@@ -1255,14 +1255,14 @@
     "category": "facility",
     "rarity": "SSR",
     "type": "拠点施設",
-    "maxLevel": 21,
-    "description": "公式抽出施設: 装備・ギア工房 (Gear Workshop) (最大Lv.21)",
+    "maxLevel": 30,
+    "description": "抽出実データ: 装備・ギア工房 (Gear Workshop) (最大Lv.30)",
     "tags": [
       "装備・ギア工房 (Gear Workshop)",
       "gear-workshop",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🔧"
   },
   {
     "id": "item-fac-watchtower",
@@ -1270,14 +1270,14 @@
     "category": "facility",
     "rarity": "SSR",
     "type": "拠点施設",
-    "maxLevel": 20,
-    "description": "公式抽出施設: 監視塔 (Watchtower) (最大Lv.20)",
+    "maxLevel": 30,
+    "description": "抽出実データ: 監視塔 (Watchtower) (最大Lv.30)",
     "tags": [
       "監視塔 (Watchtower)",
       "watchtower",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🗼"
   },
   {
     "id": "item-fac-raven-workshop",
@@ -1285,13 +1285,13 @@
     "category": "facility",
     "rarity": "SSR",
     "type": "拠点施設",
-    "maxLevel": 19,
-    "description": "公式抽出施設: レイヴン工房 (Raven Workshop) (最大Lv.19)",
+    "maxLevel": 30,
+    "description": "抽出実データ: レイヴン工房 (Raven Workshop) (最大Lv.30)",
     "tags": [
       "レイヴン工房 (Raven Workshop)",
       "raven-workshop",
       "施設"
     ],
-    "icon": "🏛️"
+    "icon": "🦅"
   }
 ]
