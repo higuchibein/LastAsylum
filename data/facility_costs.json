@@ -1,7 +1,7 @@
 [
   {
     "id": "sanctuary",
-    "name": "聖域 (本部 / Sanctuary)",
+    "name": "協会",
     "name_en": "Sanctuary",
     "icon": "🏰",
     "category": "拠点施設",
@@ -352,7 +352,7 @@
   },
   {
     "id": "1st-lab",
-    "name": "第1研究所 (Research Lab)",
+    "name": "研究室",
     "name_en": "Research Lab",
     "icon": "🔬",
     "category": "拠点施設",
@@ -660,7 +660,7 @@
   },
   {
     "id": "builders-hut",
-    "name": "大工の小屋 (Builders Hut)",
+    "name": "建築作業小屋",
     "name_en": "Builders Hut",
     "icon": "🔨",
     "category": "拠点施設",
@@ -968,7 +968,7 @@
   },
   {
     "id": "alliance-hall",
-    "name": "同盟ホール (Alliance Hall)",
+    "name": "ギルド連絡所",
     "name_en": "Alliance Hall",
     "icon": "🏛️",
     "category": "拠点施設",
@@ -1276,7 +1276,7 @@
   },
   {
     "id": "training-grounds",
-    "name": "訓練場 (Training Grounds)",
+    "name": "訓練場",
     "name_en": "Training Grounds",
     "icon": "🪖",
     "category": "拠点施設",
@@ -1584,7 +1584,7 @@
   },
   {
     "id": "antitoxin-workshop",
-    "name": "抗毒素工房 (Antitoxin Workshop)",
+    "name": "抗毒剤工房",
     "name_en": "Antitoxin Workshop",
     "icon": "🧪",
     "category": "拠点施設",
@@ -1892,7 +1892,7 @@
   },
   {
     "id": "farm",
-    "name": "農場 (Farm)",
+    "name": "農場",
     "name_en": "Farm",
     "icon": "🌾",
     "category": "拠点施設",
@@ -2200,7 +2200,7 @@
   },
   {
     "id": "lumberyard",
-    "name": "木材伐採場 (Lumberyard)",
+    "name": "伐採場",
     "name_en": "Lumberyard",
     "icon": "🪵",
     "category": "拠点施設",
@@ -2508,7 +2508,7 @@
   },
   {
     "id": "herb-garden",
-    "name": "薬草園 (Herb Garden)",
+    "name": "薬草園",
     "name_en": "Herb Garden",
     "icon": "🌿",
     "category": "拠点施設",
@@ -2816,7 +2816,7 @@
   },
   {
     "id": "warrior-statue",
-    "name": "戦士の像 (Warrior Statue)",
+    "name": "ウォーリア像",
     "name_en": "Warrior Statue",
     "icon": "🗿",
     "category": "拠点施設",
@@ -3124,7 +3124,7 @@
   },
   {
     "id": "ranger-statue",
-    "name": "レンジャーの像 (Ranger Statue)",
+    "name": "レンジャー像",
     "name_en": "Ranger Statue",
     "icon": "🏹",
     "category": "拠点施設",
@@ -3432,7 +3432,7 @@
   },
   {
     "id": "warlock-statue",
-    "name": "ウォーロックの像 (Warlock Statue)",
+    "name": "ソーサラー像",
     "name_en": "Warlock Statue",
     "icon": "🔮",
     "category": "拠点施設",
@@ -3740,7 +3740,7 @@
   },
   {
     "id": "infirmary",
-    "name": "救護所・病院 (Infirmary)",
+    "name": "病院",
     "name_en": "Infirmary",
     "icon": "🏥",
     "category": "拠点施設",
@@ -4048,7 +4048,7 @@
   },
   {
     "id": "barracks",
-    "name": "兵舎 (Barracks)",
+    "name": "兵営",
     "name_en": "Barracks",
     "icon": "⚔️",
     "category": "拠点施設",
@@ -4356,7 +4356,7 @@
   },
   {
     "id": "tavern",
-    "name": "酒場 (Tavern)",
+    "name": "酒場",
     "name_en": "Tavern",
     "icon": "🍺",
     "category": "拠点施設",
@@ -4664,7 +4664,7 @@
   },
   {
     "id": "walls",
-    "name": "防衛壁 (Walls)",
+    "name": "城壁",
     "name_en": "Walls",
     "icon": "🧱",
     "category": "拠点施設",
@@ -4972,7 +4972,7 @@
   },
   {
     "id": "granary",
-    "name": "穀物倉庫 (Granary)",
+    "name": "食料倉庫",
     "name_en": "Granary",
     "icon": "🌾",
     "category": "拠点施設",
@@ -5280,7 +5280,7 @@
   },
   {
     "id": "lumber-depot",
-    "name": "木材倉庫 (Lumber Depot)",
+    "name": "木材倉庫",
     "name_en": "Lumber Depot",
     "icon": "🪵",
     "category": "拠点施設",
@@ -5588,7 +5588,7 @@
   },
   {
     "id": "herb-storage",
-    "name": "薬草・ハーブ倉庫 (Herb Storage)",
+    "name": "薬材倉庫",
     "name_en": "Herb Storage",
     "icon": "🌿",
     "category": "拠点施設",
@@ -5896,7 +5896,7 @@
   },
   {
     "id": "scout-squad",
-    "name": "偵察隊 (Scout Squad)",
+    "name": "偵察隊",
     "name_en": "Scout Squad",
     "icon": "🔍",
     "category": "拠点施設",
@@ -6204,7 +6204,7 @@
   },
   {
     "id": "squad",
-    "name": "部隊出撃枠 (Squad)",
+    "name": "小隊",
     "name_en": "Squad",
     "icon": "🎖️",
     "category": "拠点施設",
@@ -6512,7 +6512,7 @@
   },
   {
     "id": "smelting-workshop",
-    "name": "製錬工房 (Smelting Workshop)",
+    "name": "製錬工房",
     "name_en": "Smelting Workshop",
     "icon": "⚙️",
     "category": "拠点施設",
@@ -6820,7 +6820,7 @@
   },
   {
     "id": "weaving-workshop",
-    "name": "紡績工房 (Weaving Workshop)",
+    "name": "織物工房",
     "name_en": "Weaving Workshop",
     "icon": "🧵",
     "category": "拠点施設",
@@ -7128,7 +7128,7 @@
   },
   {
     "id": "gear-workshop",
-    "name": "装備・ギア工房 (Gear Workshop)",
+    "name": "装備工房",
     "name_en": "Gear Workshop",
     "icon": "🔧",
     "category": "拠点施設",
@@ -7436,7 +7436,7 @@
   },
   {
     "id": "watchtower",
-    "name": "監視塔 (Watchtower)",
+    "name": "見張り塔",
     "name_en": "Watchtower",
     "icon": "🗼",
     "category": "拠点施設",
@@ -7744,7 +7744,7 @@
   },
   {
     "id": "raven-workshop",
-    "name": "レイヴン工房 (Raven Workshop)",
+    "name": "レイヴンの工房",
     "name_en": "Raven Workshop",
     "icon": "🦅",
     "category": "拠点施設",
