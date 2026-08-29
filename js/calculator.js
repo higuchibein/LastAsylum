@@ -1,10 +1,41 @@
 /**
- * Last Asylum Strategy Wiki - Real Data Building Calculator (calculator.js)
+ * Last Asylum Strategy Wiki - Building Calculator Script (calculator.js)
+ * Standard Japanese Name Alignment
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   let facilityData = [];
   let currentFacility = null;
+
+  // 前提施設名の英語➔基準日本語名変換マップ
+  const prereqNameMap = {
+    "Sanctuary": "協会",
+    "Research Lab": "研究室",
+    "Builders Hut": "建築作業小屋",
+    "Alliance Hall": "ギルド連絡所",
+    "Training Grounds": "訓練場",
+    "Antitoxin Workshop": "抗毒剤工房",
+    "Farm": "農場",
+    "Lumberyard": "伐採場",
+    "Herb Garden": "薬草園",
+    "Warrior Statue": "ウォーリア像",
+    "Ranger Statue": "レンジャー像",
+    "Warlock Statue": "ソーサラー像",
+    "Infirmary": "病院",
+    "Barracks": "兵営",
+    "Tavern": "酒場",
+    "Walls": "城壁",
+    "Granary": "食料倉庫",
+    "Lumber Depot": "木材倉庫",
+    "Herb Storage": "薬材倉庫",
+    "Scout Squad": "偵察隊",
+    "Squad": "小隊",
+    "Smelting Workshop": "製錬工房",
+    "Weaving Workshop": "織物工房",
+    "Gear Workshop": "装備工房",
+    "Watchtower": "見張り塔",
+    "Raven Workshop": "レイヴンの工房"
+  };
 
   const facilitySelect = document.getElementById('facility-select');
   const levelFromInput = document.getElementById('level-from');
@@ -106,7 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (lvData.prerequisites) {
           for (const [pName, pLv] of Object.entries(lvData.prerequisites)) {
-            prereqs[pName] = Math.max(prereqs[pName] || 0, pLv);
+            const jpName = prereqNameMap[pName] || pName;
+            prereqs[jpName] = Math.max(prereqs[jpName] || 0, pLv);
           }
         }
       }
