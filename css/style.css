@@ -276,6 +276,7 @@ ul, ol {
 .form-label {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 0.9rem;
   font-weight: 700;
   margin-bottom: 0.4rem;
@@ -301,6 +302,27 @@ ul, ol {
   accent-color: var(--accent-gold);
   height: 6px;
   cursor: pointer;
+}
+
+/* 直接数値入力フィールドスタイル */
+.form-number-input {
+  width: 75px;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--accent-gold-dark);
+  border-radius: 6px;
+  color: var(--accent-gold);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.form-number-input:focus {
+  border-color: var(--accent-blue);
+  box-shadow: var(--shadow-neon);
+  color: #ffffff;
 }
 
 .badge-val {

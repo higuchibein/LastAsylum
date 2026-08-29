@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>施設強化・資源計算機 | Last Asylum Strategy Wiki</title>
-  <link rel="stylesheet" href="css/style.css?v=20260829_04">
+  <link rel="stylesheet" href="css/style.css?v=20260829_05">
 </head>
 <body>
 
@@ -32,6 +32,7 @@
       <h1 class="section-title">施設強化・資源計算機</h1>
 
       <div class="calc-wrapper">
+        <!-- 施設選択 -->
         <div class="form-group">
           <div class="form-label">
             <span>🏰 対象施設を選択 (全26施設)</span>
@@ -39,39 +40,56 @@
           <select id="facility-select" class="form-select"></select>
         </div>
 
+        <!-- 現在レベル -->
         <div class="form-group">
           <div class="form-label">
             <span>現在レベル</span>
-            <span id="level-from-val" class="badge-val">Lv.1</span>
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+              <span>Lv.</span>
+              <input type="number" id="level-from-num" class="form-number-input" min="1" max="29" value="1">
+            </div>
           </div>
           <input type="range" id="level-from" class="form-range" min="1" max="29" value="1">
         </div>
 
+        <!-- 目標レベル -->
         <div class="form-group">
           <div class="form-label">
-            <span>目標レベル</span>
-            <span id="level-to-val" class="badge-val">Lv.10</span>
+            <span>目標レベル (現在Lv以上)</span>
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+              <span>Lv.</span>
+              <input type="number" id="level-to-num" class="form-number-input" min="2" max="30" value="10">
+            </div>
           </div>
           <input type="range" id="level-to" class="form-range" min="2" max="30" value="10">
         </div>
 
+        <!-- 建設速度短縮バフ -->
         <div class="form-group">
           <div class="form-label">
-            <span>⚡ 建設速度短縮バフ (%)</span>
-            <span id="speed-buff-val" class="badge-val">0%</span>
+            <span>⚡ 建設速度短縮バフ (%) (0〜200%)</span>
+            <div style="display:flex; align-items:center; gap:0.25rem;">
+              <input type="number" id="speed-buff-num" class="form-number-input" min="0" max="200" value="0">
+              <span>%</span>
+            </div>
           </div>
           <input type="range" id="speed-buff" class="form-range" min="0" max="200" value="0" step="1">
         </div>
 
+        <!-- 資源コスト削減バフ -->
         <div class="form-group">
           <div class="form-label">
-            <span>📦 資源コスト削減バフ (%) (最大20%)</span>
-            <span id="resource-buff-val" class="badge-val">0%</span>
+            <span>📦 資源コスト削減バフ (%) (0〜20%)</span>
+            <div style="display:flex; align-items:center; gap:0.25rem;">
+              <input type="number" id="resource-buff-num" class="form-number-input" min="0" max="20" value="0">
+              <span>%</span>
+            </div>
           </div>
           <input type="range" id="resource-buff" class="form-range" min="0" max="20" value="0" step="1">
         </div>
       </div>
 
+      <!-- 計算結果表示 -->
       <div class="result-box">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:1rem;">
           <h2 style="font-size:1.2rem; color:#fff;">計算結果サマリー</h2>
@@ -102,7 +120,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260829_04"></script>
-  <script src="js/calculator.js?v=20260829_04"></script>
+  <script src="js/main.js?v=20260829_05"></script>
+  <script src="js/calculator.js?v=20260829_05"></script>
 </body>
 </html>

@@ -1,21 +1,26 @@
 /**
  * Last Asylum Strategy Wiki - Real Data Building Calculator (calculator.js)
- * Added Resource Discount Buff (Max 20%) & Speed Buff (Max 200%)
+ * Enhanced UX: Direct Number Input & Dynamic Level Floor Control (To >= From + 1)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   let facilityData = [];
   let currentFacility = null;
 
+  // Elements
   const facilitySelect = document.getElementById('facility-select');
+  
   const levelFromInput = document.getElementById('level-from');
+  const levelFromNum = document.getElementById('level-from-num');
+  
   const levelToInput = document.getElementById('level-to');
-  const levelFromVal = document.getElementById('level-from-val');
-  const levelToVal = document.getElementById('level-to-val');
+  const levelToNum = document.getElementById('level-to-num');
+  
   const speedBuffInput = document.getElementById('speed-buff');
-  const speedBuffVal = document.getElementById('speed-buff-val');
+  const speedBuffNum = document.getElementById('speed-buff-num');
+  
   const resourceBuffInput = document.getElementById('resource-buff');
-  const resourceBuffVal = document.getElementById('resource-buff-val');
+  const resourceBuffNum = document.getElementById('resource-buff-num');
 
   const totalTimeEl = document.getElementById('total-time');
   const rawTimeEl = document.getElementById('raw-time');
@@ -24,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const shareBtn = document.getElementById('share-btn');
   const copyResultBtn = document.getElementById('copy-result-btn');
 
-  // URLパラメータの読み込み
+  // URL Params
   const urlParams = new URLSearchParams(window.location.search);
   const paramFac = urlParams.get('fac');
   const paramFrom = parseInt(urlParams.get('from'), 10);
@@ -43,23 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       onFacilityChange();
 
-      if (!isNaN(paramFrom)) {
-        levelFromInput.value = paramFrom;
-        levelFromVal.textContent = `Lv.${paramFrom}`;
-      }
-      if (!isNaN(paramTo)) {
-        levelToInput.value = paramTo;
-        levelToVal.textContent = `Lv.${paramTo}`;
-      }
-      if (!isNaN(paramBuff)) {
-        speedBuffInput.value = Math.min(200, Math.max(0, paramBuff));
-      }
-      if (!isNaN(paramResBuff)) {
-        resourceBuffInput.value = Math.min(20, Math.max(0, paramResBuff));
-      }
+      if (!isNaN(paramFrom)) setLevelFrom(paramFrom);
+      if (!isNaN(paramTo)) setLevelTo(paramTo);
+      if (!isNaN(paramBuff)) setSpeedBuff(paramBuff);
+      if (!isNaN(paramResBuff)) setResourceBuff(paramResBuff);
 
-      updateLabels();
-      calculate();
+      validateAndCalculate();
     })
     .catch(err => {
       console.error(err);
@@ -75,8 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!currentFacility) return;
 
     const maxLv = currentFacility.maxLevel;
+    
     levelFromInput.max = maxLv - 1;
+    levelFromNum.max = maxLv - 1;
+    
     levelToInput.max = maxLv;
+    levelToNum.max = maxLv;
 
     let fromVal = parseInt(levelFromInput.value, 10);
     let toVal = parseInt(levelToInput.value, 10);
@@ -84,45 +82,99 @@ document.addEventListener('DOMContentLoaded', () => {
     if (fromVal >= maxLv) fromVal = 1;
     if (toVal > maxLv || toVal <= fromVal) toVal = Math.min(fromVal + 5, maxLv);
 
-    levelFromInput.value = fromVal;
-    levelToInput.value = toVal;
+    setLevelFrom(fromVal);
+    setLevelTo(toVal);
 
-    updateLabels();
-    calculate();
+    validateAndCalculate();
   }
 
-  function updateLabels() {
-    levelFromVal.textContent = `Lv.${levelFromInput.value}`;
-    levelToVal.textContent = `Lv.${levelToInput.value}`;
-    speedBuffVal.textContent = `${speedBuffInput.value}%`;
-    resourceBuffVal.textContent = `${resourceBuffInput.value}%`;
+  // --- Input Sync & Validation Helpers ---
+  function setLevelFrom(val) {
+    if (!currentFacility) return;
+    const maxLv = currentFacility.maxLevel;
+    val = Math.max(1, Math.min(maxLv - 1, val));
+    
+    levelFromInput.value = val;
+    levelFromNum.value = val;
+
+    // Dynamically update Level To floor limit (levelTo >= levelFrom + 1)
+    const minTo = val + 1;
+    levelToInput.min = minTo;
+    levelToNum.min = minTo;
+
+    let currentTo = parseInt(levelToInput.value, 10);
+    if (currentTo < minTo) {
+      setLevelTo(minTo);
+    }
   }
 
+  function setLevelTo(val) {
+    if (!currentFacility) return;
+    const maxLv = currentFacility.maxLevel;
+    const minTo = parseInt(levelFromInput.value, 10) + 1;
+    val = Math.max(minTo, Math.min(maxLv, val));
+
+    levelToInput.value = val;
+    levelToNum.value = val;
+  }
+
+  function setSpeedBuff(val) {
+    val = Math.max(0, Math.min(200, val));
+    speedBuffInput.value = val;
+    speedBuffNum.value = val;
+  }
+
+  function setResourceBuff(val) {
+    val = Math.max(0, Math.min(20, val));
+    resourceBuffInput.value = val;
+    resourceBuffNum.value = val;
+  }
+
+  // --- Event Listeners ---
   facilitySelect.addEventListener('change', onFacilityChange);
-  levelFromInput.addEventListener('input', () => {
-    if (parseInt(levelFromInput.value, 10) >= parseInt(levelToInput.value, 10)) {
-      levelToInput.value = parseInt(levelFromInput.value, 10) + 1;
-    }
-    updateLabels();
-    calculate();
+
+  // Level From Sync
+  levelFromInput.addEventListener('input', (e) => {
+    setLevelFrom(parseInt(e.target.value, 10) || 1);
+    validateAndCalculate();
   });
-  levelToInput.addEventListener('input', () => {
-    if (parseInt(levelToInput.value, 10) <= parseInt(levelFromInput.value, 10)) {
-      levelFromInput.value = Math.max(1, parseInt(levelToInput.value, 10) - 1);
-    }
-    updateLabels();
-    calculate();
-  });
-  speedBuffInput.addEventListener('input', () => {
-    updateLabels();
-    calculate();
-  });
-  resourceBuffInput.addEventListener('input', () => {
-    updateLabels();
-    calculate();
+  levelFromNum.addEventListener('input', (e) => {
+    setLevelFrom(parseInt(e.target.value, 10) || 1);
+    validateAndCalculate();
   });
 
-  function calculate() {
+  // Level To Sync (Enforce >= Level From + 1)
+  levelToInput.addEventListener('input', (e) => {
+    setLevelTo(parseInt(e.target.value, 10) || (parseInt(levelFromInput.value, 10) + 1));
+    validateAndCalculate();
+  });
+  levelToNum.addEventListener('input', (e) => {
+    setLevelTo(parseInt(e.target.value, 10) || (parseInt(levelFromInput.value, 10) + 1));
+    validateAndCalculate();
+  });
+
+  // Speed Buff Sync
+  speedBuffInput.addEventListener('input', (e) => {
+    setSpeedBuff(parseInt(e.target.value, 10) || 0);
+    validateAndCalculate();
+  });
+  speedBuffNum.addEventListener('input', (e) => {
+    setSpeedBuff(parseInt(e.target.value, 10) || 0);
+    validateAndCalculate();
+  });
+
+  // Resource Buff Sync
+  resourceBuffInput.addEventListener('input', (e) => {
+    setResourceBuff(parseInt(e.target.value, 10) || 0);
+    validateAndCalculate();
+  });
+  resourceBuffNum.addEventListener('input', (e) => {
+    setResourceBuff(parseInt(e.target.value, 10) || 0);
+    validateAndCalculate();
+  });
+
+  // --- Calculation Logic ---
+  function validateAndCalculate() {
     if (!currentFacility) return;
 
     const fromLv = parseInt(levelFromInput.value, 10);
@@ -155,7 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
     totalTimeEl.textContent = formatTime(effectiveSec);
     rawTimeEl.textContent = `基礎時間: ${formatTime(totalRawSec)}`;
 
-    // 資源削減バフ適用後の実効計算 (1 - resBuff/100)
     const discountMultiplier = Math.max(0, 1 - resBuff / 100);
     const totalsEffective = {
       wood: Math.round(totalsRaw.wood * discountMultiplier),
