@@ -304,10 +304,45 @@ ul, ol {
   cursor: pointer;
 }
 
+/* +/- ステップボタン ＆ コントロールグループ */
+.step-control {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-step {
+  background-color: var(--bg-card);
+  color: var(--accent-blue);
+  border: 1px solid var(--accent-blue-dark);
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-step:hover {
+  background-color: var(--accent-blue);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-neon);
+  transform: scale(1.05);
+}
+
+.btn-step:active {
+  transform: scale(0.95);
+}
+
 /* 直接数値入力フィールドスタイル */
 .form-number-input {
-  width: 75px;
-  padding: 0.25rem 0.5rem;
+  width: 65px;
+  padding: 0.2rem 0.4rem;
   background-color: var(--bg-primary);
   border: 1px solid var(--accent-gold-dark);
   border-radius: 6px;

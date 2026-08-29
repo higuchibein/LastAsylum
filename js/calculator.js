@@ -1,6 +1,6 @@
 /**
  * Last Asylum Strategy Wiki - Real Data Building Calculator (calculator.js)
- * Enhanced UX: Direct Number Input & Dynamic Level Floor Control (To >= From + 1)
+ * Enhanced UX: Direct Number Input, +/- Step Buttons & Dynamic Floor Limit
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,15 +12,23 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const levelFromInput = document.getElementById('level-from');
   const levelFromNum = document.getElementById('level-from-num');
+  const levelFromDec = document.getElementById('level-from-dec');
+  const levelFromInc = document.getElementById('level-from-inc');
   
   const levelToInput = document.getElementById('level-to');
   const levelToNum = document.getElementById('level-to-num');
+  const levelToDec = document.getElementById('level-to-dec');
+  const levelToInc = document.getElementById('level-to-inc');
   
   const speedBuffInput = document.getElementById('speed-buff');
   const speedBuffNum = document.getElementById('speed-buff-num');
+  const speedBuffDec = document.getElementById('speed-buff-dec');
+  const speedBuffInc = document.getElementById('speed-buff-inc');
   
   const resourceBuffInput = document.getElementById('resource-buff');
   const resourceBuffNum = document.getElementById('resource-buff-num');
+  const resourceBuffDec = document.getElementById('resource-buff-dec');
+  const resourceBuffInc = document.getElementById('resource-buff-inc');
 
   const totalTimeEl = document.getElementById('total-time');
   const rawTimeEl = document.getElementById('raw-time');
@@ -88,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     validateAndCalculate();
   }
 
-  // --- Input Sync & Validation Helpers ---
+  // --- Helper Setters & Validations ---
   function setLevelFrom(val) {
     if (!currentFacility) return;
     const maxLv = currentFacility.maxLevel;
@@ -97,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
     levelFromInput.value = val;
     levelFromNum.value = val;
 
-    // Dynamically update Level To floor limit (levelTo >= levelFrom + 1)
     const minTo = val + 1;
     levelToInput.min = minTo;
     levelToNum.min = minTo;
@@ -133,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Event Listeners ---
   facilitySelect.addEventListener('change', onFacilityChange);
 
-  // Level From Sync
+  // Level From Sync & Buttons
   levelFromInput.addEventListener('input', (e) => {
     setLevelFrom(parseInt(e.target.value, 10) || 1);
     validateAndCalculate();
@@ -142,8 +149,16 @@ document.addEventListener('DOMContentLoaded', () => {
     setLevelFrom(parseInt(e.target.value, 10) || 1);
     validateAndCalculate();
   });
+  if (levelFromDec) levelFromDec.addEventListener('click', () => {
+    setLevelFrom(parseInt(levelFromInput.value, 10) - 1);
+    validateAndCalculate();
+  });
+  if (levelFromInc) levelFromInc.addEventListener('click', () => {
+    setLevelFrom(parseInt(levelFromInput.value, 10) + 1);
+    validateAndCalculate();
+  });
 
-  // Level To Sync (Enforce >= Level From + 1)
+  // Level To Sync & Buttons
   levelToInput.addEventListener('input', (e) => {
     setLevelTo(parseInt(e.target.value, 10) || (parseInt(levelFromInput.value, 10) + 1));
     validateAndCalculate();
@@ -152,8 +167,16 @@ document.addEventListener('DOMContentLoaded', () => {
     setLevelTo(parseInt(e.target.value, 10) || (parseInt(levelFromInput.value, 10) + 1));
     validateAndCalculate();
   });
+  if (levelToDec) levelToDec.addEventListener('click', () => {
+    setLevelTo(parseInt(levelToInput.value, 10) - 1);
+    validateAndCalculate();
+  });
+  if (levelToInc) levelToInc.addEventListener('click', () => {
+    setLevelTo(parseInt(levelToInput.value, 10) + 1);
+    validateAndCalculate();
+  });
 
-  // Speed Buff Sync
+  // Speed Buff Sync & Buttons
   speedBuffInput.addEventListener('input', (e) => {
     setSpeedBuff(parseInt(e.target.value, 10) || 0);
     validateAndCalculate();
@@ -162,14 +185,30 @@ document.addEventListener('DOMContentLoaded', () => {
     setSpeedBuff(parseInt(e.target.value, 10) || 0);
     validateAndCalculate();
   });
+  if (speedBuffDec) speedBuffDec.addEventListener('click', () => {
+    setSpeedBuff(parseInt(speedBuffInput.value, 10) - 1);
+    validateAndCalculate();
+  });
+  if (speedBuffInc) speedBuffInc.addEventListener('click', () => {
+    setSpeedBuff(parseInt(speedBuffInput.value, 10) + 1);
+    validateAndCalculate();
+  });
 
-  // Resource Buff Sync
+  // Resource Buff Sync & Buttons
   resourceBuffInput.addEventListener('input', (e) => {
     setResourceBuff(parseInt(e.target.value, 10) || 0);
     validateAndCalculate();
   });
   resourceBuffNum.addEventListener('input', (e) => {
     setResourceBuff(parseInt(e.target.value, 10) || 0);
+    validateAndCalculate();
+  });
+  if (resourceBuffDec) resourceBuffDec.addEventListener('click', () => {
+    setResourceBuff(parseInt(resourceBuffInput.value, 10) - 1);
+    validateAndCalculate();
+  });
+  if (resourceBuffInc) resourceBuffInc.addEventListener('click', () => {
+    setResourceBuff(parseInt(resourceBuffInput.value, 10) + 1);
     validateAndCalculate();
   });
 
