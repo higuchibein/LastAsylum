@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>施設強化・資源計算機 | Last Asylum Strategy Wiki</title>
-  <link rel="stylesheet" href="css/style.css?v=20260829_03">
+  <link rel="stylesheet" href="css/style.css?v=20260829_04">
 </head>
 <body>
 
@@ -62,6 +62,14 @@
           </div>
           <input type="range" id="speed-buff" class="form-range" min="0" max="200" value="0" step="1">
         </div>
+
+        <div class="form-group">
+          <div class="form-label">
+            <span>📦 資源コスト削減バフ (%) (最大20%)</span>
+            <span id="resource-buff-val" class="badge-val">0%</span>
+          </div>
+          <input type="range" id="resource-buff" class="form-range" min="0" max="20" value="0" step="1">
+        </div>
       </div>
 
       <div class="result-box">
@@ -81,7 +89,7 @@
 
         <div id="prereq-box" style="display:none; margin-bottom:1rem;"></div>
 
-        <h3 style="font-size:0.95rem; color:var(--accent-gold); margin-bottom:0.75rem;">📦 必要素材合計</h3>
+        <h3 style="font-size:0.95rem; color:var(--accent-gold); margin-bottom:0.75rem;">📦 必要素材合計 (資源削減バフ適用後)</h3>
         <div id="resource-costs" class="res-grid"></div>
       </div>
 
@@ -94,7 +102,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260829_03"></script>
-  <script src="js/calculator.js?v=20260829_03"></script>
+  <script src="js/main.js?v=20260829_04"></script>
+  <script src="js/calculator.js?v=20260829_04"></script>
 </body>
 </html>

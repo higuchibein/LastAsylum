@@ -1,6 +1,6 @@
 /**
  * Last Asylum Strategy Wiki - Real Data Building Calculator (calculator.js)
- * Pure Japanese Alignment & Cache-Buster
+ * Added Resource Discount Buff (Max 20%) & Speed Buff (Max 200%)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const levelToVal = document.getElementById('level-to-val');
   const speedBuffInput = document.getElementById('speed-buff');
   const speedBuffVal = document.getElementById('speed-buff-val');
+  const resourceBuffInput = document.getElementById('resource-buff');
+  const resourceBuffVal = document.getElementById('resource-buff-val');
 
   const totalTimeEl = document.getElementById('total-time');
   const rawTimeEl = document.getElementById('raw-time');
@@ -22,14 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const shareBtn = document.getElementById('share-btn');
   const copyResultBtn = document.getElementById('copy-result-btn');
 
-  // URLパラメータの初期設定読み込み
+  // URLパラメータの読み込み
   const urlParams = new URLSearchParams(window.location.search);
   const paramFac = urlParams.get('fac');
   const paramFrom = parseInt(urlParams.get('from'), 10);
   const paramTo = parseInt(urlParams.get('to'), 10);
   const paramBuff = parseInt(urlParams.get('buff'), 10);
+  const paramResBuff = parseInt(urlParams.get('resbuff'), 10);
 
-  // キャッシュ無効化パラメータ付きでJSONをロード
   fetch('data/facility_costs.json?v=' + Date.now())
     .then(res => res.json())
     .then(data => {
@@ -50,10 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
         levelToVal.textContent = `Lv.${paramTo}`;
       }
       if (!isNaN(paramBuff)) {
-        speedBuffInput.value = paramBuff;
-        speedBuffVal.textContent = `${paramBuff}%`;
+        speedBuffInput.value = Math.min(200, Math.max(0, paramBuff));
+      }
+      if (!isNaN(paramResBuff)) {
+        resourceBuffInput.value = Math.min(20, Math.max(0, paramResBuff));
       }
 
+      updateLabels();
       calculate();
     })
     .catch(err => {
@@ -90,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     levelFromVal.textContent = `Lv.${levelFromInput.value}`;
     levelToVal.textContent = `Lv.${levelToInput.value}`;
     speedBuffVal.textContent = `${speedBuffInput.value}%`;
+    resourceBuffVal.textContent = `${resourceBuffInput.value}%`;
   }
 
   facilitySelect.addEventListener('change', onFacilityChange);
@@ -111,25 +117,30 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLabels();
     calculate();
   });
+  resourceBuffInput.addEventListener('input', () => {
+    updateLabels();
+    calculate();
+  });
 
   function calculate() {
     if (!currentFacility) return;
 
     const fromLv = parseInt(levelFromInput.value, 10);
     const toLv = parseInt(levelToInput.value, 10);
-    const buff = parseInt(speedBuffInput.value, 10);
+    const speedBuff = parseInt(speedBuffInput.value, 10);
+    const resBuff = parseInt(resourceBuffInput.value, 10);
 
     let totalRawSec = 0;
-    const totals = { wood: 0, grain: 0, herb: 0 };
+    const totalsRaw = { wood: 0, grain: 0, herb: 0 };
     const prereqs = {};
 
     for (let lv = fromLv + 1; lv <= toLv; lv++) {
       const lvData = currentFacility.levels.find(l => l.level === lv);
       if (lvData) {
         totalRawSec += lvData.time_seconds || 0;
-        totals.wood += lvData.wood || 0;
-        totals.grain += lvData.grain || 0;
-        totals.herb += lvData.herb || 0;
+        totalsRaw.wood += lvData.wood || 0;
+        totalsRaw.grain += lvData.grain || 0;
+        totalsRaw.herb += lvData.herb || 0;
 
         if (lvData.prerequisites) {
           for (const [pName, pLv] of Object.entries(lvData.prerequisites)) {
@@ -139,18 +150,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    const effectiveSec = Math.round(totalRawSec / (1 + buff / 100));
+    const effectiveSec = Math.round(totalRawSec / (1 + speedBuff / 100));
 
     totalTimeEl.textContent = formatTime(effectiveSec);
     rawTimeEl.textContent = `基礎時間: ${formatTime(totalRawSec)}`;
 
+    // 資源削減バフ適用後の実効計算 (1 - resBuff/100)
+    const discountMultiplier = Math.max(0, 1 - resBuff / 100);
+    const totalsEffective = {
+      wood: Math.round(totalsRaw.wood * discountMultiplier),
+      grain: Math.round(totalsRaw.grain * discountMultiplier),
+      herb: Math.round(totalsRaw.herb * discountMultiplier)
+    };
+
     const resMap = [
-      { name: '🪵 木材 (Wood)', val: totals.wood },
-      { name: '🌾 穀物・食料 (Grain)', val: totals.grain },
-      { name: '🌿 薬草・ハーブ (Herb)', val: totals.herb }
+      { name: '🪵 木材 (Wood)', raw: totalsRaw.wood, val: totalsEffective.wood },
+      { name: '🌾 穀物・食料 (Grain)', raw: totalsRaw.grain, val: totalsEffective.grain },
+      { name: '🌿 薬草・ハーブ (Herb)', raw: totalsRaw.herb, val: totalsEffective.herb }
     ];
 
-    const activeRes = resMap.filter(r => r.val > 0);
+    const activeRes = resMap.filter(r => r.raw > 0);
     if (activeRes.length === 0) {
       resourceCostsEl.innerHTML = '<div>必要資材なし</div>';
     } else {
@@ -158,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="res-stat">
           <div style="font-size:0.8rem; color:var(--text-muted);">${r.name}</div>
           <div class="res-val">${r.val.toLocaleString()}</div>
+          ${resBuff > 0 ? `<div style="font-size:0.75rem; color:var(--accent-blue); margin-top:0.2rem;">(元: ${r.raw.toLocaleString()} / 削減 -${resBuff}%)</div>` : ''}
         </div>
       `).join('');
     }
@@ -190,9 +210,18 @@ document.addEventListener('DOMContentLoaded', () => {
     return parts.join(' ');
   }
 
-  if (shareBtn) shareBtn.addEventListener('click', () => window.copyToClipboard(window.location.href, '共有URLをコピーしました'));
+  if (shareBtn) shareBtn.addEventListener('click', () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('fac', facilitySelect.value);
+    url.searchParams.set('from', levelFromInput.value);
+    url.searchParams.set('to', levelToInput.value);
+    url.searchParams.set('buff', speedBuffInput.value);
+    url.searchParams.set('resbuff', resourceBuffInput.value);
+    window.copyToClipboard(url.toString(), '共有URLをコピーしました');
+  });
+
   if (copyResultBtn) copyResultBtn.addEventListener('click', () => {
-    const text = `【Last Asylum 施設計算】\n施設: ${currentFacility.name}\nLv.${levelFromInput.value} ➔ Lv.${levelToInput.value}\n所要時間: ${totalTimeEl.textContent}`;
+    const text = `【Last Asylum 施設計算】\n施設: ${currentFacility.name}\nLv.${levelFromInput.value} ➔ Lv.${levelToInput.value}\n短縮バフ: ${speedBuffInput.value}%\n資源削減バフ: ${resourceBuffInput.value}%\n所要時間: ${totalTimeEl.textContent}`;
     window.copyToClipboard(text, '計算結果をコピーしました');
   });
 
