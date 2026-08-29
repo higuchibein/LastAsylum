@@ -2,7 +2,6 @@
   {
     "id": "sanctuary",
     "name": "協会",
-    "name_en": "Sanctuary",
     "icon": "🏰",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -30,7 +29,7 @@
         "herb": 0,
         "time_seconds": 3,
         "prerequisites": {
-          "Sanctuary": 1
+          "協会": 1
         }
       },
       {
@@ -40,9 +39,9 @@
         "herb": 0,
         "time_seconds": 300,
         "prerequisites": {
-          "Lumber Depot": 1,
-          "Granary": 1,
-          "Herb Storage": 1
+          "木材倉庫": 1,
+          "食料倉庫": 1,
+          "薬材倉庫": 1
         }
       },
       {
@@ -52,7 +51,7 @@
         "herb": 0,
         "time_seconds": 658,
         "prerequisites": {
-          "Walls": 3
+          "城壁": 3
         }
       },
       {
@@ -62,7 +61,7 @@
         "herb": 0,
         "time_seconds": 2063,
         "prerequisites": {
-          "Walls": 5
+          "城壁": 5
         }
       },
       {
@@ -72,8 +71,8 @@
         "herb": 0,
         "time_seconds": 5440,
         "prerequisites": {
-          "Training Grounds": 4,
-          "Alliance Hall": 3
+          "訓練場": 4,
+          "ギルド連絡所": 3
         }
       },
       {
@@ -83,8 +82,8 @@
         "herb": 0,
         "time_seconds": 10895,
         "prerequisites": {
-          "Training Grounds": 4,
-          "Alliance Hall": 5
+          "訓練場": 4,
+          "ギルド連絡所": 5
         }
       },
       {
@@ -94,8 +93,8 @@
         "herb": 209000,
         "time_seconds": 15410,
         "prerequisites": {
-          "Walls": 8,
-          "Alliance Hall": 7
+          "城壁": 8,
+          "ギルド連絡所": 7
         }
       },
       {
@@ -105,8 +104,8 @@
         "herb": 233000,
         "time_seconds": 20123,
         "prerequisites": {
-          "Walls": 9,
-          "Infirmary": 7
+          "城壁": 9,
+          "病院": 7
         }
       },
       {
@@ -116,8 +115,8 @@
         "herb": 602000,
         "time_seconds": 26043,
         "prerequisites": {
-          "Training Grounds": 10,
-          "Research Lab": 7
+          "訓練場": 10,
+          "研究室": 7
         }
       },
       {
@@ -127,9 +126,9 @@
         "herb": 959000,
         "time_seconds": 33857,
         "prerequisites": {
-          "Research Lab": 11,
-          "Walls": 10,
-          "Antitoxin Workshop": 7
+          "研究室": 11,
+          "城壁": 10,
+          "抗毒剤工房": 7
         }
       },
       {
@@ -139,9 +138,9 @@
         "herb": 1100000,
         "time_seconds": 44013,
         "prerequisites": {
-          "Research Lab": 12,
-          "Alliance Hall": 11,
-          "Farm": 7
+          "研究室": 12,
+          "ギルド連絡所": 11,
+          "農場": 7
         }
       },
       {
@@ -151,9 +150,9 @@
         "herb": 1684211,
         "time_seconds": 57218,
         "prerequisites": {
-          "Research Lab": 13,
-          "Warrior Statue": 12,
-          "Lumberyard": 7
+          "研究室": 13,
+          "ウォーリア像": 12,
+          "伐採場": 7
         }
       },
       {
@@ -163,9 +162,9 @@
         "herb": 2421053,
         "time_seconds": 80105,
         "prerequisites": {
-          "Research Lab": 14,
-          "Training Grounds": 14,
-          "Herb Garden": 7
+          "研究室": 14,
+          "訓練場": 14,
+          "薬草園": 7
         }
       },
       {
@@ -175,9 +174,9 @@
         "herb": 4000000,
         "time_seconds": 112146,
         "prerequisites": {
-          "Warrior Statue": 14,
-          "Research Lab": 15,
-          "Granary": 7
+          "ウォーリア像": 14,
+          "研究室": 15,
+          "食料倉庫": 7
         }
       },
       {
@@ -187,9 +186,9 @@
         "herb": 5263158,
         "time_seconds": 157004,
         "prerequisites": {
-          "Research Lab": 16,
-          "Barracks": 15,
-          "Lumber Depot": 7
+          "研究室": 16,
+          "兵営": 15,
+          "木材倉庫": 7
         }
       },
       {
@@ -199,9 +198,9 @@
         "herb": 9312170,
         "time_seconds": 219807,
         "prerequisites": {
-          "Research Lab": 17,
-          "Training Grounds": 17,
-          "Herb Storage": 7
+          "研究室": 17,
+          "訓練場": 17,
+          "薬材倉庫": 7
         }
       },
       {
@@ -211,9 +210,9 @@
         "herb": 11368422,
         "time_seconds": 307728,
         "prerequisites": {
-          "Research Lab": 18,
-          "Warrior Statue": 17,
-          "Antitoxin Workshop": 10
+          "研究室": 18,
+          "ウォーリア像": 17,
+          "抗毒剤工房": 10
         }
       },
       {
@@ -223,9 +222,9 @@
         "herb": 18518519,
         "time_seconds": 430820,
         "prerequisites": {
-          "Research Lab": 19,
-          "Alliance Hall": 18,
-          "Farm": 10
+          "研究室": 19,
+          "ギルド連絡所": 18,
+          "農場": 10
         }
       },
       {
@@ -235,9 +234,9 @@
         "herb": 27830688,
         "time_seconds": 577211,
         "prerequisites": {
-          "Research Lab": 20,
-          "Training Grounds": 20,
-          "Lumberyard": 10
+          "研究室": 20,
+          "訓練場": 20,
+          "伐採場": 10
         }
       },
       {
@@ -247,9 +246,9 @@
         "herb": 36631579,
         "time_seconds": 750375,
         "prerequisites": {
-          "Research Lab": 22,
-          "Infirmary": 22,
-          "Granary": 10
+          "研究室": 22,
+          "病院": 22,
+          "食料倉庫": 10
         }
       },
       {
@@ -259,9 +258,9 @@
         "herb": 42751323,
         "time_seconds": 975487,
         "prerequisites": {
-          "Research Lab": 22,
-          "Infirmary": 22,
-          "Granary": 10
+          "研究室": 22,
+          "病院": 22,
+          "食料倉庫": 10
         }
       },
       {
@@ -271,9 +270,9 @@
         "herb": 58000000,
         "time_seconds": 1365682,
         "prerequisites": {
-          "Research Lab": 23,
-          "Walls": 23,
-          "Lumber Depot": 10
+          "研究室": 23,
+          "城壁": 23,
+          "木材倉庫": 10
         }
       },
       {
@@ -283,9 +282,9 @@
         "herb": 96000000,
         "time_seconds": 1911955,
         "prerequisites": {
-          "Research Lab": 24,
-          "Training Grounds": 24,
-          "Herb Storage": 10
+          "研究室": 24,
+          "訓練場": 24,
+          "薬材倉庫": 10
         }
       },
       {
@@ -295,9 +294,9 @@
         "herb": 121052632,
         "time_seconds": 2676737,
         "prerequisites": {
-          "Research Lab": 25,
-          "Warrior Statue": 25,
-          "Antitoxin Workshop": 13
+          "研究室": 25,
+          "ウォーリア像": 25,
+          "抗毒剤工房": 13
         }
       },
       {
@@ -307,9 +306,9 @@
         "herb": 166315790,
         "time_seconds": 3747432,
         "prerequisites": {
-          "Research Lab": 26,
-          "Training Grounds": 26,
-          "Farm": 13
+          "研究室": 26,
+          "訓練場": 26,
+          "農場": 13
         }
       },
       {
@@ -319,9 +318,9 @@
         "herb": 250000000,
         "time_seconds": 5246404,
         "prerequisites": {
-          "Research Lab": 27,
-          "Barracks": 27,
-          "Lumberyard": 13
+          "研究室": 27,
+          "兵営": 27,
+          "伐採場": 13
         }
       },
       {
@@ -331,9 +330,9 @@
         "herb": 316842106,
         "time_seconds": 6820324,
         "prerequisites": {
-          "Research Lab": 28,
-          "Alliance Hall": 28,
-          "Herb Garden": 13
+          "研究室": 28,
+          "ギルド連絡所": 28,
+          "薬草園": 13
         }
       },
       {
@@ -343,9 +342,9 @@
         "herb": 436842106,
         "time_seconds": 8866423,
         "prerequisites": {
-          "Research Lab": 29,
-          "Training Grounds": 29,
-          "Antitoxin Workshop": 15
+          "研究室": 29,
+          "訓練場": 29,
+          "抗毒剤工房": 15
         }
       }
     ]
@@ -353,7 +352,6 @@
   {
     "id": "1st-lab",
     "name": "研究室",
-    "name_en": "Research Lab",
     "icon": "🔬",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -373,7 +371,7 @@
         "herb": 0,
         "time_seconds": 15,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -383,7 +381,7 @@
         "herb": 0,
         "time_seconds": 30,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -393,7 +391,7 @@
         "herb": 0,
         "time_seconds": 90,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -403,7 +401,7 @@
         "herb": 0,
         "time_seconds": 650,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -413,7 +411,7 @@
         "herb": 0,
         "time_seconds": 2000,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -423,7 +421,7 @@
         "herb": 0,
         "time_seconds": 5034,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -433,7 +431,7 @@
         "herb": 0,
         "time_seconds": 9533,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -443,7 +441,7 @@
         "herb": 176000,
         "time_seconds": 13220,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -453,7 +451,7 @@
         "herb": 204000,
         "time_seconds": 17206,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -463,7 +461,7 @@
         "herb": 495188,
         "time_seconds": 22788,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -473,7 +471,7 @@
         "herb": 852632,
         "time_seconds": 29624,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -483,7 +481,7 @@
         "herb": 860000,
         "time_seconds": 38452,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -493,7 +491,7 @@
         "herb": 1443299,
         "time_seconds": 50065,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -503,7 +501,7 @@
         "herb": 1900000,
         "time_seconds": 64120,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -513,7 +511,7 @@
         "herb": 3400000,
         "time_seconds": 108916,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -523,7 +521,7 @@
         "herb": 4338625,
         "time_seconds": 137379,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -533,7 +531,7 @@
         "herb": 7513228,
         "time_seconds": 192330,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -543,7 +541,7 @@
         "herb": 8829788,
         "time_seconds": 269262,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -553,7 +551,7 @@
         "herb": 16382979,
         "time_seconds": 376968,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -563,7 +561,7 @@
         "herb": 23000000,
         "time_seconds": 548600,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -573,7 +571,7 @@
         "herb": 31000000,
         "time_seconds": 737300,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -583,7 +581,7 @@
         "herb": 40000000,
         "time_seconds": 926000,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -593,7 +591,7 @@
         "herb": 48000000,
         "time_seconds": 1115000,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -603,7 +601,7 @@
         "herb": 81000000,
         "time_seconds": 1858000,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -613,7 +611,7 @@
         "herb": 110000000,
         "time_seconds": 2601000,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -623,7 +621,7 @@
         "herb": 150000000,
         "time_seconds": 3417000,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -633,7 +631,7 @@
         "herb": 210000000,
         "time_seconds": 4757000,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -643,7 +641,7 @@
         "herb": 290000000,
         "time_seconds": 6692000,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -653,7 +651,7 @@
         "herb": 400000000,
         "time_seconds": 9643000,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -661,7 +659,6 @@
   {
     "id": "builders-hut",
     "name": "建築作業小屋",
-    "name_en": "Builders Hut",
     "icon": "🔨",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -681,7 +678,7 @@
         "herb": 0,
         "time_seconds": 20,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -691,7 +688,7 @@
         "herb": 0,
         "time_seconds": 60,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -701,7 +698,7 @@
         "herb": 0,
         "time_seconds": 240,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -711,7 +708,7 @@
         "herb": 0,
         "time_seconds": 640,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -721,7 +718,7 @@
         "herb": 0,
         "time_seconds": 1530,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -731,7 +728,7 @@
         "herb": 0,
         "time_seconds": 2988,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -741,7 +738,7 @@
         "herb": 0,
         "time_seconds": 5766,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -751,7 +748,7 @@
         "herb": 33600,
         "time_seconds": 7988,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -761,7 +758,7 @@
         "herb": 40200,
         "time_seconds": 10366,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -771,7 +768,7 @@
         "herb": 102300,
         "time_seconds": 13022,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -781,7 +778,7 @@
         "herb": 149604,
         "time_seconds": 17514,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -791,7 +788,7 @@
         "herb": 196908,
         "time_seconds": 22006,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -801,7 +798,7 @@
         "herb": 248454,
         "time_seconds": 28609,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -811,7 +808,7 @@
         "herb": 361291,
         "time_seconds": 40052,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -821,7 +818,7 @@
         "herb": 661053,
         "time_seconds": 56073,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -831,7 +828,7 @@
         "herb": 813979,
         "time_seconds": 78502,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -841,7 +838,7 @@
         "herb": 1489362,
         "time_seconds": 109904,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -851,7 +848,7 @@
         "herb": 1808511,
         "time_seconds": 153864,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -861,7 +858,7 @@
         "herb": 3208557,
         "time_seconds": 215410,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -871,7 +868,7 @@
         "herb": 6984127,
         "time_seconds": 487744,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -881,7 +878,7 @@
         "herb": 5800000,
         "time_seconds": 580000,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -891,7 +888,7 @@
         "herb": 7300000,
         "time_seconds": 720000,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -901,7 +898,7 @@
         "herb": 9100000,
         "time_seconds": 880000,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -911,7 +908,7 @@
         "herb": 15000000,
         "time_seconds": 1040000,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -921,7 +918,7 @@
         "herb": 23010753,
         "time_seconds": 1338369,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -931,7 +928,7 @@
         "herb": 28000000,
         "time_seconds": 1600000,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -941,7 +938,7 @@
         "herb": 39000000,
         "time_seconds": 1920000,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -951,7 +948,7 @@
         "herb": 55000000,
         "time_seconds": 2300000,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -961,7 +958,7 @@
         "herb": 77000000,
         "time_seconds": 2760000,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -969,7 +966,6 @@
   {
     "id": "alliance-hall",
     "name": "ギルド連絡所",
-    "name_en": "Alliance Hall",
     "icon": "🏛️",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -989,7 +985,7 @@
         "herb": 0,
         "time_seconds": 30,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -999,7 +995,7 @@
         "herb": 0,
         "time_seconds": 105,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -1009,7 +1005,7 @@
         "herb": 0,
         "time_seconds": 180,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -1019,7 +1015,7 @@
         "herb": 0,
         "time_seconds": 640,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -1029,7 +1025,7 @@
         "herb": 0,
         "time_seconds": 1303,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -1039,7 +1035,7 @@
         "herb": 0,
         "time_seconds": 2930,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -1049,7 +1045,7 @@
         "herb": 0,
         "time_seconds": 5745,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -1059,7 +1055,7 @@
         "herb": 104000,
         "time_seconds": 7966,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -1069,7 +1065,7 @@
         "herb": 123000,
         "time_seconds": 10348,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -1079,7 +1075,7 @@
         "herb": 300000,
         "time_seconds": 16928,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -1089,7 +1085,7 @@
         "herb": 527836,
         "time_seconds": 16928,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -1099,7 +1095,7 @@
         "herb": 558763,
         "time_seconds": 22006,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -1109,7 +1105,7 @@
         "herb": 767369,
         "time_seconds": 28609,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -1119,7 +1115,7 @@
         "herb": 1100000,
         "time_seconds": 54000,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -1129,7 +1125,7 @@
         "herb": 1900000,
         "time_seconds": 66500,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -1139,7 +1135,7 @@
         "herb": 2553192,
         "time_seconds": 78502,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -1149,7 +1145,7 @@
         "herb": 4468086,
         "time_seconds": 109904,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -1159,7 +1155,7 @@
         "herb": 5531915,
         "time_seconds": 153864,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -1169,7 +1165,7 @@
         "herb": 9574469,
         "time_seconds": 215410,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -1179,7 +1175,7 @@
         "herb": 13157895,
         "time_seconds": 288606,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -1189,7 +1185,7 @@
         "herb": 16613757,
         "time_seconds": 375187,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -1199,7 +1195,7 @@
         "herb": 22000000,
         "time_seconds": 529000,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -1209,7 +1205,7 @@
         "herb": 27234043,
         "time_seconds": 682841,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -1219,7 +1215,7 @@
         "herb": 46000000,
         "time_seconds": 1010000,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -1229,7 +1225,7 @@
         "herb": 65297298,
         "time_seconds": 1338369,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -1239,7 +1235,7 @@
         "herb": 84000000,
         "time_seconds": 1600000,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -1249,7 +1245,7 @@
         "herb": 120000000,
         "time_seconds": 1920000,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -1259,7 +1255,7 @@
         "herb": 170000000,
         "time_seconds": 2300000,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -1269,7 +1265,7 @@
         "herb": 230000000,
         "time_seconds": 2760000,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -1277,7 +1273,6 @@
   {
     "id": "training-grounds",
     "name": "訓練場",
-    "name_en": "Training Grounds",
     "icon": "🪖",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -1297,7 +1292,7 @@
         "herb": 0,
         "time_seconds": 63,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -1307,7 +1302,7 @@
         "herb": 0,
         "time_seconds": 107,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -1317,7 +1312,7 @@
         "herb": 0,
         "time_seconds": 237,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -1327,7 +1322,7 @@
         "herb": 0,
         "time_seconds": 640,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -1337,7 +1332,7 @@
         "herb": 0,
         "time_seconds": 2200,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -1347,7 +1342,7 @@
         "herb": 0,
         "time_seconds": 4358,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -1357,7 +1352,7 @@
         "herb": 0,
         "time_seconds": 8568,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -1367,7 +1362,7 @@
         "herb": 117000,
         "time_seconds": 12015,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -1377,7 +1372,7 @@
         "herb": 148000,
         "time_seconds": 15484,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -1387,7 +1382,7 @@
         "herb": 371135,
         "time_seconds": 19533,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -1397,7 +1392,7 @@
         "herb": 641238,
         "time_seconds": 25392,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -1407,7 +1402,7 @@
         "herb": 703158,
         "time_seconds": 33010,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -1417,7 +1412,7 @@
         "herb": 977420,
         "time_seconds": 42913,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -1427,7 +1422,7 @@
         "herb": 1481482,
         "time_seconds": 60078,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -1437,7 +1432,7 @@
         "herb": 2433863,
         "time_seconds": 84110,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -1447,7 +1442,7 @@
         "herb": 3118280,
         "time_seconds": 117753,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -1457,7 +1452,7 @@
         "herb": 5396826,
         "time_seconds": 164855,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -1467,7 +1462,7 @@
         "herb": 6315790,
         "time_seconds": 230796,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -1477,7 +1472,7 @@
         "herb": 11935484,
         "time_seconds": 323115,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -1487,7 +1482,7 @@
         "herb": 16315790,
         "time_seconds": 432909,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -1497,7 +1492,7 @@
         "herb": 21700000,
         "time_seconds": 562781,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -1507,7 +1502,7 @@
         "herb": 26489362,
         "time_seconds": 731615,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -1517,7 +1512,7 @@
         "herb": 34623656,
         "time_seconds": 1024322,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -1527,7 +1522,7 @@
         "herb": 55483871,
         "time_seconds": 1433966,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -1537,7 +1532,7 @@
         "herb": 81000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -1547,7 +1542,7 @@
         "herb": 110000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -1557,7 +1552,7 @@
         "herb": 150000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -1567,7 +1562,7 @@
         "herb": 210000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -1577,7 +1572,7 @@
         "herb": 290000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -1585,7 +1580,6 @@
   {
     "id": "antitoxin-workshop",
     "name": "抗毒剤工房",
-    "name_en": "Antitoxin Workshop",
     "icon": "🧪",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -1605,7 +1599,7 @@
         "herb": 0,
         "time_seconds": 5,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -1615,7 +1609,7 @@
         "herb": 0,
         "time_seconds": 30,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -1625,7 +1619,7 @@
         "herb": 0,
         "time_seconds": 220,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -1635,7 +1629,7 @@
         "herb": 0,
         "time_seconds": 300,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -1645,7 +1639,7 @@
         "herb": 0,
         "time_seconds": 480,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -1655,7 +1649,7 @@
         "herb": 0,
         "time_seconds": 640,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -1665,7 +1659,7 @@
         "herb": 0,
         "time_seconds": 1550,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -1675,7 +1669,7 @@
         "herb": 16632,
         "time_seconds": 2155,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -1685,7 +1679,7 @@
         "herb": 19158,
         "time_seconds": 2687,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -1695,7 +1689,7 @@
         "herb": 51264,
         "time_seconds": 3255,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -1705,7 +1699,7 @@
         "herb": 86737,
         "time_seconds": 4232,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -1715,7 +1709,7 @@
         "herb": 927369,
         "time_seconds": 5501,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -1725,7 +1719,7 @@
         "herb": 132632,
         "time_seconds": 7153,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -1735,7 +1729,7 @@
         "herb": 176843,
         "time_seconds": 10013,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -1745,7 +1739,7 @@
         "herb": 330108,
         "time_seconds": 14018,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -1755,7 +1749,7 @@
         "herb": 421053,
         "time_seconds": 19626,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -1765,7 +1759,7 @@
         "herb": 720000,
         "time_seconds": 27476,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -1775,7 +1769,7 @@
         "herb": 878948,
         "time_seconds": 38466,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -1785,7 +1779,7 @@
         "herb": 1578948,
         "time_seconds": 53852,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -1795,7 +1789,7 @@
         "herb": 2315790,
         "time_seconds": 72152,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -1805,7 +1799,7 @@
         "herb": 2857143,
         "time_seconds": 93797,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -1815,7 +1809,7 @@
         "herb": 3440861,
         "time_seconds": 114736,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -1825,7 +1819,7 @@
         "herb": 4648649,
         "time_seconds": 170711,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -1835,7 +1829,7 @@
         "herb": 7459460,
         "time_seconds": 238995,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -1845,7 +1839,7 @@
         "herb": 10810811,
         "time_seconds": 334592,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -1855,7 +1849,7 @@
         "herb": 14000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -1865,7 +1859,7 @@
         "herb": 20000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -1875,7 +1869,7 @@
         "herb": 28000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -1885,7 +1879,7 @@
         "herb": 39000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -1893,7 +1887,6 @@
   {
     "id": "farm",
     "name": "農場",
-    "name_en": "Farm",
     "icon": "🌾",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -1913,7 +1906,7 @@
         "herb": 0,
         "time_seconds": 38,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -1923,7 +1916,7 @@
         "herb": 0,
         "time_seconds": 107,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -1933,7 +1926,7 @@
         "herb": 0,
         "time_seconds": 177,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -1943,7 +1936,7 @@
         "herb": 0,
         "time_seconds": 236,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -1953,7 +1946,7 @@
         "herb": 0,
         "time_seconds": 411,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -1963,7 +1956,7 @@
         "herb": 0,
         "time_seconds": 411,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -1973,7 +1966,7 @@
         "herb": 0,
         "time_seconds": 1500,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -1983,7 +1976,7 @@
         "herb": 16211,
         "time_seconds": 2110,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -1993,7 +1986,7 @@
         "herb": 20632,
         "time_seconds": 2700,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -2003,7 +1996,7 @@
         "herb": 52106,
         "time_seconds": 3255,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -2013,7 +2006,7 @@
         "herb": 84737,
         "time_seconds": 4232,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -2023,7 +2016,7 @@
         "herb": 88843,
         "time_seconds": 5501,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -2033,7 +2026,7 @@
         "herb": 133685,
         "time_seconds": 7153,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -2043,7 +2036,7 @@
         "herb": 175790,
         "time_seconds": 9995,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -2053,7 +2046,7 @@
         "herb": 331579,
         "time_seconds": 14018,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -2063,7 +2056,7 @@
         "herb": 426316,
         "time_seconds": 12422,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -2073,7 +2066,7 @@
         "herb": 723158,
         "time_seconds": 17390,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -2083,7 +2076,7 @@
         "herb": 894180,
         "time_seconds": 38466,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -2093,7 +2086,7 @@
         "herb": 1595745,
         "time_seconds": 53852,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -2103,7 +2096,7 @@
         "herb": 2150538,
         "time_seconds": 72152,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -2113,7 +2106,7 @@
         "herb": 2795699,
         "time_seconds": 93797,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -2123,7 +2116,7 @@
         "herb": 3548388,
         "time_seconds": 121936,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -2133,7 +2126,7 @@
         "herb": 4432433,
         "time_seconds": 170711,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -2143,7 +2136,7 @@
         "herb": 7700000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -2153,7 +2146,7 @@
         "herb": 11000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -2163,7 +2156,7 @@
         "herb": 14000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -2173,7 +2166,7 @@
         "herb": 20000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -2183,7 +2176,7 @@
         "herb": 28000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -2193,7 +2186,7 @@
         "herb": 39000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -2201,7 +2194,6 @@
   {
     "id": "lumberyard",
     "name": "伐採場",
-    "name_en": "Lumberyard",
     "icon": "🪵",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -2221,7 +2213,7 @@
         "herb": 0,
         "time_seconds": 38,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -2231,7 +2223,7 @@
         "herb": 0,
         "time_seconds": 107,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -2241,7 +2233,7 @@
         "herb": 0,
         "time_seconds": 177,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -2251,7 +2243,7 @@
         "herb": 0,
         "time_seconds": 236,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -2261,7 +2253,7 @@
         "herb": 0,
         "time_seconds": 411,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -2271,7 +2263,7 @@
         "herb": 0,
         "time_seconds": 649,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -2281,7 +2273,7 @@
         "herb": 0,
         "time_seconds": 1500,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -2291,7 +2283,7 @@
         "herb": 16211,
         "time_seconds": 2108,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -2301,7 +2293,7 @@
         "herb": 20316,
         "time_seconds": 2700,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -2311,7 +2303,7 @@
         "herb": 49369,
         "time_seconds": 3255,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -2321,7 +2313,7 @@
         "herb": 85895,
         "time_seconds": 4232,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -2331,7 +2323,7 @@
         "herb": 94106,
         "time_seconds": 5501,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -2341,7 +2333,7 @@
         "herb": 129474,
         "time_seconds": 7153,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -2351,7 +2343,7 @@
         "herb": 182106,
         "time_seconds": 10013,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -2361,7 +2353,7 @@
         "herb": 326316,
         "time_seconds": 14018,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -2371,7 +2363,7 @@
         "herb": 410527,
         "time_seconds": 19626,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -2381,7 +2373,7 @@
         "herb": 770527,
         "time_seconds": 27476,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -2391,7 +2383,7 @@
         "herb": 922752,
         "time_seconds": 38466,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -2401,7 +2393,7 @@
         "herb": 1702128,
         "time_seconds": 53852,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -2411,7 +2403,7 @@
         "herb": 2245990,
         "time_seconds": 72152,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -2421,7 +2413,7 @@
         "herb": 3010753,
         "time_seconds": 93797,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -2431,7 +2423,7 @@
         "herb": 3763441,
         "time_seconds": 121936,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -2441,7 +2433,7 @@
         "herb": 4540541,
         "time_seconds": 170711,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -2451,7 +2443,7 @@
         "herb": 7700000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -2461,7 +2453,7 @@
         "herb": 11000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -2471,7 +2463,7 @@
         "herb": 14000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -2481,7 +2473,7 @@
         "herb": 20000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -2491,7 +2483,7 @@
         "herb": 28000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -2501,7 +2493,7 @@
         "herb": 39000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -2509,7 +2501,6 @@
   {
     "id": "herb-garden",
     "name": "薬草園",
-    "name_en": "Herb Garden",
     "icon": "🌿",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -2529,7 +2520,7 @@
         "herb": 0,
         "time_seconds": 38,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -2539,7 +2530,7 @@
         "herb": 0,
         "time_seconds": 107,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -2549,7 +2540,7 @@
         "herb": 0,
         "time_seconds": 170,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -2559,7 +2550,7 @@
         "herb": 0,
         "time_seconds": 220,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -2569,7 +2560,7 @@
         "herb": 0,
         "time_seconds": 438,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -2579,7 +2570,7 @@
         "herb": 0,
         "time_seconds": 657,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -2589,7 +2580,7 @@
         "herb": 0,
         "time_seconds": 1429,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -2599,7 +2590,7 @@
         "herb": 16600,
         "time_seconds": 2100,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -2609,7 +2600,7 @@
         "herb": 19158,
         "time_seconds": 2700,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -2619,7 +2610,7 @@
         "herb": 49053,
         "time_seconds": 3255,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -2629,7 +2620,7 @@
         "herb": 82422,
         "time_seconds": 4232,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -2639,7 +2630,7 @@
         "herb": 95264,
         "time_seconds": 5501,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -2649,7 +2640,7 @@
         "herb": 129474,
         "time_seconds": 7153,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -2659,7 +2650,7 @@
         "herb": 172044,
         "time_seconds": 10013,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -2669,7 +2660,7 @@
         "herb": 334409,
         "time_seconds": 14018,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -2679,7 +2670,7 @@
         "herb": 424211,
         "time_seconds": 19626,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -2689,7 +2680,7 @@
         "herb": 770527,
         "time_seconds": 27476,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -2699,7 +2690,7 @@
         "herb": 902151,
         "time_seconds": 38466,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -2709,7 +2700,7 @@
         "herb": 1505377,
         "time_seconds": 53852,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -2719,7 +2710,7 @@
         "herb": 2258065,
         "time_seconds": 72152,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -2729,7 +2720,7 @@
         "herb": 2918919,
         "time_seconds": 93797,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -2739,7 +2730,7 @@
         "herb": 3600000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -2749,7 +2740,7 @@
         "herb": 4500000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -2759,7 +2750,7 @@
         "herb": 7700000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -2769,7 +2760,7 @@
         "herb": 11000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -2779,7 +2770,7 @@
         "herb": 14000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -2789,7 +2780,7 @@
         "herb": 20000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -2799,7 +2790,7 @@
         "herb": 28000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -2809,7 +2800,7 @@
         "herb": 39000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -2817,7 +2808,6 @@
   {
     "id": "warrior-statue",
     "name": "ウォーリア像",
-    "name_en": "Warrior Statue",
     "icon": "🗿",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -2837,7 +2827,7 @@
         "herb": 0,
         "time_seconds": 30,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -2847,7 +2837,7 @@
         "herb": 0,
         "time_seconds": 100,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -2857,7 +2847,7 @@
         "herb": 0,
         "time_seconds": 228,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -2867,7 +2857,7 @@
         "herb": 0,
         "time_seconds": 1200,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -2877,7 +2867,7 @@
         "herb": 0,
         "time_seconds": 2312,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -2887,7 +2877,7 @@
         "herb": 0,
         "time_seconds": 4407,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -2897,7 +2887,7 @@
         "herb": 0,
         "time_seconds": 8609,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -2907,7 +2897,7 @@
         "herb": 99691,
         "time_seconds": 11914,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -2917,7 +2907,7 @@
         "herb": 118557,
         "time_seconds": 15608,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -2927,7 +2917,7 @@
         "herb": 289691,
         "time_seconds": 19503,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -2937,7 +2927,7 @@
         "herb": 495877,
         "time_seconds": 25392,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -2947,7 +2937,7 @@
         "herb": 535790,
         "time_seconds": 33010,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -2957,7 +2947,7 @@
         "herb": 78866,
         "time_seconds": 42913,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -2967,7 +2957,7 @@
         "herb": 1052632,
         "time_seconds": 60078,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -2977,7 +2967,7 @@
         "herb": 1914894,
         "time_seconds": 84110,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -2987,7 +2977,7 @@
         "herb": 2446809,
         "time_seconds": 117753,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -2997,7 +2987,7 @@
         "herb": 4468086,
         "time_seconds": 164855,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -3007,7 +2997,7 @@
         "herb": 5106383,
         "time_seconds": 230796,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -3017,7 +3007,7 @@
         "herb": 10000000,
         "time_seconds": 323115,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -3027,7 +3017,7 @@
         "herb": 13052632,
         "time_seconds": 432909,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -3037,7 +3027,7 @@
         "herb": 16825397,
         "time_seconds": 562781,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -3047,7 +3037,7 @@
         "herb": 21692269,
         "time_seconds": 793522,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -3057,7 +3047,7 @@
         "herb": 26559140,
         "time_seconds": 1024262,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -3067,7 +3057,7 @@
         "herb": 46344087,
         "time_seconds": 1433966,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -3077,7 +3067,7 @@
         "herb": 65000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -3087,7 +3077,7 @@
         "herb": 84000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -3097,7 +3087,7 @@
         "herb": 120000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -3107,7 +3097,7 @@
         "herb": 170000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -3117,7 +3107,7 @@
         "herb": 230000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -3125,7 +3115,6 @@
   {
     "id": "ranger-statue",
     "name": "レンジャー像",
-    "name_en": "Ranger Statue",
     "icon": "🏹",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -3145,7 +3134,7 @@
         "herb": 0,
         "time_seconds": 30,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -3155,7 +3144,7 @@
         "herb": 0,
         "time_seconds": 100,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -3165,7 +3154,7 @@
         "herb": 0,
         "time_seconds": 228,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -3175,7 +3164,7 @@
         "herb": 0,
         "time_seconds": 1200,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -3185,7 +3174,7 @@
         "herb": 0,
         "time_seconds": 2312,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -3195,7 +3184,7 @@
         "herb": 0,
         "time_seconds": 4407,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -3205,7 +3194,7 @@
         "herb": 0,
         "time_seconds": 8609,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -3215,7 +3204,7 @@
         "herb": 99691,
         "time_seconds": 11914,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -3225,7 +3214,7 @@
         "herb": 118557,
         "time_seconds": 15608,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -3235,7 +3224,7 @@
         "herb": 289691,
         "time_seconds": 19503,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -3245,7 +3234,7 @@
         "herb": 495877,
         "time_seconds": 25392,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -3255,7 +3244,7 @@
         "herb": 535790,
         "time_seconds": 33010,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -3265,7 +3254,7 @@
         "herb": 78866,
         "time_seconds": 42913,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -3275,7 +3264,7 @@
         "herb": 1052632,
         "time_seconds": 60078,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -3285,7 +3274,7 @@
         "herb": 1914894,
         "time_seconds": 84110,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -3295,7 +3284,7 @@
         "herb": 2446809,
         "time_seconds": 117753,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -3305,7 +3294,7 @@
         "herb": 4468086,
         "time_seconds": 164855,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -3315,7 +3304,7 @@
         "herb": 5106383,
         "time_seconds": 230796,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -3325,7 +3314,7 @@
         "herb": 10000000,
         "time_seconds": 323115,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -3335,7 +3324,7 @@
         "herb": 13052632,
         "time_seconds": 432909,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -3345,7 +3334,7 @@
         "herb": 16825397,
         "time_seconds": 562781,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -3355,7 +3344,7 @@
         "herb": 21692269,
         "time_seconds": 793522,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -3365,7 +3354,7 @@
         "herb": 26559140,
         "time_seconds": 1024262,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -3375,7 +3364,7 @@
         "herb": 46344087,
         "time_seconds": 1433966,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -3385,7 +3374,7 @@
         "herb": 65000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -3395,7 +3384,7 @@
         "herb": 84000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -3405,7 +3394,7 @@
         "herb": 120000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -3415,7 +3404,7 @@
         "herb": 170000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -3425,7 +3414,7 @@
         "herb": 230000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -3433,7 +3422,6 @@
   {
     "id": "warlock-statue",
     "name": "ソーサラー像",
-    "name_en": "Warlock Statue",
     "icon": "🔮",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -3453,7 +3441,7 @@
         "herb": 0,
         "time_seconds": 30,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -3463,7 +3451,7 @@
         "herb": 0,
         "time_seconds": 100,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -3473,7 +3461,7 @@
         "herb": 0,
         "time_seconds": 228,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -3483,7 +3471,7 @@
         "herb": 0,
         "time_seconds": 1200,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -3493,7 +3481,7 @@
         "herb": 0,
         "time_seconds": 2312,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -3503,7 +3491,7 @@
         "herb": 0,
         "time_seconds": 4407,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -3513,7 +3501,7 @@
         "herb": 0,
         "time_seconds": 8609,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -3523,7 +3511,7 @@
         "herb": 99691,
         "time_seconds": 11914,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -3533,7 +3521,7 @@
         "herb": 118557,
         "time_seconds": 15608,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -3543,7 +3531,7 @@
         "herb": 289691,
         "time_seconds": 19503,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -3553,7 +3541,7 @@
         "herb": 495877,
         "time_seconds": 25392,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -3563,7 +3551,7 @@
         "herb": 535790,
         "time_seconds": 33010,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -3573,7 +3561,7 @@
         "herb": 78866,
         "time_seconds": 42913,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -3583,7 +3571,7 @@
         "herb": 1052632,
         "time_seconds": 60078,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -3593,7 +3581,7 @@
         "herb": 1914894,
         "time_seconds": 84110,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -3603,7 +3591,7 @@
         "herb": 2446809,
         "time_seconds": 117753,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -3613,7 +3601,7 @@
         "herb": 4468086,
         "time_seconds": 164855,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -3623,7 +3611,7 @@
         "herb": 5106383,
         "time_seconds": 230796,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -3633,7 +3621,7 @@
         "herb": 10000000,
         "time_seconds": 323115,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -3643,7 +3631,7 @@
         "herb": 13052632,
         "time_seconds": 432909,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -3653,7 +3641,7 @@
         "herb": 16825397,
         "time_seconds": 562781,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -3663,7 +3651,7 @@
         "herb": 21692269,
         "time_seconds": 793522,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -3673,7 +3661,7 @@
         "herb": 26559140,
         "time_seconds": 1024262,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -3683,7 +3671,7 @@
         "herb": 46344087,
         "time_seconds": 1433966,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -3693,7 +3681,7 @@
         "herb": 65000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -3703,7 +3691,7 @@
         "herb": 84000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -3713,7 +3701,7 @@
         "herb": 120000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -3723,7 +3711,7 @@
         "herb": 170000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -3733,7 +3721,7 @@
         "herb": 230000000,
         "time_seconds": 0,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -3741,7 +3729,6 @@
   {
     "id": "infirmary",
     "name": "病院",
-    "name_en": "Infirmary",
     "icon": "🏥",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -3761,7 +3748,7 @@
         "herb": 0,
         "time_seconds": 30,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -3771,7 +3758,7 @@
         "herb": 0,
         "time_seconds": 62,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -3781,7 +3768,7 @@
         "herb": 0,
         "time_seconds": 88,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -3791,7 +3778,7 @@
         "herb": 0,
         "time_seconds": 638,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -3801,7 +3788,7 @@
         "herb": 0,
         "time_seconds": 2300,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -3811,7 +3798,7 @@
         "herb": 0,
         "time_seconds": 4180,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -3821,7 +3808,7 @@
         "herb": 0,
         "time_seconds": 8556,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -3831,7 +3818,7 @@
         "herb": 116000,
         "time_seconds": 11429,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -3841,7 +3828,7 @@
         "herb": 115790,
         "time_seconds": 12000,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -3851,7 +3838,7 @@
         "herb": 381915,
         "time_seconds": 19533,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -3861,7 +3848,7 @@
         "herb": 648937,
         "time_seconds": 25392,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -3871,7 +3858,7 @@
         "herb": 690053,
         "time_seconds": 33010,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -3881,7 +3868,7 @@
         "herb": 682979,
         "time_seconds": 33010,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -3891,7 +3878,7 @@
         "herb": 1397850,
         "time_seconds": 60078,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -3901,7 +3888,7 @@
         "herb": 2245990,
         "time_seconds": 84110,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -3911,7 +3898,7 @@
         "herb": 3208557,
         "time_seconds": 117753,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -3921,7 +3908,7 @@
         "herb": 5502646,
         "time_seconds": 164855,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -3931,7 +3918,7 @@
         "herb": 6878307,
         "time_seconds": 194528,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -3941,7 +3928,7 @@
         "herb": 12275133,
         "time_seconds": 323115,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -3951,7 +3938,7 @@
         "herb": 16613757,
         "time_seconds": 432909,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -3961,7 +3948,7 @@
         "herb": 22751323,
         "time_seconds": 562781,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -3971,7 +3958,7 @@
         "herb": 24300000,
         "time_seconds": 731635,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -3981,7 +3968,7 @@
         "herb": 30375000,
         "time_seconds": 863329,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -3991,7 +3978,7 @@
         "herb": 37968750,
         "time_seconds": 1018728,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -4001,7 +3988,7 @@
         "herb": 47460937,
         "time_seconds": 1202099,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -4011,7 +3998,7 @@
         "herb": 59326171,
         "time_seconds": 1418476,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -4021,7 +4008,7 @@
         "herb": 74157713,
         "time_seconds": 1673801,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -4031,7 +4018,7 @@
         "herb": 92697141,
         "time_seconds": 1975085,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -4041,7 +4028,7 @@
         "herb": 115871426,
         "time_seconds": 2330600,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -4049,7 +4036,6 @@
   {
     "id": "barracks",
     "name": "兵営",
-    "name_en": "Barracks",
     "icon": "⚔️",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -4069,7 +4055,7 @@
         "herb": 0,
         "time_seconds": 63,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -4079,7 +4065,7 @@
         "herb": 0,
         "time_seconds": 107,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -4089,7 +4075,7 @@
         "herb": 0,
         "time_seconds": 237,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -4099,7 +4085,7 @@
         "herb": 0,
         "time_seconds": 781,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -4109,7 +4095,7 @@
         "herb": 0,
         "time_seconds": 1856,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -4119,7 +4105,7 @@
         "herb": 0,
         "time_seconds": 2958,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -4129,7 +4115,7 @@
         "herb": 0,
         "time_seconds": 5316,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -4139,7 +4125,7 @@
         "herb": 80958,
         "time_seconds": 8048,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -4149,7 +4135,7 @@
         "herb": 964894,
         "time_seconds": 10565,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -4159,7 +4145,7 @@
         "herb": 250000,
         "time_seconds": 13022,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -4169,7 +4155,7 @@
         "herb": 400000,
         "time_seconds": 16928,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -4179,7 +4165,7 @@
         "herb": 703704,
         "time_seconds": 33010,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -4189,7 +4175,7 @@
         "herb": 672341,
         "time_seconds": 28609,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -4199,7 +4185,7 @@
         "herb": 934409,
         "time_seconds": 40052,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -4209,7 +4195,7 @@
         "herb": 1641026,
         "time_seconds": 56073,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -4219,7 +4205,7 @@
         "herb": 2043011,
         "time_seconds": 78502,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -4229,7 +4215,7 @@
         "herb": 3548388,
         "time_seconds": 109904,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -4239,7 +4225,7 @@
         "herb": 4232805,
         "time_seconds": 153864,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -4249,7 +4235,7 @@
         "herb": 7956990,
         "time_seconds": 215410,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -4259,7 +4245,7 @@
         "herb": 11182796,
         "time_seconds": 288606,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -4269,7 +4255,7 @@
         "herb": 14838710,
         "time_seconds": 375187,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -4279,7 +4265,7 @@
         "herb": 17837838,
         "time_seconds": 487744,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -4289,7 +4275,7 @@
         "herb": 22297297,
         "time_seconds": 575537,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -4299,7 +4285,7 @@
         "herb": 27871621,
         "time_seconds": 679133,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -4309,7 +4295,7 @@
         "herb": 34839526,
         "time_seconds": 801376,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -4319,7 +4305,7 @@
         "herb": 43549407,
         "time_seconds": 945623,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -4329,7 +4315,7 @@
         "herb": 54436758,
         "time_seconds": 1115835,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -4339,7 +4325,7 @@
         "herb": 68045947,
         "time_seconds": 1316685,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -4349,7 +4335,7 @@
         "herb": 85057433,
         "time_seconds": 1553688,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -4357,7 +4343,6 @@
   {
     "id": "tavern",
     "name": "酒場",
-    "name_en": "Tavern",
     "icon": "🍺",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -4377,7 +4362,7 @@
         "herb": 0,
         "time_seconds": 10,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -4387,7 +4372,7 @@
         "herb": 0,
         "time_seconds": 30,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -4397,7 +4382,7 @@
         "herb": 0,
         "time_seconds": 240,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -4407,7 +4392,7 @@
         "herb": 0,
         "time_seconds": 640,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -4417,7 +4402,7 @@
         "herb": 0,
         "time_seconds": 2600,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -4427,7 +4412,7 @@
         "herb": 0,
         "time_seconds": 5155,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -4437,7 +4422,7 @@
         "herb": 0,
         "time_seconds": 9636,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -4447,7 +4432,7 @@
         "herb": 173119,
         "time_seconds": 13238,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -4457,7 +4442,7 @@
         "herb": 216398,
         "time_seconds": 15620,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -4467,7 +4452,7 @@
         "herb": 270497,
         "time_seconds": 18431,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -4477,7 +4462,7 @@
         "herb": 929788,
         "time_seconds": 29624,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -4487,7 +4472,7 @@
         "herb": 949463,
         "time_seconds": 38512,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -4497,7 +4482,7 @@
         "herb": 1405406,
         "time_seconds": 50065,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -4507,7 +4492,7 @@
         "herb": 1756757,
         "time_seconds": 59076,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -4517,7 +4502,7 @@
         "herb": 2195946,
         "time_seconds": 69709,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -4527,7 +4512,7 @@
         "herb": 2744932,
         "time_seconds": 82256,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -4537,7 +4522,7 @@
         "herb": 3431165,
         "time_seconds": 97062,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -4547,7 +4532,7 @@
         "herb": 4288956,
         "time_seconds": 114533,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -4557,7 +4542,7 @@
         "herb": 5361195,
         "time_seconds": 135148,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -4567,7 +4552,7 @@
         "herb": 6701493,
         "time_seconds": 159474,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -4577,7 +4562,7 @@
         "herb": 8376866,
         "time_seconds": 188179,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -4587,7 +4572,7 @@
         "herb": 10471082,
         "time_seconds": 222051,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -4597,7 +4582,7 @@
         "herb": 13088852,
         "time_seconds": 262020,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -4607,7 +4592,7 @@
         "herb": 16361065,
         "time_seconds": 309183,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -4617,7 +4602,7 @@
         "herb": 20451331,
         "time_seconds": 364835,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -4627,7 +4612,7 @@
         "herb": 25564163,
         "time_seconds": 430505,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -4637,7 +4622,7 @@
         "herb": 31955203,
         "time_seconds": 507995,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -4647,7 +4632,7 @@
         "herb": 39944003,
         "time_seconds": 599434,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -4657,7 +4642,7 @@
         "herb": 49930003,
         "time_seconds": 707332,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -4665,7 +4650,6 @@
   {
     "id": "walls",
     "name": "城壁",
-    "name_en": "Walls",
     "icon": "🧱",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -4685,7 +4669,7 @@
         "herb": 0,
         "time_seconds": 30,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -4695,7 +4679,7 @@
         "herb": 0,
         "time_seconds": 60,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -4705,7 +4689,7 @@
         "herb": 0,
         "time_seconds": 88,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -4715,7 +4699,7 @@
         "herb": 0,
         "time_seconds": 653,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -4725,7 +4709,7 @@
         "herb": 0,
         "time_seconds": 770,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -4735,7 +4719,7 @@
         "herb": 0,
         "time_seconds": 5418,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -4745,7 +4729,7 @@
         "herb": 0,
         "time_seconds": 10950,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -4755,7 +4739,7 @@
         "herb": 135000,
         "time_seconds": 15078,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -4765,7 +4749,7 @@
         "herb": 163000,
         "time_seconds": 20138,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -4775,7 +4759,7 @@
         "herb": 406316,
         "time_seconds": 26043,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -4785,7 +4769,7 @@
         "herb": 704000,
         "time_seconds": 33857,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -4795,7 +4779,7 @@
         "herb": 761905,
         "time_seconds": 44013,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -4805,7 +4789,7 @@
         "herb": 1045503,
         "time_seconds": 57218,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -4815,7 +4799,7 @@
         "herb": 1481482,
         "time_seconds": 80105,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -4825,7 +4809,7 @@
         "herb": 2645503,
         "time_seconds": 112146,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -4835,7 +4819,7 @@
         "herb": 3306878,
         "time_seconds": 132332,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -4845,7 +4829,7 @@
         "herb": 5400000,
         "time_seconds": 219817,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -4855,7 +4839,7 @@
         "herb": 6914894,
         "time_seconds": 307728,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -4865,7 +4849,7 @@
         "herb": 12978724,
         "time_seconds": 430820,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -4875,7 +4859,7 @@
         "herb": 17127660,
         "time_seconds": 577211,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -4885,7 +4869,7 @@
         "herb": 21914894,
         "time_seconds": 750375,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -4895,7 +4879,7 @@
         "herb": 27393617,
         "time_seconds": 885442,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -4905,7 +4889,7 @@
         "herb": 34893618,
         "time_seconds": 1365682,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -4915,7 +4899,7 @@
         "herb": 43617022,
         "time_seconds": 1611504,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -4925,7 +4909,7 @@
         "herb": 54521277,
         "time_seconds": 1901574,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -4935,7 +4919,7 @@
         "herb": 68151596,
         "time_seconds": 2243857,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -4945,7 +4929,7 @@
         "herb": 85189495,
         "time_seconds": 2647751,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -4955,7 +4939,7 @@
         "herb": 106486868,
         "time_seconds": 3124346,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -4965,7 +4949,7 @@
         "herb": 133108585,
         "time_seconds": 3686728,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -4973,7 +4957,6 @@
   {
     "id": "granary",
     "name": "食料倉庫",
-    "name_en": "Granary",
     "icon": "🌾",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -4993,7 +4976,7 @@
         "herb": 0,
         "time_seconds": 30,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -5003,7 +4986,7 @@
         "herb": 0,
         "time_seconds": 107,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -5013,7 +4996,7 @@
         "herb": 0,
         "time_seconds": 237,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -5023,7 +5006,7 @@
         "herb": 0,
         "time_seconds": 647,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -5033,7 +5016,7 @@
         "herb": 0,
         "time_seconds": 2280,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -5043,7 +5026,7 @@
         "herb": 0,
         "time_seconds": 4350,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -5053,7 +5036,7 @@
         "herb": 0,
         "time_seconds": 8555,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -5063,7 +5046,7 @@
         "herb": 146316,
         "time_seconds": 11468,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -5073,7 +5056,7 @@
         "herb": 176289,
         "time_seconds": 15480,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -5083,7 +5066,7 @@
         "herb": 432632,
         "time_seconds": 19533,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -5093,7 +5076,7 @@
         "herb": 762766,
         "time_seconds": 25392,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -5103,7 +5086,7 @@
         "herb": 953457,
         "time_seconds": 29962,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -5113,7 +5096,7 @@
         "herb": 1191821,
         "time_seconds": 35355,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -5123,7 +5106,7 @@
         "herb": 1489776,
         "time_seconds": 41718,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -5133,7 +5116,7 @@
         "herb": 1862220,
         "time_seconds": 49227,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -5143,7 +5126,7 @@
         "herb": 2327775,
         "time_seconds": 58087,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -5153,7 +5136,7 @@
         "herb": 2909718,
         "time_seconds": 68542,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -5163,7 +5146,7 @@
         "herb": 3637147,
         "time_seconds": 80879,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -5173,7 +5156,7 @@
         "herb": 4546433,
         "time_seconds": 95437,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -5183,7 +5166,7 @@
         "herb": 5683041,
         "time_seconds": 112615,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -5193,7 +5176,7 @@
         "herb": 7103801,
         "time_seconds": 132885,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -5203,7 +5186,7 @@
         "herb": 8879751,
         "time_seconds": 156804,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -5213,7 +5196,7 @@
         "herb": 11099688,
         "time_seconds": 185028,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -5223,7 +5206,7 @@
         "herb": 13874610,
         "time_seconds": 218333,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -5233,7 +5216,7 @@
         "herb": 17343262,
         "time_seconds": 257632,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -5243,7 +5226,7 @@
         "herb": 21679077,
         "time_seconds": 304005,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -5253,7 +5236,7 @@
         "herb": 27098846,
         "time_seconds": 358725,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -5263,7 +5246,7 @@
         "herb": 33873557,
         "time_seconds": 423295,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -5273,7 +5256,7 @@
         "herb": 42341946,
         "time_seconds": 499488,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -5281,7 +5264,6 @@
   {
     "id": "lumber-depot",
     "name": "木材倉庫",
-    "name_en": "Lumber Depot",
     "icon": "🪵",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -5301,7 +5283,7 @@
         "herb": 73,
         "time_seconds": 30,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -5311,7 +5293,7 @@
         "herb": 0,
         "time_seconds": 107,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -5321,7 +5303,7 @@
         "herb": 0,
         "time_seconds": 237,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -5331,7 +5313,7 @@
         "herb": 0,
         "time_seconds": 647,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -5341,7 +5323,7 @@
         "herb": 0,
         "time_seconds": 763,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -5351,7 +5333,7 @@
         "herb": 0,
         "time_seconds": 900,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -5361,7 +5343,7 @@
         "herb": 0,
         "time_seconds": 8555,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -5371,7 +5353,7 @@
         "herb": 154737,
         "time_seconds": 11468,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -5381,7 +5363,7 @@
         "herb": 193421,
         "time_seconds": 13532,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -5391,7 +5373,7 @@
         "herb": 443158,
         "time_seconds": 19533,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -5401,7 +5383,7 @@
         "herb": 553947,
         "time_seconds": 23048,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -5411,7 +5393,7 @@
         "herb": 869842,
         "time_seconds": 33010,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -5421,7 +5403,7 @@
         "herb": 1087302,
         "time_seconds": 38951,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -5431,7 +5413,7 @@
         "herb": 1359127,
         "time_seconds": 45962,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -5441,7 +5423,7 @@
         "herb": 1698908,
         "time_seconds": 54235,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -5451,7 +5433,7 @@
         "herb": 2123635,
         "time_seconds": 63997,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -5461,7 +5443,7 @@
         "herb": 2654543,
         "time_seconds": 75516,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -5471,7 +5453,7 @@
         "herb": 3318178,
         "time_seconds": 89108,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -5481,7 +5463,7 @@
         "herb": 4147722,
         "time_seconds": 105147,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -5491,7 +5473,7 @@
         "herb": 5184652,
         "time_seconds": 124073,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -5501,7 +5483,7 @@
         "herb": 6480815,
         "time_seconds": 146406,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -5511,7 +5493,7 @@
         "herb": 8101018,
         "time_seconds": 172759,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -5521,7 +5503,7 @@
         "herb": 10126272,
         "time_seconds": 203855,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -5531,7 +5513,7 @@
         "herb": 12657840,
         "time_seconds": 240548,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -5541,7 +5523,7 @@
         "herb": 15822300,
         "time_seconds": 283846,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -5551,7 +5533,7 @@
         "herb": 19777875,
         "time_seconds": 334938,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -5561,7 +5543,7 @@
         "herb": 24722343,
         "time_seconds": 395226,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -5571,7 +5553,7 @@
         "herb": 30902928,
         "time_seconds": 466366,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -5581,7 +5563,7 @@
         "herb": 38628660,
         "time_seconds": 550311,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -5589,7 +5571,6 @@
   {
     "id": "herb-storage",
     "name": "薬材倉庫",
-    "name_en": "Herb Storage",
     "icon": "🌿",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -5609,7 +5590,7 @@
         "herb": 0,
         "time_seconds": 30,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -5619,7 +5600,7 @@
         "herb": 0,
         "time_seconds": 107,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -5629,7 +5610,7 @@
         "herb": 0,
         "time_seconds": 237,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -5639,7 +5620,7 @@
         "herb": 0,
         "time_seconds": 647,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -5649,7 +5630,7 @@
         "herb": 0,
         "time_seconds": 2280,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -5659,7 +5640,7 @@
         "herb": 0,
         "time_seconds": 4350,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -5669,7 +5650,7 @@
         "herb": 0,
         "time_seconds": 5133,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -5679,7 +5660,7 @@
         "herb": 0,
         "time_seconds": 6056,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -5689,7 +5670,7 @@
         "herb": 93750,
         "time_seconds": 7146,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -5699,7 +5680,7 @@
         "herb": 449474,
         "time_seconds": 19533,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -5709,7 +5690,7 @@
         "herb": 748422,
         "time_seconds": 25392,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -5719,7 +5700,7 @@
         "herb": 935527,
         "time_seconds": 29962,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -5729,7 +5710,7 @@
         "herb": 1182796,
         "time_seconds": 42913,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -5739,7 +5720,7 @@
         "herb": 1604279,
         "time_seconds": 60078,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -5749,7 +5730,7 @@
         "herb": 2005348,
         "time_seconds": 70892,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -5759,7 +5740,7 @@
         "herb": 2506685,
         "time_seconds": 83652,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -5769,7 +5750,7 @@
         "herb": 3133356,
         "time_seconds": 98709,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -5779,7 +5760,7 @@
         "herb": 3916695,
         "time_seconds": 116476,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -5789,7 +5770,7 @@
         "herb": 4895868,
         "time_seconds": 137441,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -5799,7 +5780,7 @@
         "herb": 6119835,
         "time_seconds": 162180,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -5809,7 +5790,7 @@
         "herb": 7649793,
         "time_seconds": 191372,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -5819,7 +5800,7 @@
         "herb": 9562241,
         "time_seconds": 225818,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -5829,7 +5810,7 @@
         "herb": 11952801,
         "time_seconds": 266465,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -5839,7 +5820,7 @@
         "herb": 14941001,
         "time_seconds": 314428,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -5849,7 +5830,7 @@
         "herb": 18676251,
         "time_seconds": 371025,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -5859,7 +5840,7 @@
         "herb": 23345313,
         "time_seconds": 437809,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -5869,7 +5850,7 @@
         "herb": 29181641,
         "time_seconds": 516614,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -5879,7 +5860,7 @@
         "herb": 36477051,
         "time_seconds": 609604,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -5889,7 +5870,7 @@
         "herb": 45596313,
         "time_seconds": 719332,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -5897,7 +5878,6 @@
   {
     "id": "scout-squad",
     "name": "偵察隊",
-    "name_en": "Scout Squad",
     "icon": "🔍",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -5917,7 +5897,7 @@
         "herb": 0,
         "time_seconds": 100,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -5927,7 +5907,7 @@
         "herb": 0,
         "time_seconds": 180,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -5937,7 +5917,7 @@
         "herb": 0,
         "time_seconds": 260,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -5947,7 +5927,7 @@
         "herb": 0,
         "time_seconds": 600,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -5957,7 +5937,7 @@
         "herb": 0,
         "time_seconds": 2308,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -5967,7 +5947,7 @@
         "herb": 0,
         "time_seconds": 3988,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -5977,7 +5957,7 @@
         "herb": 0,
         "time_seconds": 8108,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -5987,7 +5967,7 @@
         "herb": 25474,
         "time_seconds": 11068,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -5997,7 +5977,7 @@
         "herb": 31842,
         "time_seconds": 13060,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -6007,7 +5987,7 @@
         "herb": 39802,
         "time_seconds": 15410,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -6017,7 +5997,7 @@
         "herb": 135107,
         "time_seconds": 25392,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -6027,7 +6007,7 @@
         "herb": 133334,
         "time_seconds": 33010,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -6037,7 +6017,7 @@
         "herb": 166667,
         "time_seconds": 38951,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -6047,7 +6027,7 @@
         "herb": 208333,
         "time_seconds": 45962,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -6057,7 +6037,7 @@
         "herb": 260416,
         "time_seconds": 54235,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -6067,7 +6047,7 @@
         "herb": 325520,
         "time_seconds": 63997,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -6077,7 +6057,7 @@
         "herb": 1182796,
         "time_seconds": 164855,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -6087,7 +6067,7 @@
         "herb": 1478495,
         "time_seconds": 194528,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -6097,7 +6077,7 @@
         "herb": 1848118,
         "time_seconds": 229543,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -6107,7 +6087,7 @@
         "herb": 2310147,
         "time_seconds": 270860,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -6117,7 +6097,7 @@
         "herb": 2887683,
         "time_seconds": 319614,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -6127,7 +6107,7 @@
         "herb": 3609603,
         "time_seconds": 377144,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -6137,7 +6117,7 @@
         "herb": 4512003,
         "time_seconds": 445029,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -6147,7 +6127,7 @@
         "herb": 5640003,
         "time_seconds": 525134,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -6157,7 +6137,7 @@
         "herb": 7050003,
         "time_seconds": 619658,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -6167,7 +6147,7 @@
         "herb": 8812503,
         "time_seconds": 731196,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -6177,7 +6157,7 @@
         "herb": 11015628,
         "time_seconds": 862811,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -6187,7 +6167,7 @@
         "herb": 13769535,
         "time_seconds": 1018116,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -6197,7 +6177,7 @@
         "herb": 17211918,
         "time_seconds": 1201376,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -6205,7 +6185,6 @@
   {
     "id": "squad",
     "name": "小隊",
-    "name_en": "Squad",
     "icon": "🎖️",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -6225,7 +6204,7 @@
         "herb": 0,
         "time_seconds": 72,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -6235,7 +6214,7 @@
         "herb": 0,
         "time_seconds": 106,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -6245,7 +6224,7 @@
         "herb": 0,
         "time_seconds": 240,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -6255,7 +6234,7 @@
         "herb": 0,
         "time_seconds": 648,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -6265,7 +6244,7 @@
         "herb": 0,
         "time_seconds": 2235,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -6275,7 +6254,7 @@
         "herb": 0,
         "time_seconds": 4308,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -6285,7 +6264,7 @@
         "herb": 0,
         "time_seconds": 8566,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -6295,7 +6274,7 @@
         "herb": 52211,
         "time_seconds": 11988,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -6305,7 +6284,7 @@
         "herb": 61171,
         "time_seconds": 15558,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -6315,7 +6294,7 @@
         "herb": 154256,
         "time_seconds": 19533,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -6325,7 +6304,7 @@
         "herb": 253685,
         "time_seconds": 25392,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -6335,7 +6314,7 @@
         "herb": 267028,
         "time_seconds": 25810,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -6345,7 +6324,7 @@
         "herb": 385186,
         "time_seconds": 42913,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -6355,7 +6334,7 @@
         "herb": 566845,
         "time_seconds": 60078,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -6365,7 +6344,7 @@
         "herb": 708556,
         "time_seconds": 70892,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -6375,7 +6354,7 @@
         "herb": 885695,
         "time_seconds": 83652,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -6385,7 +6364,7 @@
         "herb": 1107118,
         "time_seconds": 98709,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -6395,7 +6374,7 @@
         "herb": 1383897,
         "time_seconds": 116476,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -6405,7 +6384,7 @@
         "herb": 1729871,
         "time_seconds": 137441,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -6415,7 +6394,7 @@
         "herb": 2162338,
         "time_seconds": 162180,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -6425,7 +6404,7 @@
         "herb": 2702922,
         "time_seconds": 191372,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -6435,7 +6414,7 @@
         "herb": 3378652,
         "time_seconds": 225818,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -6445,7 +6424,7 @@
         "herb": 4223315,
         "time_seconds": 266465,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -6455,7 +6434,7 @@
         "herb": 5279143,
         "time_seconds": 314428,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -6465,7 +6444,7 @@
         "herb": 6598928,
         "time_seconds": 371025,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -6475,7 +6454,7 @@
         "herb": 8248660,
         "time_seconds": 437809,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -6485,7 +6464,7 @@
         "herb": 10310825,
         "time_seconds": 516614,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -6495,7 +6474,7 @@
         "herb": 12888531,
         "time_seconds": 609604,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -6505,7 +6484,7 @@
         "herb": 16110663,
         "time_seconds": 719332,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -6513,7 +6492,6 @@
   {
     "id": "smelting-workshop",
     "name": "製錬工房",
-    "name_en": "Smelting Workshop",
     "icon": "⚙️",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -6533,7 +6511,7 @@
         "herb": 0,
         "time_seconds": 20,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -6543,7 +6521,7 @@
         "herb": 0,
         "time_seconds": 30,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -6553,7 +6531,7 @@
         "herb": 0,
         "time_seconds": 240,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -6563,7 +6541,7 @@
         "herb": 0,
         "time_seconds": 480,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -6573,7 +6551,7 @@
         "herb": 0,
         "time_seconds": 605,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -6583,7 +6561,7 @@
         "herb": 0,
         "time_seconds": 1555,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -6593,7 +6571,7 @@
         "herb": 0,
         "time_seconds": 2999,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -6603,7 +6581,7 @@
         "herb": 49790,
         "time_seconds": 4111,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -6613,7 +6591,7 @@
         "herb": 57158,
         "time_seconds": 5333,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -6623,7 +6601,7 @@
         "herb": 156843,
         "time_seconds": 6511,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -6633,7 +6611,7 @@
         "herb": 248422,
         "time_seconds": 8464,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -6643,7 +6621,7 @@
         "herb": 280000,
         "time_seconds": 11003,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -6653,7 +6631,7 @@
         "herb": 406316,
         "time_seconds": 14305,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -6663,7 +6641,7 @@
         "herb": 574737,
         "time_seconds": 20026,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -6673,7 +6651,7 @@
         "herb": 937567,
         "time_seconds": 28036,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -6683,7 +6661,7 @@
         "herb": 1382979,
         "time_seconds": 39251,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -6693,7 +6671,7 @@
         "herb": 2258065,
         "time_seconds": 54952,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -6703,7 +6681,7 @@
         "herb": 2795699,
         "time_seconds": 76932,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -6713,7 +6691,7 @@
         "herb": 4756757,
         "time_seconds": 107705,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -6723,7 +6701,7 @@
         "herb": 6486487,
         "time_seconds": 144303,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -6733,7 +6711,7 @@
         "herb": 8108108,
         "time_seconds": 170277,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -6743,7 +6721,7 @@
         "herb": 10135135,
         "time_seconds": 200926,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -6753,7 +6731,7 @@
         "herb": 12668918,
         "time_seconds": 237092,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -6763,7 +6741,7 @@
         "herb": 15836147,
         "time_seconds": 279768,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -6773,7 +6751,7 @@
         "herb": 19795183,
         "time_seconds": 330126,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -6783,7 +6761,7 @@
         "herb": 24743978,
         "time_seconds": 389548,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -6793,7 +6771,7 @@
         "herb": 30929972,
         "time_seconds": 459666,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -6803,7 +6781,7 @@
         "herb": 38662465,
         "time_seconds": 542405,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -6813,7 +6791,7 @@
         "herb": 48328081,
         "time_seconds": 640037,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -6821,7 +6799,6 @@
   {
     "id": "weaving-workshop",
     "name": "織物工房",
-    "name_en": "Weaving Workshop",
     "icon": "🧵",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -6841,7 +6818,7 @@
         "herb": 0,
         "time_seconds": 20,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -6851,7 +6828,7 @@
         "herb": 0,
         "time_seconds": 30,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -6861,7 +6838,7 @@
         "herb": 0,
         "time_seconds": 230,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -6871,7 +6848,7 @@
         "herb": 0,
         "time_seconds": 470,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -6881,7 +6858,7 @@
         "herb": 0,
         "time_seconds": 630,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -6891,7 +6868,7 @@
         "herb": 0,
         "time_seconds": 1565,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -6901,7 +6878,7 @@
         "herb": 0,
         "time_seconds": 2999,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -6911,7 +6888,7 @@
         "herb": 52211,
         "time_seconds": 4055,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -6921,7 +6898,7 @@
         "herb": 61790,
         "time_seconds": 5308,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -6931,7 +6908,7 @@
         "herb": 156843,
         "time_seconds": 6511,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -6941,7 +6918,7 @@
         "herb": 253764,
         "time_seconds": 8464,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -6951,7 +6928,7 @@
         "herb": 283871,
         "time_seconds": 11003,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -6961,7 +6938,7 @@
         "herb": 397850,
         "time_seconds": 14305,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -6971,7 +6948,7 @@
         "herb": 525264,
         "time_seconds": 20026,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -6981,7 +6958,7 @@
         "herb": 993685,
         "time_seconds": 28036,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -6991,7 +6968,7 @@
         "herb": 1263158,
         "time_seconds": 50051,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -7001,7 +6978,7 @@
         "herb": 2234043,
         "time_seconds": 54952,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -7011,7 +6988,7 @@
         "herb": 2580646,
         "time_seconds": 76932,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -7021,7 +6998,7 @@
         "herb": 4623656,
         "time_seconds": 107705,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -7031,7 +7008,7 @@
         "herb": 5779570,
         "time_seconds": 127091,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -7041,7 +7018,7 @@
         "herb": 7224462,
         "time_seconds": 149967,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -7051,7 +7028,7 @@
         "herb": 9030577,
         "time_seconds": 176961,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -7061,7 +7038,7 @@
         "herb": 11288221,
         "time_seconds": 208813,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -7071,7 +7048,7 @@
         "herb": 14110276,
         "time_seconds": 246399,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -7081,7 +7058,7 @@
         "herb": 17637845,
         "time_seconds": 290750,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -7091,7 +7068,7 @@
         "herb": 22047306,
         "time_seconds": 343085,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -7101,7 +7078,7 @@
         "herb": 27559132,
         "time_seconds": 404840,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -7111,7 +7088,7 @@
         "herb": 34448915,
         "time_seconds": 477711,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -7121,7 +7098,7 @@
         "herb": 43061143,
         "time_seconds": 563698,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -7129,7 +7106,6 @@
   {
     "id": "gear-workshop",
     "name": "装備工房",
-    "name_en": "Gear Workshop",
     "icon": "🔧",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -7149,7 +7125,7 @@
         "herb": 0,
         "time_seconds": 11,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -7159,7 +7135,7 @@
         "herb": 0,
         "time_seconds": 50,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -7169,7 +7145,7 @@
         "herb": 0,
         "time_seconds": 115,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -7179,7 +7155,7 @@
         "herb": 0,
         "time_seconds": 700,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -7189,7 +7165,7 @@
         "herb": 0,
         "time_seconds": 2166,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -7199,7 +7175,7 @@
         "herb": 0,
         "time_seconds": 5034,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -7209,7 +7185,7 @@
         "herb": 0,
         "time_seconds": 9948,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -7219,7 +7195,7 @@
         "herb": 56170213,
         "time_seconds": 13880,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -7229,7 +7205,7 @@
         "herb": 71915,
         "time_seconds": 18007,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -7239,7 +7215,7 @@
         "herb": 168086,
         "time_seconds": 22788,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -7249,7 +7225,7 @@
         "herb": 285715,
         "time_seconds": 29624,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -7259,7 +7235,7 @@
         "herb": 322341,
         "time_seconds": 38512,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -7269,7 +7245,7 @@
         "herb": 405406,
         "time_seconds": 14305,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -7279,7 +7255,7 @@
         "herb": 625807,
         "time_seconds": 70091,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -7289,7 +7265,7 @@
         "herb": 1182796,
         "time_seconds": 98128,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -7299,7 +7275,7 @@
         "herb": 1612904,
         "time_seconds": 137379,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -7309,7 +7285,7 @@
         "herb": 2473119,
         "time_seconds": 192330,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -7319,7 +7295,7 @@
         "herb": 3225807,
         "time_seconds": 269262,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -7329,7 +7305,7 @@
         "herb": 5837838,
         "time_seconds": 376968,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -7339,7 +7315,7 @@
         "herb": 7849463,
         "time_seconds": 505060,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -7349,7 +7325,7 @@
         "herb": 9811828,
         "time_seconds": 595970,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -7359,7 +7335,7 @@
         "herb": 12264785,
         "time_seconds": 703244,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -7369,7 +7345,7 @@
         "herb": 15330981,
         "time_seconds": 829827,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -7379,7 +7355,7 @@
         "herb": 19163726,
         "time_seconds": 979195,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -7389,7 +7365,7 @@
         "herb": 23954657,
         "time_seconds": 1155450,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -7399,7 +7375,7 @@
         "herb": 29943321,
         "time_seconds": 1363431,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -7409,7 +7385,7 @@
         "herb": 37429151,
         "time_seconds": 1608848,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -7419,7 +7395,7 @@
         "herb": 46786438,
         "time_seconds": 1898440,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -7429,7 +7405,7 @@
         "herb": 58483047,
         "time_seconds": 2240159,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -7437,7 +7413,6 @@
   {
     "id": "watchtower",
     "name": "見張り塔",
-    "name_en": "Watchtower",
     "icon": "🗼",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -7457,7 +7432,7 @@
         "herb": 0,
         "time_seconds": 2888,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -7467,7 +7442,7 @@
         "herb": 0,
         "time_seconds": 3155,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -7477,7 +7452,7 @@
         "herb": 0,
         "time_seconds": 4668,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -7487,7 +7462,7 @@
         "herb": 0,
         "time_seconds": 6169,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -7497,7 +7472,7 @@
         "herb": 0,
         "time_seconds": 10670,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -7507,7 +7482,7 @@
         "herb": 0,
         "time_seconds": 17886,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -7517,7 +7492,7 @@
         "herb": 0,
         "time_seconds": 24261,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -7527,7 +7502,7 @@
         "herb": 125406,
         "time_seconds": 26133,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -7537,7 +7512,7 @@
         "herb": 125406,
         "time_seconds": 31890,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -7547,7 +7522,7 @@
         "herb": 264894,
         "time_seconds": 35810,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -7557,7 +7532,7 @@
         "herb": 362366,
         "time_seconds": 38088,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -7567,7 +7542,7 @@
         "herb": 380749,
         "time_seconds": 46214,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -7577,7 +7552,7 @@
         "herb": 447312,
         "time_seconds": 50065,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -7587,7 +7562,7 @@
         "herb": 643011,
         "time_seconds": 70091,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -7597,7 +7572,7 @@
         "herb": 1081082,
         "time_seconds": 98128,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -7607,7 +7582,7 @@
         "herb": 2688173,
         "time_seconds": 192330,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -7617,7 +7592,7 @@
         "herb": 2702703,
         "time_seconds": 192330,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -7627,7 +7602,7 @@
         "herb": 3135136,
         "time_seconds": 269262,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -7637,7 +7612,7 @@
         "herb": 5729730,
         "time_seconds": 376968,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -7647,7 +7622,7 @@
         "herb": 7162162,
         "time_seconds": 444822,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -7657,7 +7632,7 @@
         "herb": 8952702,
         "time_seconds": 524889,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -7667,7 +7642,7 @@
         "herb": 11190877,
         "time_seconds": 619369,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -7677,7 +7652,7 @@
         "herb": 13988596,
         "time_seconds": 730855,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -7687,7 +7662,7 @@
         "herb": 17485745,
         "time_seconds": 862408,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -7697,7 +7672,7 @@
         "herb": 21857181,
         "time_seconds": 1017641,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -7707,7 +7682,7 @@
         "herb": 27321476,
         "time_seconds": 1200816,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -7717,7 +7692,7 @@
         "herb": 34151845,
         "time_seconds": 1416962,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -7727,7 +7702,7 @@
         "herb": 42689806,
         "time_seconds": 1672015,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -7737,7 +7712,7 @@
         "herb": 53362257,
         "time_seconds": 1972977,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]
@@ -7745,7 +7720,6 @@
   {
     "id": "raven-workshop",
     "name": "レイヴンの工房",
-    "name_en": "Raven Workshop",
     "icon": "🦅",
     "category": "拠点施設",
     "maxLevel": 30,
@@ -7765,7 +7739,7 @@
         "herb": 0,
         "time_seconds": 12,
         "prerequisites": {
-          "Sanctuary": 2
+          "協会": 2
         }
       },
       {
@@ -7775,7 +7749,7 @@
         "herb": 0,
         "time_seconds": 14,
         "prerequisites": {
-          "Sanctuary": 3
+          "協会": 3
         }
       },
       {
@@ -7785,7 +7759,7 @@
         "herb": 0,
         "time_seconds": 16,
         "prerequisites": {
-          "Sanctuary": 4
+          "協会": 4
         }
       },
       {
@@ -7795,7 +7769,7 @@
         "herb": 0,
         "time_seconds": 18,
         "prerequisites": {
-          "Sanctuary": 5
+          "協会": 5
         }
       },
       {
@@ -7805,7 +7779,7 @@
         "herb": 0,
         "time_seconds": 21,
         "prerequisites": {
-          "Sanctuary": 6
+          "協会": 6
         }
       },
       {
@@ -7815,7 +7789,7 @@
         "herb": 0,
         "time_seconds": 24,
         "prerequisites": {
-          "Sanctuary": 7
+          "協会": 7
         }
       },
       {
@@ -7825,7 +7799,7 @@
         "herb": 0,
         "time_seconds": 3102,
         "prerequisites": {
-          "Sanctuary": 8
+          "協会": 8
         }
       },
       {
@@ -7835,7 +7809,7 @@
         "herb": 51112,
         "time_seconds": 4106,
         "prerequisites": {
-          "Sanctuary": 9
+          "協会": 9
         }
       },
       {
@@ -7845,7 +7819,7 @@
         "herb": 0,
         "time_seconds": 5308,
         "prerequisites": {
-          "Sanctuary": 10
+          "協会": 10
         }
       },
       {
@@ -7855,7 +7829,7 @@
         "herb": 148937,
         "time_seconds": 6466,
         "prerequisites": {
-          "Sanctuary": 11
+          "協会": 11
         }
       },
       {
@@ -7865,7 +7839,7 @@
         "herb": 239573,
         "time_seconds": 8406,
         "prerequisites": {
-          "Sanctuary": 12
+          "協会": 12
         }
       },
       {
@@ -7875,7 +7849,7 @@
         "herb": 287568,
         "time_seconds": 8768,
         "prerequisites": {
-          "Sanctuary": 13
+          "協会": 13
         }
       },
       {
@@ -7885,7 +7859,7 @@
         "herb": 401082,
         "time_seconds": 14305,
         "prerequisites": {
-          "Sanctuary": 14
+          "協会": 14
         }
       },
       {
@@ -7895,7 +7869,7 @@
         "herb": 561053,
         "time_seconds": 20026,
         "prerequisites": {
-          "Sanctuary": 15
+          "協会": 15
         }
       },
       {
@@ -7905,7 +7879,7 @@
         "herb": 926204,
         "time_seconds": 28036,
         "prerequisites": {
-          "Sanctuary": 16
+          "協会": 16
         }
       },
       {
@@ -7915,7 +7889,7 @@
         "herb": 1290323,
         "time_seconds": 39251,
         "prerequisites": {
-          "Sanctuary": 17
+          "協会": 17
         }
       },
       {
@@ -7925,7 +7899,7 @@
         "herb": 2258065,
         "time_seconds": 54952,
         "prerequisites": {
-          "Sanctuary": 18
+          "協会": 18
         }
       },
       {
@@ -7935,7 +7909,7 @@
         "herb": 2702703,
         "time_seconds": 76932,
         "prerequisites": {
-          "Sanctuary": 19
+          "協会": 19
         }
       },
       {
@@ -7945,7 +7919,7 @@
         "herb": 3378378,
         "time_seconds": 90779,
         "prerequisites": {
-          "Sanctuary": 20
+          "協会": 20
         }
       },
       {
@@ -7955,7 +7929,7 @@
         "herb": 4222972,
         "time_seconds": 107119,
         "prerequisites": {
-          "Sanctuary": 21
+          "協会": 21
         }
       },
       {
@@ -7965,7 +7939,7 @@
         "herb": 5278715,
         "time_seconds": 126400,
         "prerequisites": {
-          "Sanctuary": 22
+          "協会": 22
         }
       },
       {
@@ -7975,7 +7949,7 @@
         "herb": 6598393,
         "time_seconds": 149152,
         "prerequisites": {
-          "Sanctuary": 23
+          "協会": 23
         }
       },
       {
@@ -7985,7 +7959,7 @@
         "herb": 8247991,
         "time_seconds": 175999,
         "prerequisites": {
-          "Sanctuary": 24
+          "協会": 24
         }
       },
       {
@@ -7995,7 +7969,7 @@
         "herb": 10309988,
         "time_seconds": 207678,
         "prerequisites": {
-          "Sanctuary": 25
+          "協会": 25
         }
       },
       {
@@ -8005,7 +7979,7 @@
         "herb": 12887485,
         "time_seconds": 245060,
         "prerequisites": {
-          "Sanctuary": 26
+          "協会": 26
         }
       },
       {
@@ -8015,7 +7989,7 @@
         "herb": 16109356,
         "time_seconds": 289170,
         "prerequisites": {
-          "Sanctuary": 27
+          "協会": 27
         }
       },
       {
@@ -8025,7 +7999,7 @@
         "herb": 20136695,
         "time_seconds": 341220,
         "prerequisites": {
-          "Sanctuary": 28
+          "協会": 28
         }
       },
       {
@@ -8035,7 +8009,7 @@
         "herb": 25170868,
         "time_seconds": 402639,
         "prerequisites": {
-          "Sanctuary": 29
+          "協会": 29
         }
       },
       {
@@ -8045,7 +8019,7 @@
         "herb": 31463585,
         "time_seconds": 475114,
         "prerequisites": {
-          "Sanctuary": 30
+          "協会": 30
         }
       }
     ]

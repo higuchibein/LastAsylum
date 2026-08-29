@@ -1,41 +1,11 @@
 /**
- * Last Asylum Strategy Wiki - Building Calculator Script (calculator.js)
- * Standard Japanese Name Alignment
+ * Last Asylum Strategy Wiki - Real Data Building Calculator (calculator.js)
+ * Pure Japanese Alignment & Cache-Buster
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   let facilityData = [];
   let currentFacility = null;
-
-  // 前提施設名の英語➔基準日本語名変換マップ
-  const prereqNameMap = {
-    "Sanctuary": "協会",
-    "Research Lab": "研究室",
-    "Builders Hut": "建築作業小屋",
-    "Alliance Hall": "ギルド連絡所",
-    "Training Grounds": "訓練場",
-    "Antitoxin Workshop": "抗毒剤工房",
-    "Farm": "農場",
-    "Lumberyard": "伐採場",
-    "Herb Garden": "薬草園",
-    "Warrior Statue": "ウォーリア像",
-    "Ranger Statue": "レンジャー像",
-    "Warlock Statue": "ソーサラー像",
-    "Infirmary": "病院",
-    "Barracks": "兵営",
-    "Tavern": "酒場",
-    "Walls": "城壁",
-    "Granary": "食料倉庫",
-    "Lumber Depot": "木材倉庫",
-    "Herb Storage": "薬材倉庫",
-    "Scout Squad": "偵察隊",
-    "Squad": "小隊",
-    "Smelting Workshop": "製錬工房",
-    "Weaving Workshop": "織物工房",
-    "Gear Workshop": "装備工房",
-    "Watchtower": "見張り塔",
-    "Raven Workshop": "レイヴンの工房"
-  };
 
   const facilitySelect = document.getElementById('facility-select');
   const levelFromInput = document.getElementById('level-from');
@@ -52,21 +22,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const shareBtn = document.getElementById('share-btn');
   const copyResultBtn = document.getElementById('copy-result-btn');
 
-  fetch('data/facility_costs.json')
+  // URLパラメータの初期設定読み込み
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramFac = urlParams.get('fac');
+  const paramFrom = parseInt(urlParams.get('from'), 10);
+  const paramTo = parseInt(urlParams.get('to'), 10);
+  const paramBuff = parseInt(urlParams.get('buff'), 10);
+
+  // キャッシュ無効化パラメータ付きでJSONをロード
+  fetch('data/facility_costs.json?v=' + Date.now())
     .then(res => res.json())
     .then(data => {
       facilityData = data;
       initSelect();
+
+      if (paramFac && facilityData.some(f => f.id === paramFac)) {
+        facilitySelect.value = paramFac;
+      }
+      onFacilityChange();
+
+      if (!isNaN(paramFrom)) {
+        levelFromInput.value = paramFrom;
+        levelFromVal.textContent = `Lv.${paramFrom}`;
+      }
+      if (!isNaN(paramTo)) {
+        levelToInput.value = paramTo;
+        levelToVal.textContent = `Lv.${paramTo}`;
+      }
+      if (!isNaN(paramBuff)) {
+        speedBuffInput.value = paramBuff;
+        speedBuffVal.textContent = `${paramBuff}%`;
+      }
+
       calculate();
     })
     .catch(err => {
       console.error(err);
-      if (resourceCostsEl) resourceCostsEl.innerHTML = '<div style="color:var(--accent-red);">データ読込エラー</div>';
+      if (resourceCostsEl) resourceCostsEl.innerHTML = '<div style="color:var(--accent-red);">データ読込エラーが発生しました</div>';
     });
 
   function initSelect() {
     facilitySelect.innerHTML = facilityData.map(f => `<option value="${f.id}">${f.icon || '🏛️'} ${f.name} (Max Lv.${f.maxLevel})</option>`).join('');
-    onFacilityChange();
   }
 
   function onFacilityChange() {
@@ -137,8 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (lvData.prerequisites) {
           for (const [pName, pLv] of Object.entries(lvData.prerequisites)) {
-            const jpName = prereqNameMap[pName] || pName;
-            prereqs[jpName] = Math.max(prereqs[jpName] || 0, pLv);
+            prereqs[pName] = Math.max(prereqs[pName] || 0, pLv);
           }
         }
       }
@@ -173,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
       prereqBoxEl.innerHTML = `
         <div style="font-size:0.85rem; color:var(--accent-gold); font-weight:700; margin-bottom:0.4rem;">⚠️ 建設解放に必要な前提施設:</div>
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-          ${prereqList.map(([pName, pLv]) => `<span style="background:var(--bg-primary); padding:0.2rem 0.5rem; border-radius:4px; font-size:0.8rem;">🏛️ ${pName} Lv.${pLv}</span>`).join('')}
+          ${prereqList.map(([pName, pLv]) => `<span style="background:var(--bg-primary); padding:0.2rem 0.5rem; border-radius:4px; font-size:0.8rem;">🏛️ ${escapeHtml(pName)} Lv.${pLv}</span>`).join('')}
         </div>
       `;
     } else {
@@ -200,4 +195,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const text = `【Last Asylum 施設計算】\n施設: ${currentFacility.name}\nLv.${levelFromInput.value} ➔ Lv.${levelToInput.value}\n所要時間: ${totalTimeEl.textContent}`;
     window.copyToClipboard(text, '計算結果をコピーしました');
   });
+
+  function escapeHtml(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
 });

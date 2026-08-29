@@ -1,5 +1,6 @@
 /**
  * Last Asylum Strategy Wiki - Real Data Database Script (database.js)
+ * Cache-Buster Enabled
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('search-input');
   const tabButtons = document.querySelectorAll('.tab-btn');
 
-  fetch('data/items.json')
+  // キャッシュバスター付きでフェッチ
+  fetch('data/items.json?v=' + Date.now())
     .then(res => res.json())
     .then(data => {
       allItems = data;
@@ -20,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(err => {
       console.error(err);
-      if (itemsContainer) itemsContainer.innerHTML = '<div style="color:var(--accent-red);">データ読込エラー</div>';
+      if (itemsContainer) itemsContainer.innerHTML = '<div style="color:var(--accent-red);">データ読込エラーが発生しました</div>';
     });
 
   if (searchInput) {
