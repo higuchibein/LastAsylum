@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>イベント戦力分析ダッシュボード | Last Asylum Strategy Wiki</title>
+  <link rel="stylesheet" href="css/style.css?v=20260831_02">
+  <!-- Chart.js CDN for Analytics Graphs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- ヘッダーナビゲーション -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo">
+        🛡️ LAST ASYLUM <span class="badge">WIKI</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">トップ</a>
+        <a href="calculator.html" class="nav-link">資源計算機</a>
+        <a href="database.html" class="nav-link">データベース</a>
+        <a href="event.html" class="nav-link active">⚔️ イベント戦力分析</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- タイトル＆サマリーメタ -->
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:1.5rem; gap:1rem;">
+        <div>
+          <h1 class="section-title" style="margin-bottom:0.3rem;">⚔️ イベント戦力分析ダッシュボード</h1>
+          <p style="font-size:0.85rem; color:var(--text-muted);">
+            8/31 峡谷戦リストに基づく同盟メンバー戦力・分類・レベル分布の可視化＆検索ツール
+          </p>
+        </div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <button id="export-text-btn" class="btn btn-secondary btn-sm">📋 テキスト用コピー</button>
+          <button id="export-csv-btn" class="btn btn-primary btn-sm">📥 CSVダウンロード</button>
+        </div>
+      </div>
+
+      <!-- KPI サマリーカード -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-bottom:2rem;">
+        <div class="res-stat" style="border-top:3px solid var(--accent-gold);">
+          <div style="font-size:0.8rem; color:var(--text-muted);">👥 確認済み総メンバー数</div>
+          <div id="stat-total-count" class="res-val" style="color:#fff;">85名</div>
+        </div>
+        <div class="res-stat" style="border-top:3px solid var(--accent-blue);">
+          <div style="font-size:0.8rem; color:var(--text-muted);">⚡ 同盟一軍総戦力</div>
+          <div id="stat-total-power" class="res-val" style="color:var(--accent-gold);">0</div>
+        </div>
+        <div class="res-stat" style="border-top:3px solid #ff9f43;">
+          <div style="font-size:0.8rem; color:var(--text-muted);">📊 平均一軍戦力</div>
+          <div id="stat-avg-power" class="res-val" style="color:var(--accent-blue);">0</div>
+        </div>
+        <div class="res-stat" style="border-top:3px solid #10ac84;">
+          <div style="font-size:0.8rem; color:var(--text-muted);">👑 最高戦力 (Top 1)</div>
+          <div id="stat-max-power" class="res-val" style="color:var(--accent-gold);">0</div>
+        </div>
+      </div>
+
+      <!-- グラフエリア (2カラムグリッド) -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.5rem; margin-bottom:2.5rem;">
+        
+        <!-- Graph 1: 分類内訳 (ドーナツチャート) -->
+        <div class="card" style="background:var(--bg-secondary);">
+          <h3 style="font-size:1rem; color:var(--accent-gold); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">
+            📊 判定分類の内訳構成
+          </h3>
+          <div style="position:relative; height:260px; display:flex; justify-content:center; align-items:center;">
+            <canvas id="categoryChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Graph 2: レベル帯別人数分布 (棒グラフ) -->
+        <div class="card" style="background:var(--bg-secondary);">
+          <h3 style="font-size:1rem; color:var(--accent-blue); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">
+            🏰 メンバーのレベル帯別人数分布
+          </h3>
+          <div style="position:relative; height:260px;">
+            <canvas id="levelChart"></canvas>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Graph 3: TOP 15 一軍戦力ランキング (横棒グラフ) -->
+      <div class="card" style="background:var(--bg-secondary); margin-bottom:2.5rem;">
+        <h3 style="font-size:1rem; color:#fff; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">
+          🏆 一軍戦力 TOP 15 メンバーランキング
+        </h3>
+        <div style="position:relative; height:360px;">
+          <canvas id="topPowerChart"></canvas>
+        </div>
+      </div>
+
+      <!-- インタラクティブメンバーリスト＆フィルタ -->
+      <div class="section">
+        <h2 class="section-title">メンバー戦力リスト & 絞り込み詳細</h2>
+
+        <div class="calc-wrapper">
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-bottom:1rem;">
+            <div>
+              <label style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">メンバー名で検索</label>
+              <input type="text" id="event-search-input" class="search-input" placeholder="名前で検索..." style="margin-top:0.3rem;">
+            </div>
+            
+            <div>
+              <label style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">分類で絞り込み</label>
+              <select id="event-cat-filter" class="form-select" style="margin-top:0.3rem;">
+                <option value="all">すべての分類</option>
+                <option value="① 自力＋援軍">① 自力＋援軍</option>
+                <option value="② 自力クリア">② 自力クリア</option>
+                <option value="③ 援軍ありで挑戦">③ 援軍ありで挑戦</option>
+                <option value="has-help">ヘルプ先指定あり (2軍/3軍)</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">並び順</label>
+              <select id="event-sort-select" class="form-select" style="margin-top:0.3rem;">
+                <option value="power-desc">一軍戦力 (高い順)</option>
+                <option value="power-asc">一軍戦力 (低い順)</option>
+                <option value="level-desc">レベル (高い順)</option>
+                <option value="name-asc">名前順 (五十音/アルファベット)</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="event-result-count" style="font-size:0.85rem; color:var(--accent-gold); font-weight:700;">表示人数: 0名</div>
+        </div>
+
+        <!-- メンバー一覧グリッド -->
+        <div id="event-members-grid" class="grid-cards"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Last Asylum Strategy Wiki Project. Event Analytics Dashboard.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=20260831_02"></script>
+  <script src="js/event_analytics.js?v=20260831_02"></script>
+</body>
+</html>

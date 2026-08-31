@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>実データ検索・図鑑 ＆ イベント戦力一覧 | Last Asylum Strategy Wiki</title>
-  <link rel="stylesheet" href="css/style.css?v=20260831_01">
+  <title>実データ検索・図鑑 ＆ イベント戦力 | Last Asylum Strategy Wiki</title>
+  <link rel="stylesheet" href="css/style.css?v=20260831_02">
 </head>
 <body>
 
@@ -21,7 +21,8 @@
       <nav class="nav-menu">
         <a href="index.html" class="nav-link">トップ</a>
         <a href="calculator.html" class="nav-link">資源計算機</a>
-        <a href="database.html" class="nav-link active">データベース & イベント戦力</a>
+        <a href="database.html" class="nav-link active">データベース</a>
+        <a href="event.html" class="nav-link">⚔️ イベント戦力分析</a>
       </nav>
     </div>
   </header>
@@ -56,11 +57,13 @@
         <div id="result-count" style="font-size:0.85rem; color:var(--text-muted); margin-top:0.75rem;">読み込み中...</div>
       </div>
 
-      <!-- イベント戦力一覧ヘッダーサマリーパネル (非表示/動的表示) -->
+      <!-- イベント戦力一覧ヘッダーサマリーパネル -->
       <div id="event-summary-panel" style="display:none; background:var(--bg-secondary); border:1px solid var(--accent-gold-dark); border-radius:10px; padding:1.2rem; margin-bottom:1.5rem;">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.5rem;">
           <h2 style="font-size:1.15rem; color:var(--accent-gold); font-weight:800;" id="event-title">⚔️ イベント戦力一覧 (8/31峡谷戦最新)</h2>
-          <span class="badge-val" id="event-date">2026.08.31 更新</span>
+          <div style="display:flex; gap:0.5rem; align-items:center;">
+            <a href="event.html" class="btn btn-primary btn-sm">📊 グラフ分析ダッシュボードを開く →</a>
+          </div>
         </div>
         <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;" id="event-desc">
           8/31峡谷戦リストから最新戦力を更新。分類は17M／14.5M基準で自動判定。
@@ -83,7 +86,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260831_01"></script>
-  <script src="js/database.js?v=20260831_01"></script>
+  <script src="js/main.js?v=20260831_02"></script>
+  <script src="js/database.js?v=20260831_02"></script>
 </body>
 </html>
