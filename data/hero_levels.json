@@ -1,0 +1,40 @@
+{
+  "title": "Last Asylum 英雄レベル＆成長システム仕様",
+  "updatedDate": "2026.08.31 (実データ抽出完了)",
+  "description": "英雄レベル上限 (Lv.30)、スター解放 (1〜10★)、スキルアンロック条件の実データ",
+  "sourceUrl": "https://www.last-asylum.fun/",
+  "maxHeroLevel": 30,
+  "maxStarLevel": 10,
+  "keyMilestones": [
+    {
+      "milestone": "Hero Level 30 & 8 Stars",
+      "description": "サポートスキル (Support Skill: Tenacity など) のアンロック条件"
+    },
+    {
+      "milestone": "1 Star Unlock",
+      "description": "通常攻撃 (Auto Attack) 追加ダメージ +40% 解放"
+    },
+    {
+      "milestone": "5 Stars Unlock",
+      "description": "通常攻撃 (Auto Attack) 追加ダメージ +100% 強化"
+    },
+    {
+      "milestone": "10 Stars Unlock",
+      "description": "通常攻撃 (Auto Attack) 追加ダメージ +200%（最大値）強化"
+    }
+  ],
+  "heroRoles": [
+    {
+      "role": "UR Tank",
+      "description": "前衛・防御・シールド展開・ダメージカット補正"
+    },
+    {
+      "role": "Carry / Mage Carry",
+      "description": "後衛・単体/範囲エネルギー＆物理ダメージ特化"
+    },
+    {
+      "role": "UR Support",
+      "description": "同盟・部隊全体バフ、スキルクールダウン加速、回復・シールド支援"
+    }
+  ]
+}

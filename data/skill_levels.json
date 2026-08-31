@@ -1,0 +1,999 @@
+{
+  "title": "Last Asylum 英雄スキルレベル＆星解放効果一覧",
+  "updatedDate": "2026.08.31 (実データ抽出完了)",
+  "description": "全UR英雄のスキル種別・クールダウン・倍率・1〜10星解放追加エフェクトの実データ",
+  "sourceUrl": "https://www.last-asylum.fun/",
+  "totalHeroes": 15,
+  "data": [
+    {
+      "heroId": "hero-arthur",
+      "heroName": "Arthur",
+      "heroNameJapanese": "アーサー (Arthur)",
+      "totalSkills": 5,
+      "skills": [
+        {
+          "skillName": "Battle Shield",
+          "type": "Auto Attack",
+          "cooldown": "N/A",
+          "damageType": "Physical DMG",
+          "description": "Swings the shield, dealing 750.0% ATK Physical DMG to a single enemy.",
+          "levelStarUnlocks": [
+            "1 star: Deals 40% Extra Damage.",
+            "5 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Earthshattering",
+          "type": "Ultimate Skill",
+          "cooldown": "6.4s",
+          "damageType": "Physical DMG",
+          "description": "Slams the ground with a shield, dealing 1407.5% ATK Physical DMG to enemies within range while reducing Physical DMG taken by allies within range by 32.5% for 5s.",
+          "levelStarUnlocks": [
+            "2 stars: Physical DMG reduction increases by 3%.",
+            "6 stars: Physical DMG reduction increases by 4.5%.",
+            "10 stars: Physical DMG reduction increases by 7.5%."
+          ]
+        },
+        {
+          "skillName": "Rock Solid",
+          "type": "Active Skill",
+          "cooldown": "4.5s",
+          "damageType": "Physical DMG",
+          "description": "Grants a shield equal to 25.0% of current max HP, absorbing 50% of damage taken each time for 3s.",
+          "levelStarUnlocks": [
+            "3 stars: Shield effect increases by 20%.",
+            "7 stars: Shield effect increases by 30%.",
+            "10 stars: Shield effect increases by 50%."
+          ]
+        },
+        {
+          "skillName": "Strong Will",
+          "type": "Passive Skill",
+          "cooldown": "N/A",
+          "damageType": "Physical DMG",
+          "description": "In combat, reduces all damage received by allied tank heroes by 8.25%.",
+          "levelStarUnlocks": [
+            "4 stars: Effect increases by 0.6%.",
+            "9 stars: Effect increases by 0.9%.",
+            "10 stars: Effect increases by 1.5%."
+          ]
+        },
+        {
+          "skillName": "Tenacity",
+          "type": "Support Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "ATK, HP, and DEF +20%; skill cooldown speed +10%.",
+          "levelStarUnlocks": [
+            "Unlocks at Hero Level 30 and 8 stars."
+          ]
+        }
+      ]
+    },
+    {
+      "heroId": "hero-cynthia",
+      "heroName": "Cynthia",
+      "heroNameJapanese": "シンシア (Cynthia)",
+      "totalSkills": 5,
+      "skills": [
+        {
+          "skillName": "Moon Blade",
+          "type": "Auto Attack",
+          "cooldown": "N/A",
+          "damageType": "Energy DMG",
+          "description": "Uses a Moon Blade to deal 622.5% ATK Energy DMG to a single enemy.",
+          "levelStarUnlocks": [
+            "1 star: Deals 40% Extra Damage.",
+            "5 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Moonfall Dance",
+          "type": "Ultimate Skill",
+          "cooldown": "13.6s",
+          "damageType": "Energy DMG",
+          "description": "Increases Crit Rate by 14.00% and fires a giant moon blade, dealing 2480% ATK Energy DMG to enemies in range.",
+          "levelStarUnlocks": [
+            "2 stars: Deals 40% extra damage.",
+            "6 stars: Deals damage to all enemies.",
+            "10 stars: Extra damage increases to 100%."
+          ]
+        },
+        {
+          "skillName": "Lunar Hunt",
+          "type": "Active Skill",
+          "cooldown": "4.5s",
+          "damageType": "Energy DMG",
+          "description": "Randomly locks onto 3 targets, launching 3 moon blades, each dealing 1500.0% ATK Energy DMG.",
+          "levelStarUnlocks": [
+            "3 stars: Deals 40% Extra Damage.",
+            "7 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Moon's Blessing",
+          "type": "Passive Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "In combat, increases 22.0% Crit Rate.",
+          "levelStarUnlocks": [
+            "4 stars: Effect increases by 1.6%.",
+            "9 stars: Effect increases by 2.4%.",
+            "10 stars: Effect increases by 4.0%."
+          ]
+        },
+        {
+          "skillName": "Tenacity",
+          "type": "Support Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "ATK, HP, and DEF +20%; skill cooldown speed +10%.",
+          "levelStarUnlocks": [
+            "Unlocks at Hero Level 30 and 8 stars."
+          ]
+        }
+      ]
+    },
+    {
+      "heroId": "hero-marlena",
+      "heroName": "Marlena",
+      "heroNameJapanese": "マルレーナ (Marlena)",
+      "totalSkills": 5,
+      "skills": [
+        {
+          "skillName": "Skybreaker Slash",
+          "type": "Auto Attack",
+          "cooldown": "N/A",
+          "damageType": "Energy DMG",
+          "description": "Unleash a sword wind, dealing 652.5% ATK as Energy DMG to a single target.",
+          "levelStarUnlocks": [
+            "1 star: Deals 40% Extra Damage.",
+            "5 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Peerless Blade",
+          "type": "Ultimate Skill",
+          "cooldown": "13.6s",
+          "damageType": "Energy DMG",
+          "description": "Releases 3 sword winds, each randomly targeting an enemy, dealing 2818.75% ATK Energy DMG.",
+          "levelStarUnlocks": [
+            "2 stars: Sword Wind +1; each deals 20% extra damage.",
+            "6 stars: Each deals 100% extra damage.",
+            "10 stars: Sword Wind +1; each deals 140% extra damage."
+          ]
+        },
+        {
+          "skillName": "Crimson Bloom",
+          "type": "Active Skill",
+          "cooldown": "4.5s",
+          "damageType": "Energy DMG",
+          "description": "Throws a scarlet flower that explodes on impact, dealing 1218.75% ATK Energy DMG to targets within range.",
+          "levelStarUnlocks": [
+            "3 stars: Deals 20% extra damage and increases ATK by 12% for 3s.",
+            "7 stars: Extra damage increases to 70%.",
+            "10 stars: Extra damage increases to 150%."
+          ]
+        },
+        {
+          "skillName": "War God's Will",
+          "type": "Passive Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "In combat, increases Energy DMG dealt by 22.0%.",
+          "levelStarUnlocks": [
+            "4 stars: Effect increases by 1.6%.",
+            "9 stars: Effect increases by 2.4%.",
+            "10 stars: Effect increases by 4%."
+          ]
+        },
+        {
+          "skillName": "Tenacity",
+          "type": "Support Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "ATK, HP, and DEF +20%; skill cooldown speed +10%.",
+          "levelStarUnlocks": [
+            "Unlocks at Hero Level 30 and 8 stars."
+          ]
+        }
+      ]
+    },
+    {
+      "heroId": "hero-daskal",
+      "heroName": "Daskal",
+      "heroNameJapanese": "ダスカ (Daskal)",
+      "totalSkills": 5,
+      "skills": [
+        {
+          "skillName": "Battle Will",
+          "type": "Auto Attack",
+          "cooldown": "N/A",
+          "damageType": "Physical DMG",
+          "description": "Slashes the target, dealing 622.5% ATK Physical DMG to a single enemy.",
+          "levelStarUnlocks": [
+            "1 star: Deals 40% Extra Damage.",
+            "5 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Bloodshed Defense",
+          "type": "Ultimate Skill",
+          "cooldown": "5.8s",
+          "damageType": "Physical DMG",
+          "description": "Concentrates energy to grant every ally a shield equal to 570.0% of their max DEF, absorbing 50% of incoming damage for 5s.",
+          "levelStarUnlocks": [
+            "2 stars: Shield effect increases by 30%.",
+            "6 stars: Shield effect increases by 30%.",
+            "10 stars: Shield effect increases by 30%."
+          ]
+        },
+        {
+          "skillName": "Deadly Pierce",
+          "type": "Active Skill",
+          "cooldown": "4.5s",
+          "damageType": "Physical DMG",
+          "description": "Stabs the target with a two-handed sword, dealing 770.0% ATK Physical DMG and restoring HP equal to 400.0% ATK.",
+          "levelStarUnlocks": [
+            "3 stars: Restores 60% extra HP.",
+            "7 stars: Extra HP recovery increases to 150%.",
+            "10 stars: Extra HP recovery increases to 300%."
+          ]
+        },
+        {
+          "skillName": "Resolute Fight",
+          "type": "Passive Skill",
+          "cooldown": "N/A",
+          "damageType": "Physical DMG",
+          "description": "At the start of the battle, grants all allied tank heroes a shield equal to 18.75% of their max HP, absorbing 50% of incoming damage for 5s.",
+          "levelStarUnlocks": [
+            "4 stars: Shield Duration +2s.",
+            "9 stars: Shield effect increases by 20%.",
+            "10 stars: Shield effect increases by 30%."
+          ]
+        },
+        {
+          "skillName": "Tenacity",
+          "type": "Support Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "ATK, HP, and DEF +20%; skill cooldown speed +10%.",
+          "levelStarUnlocks": [
+            "Unlocks at Hero Level 30 and 8 stars."
+          ]
+        }
+      ]
+    },
+    {
+      "heroId": "hero-shadow",
+      "heroName": "Shadow",
+      "heroNameJapanese": "シャドウ (Shadow)",
+      "totalSkills": 5,
+      "skills": [
+        {
+          "skillName": "Smoke Cartridge",
+          "type": "Auto Attack",
+          "cooldown": "N/A",
+          "damageType": "Physical DMG",
+          "description": "Randomly throws 3 smoke bombs, each dealing 210.0% ATK Physical DMG to a single enemy.",
+          "levelStarUnlocks": [
+            "1 star: Deals 40% Extra Damage.",
+            "5 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Shadow Hunt",
+          "type": "Ultimate Skill",
+          "cooldown": "6.4s",
+          "damageType": "Physical DMG",
+          "description": "Unleashes a rolling black mist, dealing 922.5% ATK Physical DMG to all enemies and reducing their Energy DMG by 20.0% for 5s.",
+          "levelStarUnlocks": [
+            "2 stars: Effect increases by 3%.",
+            "6 stars: Effect increases by 3%.",
+            "10 stars: Effect increases by 3%."
+          ]
+        },
+        {
+          "skillName": "Shadow Strike",
+          "type": "Active Skill",
+          "cooldown": "4.5s",
+          "damageType": "Physical DMG",
+          "description": "Throws a large smoke cartridge, dealing 462.5% ATK Physical DMG to enemies in range and reducing their DEF by 50.25% for 3s.",
+          "levelStarUnlocks": [
+            "3 stars: Effect increases by 4.5%.",
+            "7 stars: Effect increases by 7.5%.",
+            "10 stars: Effect increases by 12%."
+          ]
+        },
+        {
+          "skillName": "Shadow Veil",
+          "type": "Passive Skill",
+          "cooldown": "N/A",
+          "damageType": "Physical DMG",
+          "description": "In combat, reduces Energy DMG taken by 32.0%.",
+          "levelStarUnlocks": [
+            "4 stars: Effect increases by 5%.",
+            "9 stars: Effect increases by 5%.",
+            "10 stars: Effect increases by 5%."
+          ]
+        },
+        {
+          "skillName": "Tenacity",
+          "type": "Support Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "ATK, HP, and DEF +20%; skill cooldown speed +10%.",
+          "levelStarUnlocks": [
+            "Unlocks at Hero Level 30 and 8 stars."
+          ]
+        }
+      ]
+    },
+    {
+      "heroId": "hero-nicole",
+      "heroName": "Nicole",
+      "heroNameJapanese": "ニコル (Nicole)",
+      "totalSkills": 5,
+      "skills": [
+        {
+          "skillName": "Ember Dust",
+          "type": "Auto Attack",
+          "cooldown": "N/A",
+          "damageType": "Physical DMG",
+          "description": "Throws a flame, inflicts 622.5% ATK Physical DMG to a single target, and heals the ally with the lowest HP for 50% of ATK.",
+          "levelStarUnlocks": [
+            "1 star: Deals 40% Extra Damage.",
+            "5 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Inferno Array",
+          "type": "Ultimate Skill",
+          "cooldown": "13.6s",
+          "damageType": "N/A",
+          "description": "Summons a pillar of fire, dealing 2625.0% ATK Physical DMG to all enemies. If targets are [Burning], damage increases by 40.0%.",
+          "levelStarUnlocks": [
+            "2 stars: Deals 100% extra damage.",
+            "6 stars: Extra damage increases to 200%.",
+            "10 stars: Damage from Burn status increases by 5%."
+          ]
+        },
+        {
+          "skillName": "Heartwarming Flame",
+          "type": "Active Skill",
+          "cooldown": "4.5s",
+          "damageType": "N/A",
+          "description": "Throws 2 fireballs, healing the 2 lowest-HP allies for 387.5% ATK.",
+          "levelStarUnlocks": [
+            "3 stars: Restores extra 70% HP.",
+            "7 stars: Extra HP recovery increases to 140%.",
+            "10 stars: Extra HP recovery increases to 210%."
+          ]
+        },
+        {
+          "skillName": "Flame Soul Power",
+          "type": "Passive Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "During battle, increases ATK SPD of all allied Warlock Heroes by 13.5%.",
+          "levelStarUnlocks": [
+            "4 stars: Attack speed bonus increases by 1.2%.",
+            "9 stars: Attack speed bonus increases by 1.8%.",
+            "10 stars: All allied Warlock Heroes' ATK +3%."
+          ]
+        },
+        {
+          "skillName": "Tenacity",
+          "type": "Support Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "ATK, HP, and DEF +20%; skill cooldown speed +10%.",
+          "levelStarUnlocks": [
+            "Unlocks at Hero Level 30 and 8 stars."
+          ]
+        }
+      ]
+    },
+    {
+      "heroId": "hero-annie",
+      "heroName": "Annie",
+      "heroNameJapanese": "アニー (Annie)",
+      "totalSkills": 5,
+      "skills": [
+        {
+          "skillName": "Candy",
+          "type": "Auto Attack",
+          "cooldown": "N/A",
+          "damageType": "Energy DMG",
+          "description": "Waves a magic wand to conjure a candy, dealing 622.5% ATK Energy DMG to a single enemy.",
+          "levelStarUnlocks": [
+            "1 star: Deals 40% Extra Damage.",
+            "5 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Candy Jar",
+          "type": "Ultimate Skill",
+          "cooldown": "13.6s",
+          "damageType": "Energy DMG",
+          "description": "Summons 2 explosive candy jars, targeting the 2 enemies with the highest ATK, dealing 2961.0% ATK DMG, and inflicting [Burn], causing 100% ATK damage per second for 5s.",
+          "levelStarUnlocks": [
+            "2 stars: Attack Target +1.",
+            "6 stars: If the target is Burning, deals an additional 900% Attack Damage once.",
+            "10 stars: Deals 200% extra damage."
+          ]
+        },
+        {
+          "skillName": "Surprise Gift",
+          "type": "Active Skill",
+          "cooldown": "4.1s",
+          "damageType": "Energy DMG",
+          "description": "Throws a gift box, dealing 1342.5% ATK Energy DMG to enemies within range and causing them to [Burn], inflicting 100% ATK Energy DMG per second for 2s.",
+          "levelStarUnlocks": [
+            "3 stars: Burning Duration +2s.",
+            "7 stars: Deals 100% extra damage.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Charged Gummies",
+          "type": "Passive Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "In combat, increases Energy DMG dealt by 22.0%.",
+          "levelStarUnlocks": [
+            "4 stars: Effect increases by 1.6%.",
+            "9 stars: Effect increases by 2.4%.",
+            "10 stars: Effect increases by 4%."
+          ]
+        },
+        {
+          "skillName": "Tenacity",
+          "type": "Support Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "ATK, HP, and DEF +20%; skill cooldown speed +10%.",
+          "levelStarUnlocks": [
+            "Unlocks at Hero Level 30 and 8 stars."
+          ]
+        }
+      ]
+    },
+    {
+      "heroId": "hero-jester",
+      "heroName": "Jester",
+      "heroNameJapanese": "ジェスター (Jester)",
+      "totalSkills": 5,
+      "skills": [
+        {
+          "skillName": "Deal Cards",
+          "type": "Auto Attack",
+          "cooldown": "N/A",
+          "damageType": "Physical DMG",
+          "description": "Throws a card, dealing 622.5% ATK Physical DMG to the lowest HP target.",
+          "levelStarUnlocks": [
+            "1 star: Deals 40% Extra Damage.",
+            "5 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Joker Ace",
+          "type": "Ultimate Skill",
+          "cooldown": "13.6s",
+          "damageType": "Physical DMG",
+          "description": "Throws 2 joker cards, dealing 4206.25% ATK Physical DMG to 2 lowest-HP enemies.",
+          "levelStarUnlocks": [
+            "2 stars: Deals 40% extra damage.",
+            "6 stars: Extra damage increases to 100%.",
+            "10 stars: Attack Target +1."
+          ]
+        },
+        {
+          "skillName": "Hearthunt Red Card",
+          "type": "Active Skill",
+          "cooldown": "4.5s",
+          "damageType": "Physical DMG",
+          "description": "Throws a heart card, dealing 1350.0% ATK as Physical DMG to 2 random targets.",
+          "levelStarUnlocks": [
+            "3 stars: Deals 40% extra damage.",
+            "7 stars: Extra damage increases to 100%.",
+            "10 stars: Inflicts [Burn] on the target, dealing 400% Attack Damage per second for 3s."
+          ]
+        },
+        {
+          "skillName": "Frenzied Emotion",
+          "type": "Passive Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "In combat, increases 22.0% Crit Rate.",
+          "levelStarUnlocks": [
+            "4 stars: Effect increases by 1.6%.",
+            "9 stars: Effect increases by 2.4%.",
+            "10 stars: Effect increases by 4%."
+          ]
+        },
+        {
+          "skillName": "Tenacity",
+          "type": "Support Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "ATK, HP, and DEF +20%; skill cooldown speed +10%.",
+          "levelStarUnlocks": [
+            "Unlocks at Hero Level 30 and 8 stars."
+          ]
+        }
+      ]
+    },
+    {
+      "heroId": "hero-red-lady",
+      "heroName": "Red Lady",
+      "heroNameJapanese": "レッドレディ (Red Lady)",
+      "totalSkills": 5,
+      "skills": [
+        {
+          "skillName": "Blood Blade",
+          "type": "Auto Attack",
+          "cooldown": "N/A",
+          "damageType": "Energy DMG",
+          "description": "Throws a scalpel, dealing 622.5% ATK Energy DMG to a single enemy.",
+          "levelStarUnlocks": [
+            "1 star: Deals 40% Extra Damage.",
+            "5 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Crimson Rose",
+          "type": "Ultimate Skill",
+          "cooldown": "13.6s",
+          "damageType": "Energy DMG",
+          "description": "Summons the Crimson Rose, dealing 3792.0% ATK Energy DMG to the 2 highest-ATK enemies, with a 35% chance to stun targets for 5s.",
+          "levelStarUnlocks": [
+            "2 stars: Deals 40% extra damage.",
+            "6 stars: Attack Target +1.",
+            "10 stars: Extra damage increases to 140%."
+          ]
+        },
+        {
+          "skillName": "Bloodthirsty Slaughter",
+          "type": "Active Skill",
+          "cooldown": "4.5s",
+          "damageType": "Energy DMG",
+          "description": "Locks onto a target, dealing 2445.0% ATK as Energy DMG to them, and increasing damage they take by 14.0% for 3s.",
+          "levelStarUnlocks": [
+            "3 stars: Deals 40% Extra Damage.",
+            "7 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Lone Flower",
+          "type": "Passive Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "In combat, increases 22.0% ATK.",
+          "levelStarUnlocks": [
+            "4 stars: Effect increases by 1.6%.",
+            "9 stars: Effect increases by 2.4%.",
+            "10 stars: Effect increases by 4.0%."
+          ]
+        },
+        {
+          "skillName": "Tenacity",
+          "type": "Support Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "ATK, HP, and DEF +20%; skill cooldown speed +10%.",
+          "levelStarUnlocks": [
+            "Unlocks at Hero Level 30 and 8 stars."
+          ]
+        }
+      ]
+    },
+    {
+      "heroId": "hero-billy",
+      "heroName": "Billy",
+      "heroNameJapanese": "ビリー (Billy)",
+      "totalSkills": 5,
+      "skills": [
+        {
+          "skillName": "Wooden Frame",
+          "type": "Auto Attack",
+          "cooldown": "N/A",
+          "damageType": "Physical DMG",
+          "description": "Swings the marionette, dealing 622.5% ATK Physical DMG to a single enemy.",
+          "levelStarUnlocks": [
+            "1 star: Deals 40% Extra Damage.",
+            "5 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Truth and Lies",
+          "type": "Ultimate Skill",
+          "cooldown": "6.4s",
+          "damageType": "Physical DMG",
+          "description": "Lifts the marionette stand and smashes it to the ground, dealing 2430.0% ATK damage to enemies within range, granting the 3 highest-ATK allies a 70% chance to be immune to stun.",
+          "levelStarUnlocks": [
+            "2 stars: All damage received by allied defense heroes reduces by 15% for 5s.",
+            "6 stars: Chance of stun immunity +30%.",
+            "10 stars: Increases damage dealt on targets by 15% for 5s."
+          ]
+        },
+        {
+          "skillName": "Fate's Thread",
+          "type": "Active Skill",
+          "cooldown": "4.5s",
+          "damageType": "Physical DMG",
+          "description": "Swings the marionette, dealing 515.0% ATK Physical DMG to a single target, reducing Energy DMG received by the 2 highest-ATK allies by 33.0% for 4s.",
+          "levelStarUnlocks": [
+            "3 stars: Damage reduction increases by 6%.",
+            "7 stars: Allied target +1.",
+            "10 stars: Damage reduction increases by 6%."
+          ]
+        },
+        {
+          "skillName": "Puppet",
+          "type": "Passive Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "In combat, reduces all damage taken by 22.0%.",
+          "levelStarUnlocks": [
+            "4 stars: Effect increases by 1.6%.",
+            "9 stars: Effect increases by 2.4%.",
+            "10 stars: Effect increases by 4%."
+          ]
+        },
+        {
+          "skillName": "Tenacity",
+          "type": "Support Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "ATK, HP, and DEF +20%; skill cooldown speed +10%.",
+          "levelStarUnlocks": [
+            "Unlocks at Hero Level 30 and 8 stars."
+          ]
+        }
+      ]
+    },
+    {
+      "heroId": "hero-zoya",
+      "heroName": "Zoya",
+      "heroNameJapanese": "ゾーヤ (Zoya)",
+      "totalSkills": 5,
+      "skills": [
+        {
+          "skillName": "Dagger",
+          "type": "Auto Attack",
+          "cooldown": "N/A",
+          "damageType": "Energy DMG",
+          "description": "Throws a forest dagger at the target, dealing 622.5% ATK Energy DMG to a single enemy.",
+          "levelStarUnlocks": [
+            "1 star: Deals 40% Extra Damage.",
+            "5 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Forest Hunter",
+          "type": "Ultimate Skill",
+          "cooldown": "13.6s",
+          "damageType": "Energy DMG",
+          "description": "Quickly tosses 3 special daggers, randomly targeting 3 enemies, dealing 3058.0% ATK DMG to each.",
+          "levelStarUnlocks": [
+            "2 stars: Blade +1.",
+            "6 stars: Deals 60% extra damage.",
+            "10 stars: Extra damage increases to 120%; +1 blade."
+          ]
+        },
+        {
+          "skillName": "Mountain God Wrath",
+          "type": "Active Skill",
+          "cooldown": "4.5s",
+          "damageType": "Energy DMG",
+          "description": "Clasps hands tightly and prays to the mountain god, summoning a whirlwind of green leaves that deals 525.0% ATK Energy DMG per second to enemies within range for 3s. During this time, enemies within the whirlwind take 20% extra Energy DMG.",
+          "levelStarUnlocks": [
+            "3 stars: Deals 60% extra damage.",
+            "7 stars: Extra damage increases to 130%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Lady of the Forest",
+          "type": "Passive Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "In combat, increases 22.0% Crit Rate.",
+          "levelStarUnlocks": [
+            "4 stars: Effect increases by 1.6%.",
+            "9 stars: Effect increases by 2.4%.",
+            "10 stars: Effect increases by 4%."
+          ]
+        },
+        {
+          "skillName": "Tenacity",
+          "type": "Support Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "ATK, HP, and DEF +20%; skill cooldown speed +10%.",
+          "levelStarUnlocks": [
+            "Unlocks at Hero Level 30 and 8 stars."
+          ]
+        }
+      ]
+    },
+    {
+      "heroId": "hero-bell",
+      "heroName": "Bell",
+      "heroNameJapanese": "ベル (Bell)",
+      "totalSkills": 5,
+      "skills": [
+        {
+          "skillName": "Musical Note",
+          "type": "Auto Attack",
+          "cooldown": "N/A",
+          "damageType": "Physical DMG",
+          "description": "Waves a bell to release musical notes, dealing 622.5% ATK Physical DMG to a single target.",
+          "levelStarUnlocks": [
+            "1 star: Deals 40% Extra Damage.",
+            "5 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Inspiration",
+          "type": "Ultimate Skill",
+          "cooldown": "12.7s",
+          "damageType": "N/A",
+          "description": "Inspires the 2 highest-ATK allies, increasing their ATK by 48.75% for 5s.",
+          "levelStarUnlocks": [
+            "2 stars: Effect increases by 5%.",
+            "6 stars: Effect Duration +2s.",
+            "10 stars: Target +1."
+          ]
+        },
+        {
+          "skillName": "Healing Sound",
+          "type": "Active Skill",
+          "cooldown": "4.5s",
+          "damageType": "N/A",
+          "description": "Heals the lowest-HP ally for 450.0% ATK.",
+          "levelStarUnlocks": [
+            "3 stars: Restores 40% extra HP.",
+            "7 stars: Extra HP recovery increases to 100%.",
+            "10 stars: Extra HP recovery increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Battle Anthem",
+          "type": "Passive Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "During battle, increases ATK of all allied Ranger Heroes by 16.5%.",
+          "levelStarUnlocks": [
+            "4 stars: Effect increases by 1.2%.",
+            "9 stars: Effect increases by 1.8%.",
+            "10 stars: Effect increases by 3%."
+          ]
+        },
+        {
+          "skillName": "Tenacity",
+          "type": "Support Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "ATK, HP, and DEF +20%; skill cooldown speed +10%.",
+          "levelStarUnlocks": [
+            "Unlocks at Hero Level 30 and 8 stars."
+          ]
+        }
+      ]
+    },
+    {
+      "heroId": "hero-harper",
+      "heroName": "Harper",
+      "heroNameJapanese": "ハーパー (Harper)",
+      "totalSkills": 5,
+      "skills": [
+        {
+          "skillName": "Bubble",
+          "type": "Auto Attack",
+          "cooldown": "N/A",
+          "damageType": "Energy DMG",
+          "description": "Plays a flute to create bubbles, dealing 622.5% ATK Energy DMG to a single enemy.",
+          "levelStarUnlocks": [
+            "1 star: Deals 40% Extra Damage.",
+            "5 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "War Flute Sound",
+          "type": "Ultimate Skill",
+          "cooldown": "12.7s",
+          "damageType": "Energy DMG",
+          "description": "Harper plays a war flute to inspire allies, increasing all allied heroes' ATK by 21.045% for 5s.",
+          "levelStarUnlocks": [
+            "2 stars: After being cast, increases Energy DMG dealt by allies by 4.5% for 7s.",
+            "6 stars: ATK bonus increases by 4.5%.",
+            "10 stars: ATK bonus duration +5s."
+          ]
+        },
+        {
+          "skillName": "Vitality Bubble",
+          "type": "Active Skill",
+          "cooldown": "4.5s",
+          "damageType": "Energy DMG",
+          "description": "Harper creates a bubble, reducing the damage received by the lowest-HP ally by 18.0% for 4s.",
+          "levelStarUnlocks": [
+            "3 stars: Effect increases by 1.6%.",
+            "7 stars: Effect increases by 2.4%.",
+            "10 stars: Target +1."
+          ]
+        },
+        {
+          "skillName": "Warrior's Anthem",
+          "type": "Passive Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "In battle, increases ATK of all allied Warrior Heroes by 16.5%.",
+          "levelStarUnlocks": [
+            "4 stars: Effect increases by 1.2%.",
+            "9 stars: Effect increases by 1.8%.",
+            "10 stars: Effect increases by 3%."
+          ]
+        },
+        {
+          "skillName": "Tenacity",
+          "type": "Support Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "ATK, HP, and DEF +20%; skill cooldown speed +10%.",
+          "levelStarUnlocks": [
+            "Unlocks at Hero Level 30 and 8 stars."
+          ]
+        }
+      ]
+    },
+    {
+      "heroId": "hero-brian",
+      "heroName": "Brian",
+      "heroNameJapanese": "ブライアン (Brian)",
+      "totalSkills": 5,
+      "skills": [
+        {
+          "skillName": "Sharp Claw",
+          "type": "Auto Attack",
+          "cooldown": "N/A",
+          "damageType": "Physical DMG",
+          "description": "Swings sharp claws, dealing 622.5% ATK Physical DMG to a single enemy.",
+          "levelStarUnlocks": [
+            "1 star: Deals 40% Extra Damage.",
+            "5 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Throat Bite",
+          "type": "Ultimate Skill",
+          "cooldown": "6.4s",
+          "damageType": "Physical DMG",
+          "description": "Charges up, then lunges forward and bites the target, dealing 1505.0% ATK Physical DMG, and reducing all damage taken by all allied heroes by 18.75% for 4s.",
+          "levelStarUnlocks": [
+            "2 stars: Effect increases by 2%.",
+            "6 stars: Effect increases by 3%.",
+            "10 stars: Effect increases by 5%."
+          ]
+        },
+        {
+          "skillName": "Lunar Howl",
+          "type": "Active Skill",
+          "cooldown": "4.5s",
+          "damageType": "Physical DMG",
+          "description": "Howls to the sky, entering Berserk state: when taking damage, reflects 147.0% of that damage back to the attacker. This effect lasts for 3s.",
+          "levelStarUnlocks": [
+            "3 stars: Effect increases by 8%.",
+            "7 stars: Effect Duration +1s.",
+            "10 stars: Effect increases by 20%."
+          ]
+        },
+        {
+          "skillName": "Wolf Bloodline",
+          "type": "Passive Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "In combat, reduces all damage taken by 22.0%.",
+          "levelStarUnlocks": [
+            "4 stars: Effect increases by 1.6%.",
+            "9 stars: Effect increases by 2.4%.",
+            "10 stars: Effect increases by 4%."
+          ]
+        },
+        {
+          "skillName": "Tenacity",
+          "type": "Support Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "ATK, HP, and DEF +20%; skill cooldown speed +10%.",
+          "levelStarUnlocks": [
+            "Unlocks at Hero Level 30 and 8 stars."
+          ]
+        }
+      ]
+    },
+    {
+      "heroId": "hero-louis",
+      "heroName": "Louis",
+      "heroNameJapanese": "ルイ (Louis)",
+      "totalSkills": 5,
+      "skills": [
+        {
+          "skillName": "Shackles",
+          "type": "Auto Attack",
+          "cooldown": "N/A",
+          "damageType": "Physical DMG",
+          "description": "Swings the iron chain, dealing 622.5% ATK Physical DMG to a single target.",
+          "levelStarUnlocks": [
+            "1 star: Deals 40% Extra Damage.",
+            "5 stars: Extra damage increases to 100%.",
+            "10 stars: Extra damage increases to 200%."
+          ]
+        },
+        {
+          "skillName": "Cross Whip",
+          "type": "Ultimate Skill",
+          "cooldown": "6.4s",
+          "damageType": "Physical DMG",
+          "description": "Simultaneously swings 2 chains forward, dealing 1140.0% ATK damage to enemies within range, healing self for 150% ATK, and reducing all damage taken by 26.25% for 5s.",
+          "levelStarUnlocks": [
+            "2 stars: Damage reduction additionally applies to 1 nearest ally.",
+            "6 stars: Damage reduction applies to all allies.",
+            "10 stars: Deals 60% extra damage."
+          ]
+        },
+        {
+          "skillName": "Force Link",
+          "type": "Active Skill",
+          "cooldown": "4.5s",
+          "damageType": "Physical DMG",
+          "description": "Charges both hands, creating an energy field that reduces Energy DMG taken by allies within range by 27.75% for 4s.",
+          "levelStarUnlocks": [
+            "3 stars: Effect increases by 8%.",
+            "7 stars: Effect increases by 12%.",
+            "10 stars: Coverage area increases by 28.5%."
+          ]
+        },
+        {
+          "skillName": "Indomitable Spirit",
+          "type": "Passive Skill",
+          "cooldown": "N/A",
+          "damageType": "Physical DMG",
+          "description": "In combat, reduces all damage taken by 26.25% and triggers an undying state upon taking fatal damage, retaining 1 HP for 2s. The state can only be triggered once.",
+          "levelStarUnlocks": [
+            "4 stars: Duration +1s.",
+            "9 stars: Duration +1s.",
+            "10 stars: Duration +1s."
+          ]
+        },
+        {
+          "skillName": "Tenacity",
+          "type": "Support Skill",
+          "cooldown": "N/A",
+          "damageType": "N/A",
+          "description": "ATK, HP, and DEF +20%; skill cooldown speed +10%.",
+          "levelStarUnlocks": [
+            "Unlocks at Hero Level 30 and 8 stars."
+          ]
+        }
+      ]
+    }
+  ]
+}
