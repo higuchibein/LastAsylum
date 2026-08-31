@@ -1,6 +1,6 @@
 /**
  * Last Asylum Strategy Wiki - Event Power Analytics & Filtering Script (event_analytics.js)
- * Accurate Level Distribution & Chart.js Support
+ * Accurate Category Breakdown & Level Distribution Support
  */
 
 const EVENT_DATA_MASTER = {
@@ -98,12 +98,50 @@ document.addEventListener('DOMContentLoaded', () => {
   if (catFilter) catFilter.addEventListener('change', filterAndSortCards);
   if (sortSelect) sortSelect.addEventListener('change', filterAndSortCards);
 
-  // --- Accurate Level Chart Rendering ---
+  // --- Accurate Chart Rendering ---
   function initCharts() {
     if (!allMembers.length || typeof Chart === 'undefined') return;
 
     Chart.defaults.color = '#94a3b8';
     Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+
+    // Chart 1: Category Breakdown (Exact Matches)
+    const catCanvas = document.getElementById('categoryChart');
+    if (catCanvas) {
+      const catCounts = {
+        '① 自力＋援軍': 0,
+        '② 自力クリア': 0,
+        '③ 援軍ありで挑戦': 0,
+        '④ 燃焼後に援軍': 0,
+        '未判定 / 未分類': 0
+      };
+
+      allMembers.forEach(m => {
+        if (m.category && m.category.includes('①')) catCounts['① 自力＋援軍']++;
+        else if (m.category && m.category.includes('②')) catCounts['② 自力クリア']++;
+        else if (m.category && m.category.includes('③')) catCounts['③ 援軍ありで挑戦']++;
+        else if (m.category && m.category.includes('④')) catCounts['④ 燃焼後に援軍']++;
+        else catCounts['未判定 / 未分類']++;
+      });
+
+      new Chart(catCanvas.getContext('2d'), {
+        type: 'doughnut',
+        data: {
+          labels: Object.keys(catCounts),
+          datasets: [{
+            data: Object.values(catCounts),
+            backgroundColor: ['#ffd700', '#00f0ff', '#ff9f43', '#ee5253', '#546e7a'],
+            borderColor: '#131722',
+            borderWidth: 3
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } }
+        }
+      });
+    }
 
     // Chart 2: Accurate Level Breakdown
     const lvCanvas = document.getElementById('levelChart');

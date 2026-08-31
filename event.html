@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>イベント戦力分析ダッシュボード | Last Asylum Strategy Wiki</title>
-  <link rel="stylesheet" href="css/style.css?v=20260831_30">
+  <link rel="stylesheet" href="css/style.css?v=20260831_40">
   <!-- Chart.js CDN for Analytics Graphs -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -70,19 +70,19 @@
       <!-- ダッシュボードビジュアル分析エリア -->
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.5rem; margin-bottom:2.5rem;">
         
-        <!-- Graph 1: 分類内訳ビジュアルバー -->
+        <!-- Graph 1: 正確な判定分類の内訳構成 (全85名正確反映) -->
         <div class="card" style="background:var(--bg-secondary);">
           <h3 style="font-size:1rem; color:var(--accent-gold); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">
-            📊 判定分類の内訳構成 (85名中)
+            📊 判定分類の内訳構成 (全85名)
           </h3>
-          <div style="display:flex; flex-direction:column; gap:0.8rem;">
+          <div style="display:flex; flex-direction:column; gap:0.65rem;">
             <div>
               <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:0.2rem;">
                 <span style="color:var(--accent-gold); font-weight:700;">① 自力＋援軍</span>
                 <span><strong>5名</strong> (5.9%)</span>
               </div>
-              <div style="background:var(--bg-primary); height:10px; border-radius:5px; overflow:hidden;">
-                <div style="background:var(--accent-gold); width:5.9%; height:100%; box-shadow:0 0 8px var(--accent-gold);"></div>
+              <div style="background:var(--bg-primary); height:8px; border-radius:4px; overflow:hidden;">
+                <div style="background:var(--accent-gold); width:5.9%; height:100%; box-shadow:0 0 6px var(--accent-gold);"></div>
               </div>
             </div>
 
@@ -91,34 +91,44 @@
                 <span style="color:var(--accent-blue); font-weight:700;">② 自力クリア</span>
                 <span><strong>5名</strong> (5.9%)</span>
               </div>
-              <div style="background:var(--bg-primary); height:10px; border-radius:5px; overflow:hidden;">
-                <div style="background:var(--accent-blue); width:5.9%; height:100%; box-shadow:0 0 8px var(--accent-blue);"></div>
+              <div style="background:var(--bg-primary); height:8px; border-radius:4px; overflow:hidden;">
+                <div style="background:var(--accent-blue); width:5.9%; height:100%; box-shadow:0 0 6px var(--accent-blue);"></div>
               </div>
             </div>
 
             <div>
               <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:0.2rem;">
                 <span style="color:#ff9f43; font-weight:700;">③ 援軍ありで挑戦</span>
-                <span><strong>56名</strong> (65.9%)</span>
+                <span><strong>18名</strong> (21.2%)</span>
               </div>
-              <div style="background:var(--bg-primary); height:10px; border-radius:5px; overflow:hidden;">
-                <div style="background:#ff9f43; width:65.9%; height:100%; box-shadow:0 0 8px #ff9f43;"></div>
+              <div style="background:var(--bg-primary); height:8px; border-radius:4px; overflow:hidden;">
+                <div style="background:#ff9f43; width:21.2%; height:100%; box-shadow:0 0 6px #ff9f43;"></div>
               </div>
             </div>
 
             <div>
               <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:0.2rem;">
-                <span style="color:var(--text-muted); font-weight:700;">その他 / 未分類</span>
-                <span><strong>19名</strong> (22.3%)</span>
+                <span style="color:#ee5253; font-weight:700;">④ 燃焼後に援軍</span>
+                <span><strong>38名</strong> (44.7%)</span>
               </div>
-              <div style="background:var(--bg-primary); height:10px; border-radius:5px; overflow:hidden;">
-                <div style="background:#546e7a; width:22.3%; height:100%;"></div>
+              <div style="background:var(--bg-primary); height:8px; border-radius:4px; overflow:hidden;">
+                <div style="background:#ee5253; width:44.7%; height:100%; box-shadow:0 0 6px #ee5253;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:0.2rem;">
+                <span style="color:var(--text-muted); font-weight:700;">未判定 / 未分類</span>
+                <span><strong>19名</strong> (22.4%)</span>
+              </div>
+              <div style="background:var(--bg-primary); height:8px; border-radius:4px; overflow:hidden;">
+                <div style="background:#546e7a; width:22.4%; height:100%;"></div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Graph 2: 正確なレベル帯別分布ビジュアルバー (実データ正確反映) -->
+        <!-- Graph 2: 正確なレベル帯別分布ビジュアルバー -->
         <div class="card" style="background:var(--bg-secondary);">
           <h3 style="font-size:1rem; color:var(--accent-blue); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">
             🏰 正確なレベル帯別人数分布 (全85名)
@@ -185,14 +195,13 @@
 
       </div>
 
-      <!-- Graph 3: 一軍戦力 TOP 10 メンバーランキング（ネオンビジュアルバー） -->
+      <!-- Graph 3: 一軍戦力 TOP 10 メンバーランキング -->
       <div class="card" style="background:var(--bg-secondary); margin-bottom:2.5rem;">
         <h3 style="font-size:1rem; color:#fff; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">
           🏆 一軍戦力 TOP 10 メンバーランキング
         </h3>
 
         <div style="display:flex; flex-direction:column; gap:0.75rem;">
-          
           <div>
             <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:0.25rem;">
               <span style="font-weight:700; color:var(--accent-gold);">🥇 ビスケット・オリバ (Lv.30)</span>
@@ -292,7 +301,6 @@
               <div style="background:var(--accent-blue); width:61.8%; height:100%;"></div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -311,9 +319,10 @@
               <label style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">分類で絞り込み</label>
               <select id="event-cat-filter" class="form-select" style="margin-top:0.3rem;">
                 <option value="all">すべての分類</option>
-                <option value="① 自力＋援軍">① 自力＋援軍</option>
-                <option value="② 自力クリア">② 自力クリア</option>
-                <option value="③ 援軍ありで挑戦">③ 援軍ありで挑戦</option>
+                <option value="① 自力＋援軍">① 自力＋援軍 (5名)</option>
+                <option value="② 自力クリア">② 自力クリア (5名)</option>
+                <option value="③ 援軍ありで挑戦">③ 援軍ありで挑戦 (18名)</option>
+                <option value="④ 燃焼後に援軍">④ 燃焼後に援軍 (38名)</option>
                 <option value="has-help">ヘルプ先指定あり (2軍/3軍)</option>
               </select>
             </div>
@@ -333,7 +342,7 @@
         </div>
 
         <div id="event-members-grid" class="grid-cards">
-          <!-- Cards generated by python script -->
+          <!-- Python script injects cards -->
         </div>
       </div>
 
@@ -346,7 +355,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260831_30"></script>
-  <script src="js/event_analytics.js?v=20260831_30"></script>
+  <script src="js/main.js?v=20260831_40"></script>
+  <script src="js/event_analytics.js?v=20260831_40"></script>
 </body>
 </html>
