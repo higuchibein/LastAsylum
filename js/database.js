@@ -1,206 +1,220 @@
 /**
- * Last Asylum Strategy Wiki - Database & Event Power List Script (database.js)
+ * Last Asylum Strategy Wiki - Database Script (database.js)
+ * Supports Facilities, Items, Events, and Real Hero Stats JSON (heroes.json)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  let allItems = [];
-  let eventPowerData = null;
-  let currentCategory = 'all';
-  let currentSearchQuery = '';
-  let currentSort = 'power-desc';
+  let heroesData = [];
+  let facilityData = [];
+  let giftCodeData = [];
+  let eventPowerData = [];
 
-  const itemsContainer = document.getElementById('items-container');
-  const resultCount = document.getElementById('result-count');
+  let currentCategory = 'all';
+  const container = document.getElementById('items-container');
   const searchInput = document.getElementById('search-input');
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const sortSelect = document.getElementById('sort-select');
+  const resultCount = document.getElementById('result-count');
+  const tabBtns = document.querySelectorAll('.tab-btn');
   const sortWrapper = document.getElementById('sort-control-wrapper');
+  const sortSelect = document.getElementById('sort-select');
   const eventSummaryPanel = document.getElementById('event-summary-panel');
 
-  // URLパラメータでカテゴリ指定
+  // Check URL Query Parameters for category tab
   const urlParams = new URLSearchParams(window.location.search);
-  const paramCat = urlParams.get('category');
-
-  // データ並行ロード
-  Promise.all([
-    fetch('data/items.json?v=' + Date.now()).then(r => r.json()),
-    fetch('data/event_power.json?v=' + Date.now()).then(r => r.json()).catch(() => null)
-  ]).then(([items, eventData]) => {
-    allItems = items;
-    eventPowerData = eventData;
-
-    if (paramCat) {
-      const matchBtn = Array.from(tabButtons).find(b => b.dataset.category === paramCat);
-      if (matchBtn) {
-        tabButtons.forEach(b => b.classList.remove('active'));
-        matchBtn.classList.add('active');
-        currentCategory = paramCat;
+  const paramCategory = urlParams.get('category');
+  if (paramCategory) {
+    currentCategory = paramCategory;
+    tabBtns.forEach(btn => {
+      if (btn.getAttribute('data-category') === paramCategory) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
       }
+    });
+  }
+
+  // Load all JSON data
+  Promise.all([
+    fetch('data/heroes.json?v=' + Date.now()).then(r => r.json()).catch(() => null),
+    fetch('data/items.json?v=' + Date.now()).then(r => r.json()).catch(() => []),
+    fetch('data/event_power.json?v=' + Date.now()).then(r => r.json()).catch(() => null)
+  ]).then(([heroesRes, itemsRes, eventRes]) => {
+    if (heroesRes && heroesRes.heroes) {
+      heroesData = heroesRes.heroes;
+    }
+    if (eventRes && eventRes.members) {
+      eventPowerData = eventRes.members;
     }
 
-    render();
-  }).catch(err => {
-    console.error(err);
-    if (itemsContainer) itemsContainer.innerHTML = '<div style="color:var(--accent-red);">データ読込エラーが発生しました</div>';
+    // Process facility & items data
+    (itemsRes || []).forEach(item => {
+      if (item.category === 'facility') facilityData.push(item);
+      else if (item.category === 'gift_code') giftCodeData.push(item);
+    });
+
+    renderAll();
   });
 
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      currentSearchQuery = e.target.value.toLowerCase().trim();
-      render();
-    });
-  }
+  function renderAll() {
+    if (!container) return;
 
-  if (sortSelect) {
-    sortSelect.addEventListener('change', (e) => {
-      currentSort = e.target.value;
-      render();
-    });
-  }
+    let itemsToRender = [];
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
 
-  tabButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentCategory = btn.dataset.category;
-      render();
-    });
-  });
-
-  function render() {
-    if (currentCategory === 'event_power') {
-      renderEventPowerList();
-    } else {
-      renderDefaultItems();
-    }
-  }
-
-  function renderDefaultItems() {
-    if (sortWrapper) sortWrapper.style.display = 'none';
-    if (eventSummaryPanel) eventSummaryPanel.style.display = 'none';
-
-    const filtered = allItems.filter(item => {
-      const matchCat = (currentCategory === 'all' || item.category === currentCategory);
-      const text = [
-        item.name,
-        item.type || '',
-        item.description || '',
-        item.rarity || '',
-        ...(item.tags || [])
-      ].join(' ').toLowerCase();
-
-      const matchSearch = !currentSearchQuery || text.includes(currentSearchQuery);
-
-      return matchCat && matchSearch;
-    });
-
-    if (resultCount) resultCount.textContent = `該当件数: ${filtered.length}件`;
-
-    if (filtered.length === 0) {
-      itemsContainer.innerHTML = '<div style="grid-column: 1 / -1; text-align:center; padding:3rem; color:var(--text-muted);">データが見つかりませんでした</div>';
-      return;
-    }
-
-    itemsContainer.className = 'grid-cards';
-    itemsContainer.innerHTML = filtered.map(item => `
-      <div class="card">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
-          <span style="font-size:1.8rem;">${item.icon || '📦'}</span>
-          <span class="badge-val" style="font-size:0.75rem;">${item.rarity || 'SSR'}</span>
-        </div>
-        <div style="font-weight:700; font-size:1.05rem; color:#fff; margin-bottom:0.3rem;">${item.name}</div>
-        <div style="font-size:0.8rem; color:var(--accent-blue); margin-bottom:0.5rem;">${item.type || item.category}</div>
-        <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.4;">${item.description || ''}</div>
-      </div>
-    `).join('');
-  }
-
-  function renderEventPowerList() {
-    if (!eventPowerData || !eventPowerData.members) {
-      itemsContainer.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:2rem; color:var(--text-muted);">イベント戦力データを読み込んでいます...</div>';
-      return;
-    }
-
-    if (sortWrapper) sortWrapper.style.display = 'flex';
     if (eventSummaryPanel) {
-      eventSummaryPanel.style.display = 'block';
-      document.getElementById('event-title').textContent = `⚔️ ${eventPowerData.title || 'イベント戦力一覧'}`;
-      document.getElementById('event-date').textContent = eventPowerData.updatedDate || '';
-      document.getElementById('event-desc').textContent = eventPowerData.description || '';
-      document.getElementById('event-stat-count').textContent = `${eventPowerData.summary.confirmedCount}名`;
-      document.getElementById('event-stat-lv').textContent = `${eventPowerData.summary.levelEnteredCount}名`;
-      document.getElementById('event-stat-cat').textContent = `${eventPowerData.summary.classifiedCount}名`;
+      eventSummaryPanel.style.display = (currentCategory === 'event_power') ? 'block' : 'none';
+    }
+    if (sortWrapper) {
+      sortWrapper.style.display = (currentCategory === 'event_power') ? 'flex' : 'none';
     }
 
-    let members = [...eventPowerData.members];
+    if (currentCategory === 'hero') {
+      itemsToRender = heroesData.map(h => ({
+        type: 'hero',
+        id: h.id,
+        name: h.nameJapanese || h.name,
+        nameEn: h.name,
+        rarity: h.rarity,
+        role: h.role,
+        faction: h.factionJapanese || h.faction,
+        heroClass: h.heroClassJapanese || h.heroClass,
+        stats: h.stats,
+        skills: h.skills || [],
+        imageUrl: h.imageUrl,
+        rawObj: h
+      }));
+    } else if (currentCategory === 'facility') {
+      itemsToRender = facilityData.map(f => ({ type: 'facility', ...f }));
+    } else if (currentCategory === 'gift_code') {
+      itemsToRender = giftCodeData.map(g => ({ type: 'gift_code', ...g }));
+    } else if (currentCategory === 'event_power') {
+      let list = [...eventPowerData];
+      const sortVal = sortSelect ? sortSelect.value : 'power-desc';
+      if (sortVal === 'power-desc') list.sort((a, b) => b.firstFleetPower - a.firstFleetPower);
+      else if (sortVal === 'power-asc') list.sort((a, b) => a.firstFleetPower - b.firstFleetPower);
+      else if (sortVal === 'level-desc') list.sort((a, b) => (b.level || 0) - (a.level || 0));
 
-    // Filter by Search Query
-    if (currentSearchQuery) {
-      members = members.filter(m => {
+      itemsToRender = list.map(m => ({ type: 'event_power', ...m }));
+    } else {
+      // ALL category
+      itemsToRender = [
+        ...heroesData.map(h => ({ type: 'hero', ...h, name: h.nameJapanese || h.name })),
+        ...facilityData.map(f => ({ type: 'facility', ...f })),
+        ...giftCodeData.map(g => ({ type: 'gift_code', ...g })),
+        ...eventPowerData.slice(0, 10).map(m => ({ type: 'event_power', ...m }))
+      ];
+    }
+
+    // Filter by Query
+    if (query) {
+      itemsToRender = itemsToRender.filter(item => {
         const text = [
-          m.name,
-          m.category,
-          m.firstFleetPowerFormatted,
-          m.secondHelp,
-          m.thirdHelp,
-          `lv.${m.level}`
+          item.name || '',
+          item.nameEn || '',
+          item.description || '',
+          item.category || '',
+          item.faction || '',
+          item.role || '',
+          item.code || ''
         ].join(' ').toLowerCase();
-        return text.includes(currentSearchQuery);
+        return text.includes(query);
       });
     }
 
-    // Sort Members
-    if (currentSort === 'power-desc') {
-      members.sort((a, b) => b.firstFleetPower - a.firstFleetPower);
-    } else if (currentSort === 'power-asc') {
-      members.sort((a, b) => a.firstFleetPower - b.firstFleetPower);
-    } else if (currentSort === 'level-desc') {
-      members.sort((a, b) => (parseInt(b.level, 10) || 0) - (parseInt(a.level, 10) || 0));
+    if (resultCount) {
+      resultCount.textContent = `表示件数: ${itemsToRender.length}件`;
     }
 
-    if (resultCount) resultCount.textContent = `該当メンバー: ${members.length}名 (全${eventPowerData.members.length}名中)`;
-
-    if (members.length === 0) {
-      itemsContainer.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:3rem; color:var(--text-muted);">該当するメンバーが見つかりませんでした</div>';
+    if (itemsToRender.length === 0) {
+      container.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:3rem; color:var(--text-muted);">該当するデータが見つかりませんでした</div>';
       return;
     }
 
-    itemsContainer.className = 'grid-cards';
-    itemsContainer.innerHTML = members.map((m, idx) => {
-      let catBadgeColor = 'var(--text-muted)';
-      if (m.category.includes('①')) catBadgeColor = 'var(--accent-gold)';
-      else if (m.category.includes('②')) catBadgeColor = 'var(--accent-blue)';
-      else if (m.category.includes('③')) catBadgeColor = '#ff9f43';
-
-      return `
-        <div class="card" style="border-left: 3px solid ${catBadgeColor};">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
-            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #${idx + 1}</span>
-            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.${m.level}</span>
-          </div>
-          
-          <div style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">${escapeHtml(m.name)}</div>
-          
-          <div style="background:var(--bg-primary); padding:0.5rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
-            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
-            <div style="font-size:1.2rem; font-weight:800; color:var(--accent-gold);">${m.firstFleetPowerFormatted}</div>
-          </div>
-
-          <div style="font-size:0.8rem; margin-bottom:0.3rem;">
-            <span style="color:var(--text-muted);">分類:</span>
-            <span style="color:${catBadgeColor}; font-weight:700;">${escapeHtml(m.category)}</span>
-          </div>
-
-          ${(m.secondHelp !== '-' || m.thirdHelp !== '-') ? `
-            <div style="font-size:0.75rem; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:0.4rem; margin-top:0.4rem;">
-              ${m.secondHelp !== '-' ? `<div>2軍ヘルプ: ${escapeHtml(m.secondHelp)}</div>` : ''}
-              ${m.thirdHelp !== '-' ? `<div>3軍ヘルプ: ${escapeHtml(m.thirdHelp)}</div>` : ''}
+    container.innerHTML = itemsToRender.map(item => {
+      if (item.type === 'hero') {
+        const stats = item.stats || {};
+        const skills = item.skills || [];
+        return `
+          <div class="card" style="border-top: 3px solid var(--accent-gold);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+              <span class="badge" style="background:var(--accent-gold-dark); color:#fff; font-weight:800;">${item.rarity || 'UR'}</span>
+              <span style="font-size:0.8rem; color:var(--accent-blue);">${escapeHtml(item.faction || '')}</span>
             </div>
-          ` : ''}
-        </div>
-      `;
+            
+            <h3 style="font-size:1.2rem; color:#fff; margin-bottom:0.3rem;">${escapeHtml(item.name)}</h3>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.75rem;">役割: ${escapeHtml(item.role || '')} (${escapeHtml(item.heroClass || '')})</div>
+
+            <!-- Stats Table -->
+            <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.8rem; display:grid; grid-template-columns:repeat(4, 1fr); gap:0.3rem; text-align:center; font-size:0.75rem;">
+              <div>
+                <div style="color:var(--text-muted);">ATK</div>
+                <div style="color:var(--accent-gold); font-weight:700;">${stats.ATK || '-'}</div>
+              </div>
+              <div>
+                <div style="color:var(--text-muted);">HP</div>
+                <div style="color:var(--accent-blue); font-weight:700;">${stats.HP || '-'}</div>
+              </div>
+              <div>
+                <div style="color:var(--text-muted);">DEF</div>
+                <div style="color:#10ac84; font-weight:700;">${stats.DEF || '-'}</div>
+              </div>
+              <div>
+                <div style="color:var(--text-muted);">CMD</div>
+                <div style="color:#ff9f43; font-weight:700;">${stats.CMD || '-'}</div>
+              </div>
+            </div>
+
+            <!-- Skill Overview -->
+            <div style="font-size:0.8rem;">
+              <div style="font-weight:700; color:var(--accent-gold); margin-bottom:0.3rem;">⚡ 所持スキル (${skills.length}種):</div>
+              <ul style="padding-left:1rem; margin:0; color:var(--text-muted); font-size:0.75rem;">
+                ${skills.slice(0, 3).map(s => `<li><strong style="color:#fff;">${escapeHtml(s.name)}</strong>: ${escapeHtml((s.description || '').slice(0, 45))}...</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        `;
+      } else if (item.type === 'event_power') {
+        let catColor = 'var(--text-muted)';
+        if (item.category && item.category.includes('①')) catColor = 'var(--accent-gold)';
+        else if (item.category && item.category.includes('②')) catColor = 'var(--accent-blue)';
+        else if (item.category && item.category.includes('③')) catColor = '#ff9f43';
+
+        return `
+          <div class="card" style="border-left:4px solid ${catColor};">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+              <span style="font-size:0.75rem; color:var(--text-muted);">峡谷戦メンバー</span>
+              <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.${item.level}</span>
+            </div>
+            <div style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">${escapeHtml(item.name)}</div>
+            <div style="background:var(--bg-primary); padding:0.5rem; border-radius:6px; margin-bottom:0.5rem; text-align:center;">
+              <div style="font-size:0.7rem; color:var(--text-muted);">一軍戦力</div>
+              <div style="font-size:1.15rem; font-weight:800; color:var(--accent-gold);">${item.firstFleetPowerFormatted || item.firstFleetPower}</div>
+            </div>
+            <div style="font-size:0.8rem;"><span style="color:var(--text-muted);">分類:</span> <span style="color:${catColor}; font-weight:700;">${escapeHtml(item.category)}</span></div>
+          </div>
+        `;
+      } else {
+        return `
+          <div class="card">
+            <h3 style="font-size:1.1rem; color:var(--accent-gold); margin-bottom:0.4rem;">${escapeHtml(item.name)}</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted);">${escapeHtml(item.description || '')}</p>
+          </div>
+        `;
+      }
     }).join('');
   }
+
+  // Tab button handlers
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentCategory = btn.getAttribute('data-category') || 'all';
+      renderAll();
+    });
+  });
+
+  if (searchInput) searchInput.addEventListener('input', renderAll);
+  if (sortSelect) sortSelect.addEventListener('change', renderAll);
 
   function escapeHtml(str) {
     return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
