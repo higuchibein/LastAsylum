@@ -1,10 +1,8 @@
 /**
- * Last Asylum Strategy Wiki - Event Power Analytics Script (event_analytics.js)
- * Includes Fallback Inline Data to Guarantee 100% Rendering in any Browser Environment
+ * Last Asylum Strategy Wiki - Event Power Analytics & Filtering Script (event_analytics.js)
  */
 
-// Fallback Embedded Data (85 Alliance Members)
-const EMBEDDED_EVENT_DATA = {
+const EVENT_DATA_MASTER = {
   "title": "ラストアサイラム｜イベント戦力整理",
   "updatedDate": "2026.08.31 (8/31峡谷戦最新)",
   "description": "8/31峡谷戦リストから最新戦力を更新。分類は17M／14.5M基準で判定。",
@@ -868,14 +866,7 @@ const EMBEDDED_EVENT_DATA = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  let eventData = EMBEDDED_EVENT_DATA;
-  let allMembers = EMBEDDED_EVENT_DATA.members || [];
-
-  // DOM Elements
-  const statTotalCount = document.getElementById('stat-total-count');
-  const statTotalPower = document.getElementById('stat-total-power');
-  const statAvgPower = document.getElementById('stat-avg-power');
-  const statMaxPower = document.getElementById('stat-max-power');
+  const allMembers = EVENT_DATA_MASTER.members || [];
 
   const searchInput = document.getElementById('event-search-input');
   const catFilter = document.getElementById('event-cat-filter');
@@ -886,66 +877,80 @@ document.addEventListener('DOMContentLoaded', () => {
   const exportTextBtn = document.getElementById('export-text-btn');
   const exportCsvBtn = document.getElementById('export-csv-btn');
 
-  // Immediately render with Embedded Data first to guarantee instant 100% list rendering
-  initKPIs();
-  renderMembers();
-
-  // Try fetching latest data asynchronously to update if server has newer data
-  fetch('data/event_power.json?v=' + Date.now())
-    .then(res => res.json())
-    .then(data => {
-      if (data && data.members && data.members.length) {
-        eventData = data;
-        allMembers = data.members;
-        initKPIs();
-        renderMembers();
-      }
-    })
-    .catch(err => {
-      console.log('Using embedded fallback event data:', err);
-    });
-
-  // Safely Initialize Charts after small delay to let Chart.js CDN load
+  // Initialize Chart.js Graphs safely
   setTimeout(() => {
     try { initCharts(); } catch (e) { console.error('Chart init error:', e); }
-  }, 100);
+  }, 50);
 
-  // --- 1. KPI Summary Calculation ---
-  function initKPIs() {
-    if (!allMembers || !allMembers.length) return;
+  // Filter & Sort Event Handlers
+  function filterAndSortCards() {
+    if (!gridContainer) return;
 
-    const totalCount = allMembers.length;
-    const validPowerMembers = allMembers.filter(m => m.firstFleetPower > 0);
-    const sumPower = validPowerMembers.reduce((acc, m) => acc + m.firstFleetPower, 0);
-    const avgPower = validPowerMembers.length ? Math.round(sumPower / validPowerMembers.length) : 0;
-    const maxPower = validPowerMembers.length ? Math.max(...validPowerMembers.map(m => m.firstFleetPower)) : 0;
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    const catVal = catFilter ? catFilter.value : 'all';
+    const sortVal = sortSelect ? sortSelect.value : 'power-desc';
 
-    if (statTotalCount) statTotalCount.textContent = `${totalCount}名`;
-    if (statTotalPower) statTotalPower.textContent = formatCompactPower(sumPower);
-    if (statAvgPower) statAvgPower.textContent = formatCompactPower(avgPower);
-    if (statMaxPower) statMaxPower.textContent = maxPower > 0 ? maxPower.toLocaleString() : '-';
-  }
+    const cards = Array.from(gridContainer.children);
+    let visibleCount = 0;
 
-  function formatCompactPower(num) {
-    if (num >= 100000000) {
-      return (num / 100000000).toFixed(2) + '億';
-    } else if (num >= 10000) {
-      return (num / 10000).toFixed(0) + '万';
+    cards.forEach(card => {
+      const name = (card.getAttribute('data-name') || '').toLowerCase();
+      const cat = card.getAttribute('data-category') || '';
+      const cardText = card.textContent.toLowerCase();
+
+      let matchCat = true;
+      if (catVal === 'has-help') {
+        matchCat = cardText.includes('ヘルプ:');
+      } else if (catVal !== 'all') {
+        matchCat = cat.includes(catVal);
+      }
+
+      let matchSearch = !query || cardText.includes(query) || name.includes(query);
+
+      if (matchCat && matchSearch) {
+        card.style.display = 'block';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (resultCount) {
+      resultCount.textContent = `表示人数: ${visibleCount}名 (全${cards.length}名中)`;
     }
-    return num.toLocaleString();
+
+    // Re-sort DOM Cards
+    const visibleCards = cards.filter(c => c.style.display !== 'none');
+    visibleCards.sort((a, b) => {
+      const pA = parseInt(a.getAttribute('data-power') || '0', 10);
+      const pB = parseInt(b.getAttribute('data-power') || '0', 10);
+      const lA = parseInt(a.getAttribute('data-level') || '0', 10);
+      const lB = parseInt(b.getAttribute('data-level') || '0', 10);
+      const nA = a.getAttribute('data-name') || '';
+      const nB = b.getAttribute('data-name') || '';
+
+      if (sortVal === 'power-desc') return pB - pA;
+      if (sortVal === 'power-asc') return pA - pB;
+      if (sortVal === 'level-desc') return lB - lA;
+      if (sortVal === 'name-asc') return nA.localeCompare(nB, 'ja');
+      return 0;
+    });
+
+    visibleCards.forEach(card => gridContainer.appendChild(card));
   }
 
-  // --- 2. Chart.js Graphs Rendering (Safely Scoped) ---
+  if (searchInput) searchInput.addEventListener('input', filterAndSortCards);
+  if (catFilter) catFilter.addEventListener('change', filterAndSortCards);
+  if (sortSelect) sortSelect.addEventListener('change', filterAndSortCards);
+
+  // --- Chart Rendering ---
   function initCharts() {
-    if (!allMembers || !allMembers.length || typeof Chart === 'undefined') {
-      console.warn('Chart.js or members not ready');
-      return;
-    }
+    if (!allMembers.length || typeof Chart === 'undefined') return;
 
     Chart.defaults.color = '#94a3b8';
     Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
-    // Chart 1: Category Distribution
+    // Chart 1: Category
     const catCanvas = document.getElementById('categoryChart');
     if (catCanvas) {
       const catCounts = {
@@ -976,14 +981,12 @@ document.addEventListener('DOMContentLoaded', () => {
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } }
-          }
+          plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } }
         }
       });
     }
 
-    // Chart 2: Level Distribution
+    // Chart 2: Level
     const lvCanvas = document.getElementById('levelChart');
     if (lvCanvas) {
       const lvCounts = { 'Lv.30': 0, 'Lv.29': 0, 'Lv.28': 0, 'Lv.27以下': 0, '未確認': 0 };
@@ -1019,7 +1022,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Chart 3: Top 15 Power Ranking
+    // Chart 3: Top 15
     const topCanvas = document.getElementById('topPowerChart');
     if (topCanvas) {
       const sortedMembers = [...allMembers].sort((a, b) => b.firstFleetPower - a.firstFleetPower);
@@ -1056,103 +1059,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- 3. Guaranteed Member List Rendering ---
-  function renderMembers() {
-    if (!gridContainer) return;
-
-    if (!allMembers || !allMembers.length) {
-      gridContainer.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:3rem; color:var(--text-muted);">メンバーデータが存在しません</div>';
-      return;
-    }
-
-    let filtered = [...allMembers];
-
-    // Filter by Category
-    const catVal = catFilter ? catFilter.value : 'all';
-    if (catVal === 'has-help') {
-      filtered = filtered.filter(m => (m.secondHelp && m.secondHelp !== '-') || (m.thirdHelp && m.thirdHelp !== '-'));
-    } else if (catVal !== 'all') {
-      filtered = filtered.filter(m => m.category && m.category.includes(catVal));
-    }
-
-    // Filter by Search Query
-    const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
-    if (q) {
-      filtered = filtered.filter(m => {
-        const text = [
-          m.name,
-          m.category || '',
-          m.firstFleetPowerFormatted || '',
-          m.secondHelp || '',
-          m.thirdHelp || '',
-          `lv.${m.level}`
-        ].join(' ').toLowerCase();
-        return text.includes(q);
-      });
-    }
-
-    // Sort Members
-    const sortVal = sortSelect ? sortSelect.value : 'power-desc';
-    if (sortVal === 'power-desc') {
-      filtered.sort((a, b) => b.firstFleetPower - a.firstFleetPower);
-    } else if (sortVal === 'power-asc') {
-      filtered.sort((a, b) => a.firstFleetPower - b.firstFleetPower);
-    } else if (sortVal === 'level-desc') {
-      filtered.sort((a, b) => (parseInt(b.level, 10) || 0) - (parseInt(a.level, 10) || 0));
-    } else if (sortVal === 'name-asc') {
-      filtered.sort((a, b) => (a.name || '').localeCompare(b.name || '', 'ja'));
-    }
-
-    if (resultCount) resultCount.textContent = `表示人数: ${filtered.length}名 (全${allMembers.length}名中)`;
-
-    if (filtered.length === 0) {
-      gridContainer.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:3rem; color:var(--text-muted);">条件に一致するメンバーが見つかりませんでした</div>';
-      return;
-    }
-
-    gridContainer.className = 'grid-cards';
-    gridContainer.innerHTML = filtered.map((m, idx) => {
-      let catBadgeColor = 'var(--text-muted)';
-      if (m.category && m.category.includes('①')) catBadgeColor = 'var(--accent-gold)';
-      else if (m.category && m.category.includes('②')) catBadgeColor = 'var(--accent-blue)';
-      else if (m.category && m.category.includes('③')) catBadgeColor = '#ff9f43';
-
-      return `
-        <div class="card" style="border-left: 4px solid ${catBadgeColor};">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
-            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #${idx + 1}</span>
-            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.${m.level}</span>
-          </div>
-          
-          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">${escapeHtml(m.name)}</div>
-          
-          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
-            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
-            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">${m.firstFleetPowerFormatted || m.firstFleetPower}</div>
-          </div>
-
-          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
-            <span style="color:var(--text-muted);">分類:</span>
-            <span style="color:${catBadgeColor}; font-weight:700; margin-left:0.2rem;">${escapeHtml(m.category)}</span>
-          </div>
-
-          ${((m.secondHelp && m.secondHelp !== '-') || (m.thirdHelp && m.thirdHelp !== '-')) ? `
-            <div style="font-size:0.75rem; background:rgba(255,255,255,0.03); padding:0.4rem; border-radius:4px; border-top:1px solid var(--border-color); margin-top:0.4rem;">
-              ${(m.secondHelp && m.secondHelp !== '-') ? `<div style="color:var(--accent-blue);">2軍ヘルプ: ${escapeHtml(m.secondHelp)}</div>` : ''}
-              ${(m.thirdHelp && m.thirdHelp !== '-') ? `<div style="color:var(--accent-gold);">3軍ヘルプ: ${escapeHtml(m.thirdHelp)}</div>` : ''}
-            </div>
-          ` : ''}
-        </div>
-      `;
-    }).join('');
-  }
-
-  // Input Event Listeners
-  if (searchInput) searchInput.addEventListener('input', renderMembers);
-  if (catFilter) catFilter.addEventListener('change', renderMembers);
-  if (sortSelect) sortSelect.addEventListener('change', renderMembers);
-
-  // --- Export Functionality ---
+  // Exports
   if (exportTextBtn) {
     exportTextBtn.addEventListener('click', () => {
       let text = `【Last Asylum 8/31 峡谷戦イベント戦力一覧】
@@ -1163,7 +1070,7 @@ document.addEventListener('DOMContentLoaded', () => {
         text += `${i+1}. ${m.name} | Lv.${m.level} | 戦力: ${m.firstFleetPowerFormatted} | ${m.category}
 `;
       });
-      window.copyToClipboard(text, '戦力一覧テキストをクリップボードにコピーしました！');
+      window.copyToClipboard(text, '戦力一覧テキストをコピーしました！');
     });
   }
 
@@ -1187,9 +1094,5 @@ document.addEventListener('DOMContentLoaded', () => {
       URL.revokeObjectURL(url);
       window.showToast('CSVファイルをダウンロードしました！');
     });
-  }
-
-  function escapeHtml(str) {
-    return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 });
