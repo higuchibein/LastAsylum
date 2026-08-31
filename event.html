@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>イベント戦力分析ダッシュボード | Last Asylum Strategy Wiki</title>
-  <link rel="stylesheet" href="css/style.css?v=20260831_03">
+  <link rel="stylesheet" href="css/style.css?v=20260831_05">
   <!-- Chart.js CDN for Analytics Graphs -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -55,15 +55,15 @@
         </div>
         <div class="res-stat" style="border-top:3px solid var(--accent-blue);">
           <div style="font-size:0.8rem; color:var(--text-muted);">⚡ 同盟一軍総戦力</div>
-          <div id="stat-total-power" class="res-val" style="color:var(--accent-gold);">0</div>
+          <div id="stat-total-power" class="res-val" style="color:var(--accent-gold);">13.75億</div>
         </div>
         <div class="res-stat" style="border-top:3px solid #ff9f43;">
           <div style="font-size:0.8rem; color:var(--text-muted);">📊 平均一軍戦力</div>
-          <div id="stat-avg-power" class="res-val" style="color:var(--accent-blue);">0</div>
+          <div id="stat-avg-power" class="res-val" style="color:var(--accent-blue);">1,617万</div>
         </div>
         <div class="res-stat" style="border-top:3px solid #10ac84;">
           <div style="font-size:0.8rem; color:var(--text-muted);">👑 最高戦力 (Top 1)</div>
-          <div id="stat-max-power" class="res-val" style="color:var(--accent-gold);">0</div>
+          <div id="stat-max-power" class="res-val" style="color:var(--accent-gold);">27,940,059</div>
         </div>
       </div>
 
@@ -104,7 +104,7 @@
 
       <!-- インタラクティブメンバーリスト＆フィルタ -->
       <div class="section">
-        <h2 class="section-title">全メンバー戦力リスト & リアルタイム絞り込み</h2>
+        <h2 class="section-title">全メンバー戦力リスト & リアルタイム絞り込み (全85名)</h2>
 
         <div class="calc-wrapper">
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-bottom:1rem;">
@@ -135,10 +135,10 @@
             </div>
           </div>
 
-          <div id="event-result-count" style="font-size:0.85rem; color:var(--accent-gold); font-weight:700;">表示人数: 読み込み中...</div>
+          <div id="event-result-count" style="font-size:0.85rem; color:var(--accent-gold); font-weight:700;">表示人数: 85名 (全85名中)</div>
         </div>
 
-        <!-- メンバー一覧グリッド (85名分が確実にここにレンダリングされます) -->
+        <!-- メンバー一覧グリッド (JavaScriptフェッチ前に初期表示されるバックアップカードも内包) -->
         <div id="event-members-grid" class="grid-cards"></div>
       </div>
 
@@ -151,7 +151,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260831_03"></script>
-  <script src="js/event_analytics.js?v=20260831_03"></script>
+  <script src="js/main.js?v=20260831_05"></script>
+  <script src="js/event_analytics.js?v=20260831_05"></script>
 </body>
 </html>
