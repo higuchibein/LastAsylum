@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>イベント戦力分析ダッシュボード | Last Asylum Strategy Wiki</title>
-  <link rel="stylesheet" href="css/style.css?v=20260831_02">
+  <link rel="stylesheet" href="css/style.css?v=20260831_03">
   <!-- Chart.js CDN for Analytics Graphs -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -38,7 +38,7 @@
         <div>
           <h1 class="section-title" style="margin-bottom:0.3rem;">⚔️ イベント戦力分析ダッシュボード</h1>
           <p style="font-size:0.85rem; color:var(--text-muted);">
-            8/31 峡谷戦リストに基づく同盟メンバー戦力・分類・レベル分布の可視化＆検索ツール
+            8/31 峡谷戦リストに基づく同盟全メンバー（85名）の戦力・分類・レベル分布分析
           </p>
         </div>
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
@@ -104,7 +104,7 @@
 
       <!-- インタラクティブメンバーリスト＆フィルタ -->
       <div class="section">
-        <h2 class="section-title">メンバー戦力リスト & 絞り込み詳細</h2>
+        <h2 class="section-title">全メンバー戦力リスト & リアルタイム絞り込み</h2>
 
         <div class="calc-wrapper">
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-bottom:1rem;">
@@ -135,10 +135,10 @@
             </div>
           </div>
 
-          <div id="event-result-count" style="font-size:0.85rem; color:var(--accent-gold); font-weight:700;">表示人数: 0名</div>
+          <div id="event-result-count" style="font-size:0.85rem; color:var(--accent-gold); font-weight:700;">表示人数: 読み込み中...</div>
         </div>
 
-        <!-- メンバー一覧グリッド -->
+        <!-- メンバー一覧グリッド (85名分が確実にここにレンダリングされます) -->
         <div id="event-members-grid" class="grid-cards"></div>
       </div>
 
@@ -151,7 +151,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260831_02"></script>
-  <script src="js/event_analytics.js?v=20260831_02"></script>
+  <script src="js/main.js?v=20260831_03"></script>
+  <script src="js/event_analytics.js?v=20260831_03"></script>
 </body>
 </html>
