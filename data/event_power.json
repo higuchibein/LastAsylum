@@ -1,0 +1,862 @@
+{
+  "title": "ラストアサイラム｜イベント戦力整理",
+  "updatedDate": "2026.08.31 (8/31峡谷戦最新)",
+  "description": "8/31峡谷戦リストから最新戦力を更新。分類は17M／14.5M基準で判定。",
+  "summary": {
+    "confirmedCount": 85,
+    "levelEnteredCount": 84,
+    "classifiedCount": 85
+  },
+  "members": [
+    {
+      "id": "member-1",
+      "name": "ビスケット・オリバ",
+      "level": 30,
+      "firstFleetPower": 27940059,
+      "firstFleetPowerFormatted": "27,940,059",
+      "category": "① 自力＋援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-2",
+      "name": "gozaru",
+      "level": 30,
+      "firstFleetPower": 21718292,
+      "firstFleetPowerFormatted": "21,718,292",
+      "category": "① 自力＋援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-3",
+      "name": "大地・Daichi・",
+      "level": 29,
+      "firstFleetPower": 20805796,
+      "firstFleetPowerFormatted": "20,805,796",
+      "category": "① 自力＋援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-4",
+      "name": "さく-Saku-",
+      "level": 28,
+      "firstFleetPower": 20519897,
+      "firstFleetPowerFormatted": "20,519,897",
+      "category": "① 自力＋援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-5",
+      "name": "せいろんCeylon",
+      "level": 28,
+      "firstFleetPower": 19673035,
+      "firstFleetPowerFormatted": "19,673,035",
+      "category": "① 自力＋援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-6",
+      "name": "DIONE",
+      "level": 30,
+      "firstFleetPower": 18341137,
+      "firstFleetPowerFormatted": "18,341,137",
+      "category": "② 自力クリア",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-7",
+      "name": "akio",
+      "level": 29,
+      "firstFleetPower": 18131013,
+      "firstFleetPowerFormatted": "18,131,013",
+      "category": "② 自力クリア",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-8",
+      "name": "寺尾akら",
+      "level": 28,
+      "firstFleetPower": 17760490,
+      "firstFleetPowerFormatted": "17,760,490",
+      "category": "② 自力クリア",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-9",
+      "name": "サクサクッ",
+      "level": 28,
+      "firstFleetPower": 17315330,
+      "firstFleetPowerFormatted": "17,315,330",
+      "category": "② 自力クリア",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-10",
+      "name": "たいす",
+      "level": 29,
+      "firstFleetPower": 17281020,
+      "firstFleetPowerFormatted": "17,281,020",
+      "category": "② 自力クリア",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-11",
+      "name": "VikingKratosクラトス",
+      "level": 28,
+      "firstFleetPower": 16913067,
+      "firstFleetPowerFormatted": "16,913,067",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-12",
+      "name": "esméralda",
+      "level": 29,
+      "firstFleetPower": 16804505,
+      "firstFleetPowerFormatted": "16,804,505",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-13",
+      "name": "チョッパ",
+      "level": 28,
+      "firstFleetPower": 16693972,
+      "firstFleetPowerFormatted": "16,693,972",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-14",
+      "name": "Morrigan13",
+      "level": 28,
+      "firstFleetPower": 15912036,
+      "firstFleetPowerFormatted": "15,912,036",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-15",
+      "name": "Boric",
+      "level": 28,
+      "firstFleetPower": 15892326,
+      "firstFleetPowerFormatted": "15,892,326",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-16",
+      "name": "rinie",
+      "level": 28,
+      "firstFleetPower": 15707243,
+      "firstFleetPowerFormatted": "15,707,243",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-17",
+      "name": "さくらmsm",
+      "level": 28,
+      "firstFleetPower": 15607070,
+      "firstFleetPowerFormatted": "15,607,070",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-18",
+      "name": "GreekHunter",
+      "level": 28,
+      "firstFleetPower": 15428876,
+      "firstFleetPowerFormatted": "15,428,876",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-19",
+      "name": "Dariusダリヤ",
+      "level": 30,
+      "firstFleetPower": 15354488,
+      "firstFleetPowerFormatted": "15,354,488",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-20",
+      "name": "蟲士ギンコ",
+      "level": 27,
+      "firstFleetPower": 15276792,
+      "firstFleetPowerFormatted": "15,276,792",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-21",
+      "name": "ほに-Honi-",
+      "level": 28,
+      "firstFleetPower": 15269986,
+      "firstFleetPowerFormatted": "15,269,986",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-22",
+      "name": "Omi•メキシコ",
+      "level": 28,
+      "firstFleetPower": 15151330,
+      "firstFleetPowerFormatted": "15,151,330",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-23",
+      "name": "ナビすけ",
+      "level": 29,
+      "firstFleetPower": 15111899,
+      "firstFleetPowerFormatted": "15,111,899",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-24",
+      "name": "Enemyk1ller",
+      "level": 28,
+      "firstFleetPower": 14970062,
+      "firstFleetPowerFormatted": "14,970,062",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-25",
+      "name": "ぷぅ",
+      "level": 27,
+      "firstFleetPower": 14791782,
+      "firstFleetPowerFormatted": "14,791,782",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-26",
+      "name": "Ryu18",
+      "level": 27,
+      "firstFleetPower": 14784273,
+      "firstFleetPowerFormatted": "14,784,273",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-27",
+      "name": "LittleEvilClown",
+      "level": 28,
+      "firstFleetPower": 14588946,
+      "firstFleetPowerFormatted": "14,588,946",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-28",
+      "name": "potivech",
+      "level": 28,
+      "firstFleetPower": 14578281,
+      "firstFleetPowerFormatted": "14,578,281",
+      "category": "③ 援軍ありで挑戦",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-29",
+      "name": "Noxinn",
+      "level": 28,
+      "firstFleetPower": 14179341,
+      "firstFleetPowerFormatted": "14,179,341",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-30",
+      "name": "とっとこペロ太郎-pero-",
+      "level": 27,
+      "firstFleetPower": 14102072,
+      "firstFleetPowerFormatted": "14,102,072",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-31",
+      "name": "くろぽめこ",
+      "level": 29,
+      "firstFleetPower": 14076534,
+      "firstFleetPowerFormatted": "14,076,534",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-32",
+      "name": "CIAO",
+      "level": 28,
+      "firstFleetPower": 13888135,
+      "firstFleetPowerFormatted": "13,888,135",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-33",
+      "name": "TuralBerserk",
+      "level": 27,
+      "firstFleetPower": 13861293,
+      "firstFleetPowerFormatted": "13,861,293",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-34",
+      "name": "ベインBein",
+      "level": 27,
+      "firstFleetPower": 13802212,
+      "firstFleetPowerFormatted": "13,802,212",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-35",
+      "name": "RayaMar",
+      "level": 27,
+      "firstFleetPower": 13729700,
+      "firstFleetPowerFormatted": "13,729,700",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-36",
+      "name": "DoctorKiriko",
+      "level": 28,
+      "firstFleetPower": 13659224,
+      "firstFleetPowerFormatted": "13,659,224",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-37",
+      "name": "Marie1980",
+      "level": 27,
+      "firstFleetPower": 13580300,
+      "firstFleetPowerFormatted": "13,580,300",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-38",
+      "name": "ツナ缶-TUNAKAN-",
+      "level": 28,
+      "firstFleetPower": 13371344,
+      "firstFleetPowerFormatted": "13,371,344",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-39",
+      "name": "なちゃん",
+      "level": 28,
+      "firstFleetPower": 13134885,
+      "firstFleetPowerFormatted": "13,134,885",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-40",
+      "name": "ninet",
+      "level": 28,
+      "firstFleetPower": 13020197,
+      "firstFleetPowerFormatted": "13,020,197",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-41",
+      "name": "courgettezuchini",
+      "level": 25,
+      "firstFleetPower": 12785695,
+      "firstFleetPowerFormatted": "12,785,695",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-42",
+      "name": "はむハム",
+      "level": 26,
+      "firstFleetPower": 12731200,
+      "firstFleetPowerFormatted": "12,731,200",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-43",
+      "name": "AzucenaNava",
+      "level": 27,
+      "firstFleetPower": 12673247,
+      "firstFleetPowerFormatted": "12,673,247",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-44",
+      "name": "Azaad",
+      "level": 27,
+      "firstFleetPower": 12583065,
+      "firstFleetPowerFormatted": "12,583,065",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-45",
+      "name": "Illyy52",
+      "level": 27,
+      "firstFleetPower": 12411896,
+      "firstFleetPowerFormatted": "12,411,896",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-46",
+      "name": "しずまま",
+      "level": 26,
+      "firstFleetPower": 12338764,
+      "firstFleetPowerFormatted": "12,338,764",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-47",
+      "name": "Blu3Raiju",
+      "level": 27,
+      "firstFleetPower": 12320452,
+      "firstFleetPowerFormatted": "12,320,452",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-48",
+      "name": "DrsMoochi",
+      "level": 26,
+      "firstFleetPower": 12319543,
+      "firstFleetPowerFormatted": "12,319,543",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-49",
+      "name": "Doctor3vZhOIUC",
+      "level": 28,
+      "firstFleetPower": 12130307,
+      "firstFleetPowerFormatted": "12,130,307",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-50",
+      "name": "ElVenexian85",
+      "level": "-",
+      "firstFleetPower": 12088684,
+      "firstFleetPowerFormatted": "12,088,684",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-51",
+      "name": "みっちょ☆",
+      "level": 26,
+      "firstFleetPower": 12079854,
+      "firstFleetPowerFormatted": "12,079,854",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-52",
+      "name": "SiBeL",
+      "level": 27,
+      "firstFleetPower": 11922087,
+      "firstFleetPowerFormatted": "11,922,087",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-53",
+      "name": "haya09",
+      "level": 27,
+      "firstFleetPower": 11850443,
+      "firstFleetPowerFormatted": "11,850,443",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-54",
+      "name": "Gяαciα",
+      "level": 27,
+      "firstFleetPower": 11835058,
+      "firstFleetPowerFormatted": "11,835,058",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-55",
+      "name": "ウォンカ",
+      "level": 27,
+      "firstFleetPower": 11579714,
+      "firstFleetPowerFormatted": "11,579,714",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-56",
+      "name": "かあたjr",
+      "level": 27,
+      "firstFleetPower": 11534387,
+      "firstFleetPowerFormatted": "11,534,387",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-57",
+      "name": "※☆※《KODAL》※☆※",
+      "level": 27,
+      "firstFleetPower": 11282980,
+      "firstFleetPowerFormatted": "11,282,980",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-58",
+      "name": "紅桜華",
+      "level": 24,
+      "firstFleetPower": 10456945,
+      "firstFleetPowerFormatted": "10,456,945",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-59",
+      "name": "ペコ。",
+      "level": 27,
+      "firstFleetPower": 10234286,
+      "firstFleetPowerFormatted": "10,234,286",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-60",
+      "name": "mo7a",
+      "level": 25,
+      "firstFleetPower": 10026491,
+      "firstFleetPowerFormatted": "10,026,491",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-61",
+      "name": "ススワタリ",
+      "level": 27,
+      "firstFleetPower": 9973328,
+      "firstFleetPowerFormatted": "9,973,328",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-62",
+      "name": "Tsuki-bee",
+      "level": 26,
+      "firstFleetPower": 9914242,
+      "firstFleetPowerFormatted": "9,914,242",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-63",
+      "name": "xxkkomiixx",
+      "level": 26,
+      "firstFleetPower": 9718623,
+      "firstFleetPowerFormatted": "9,718,623",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-64",
+      "name": "metafor",
+      "level": 24,
+      "firstFleetPower": 9633811,
+      "firstFleetPowerFormatted": "9,633,811",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-65",
+      "name": "ダークネスリユニオン",
+      "level": 25,
+      "firstFleetPower": 9504581,
+      "firstFleetPowerFormatted": "9,504,581",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-66",
+      "name": "もぐら12",
+      "level": 26,
+      "firstFleetPower": 8646562,
+      "firstFleetPowerFormatted": "8,646,562",
+      "category": "④ 燃焼後に援軍",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-67",
+      "name": "SzeBen",
+      "level": 29,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-68",
+      "name": "SeniorDeath",
+      "level": 28,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-69",
+      "name": "ダーリンkeseLE",
+      "level": 28,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-70",
+      "name": "kasimmm1903",
+      "level": 27,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-71",
+      "name": "トレバー",
+      "level": 27,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-72",
+      "name": "aki000",
+      "level": 26,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-73",
+      "name": "strawberryBomber",
+      "level": 26,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-74",
+      "name": "Tsukune9",
+      "level": 25,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-75",
+      "name": "柳たかし",
+      "level": 25,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-76",
+      "name": "Barabasua",
+      "level": 24,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-77",
+      "name": "P-YA",
+      "level": 24,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-78",
+      "name": "キャベジン",
+      "level": 24,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-79",
+      "name": "ユリユリ",
+      "level": 24,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-80",
+      "name": "よしはる0729",
+      "level": 23,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-81",
+      "name": "めろめ",
+      "level": 22,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-82",
+      "name": "りりろず",
+      "level": 22,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-83",
+      "name": "mimi1997",
+      "level": 20,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-84",
+      "name": "むすみ",
+      "level": 19,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    },
+    {
+      "id": "member-85",
+      "name": "花音BLUE",
+      "level": 15,
+      "firstFleetPower": 0,
+      "firstFleetPowerFormatted": "-",
+      "category": "未判定",
+      "secondHelp": "-",
+      "thirdHelp": "-"
+    }
+  ]
+}

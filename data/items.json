@@ -1293,5 +1293,171 @@
       "施設"
     ],
     "icon": "🦅"
+  },
+  {
+    "id": "item-event-power-summary",
+    "name": "イベント戦力一覧 (8/31峡谷戦最新)",
+    "category": "event_power",
+    "rarity": "UR",
+    "type": "イベント戦力データ",
+    "description": "確認済み全85名の最新戦力・レベル・分類（自力＋援軍/自力クリア/援軍あり）データ。",
+    "tags": [
+      "イベント戦力一覧",
+      "イベント",
+      "戦力",
+      "峡谷戦",
+      "メンバー"
+    ],
+    "icon": "⚔️"
+  },
+  {
+    "id": "item-event-member-1",
+    "name": "【戦力】ビスケット・オリバ",
+    "category": "event_power",
+    "rarity": "UR",
+    "type": "イベント戦力メンバー",
+    "description": "Lv.30 | 一軍戦力: 27,940,059 | 分類: ① 自力＋援軍",
+    "tags": [
+      "ビスケット・オリバ",
+      "イベント戦力一覧",
+      "① 自力＋援軍",
+      "戦力"
+    ],
+    "icon": "🎖️"
+  },
+  {
+    "id": "item-event-member-2",
+    "name": "【戦力】gozaru",
+    "category": "event_power",
+    "rarity": "UR",
+    "type": "イベント戦力メンバー",
+    "description": "Lv.30 | 一軍戦力: 21,718,292 | 分類: ① 自力＋援軍",
+    "tags": [
+      "gozaru",
+      "イベント戦力一覧",
+      "① 自力＋援軍",
+      "戦力"
+    ],
+    "icon": "🎖️"
+  },
+  {
+    "id": "item-event-member-3",
+    "name": "【戦力】大地・Daichi・",
+    "category": "event_power",
+    "rarity": "UR",
+    "type": "イベント戦力メンバー",
+    "description": "Lv.29 | 一軍戦力: 20,805,796 | 分類: ① 自力＋援軍",
+    "tags": [
+      "大地・Daichi・",
+      "イベント戦力一覧",
+      "① 自力＋援軍",
+      "戦力"
+    ],
+    "icon": "🎖️"
+  },
+  {
+    "id": "item-event-member-4",
+    "name": "【戦力】さく-Saku-",
+    "category": "event_power",
+    "rarity": "SSR",
+    "type": "イベント戦力メンバー",
+    "description": "Lv.28 | 一軍戦力: 20,519,897 | 分類: ① 自力＋援軍",
+    "tags": [
+      "さく-Saku-",
+      "イベント戦力一覧",
+      "① 自力＋援軍",
+      "戦力"
+    ],
+    "icon": "🎖️"
+  },
+  {
+    "id": "item-event-member-5",
+    "name": "【戦力】せいろんCeylon",
+    "category": "event_power",
+    "rarity": "SSR",
+    "type": "イベント戦力メンバー",
+    "description": "Lv.28 | 一軍戦力: 19,673,035 | 分類: ① 自力＋援軍",
+    "tags": [
+      "せいろんCeylon",
+      "イベント戦力一覧",
+      "① 自力＋援軍",
+      "戦力"
+    ],
+    "icon": "🎖️"
+  },
+  {
+    "id": "item-event-member-6",
+    "name": "【戦力】DIONE",
+    "category": "event_power",
+    "rarity": "SSR",
+    "type": "イベント戦力メンバー",
+    "description": "Lv.30 | 一軍戦力: 18,341,137 | 分類: ② 自力クリア",
+    "tags": [
+      "DIONE",
+      "イベント戦力一覧",
+      "② 自力クリア",
+      "戦力"
+    ],
+    "icon": "🎖️"
+  },
+  {
+    "id": "item-event-member-7",
+    "name": "【戦力】akio",
+    "category": "event_power",
+    "rarity": "SSR",
+    "type": "イベント戦力メンバー",
+    "description": "Lv.29 | 一軍戦力: 18,131,013 | 分類: ② 自力クリア",
+    "tags": [
+      "akio",
+      "イベント戦力一覧",
+      "② 自力クリア",
+      "戦力"
+    ],
+    "icon": "🎖️"
+  },
+  {
+    "id": "item-event-member-8",
+    "name": "【戦力】寺尾akら",
+    "category": "event_power",
+    "rarity": "SSR",
+    "type": "イベント戦力メンバー",
+    "description": "Lv.28 | 一軍戦力: 17,760,490 | 分類: ② 自力クリア",
+    "tags": [
+      "寺尾akら",
+      "イベント戦力一覧",
+      "② 自力クリア",
+      "戦力"
+    ],
+    "icon": "🎖️"
+  },
+  {
+    "id": "item-event-member-9",
+    "name": "【戦力】サクサクッ",
+    "category": "event_power",
+    "rarity": "SSR",
+    "type": "イベント戦力メンバー",
+    "description": "Lv.28 | 一軍戦力: 17,315,330 | 分類: ② 自力クリア",
+    "tags": [
+      "サクサクッ",
+      "イベント戦力一覧",
+      "② 自力クリア",
+      "戦力"
+    ],
+    "icon": "🎖️"
+  },
+  {
+    "id": "item-event-member-10",
+    "name": "【戦力】たいす",
+    "category": "event_power",
+    "rarity": "SSR",
+    "type": "イベント戦力メンバー",
+    "description": "Lv.29 | 一軍戦力: 17,281,020 | 分類: ② 自力クリア",
+    "tags": [
+      "たいす",
+      "イベント戦力一覧",
+      "② 自力クリア",
+      "戦力"
+    ],
+    "icon": "🎖️"
   }
 ]

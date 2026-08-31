@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>実データ検索・図鑑 | Last Asylum Strategy Wiki</title>
-  <link rel="stylesheet" href="css/style.css?v=20260829_02">
+  <title>実データ検索・図鑑 ＆ イベント戦力一覧 | Last Asylum Strategy Wiki</title>
+  <link rel="stylesheet" href="css/style.css?v=20260831_01">
 </head>
 <body>
 
@@ -21,7 +21,7 @@
       <nav class="nav-menu">
         <a href="index.html" class="nav-link">トップ</a>
         <a href="calculator.html" class="nav-link">資源計算機</a>
-        <a href="database.html" class="nav-link active">データベース</a>
+        <a href="database.html" class="nav-link active">データベース & イベント戦力</a>
       </nav>
     </div>
   </header>
@@ -29,19 +29,47 @@
   <main class="main-content">
     <div class="container">
       
-      <h1 class="section-title">実データ一覧・検索 (95件)</h1>
+      <h1 class="section-title">実データ一覧・検索 & イベント戦力</h1>
 
       <div class="calc-wrapper">
-        <input type="text" id="search-input" class="search-input" placeholder="名称・カテゴリ・ギフトコード・タグで即時検索..." style="margin-bottom:1rem;">
+        <input type="text" id="search-input" class="search-input" placeholder="名称・メンバー名・カテゴリ・コードで即時検索..." style="margin-bottom:1rem;">
         
-        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-          <button class="btn btn-secondary btn-sm tab-btn active" data-category="all">すべて</button>
-          <button class="btn btn-secondary btn-sm tab-btn" data-category="facility">🏰 施設</button>
-          <button class="btn btn-secondary btn-sm tab-btn" data-category="hero">🦁 ヒーロー</button>
-          <button class="btn btn-secondary btn-sm tab-btn" data-category="gift_code">🎁 ギフトコード</button>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:space-between; align-items:center;">
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <button class="btn btn-secondary btn-sm tab-btn active" data-category="all">すべて</button>
+            <button class="btn btn-secondary btn-sm tab-btn" data-category="event_power">⚔️ イベント戦力一覧</button>
+            <button class="btn btn-secondary btn-sm tab-btn" data-category="facility">🏰 施設</button>
+            <button class="btn btn-secondary btn-sm tab-btn" data-category="hero">🦁 ヒーロー</button>
+            <button class="btn btn-secondary btn-sm tab-btn" data-category="gift_code">🎁 ギフトコード</button>
+          </div>
+
+          <div id="sort-control-wrapper" style="display:none; align-items:center; gap:0.4rem; margin-top:0.4rem;">
+            <span style="font-size:0.8rem; color:var(--text-muted);">並び順:</span>
+            <select id="sort-select" class="form-select" style="padding:0.3rem 0.6rem; font-size:0.85rem; width:auto;">
+              <option value="power-desc">一軍戦力 (高い順)</option>
+              <option value="power-asc">一軍戦力 (低い順)</option>
+              <option value="level-desc">レベル (高い順)</option>
+            </select>
+          </div>
         </div>
         
         <div id="result-count" style="font-size:0.85rem; color:var(--text-muted); margin-top:0.75rem;">読み込み中...</div>
+      </div>
+
+      <!-- イベント戦力一覧ヘッダーサマリーパネル (非表示/動的表示) -->
+      <div id="event-summary-panel" style="display:none; background:var(--bg-secondary); border:1px solid var(--accent-gold-dark); border-radius:10px; padding:1.2rem; margin-bottom:1.5rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.5rem;">
+          <h2 style="font-size:1.15rem; color:var(--accent-gold); font-weight:800;" id="event-title">⚔️ イベント戦力一覧 (8/31峡谷戦最新)</h2>
+          <span class="badge-val" id="event-date">2026.08.31 更新</span>
+        </div>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;" id="event-desc">
+          8/31峡谷戦リストから最新戦力を更新。分類は17M／14.5M基準で自動判定。
+        </p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; font-size:0.85rem;">
+          <span>👥 確認済み: <strong id="event-stat-count" style="color:#fff;">85名</strong></span>
+          <span>📊 レベル記入: <strong id="event-stat-lv" style="color:var(--accent-blue);">84名</strong></span>
+          <span>🏷️ 分類済み: <strong id="event-stat-cat" style="color:var(--accent-gold);">66名</strong></span>
+        </div>
       </div>
 
       <div id="items-container" class="grid-cards"></div>
@@ -55,7 +83,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260829_02"></script>
-  <script src="js/database.js?v=20260829_02"></script>
+  <script src="js/main.js?v=20260831_01"></script>
+  <script src="js/database.js?v=20260831_01"></script>
 </body>
 </html>
