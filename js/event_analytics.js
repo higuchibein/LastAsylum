@@ -1,5 +1,6 @@
 /**
- * Last Asylum Strategy Wiki - Event Power Analytics & Advanced Search Script (event_analytics.js)
+ * Last Asylum Strategy Wiki - Event Power Analytics & Advanced Multi-Field Search (event_analytics.js)
+ * Features 3 Independent Search Inputs (Name, Power, Level) & Kana Group Tabs
  */
 
 const EVENT_DATA_MASTER = {
@@ -11,8 +12,13 @@ const EVENT_DATA_MASTER = {
 
 document.addEventListener('DOMContentLoaded', () => {
   let allMembers = [];
+  let currentKanaGroup = 'all';
 
-  const searchInput = document.getElementById('event-search-input');
+  // 3 Independent Search Inputs
+  const searchNameInput = document.getElementById('search-name-input');
+  const searchPowerInput = document.getElementById('search-power-input');
+  const searchLevelInput = document.getElementById('search-level-input');
+
   const searchBtn = document.getElementById('event-search-btn');
   const resetBtn = document.getElementById('event-reset-btn');
   const catFilter = document.getElementById('event-cat-filter');
@@ -23,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const exportTextBtn = document.getElementById('export-text-btn');
   const exportCsvBtn = document.getElementById('export-csv-btn');
 
-  // Load JSON data asynchronously for Chart.js & Exporting
+  // Load JSON asynchronously for Chart.js & Exports
   fetch('data/event_power.json?v=' + Date.now())
     .then(res => res.json())
     .then(data => {
@@ -36,24 +42,38 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(err => console.log('Fetch error:', err));
 
-  /**
-   * Advanced Fuzzy Match Search Logic
-   * Handles hiragana/katakana, width normalization, comma-separated numbers, etc.
-   */
   function normalizeText(str) {
     if (!str) return '';
     return String(str)
       .toLowerCase()
-      .replace(/[！-～]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xfee0)) // Full-width to half-width ASCII
-      .replace(/,/g, '') // Remove numbers comma
+      .replace(/[！-～]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xfee0))
+      .replace(/,/g, '')
       .trim();
   }
 
+  function parsePowerInput(val) {
+    if (!val) return 0;
+    let s = normalizeText(val);
+    if (s.includes('億')) {
+      const num = parseFloat(s.replace('億', ''));
+      return isNaN(num) ? 0 : Math.round(num * 100000000);
+    }
+    if (s.includes('万')) {
+      const num = parseFloat(s.replace('万', ''));
+      return isNaN(num) ? 0 : Math.round(num * 10000);
+    }
+    const num = parseFloat(s);
+    return isNaN(num) ? 0 : num;
+  }
+
+  // --- Main Filtering Logic ---
   function filterAndSortCards() {
     if (!gridContainer) return;
 
-    const rawQuery = searchInput ? searchInput.value : '';
-    const query = normalizeText(rawQuery);
+    const nameQ = normalizeText(searchNameInput ? searchNameInput.value : '');
+    const powerQ = parsePowerInput(searchPowerInput ? searchPowerInput.value : '');
+    const levelQ = searchLevelInput ? searchLevelInput.value.trim() : '';
+
     const catVal = catFilter ? catFilter.value : 'all';
     const sortVal = sortSelect ? sortSelect.value : 'power-desc';
 
@@ -61,13 +81,24 @@ document.addEventListener('DOMContentLoaded', () => {
     let visibleCount = 0;
 
     cards.forEach(card => {
-      const cardText = normalizeText(card.textContent);
       const name = normalizeText(card.getAttribute('data-name') || '');
       const cat = card.getAttribute('data-category') || '';
-      const power = card.getAttribute('data-power') || '';
+      const power = parseInt(card.getAttribute('data-power') || '0', 10);
       const level = card.getAttribute('data-level') || '';
+      const group = card.getAttribute('data-group') || '';
+      const cardText = normalizeText(card.textContent);
 
-      // Category Matching
+      // 1. Kana Tab Group Matching
+      let matchKana = true;
+      if (currentKanaGroup !== 'all') {
+        if (currentKanaGroup === 'や') {
+          matchKana = (group === 'や' || group === 'ら' || group === 'わ');
+        } else {
+          matchKana = (group === currentKanaGroup);
+        }
+      }
+
+      // 2. Category Filter Matching
       let matchCat = true;
       if (catVal === 'has-help') {
         matchCat = cardText.includes('ヘルプ:');
@@ -75,18 +106,22 @@ document.addEventListener('DOMContentLoaded', () => {
         matchCat = cat.includes(catVal);
       }
 
-      // Search Query Matching (Multi-field fuzzy search)
-      let matchSearch = true;
-      if (query) {
-        matchSearch = cardText.includes(query) ||
-                      name.includes(query) ||
-                      cat.includes(query) ||
-                      power.includes(query) ||
-                      level === query ||
-                      `lv.${level}`.includes(query);
+      // 3. Name Search Input
+      let matchName = !nameQ || name.includes(nameQ) || cardText.includes(nameQ);
+
+      // 4. Power Search Input (Min power threshold)
+      let matchPower = true;
+      if (powerQ > 0) {
+        matchPower = (power >= powerQ);
       }
 
-      if (matchCat && matchSearch) {
+      // 5. Level Search Input (Exact match or substring)
+      let matchLevel = true;
+      if (levelQ) {
+        matchLevel = (level === levelQ);
+      }
+
+      if (matchKana && matchCat && matchName && matchPower && matchLevel) {
         card.style.display = 'block';
         visibleCount++;
       } else {
@@ -118,42 +153,60 @@ document.addEventListener('DOMContentLoaded', () => {
     visibleCards.forEach(card => gridContainer.appendChild(card));
   }
 
-  // --- Event Listeners ---
-  if (searchInput) {
-    searchInput.addEventListener('input', filterAndSortCards);
-    searchInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        filterAndSortCards();
-      }
+  // --- Kana Group Tab Clicks ---
+  const kanaTabs = document.querySelectorAll('.kana-tab');
+  kanaTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      kanaTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentKanaGroup = tab.getAttribute('data-group') || 'all';
+      filterAndSortCards();
     });
-  }
+  });
 
-  if (searchBtn) {
-    searchBtn.addEventListener('click', filterAndSortCards);
-  }
+  // --- Input Event Listeners ---
+  [searchNameInput, searchPowerInput, searchLevelInput].forEach(input => {
+    if (input) {
+      input.addEventListener('input', filterAndSortCards);
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          filterAndSortCards();
+        }
+      });
+    }
+  });
+
+  if (searchBtn) searchBtn.addEventListener('click', filterAndSortCards);
 
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
-      if (searchInput) searchInput.value = '';
+      if (searchNameInput) searchNameInput.value = '';
+      if (searchPowerInput) searchPowerInput.value = '';
+      if (searchLevelInput) searchLevelInput.value = '';
       if (catFilter) catFilter.value = 'all';
       if (sortSelect) sortSelect.value = 'power-desc';
+      
+      currentKanaGroup = 'all';
+      kanaTabs.forEach(t => t.classList.remove('active'));
+      const allTab = document.querySelector('.kana-tab[data-group="all"]');
+      if (allTab) allTab.classList.add('active');
+
       filterAndSortCards();
-      if (window.showToast) window.showToast('検索条件をリセットしました');
+      if (window.showToast) window.showToast('検索・表示条件をすべてリセットしました');
     });
   }
 
   if (catFilter) catFilter.addEventListener('change', filterAndSortCards);
   if (sortSelect) sortSelect.addEventListener('change', filterAndSortCards);
 
-  // --- Accurate Chart.js Support ---
+  // --- Chart.js ---
   function initCharts() {
     if (!allMembers.length || typeof Chart === 'undefined') return;
 
     Chart.defaults.color = '#94a3b8';
     Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
-    // Chart 1: Category Breakdown
     const catCanvas = document.getElementById('categoryChart');
     if (catCanvas) {
       const catCounts = {
@@ -191,7 +244,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Chart 2: Level Breakdown
     const lvCanvas = document.getElementById('levelChart');
     if (lvCanvas) {
       const lvCounts = { 'Lv.30': 0, 'Lv.29': 0, 'Lv.28': 0, 'Lv.27': 0, 'Lv.26以下': 0, '未確認': 0 };
@@ -229,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Export Text & CSV
+  // Export Helpers
   if (exportTextBtn) {
     exportTextBtn.addEventListener('click', () => {
       let text = `【Last Asylum 8/31 峡谷戦イベント戦力一覧】\n確認人数: ${allMembers.length}名\n\n`;

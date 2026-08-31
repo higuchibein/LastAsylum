@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>イベント戦力分析ダッシュボード | Last Asylum Strategy Wiki</title>
-  <link rel="stylesheet" href="css/style.css?v=20260831_50">
+  <link rel="stylesheet" href="css/style.css?v=20260831_60">
   <!-- Chart.js CDN for Analytics Graphs -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -304,21 +304,55 @@
         </div>
       </div>
 
-      <!-- インタラクティブメンバーリスト＆フィルタ -->
+      <!-- インタラクティブメンバーリスト＆独立3検索窓＋頭文字タブリスト -->
       <div class="section">
-        <h2 class="section-title">全メンバー戦力リスト & 検索・絞り込み (全85名)</h2>
+        <h2 class="section-title">全メンバー戦力リスト & 絞り込み (全85名)</h2>
+
+        <!-- メンバー名 五十音・頭文字タブリスト UI -->
+        <div style="margin-bottom:1.2rem;">
+          <label style="font-size:0.8rem; color:var(--text-muted); font-weight:700; margin-bottom:0.4rem; display:block;">
+            🔤 メンバー名 頭文字タブフィルター
+          </label>
+          <div id="kana-tab-container" style="display:flex; gap:0.4rem; flex-wrap:wrap;">
+            <button class="btn btn-secondary btn-sm kana-tab active" data-group="all">すべて (85)</button>
+            <button class="btn btn-secondary btn-sm kana-tab" data-group="あ">あ行</button>
+            <button class="btn btn-secondary btn-sm kana-tab" data-group="か">か行</button>
+            <button class="btn btn-secondary btn-sm kana-tab" data-group="さ">さ行</button>
+            <button class="btn btn-secondary btn-sm kana-tab" data-group="た">た行</button>
+            <button class="btn btn-secondary btn-sm kana-tab" data-group="な">な行</button>
+            <button class="btn btn-secondary btn-sm kana-tab" data-group="は">は行</button>
+            <button class="btn btn-secondary btn-sm kana-tab" data-group="ま">ま行</button>
+            <button class="btn btn-secondary btn-sm kana-tab" data-group="や">や/ら/わ行</button>
+            <button class="btn btn-secondary btn-sm kana-tab" data-group="az">A - Z (アルファベット)</button>
+          </div>
+        </div>
 
         <div class="calc-wrapper">
+          <!-- 3つの独立検索窓 (メンバー名 / 戦力値 / レベル) -->
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-bottom:1rem;">
             
-            <!-- 検索フォーム (検索ボタン + クリアボタン付き) -->
-            <div style="grid-column: 1 / -1;">
-              <label style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">メンバー名 / 戦力数値 / レベルで検索</label>
-              <div style="display:flex; gap:0.5rem; margin-top:0.3rem;">
-                <input type="text" id="event-search-input" class="search-input" placeholder="例: オリバ, 2000万, 30, 援軍..." style="flex:1;">
-                <button type="button" id="event-search-btn" class="btn btn-primary">🔍 検索</button>
-                <button type="button" id="event-reset-btn" class="btn btn-secondary">🔄 リセット</button>
-              </div>
+            <!-- 窓 1: メンバー名専用検索 -->
+            <div>
+              <label style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">👤 メンバー名で検索</label>
+              <input type="text" id="search-name-input" class="search-input" placeholder="例: オリバ, gozaru, 大地..." style="margin-top:0.3rem;">
+            </div>
+
+            <!-- 窓 2: 戦力値専用検索 (万・億・数値) -->
+            <div>
+              <label style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">⚡ 一軍戦力値で検索 (最小戦力)</label>
+              <input type="text" id="search-power-input" class="search-input" placeholder="例: 1500万, 20000000..." style="margin-top:0.3rem;">
+            </div>
+
+            <!-- 窓 3: レベル専用検索 -->
+            <div>
+              <label style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">🏰 レベルで検索 (例: 30)</label>
+              <input type="number" id="search-level-input" class="search-input" placeholder="例: 30, 28, 27..." min="1" max="30" style="margin-top:0.3rem;">
+            </div>
+
+            <!-- 検索アクションボタン -->
+            <div style="grid-column: 1 / -1; display:flex; gap:0.5rem; align-items:center;">
+              <button type="button" id="event-search-btn" class="btn btn-primary" style="flex:1;">🔍 条件で絞り込み検索</button>
+              <button type="button" id="event-reset-btn" class="btn btn-secondary">🔄 全条件リセット</button>
             </div>
             
             <div>
@@ -342,13 +376,2394 @@
                 <option value="name-asc">名前順 (五十音/アルファベット)</option>
               </select>
             </div>
+
           </div>
 
           <div id="event-result-count" style="font-size:0.85rem; color:var(--accent-gold); font-weight:700;">表示人数: 85名 (全85名中)</div>
         </div>
 
+        <!-- 全85名のネオンカード（HTML静的書き込みにより100%常時表示が保証されます） -->
         <div id="event-members-grid" class="grid-cards">
-          <!-- Python script injects static cards -->
+
+        <div class="card event-member-card" 
+             data-name="ビスケット・オリバ" 
+             data-category="① 自力＋援軍" 
+             data-power="27940059" 
+             data-level="30"
+             data-group="は"
+             style="border-left: 4px solid var(--accent-gold);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #1</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.30</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">ビスケット・オリバ</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">27,940,059</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--accent-gold); font-weight:700; margin-left:0.2rem;">① 自力＋援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="gozaru" 
+             data-category="① 自力＋援軍" 
+             data-power="21718292" 
+             data-level="30"
+             data-group="az"
+             style="border-left: 4px solid var(--accent-gold);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #2</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.30</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">gozaru</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">21,718,292</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--accent-gold); font-weight:700; margin-left:0.2rem;">① 自力＋援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="大地・daichi・" 
+             data-category="① 自力＋援軍" 
+             data-power="20805796" 
+             data-level="29"
+             data-group="az"
+             style="border-left: 4px solid var(--accent-gold);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #3</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.29</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">大地・Daichi・</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">20,805,796</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--accent-gold); font-weight:700; margin-left:0.2rem;">① 自力＋援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="さく-saku-" 
+             data-category="① 自力＋援軍" 
+             data-power="20519897" 
+             data-level="28"
+             data-group="さ"
+             style="border-left: 4px solid var(--accent-gold);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #4</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">さく-Saku-</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">20,519,897</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--accent-gold); font-weight:700; margin-left:0.2rem;">① 自力＋援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="せいろんceylon" 
+             data-category="① 自力＋援軍" 
+             data-power="19673035" 
+             data-level="28"
+             data-group="さ"
+             style="border-left: 4px solid var(--accent-gold);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #5</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">せいろんCeylon</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">19,673,035</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--accent-gold); font-weight:700; margin-left:0.2rem;">① 自力＋援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="dione" 
+             data-category="② 自力クリア" 
+             data-power="18341137" 
+             data-level="30"
+             data-group="az"
+             style="border-left: 4px solid var(--accent-blue);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #6</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.30</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">DIONE</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">18,341,137</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--accent-blue); font-weight:700; margin-left:0.2rem;">② 自力クリア</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="akio" 
+             data-category="② 自力クリア" 
+             data-power="18131013" 
+             data-level="29"
+             data-group="az"
+             style="border-left: 4px solid var(--accent-blue);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #7</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.29</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">akio</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">18,131,013</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--accent-blue); font-weight:700; margin-left:0.2rem;">② 自力クリア</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="寺尾akら" 
+             data-category="② 自力クリア" 
+             data-power="17760490" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid var(--accent-blue);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #8</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">寺尾akら</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">17,760,490</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--accent-blue); font-weight:700; margin-left:0.2rem;">② 自力クリア</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="サクサクッ" 
+             data-category="② 自力クリア" 
+             data-power="17315330" 
+             data-level="28"
+             data-group="さ"
+             style="border-left: 4px solid var(--accent-blue);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #9</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">サクサクッ</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">17,315,330</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--accent-blue); font-weight:700; margin-left:0.2rem;">② 自力クリア</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="たいす" 
+             data-category="② 自力クリア" 
+             data-power="17281020" 
+             data-level="29"
+             data-group="た"
+             style="border-left: 4px solid var(--accent-blue);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #10</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.29</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">たいす</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">17,281,020</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--accent-blue); font-weight:700; margin-left:0.2rem;">② 自力クリア</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="vikingkratosクラトス" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="16913067" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #11</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">VikingKratosクラトス</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">16,913,067</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="esméralda" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="16804505" 
+             data-level="29"
+             data-group="az"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #12</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.29</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">esméralda</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">16,804,505</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="チョッパ" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="16693972" 
+             data-level="28"
+             data-group="た"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #13</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">チョッパ</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">16,693,972</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="morrigan13" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="15912036" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #14</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Morrigan13</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">15,912,036</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="boric" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="15892326" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #15</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Boric</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">15,892,326</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="rinie" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="15707243" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #16</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">rinie</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">15,707,243</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="さくらmsm" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="15607070" 
+             data-level="28"
+             data-group="さ"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #17</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">さくらmsm</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">15,607,070</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="greekhunter" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="15428876" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #18</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">GreekHunter</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">15,428,876</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="dariusダリヤ" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="15354488" 
+             data-level="30"
+             data-group="az"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #19</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.30</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Dariusダリヤ</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">15,354,488</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="蟲士ギンコ" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="15276792" 
+             data-level="27"
+             data-group="az"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #20</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">蟲士ギンコ</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">15,276,792</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="ほに-honi-" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="15269986" 
+             data-level="28"
+             data-group="は"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #21</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">ほに-Honi-</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">15,269,986</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="omi•メキシコ" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="15151330" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #22</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Omi•メキシコ</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">15,151,330</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="ナビすけ" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="15111899" 
+             data-level="29"
+             data-group="な"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #23</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.29</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">ナビすけ</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">15,111,899</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="enemyk1ller" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="14970062" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #24</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Enemyk1ller</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">14,970,062</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="ぷぅ" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="14791782" 
+             data-level="27"
+             data-group="は"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #25</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">ぷぅ</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">14,791,782</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="ryu18" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="14784273" 
+             data-level="27"
+             data-group="az"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #26</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Ryu18</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">14,784,273</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="littleevilclown" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="14588946" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #27</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">LittleEvilClown</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">14,588,946</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="potivech" 
+             data-category="③ 援軍ありで挑戦" 
+             data-power="14578281" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid #ff9f43;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #28</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">potivech</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">14,578,281</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ff9f43; font-weight:700; margin-left:0.2rem;">③ 援軍ありで挑戦</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="noxinn" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="14179341" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #29</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Noxinn</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">14,179,341</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="とっとこペロ太郎-pero-" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="14102072" 
+             data-level="27"
+             data-group="た"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #30</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">とっとこペロ太郎-pero-</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">14,102,072</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="くろぽめこ" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="14076534" 
+             data-level="29"
+             data-group="か"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #31</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.29</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">くろぽめこ</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">14,076,534</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="ciao" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="13888135" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #32</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">CIAO</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">13,888,135</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="turalberserk" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="13861293" 
+             data-level="27"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #33</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">TuralBerserk</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">13,861,293</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="ベインbein" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="13802212" 
+             data-level="27"
+             data-group="は"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #34</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">ベインBein</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">13,802,212</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="rayamar" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="13729700" 
+             data-level="27"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #35</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">RayaMar</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">13,729,700</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="doctorkiriko" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="13659224" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #36</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">DoctorKiriko</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">13,659,224</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="marie1980" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="13580300" 
+             data-level="27"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #37</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Marie1980</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">13,580,300</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="ツナ缶-tunakan-" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="13371344" 
+             data-level="28"
+             data-group="た"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #38</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">ツナ缶-TUNAKAN-</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">13,371,344</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="なちゃん" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="13134885" 
+             data-level="28"
+             data-group="な"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #39</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">なちゃん</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">13,134,885</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="ninet" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="13020197" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #40</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">ninet</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">13,020,197</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="courgettezuchini" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="12785695" 
+             data-level="25"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #41</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.25</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">courgettezuchini</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">12,785,695</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="はむハム" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="12731200" 
+             data-level="26"
+             data-group="は"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #42</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.26</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">はむハム</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">12,731,200</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="azucenanava" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="12673247" 
+             data-level="27"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #43</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">AzucenaNava</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">12,673,247</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="azaad" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="12583065" 
+             data-level="27"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #44</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Azaad</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">12,583,065</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="illyy52" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="12411896" 
+             data-level="27"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #45</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Illyy52</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">12,411,896</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="しずまま" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="12338764" 
+             data-level="26"
+             data-group="さ"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #46</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.26</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">しずまま</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">12,338,764</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="blu3raiju" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="12320452" 
+             data-level="27"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #47</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Blu3Raiju</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">12,320,452</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="drsmoochi" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="12319543" 
+             data-level="26"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #48</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.26</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">DrsMoochi</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">12,319,543</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="doctor3vzhoiuc" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="12130307" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #49</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Doctor3vZhOIUC</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">12,130,307</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="elvenexian85" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="12088684" 
+             data-level="-"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #50</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.-</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">ElVenexian85</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">12,088,684</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="みっちょ☆" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="12079854" 
+             data-level="26"
+             data-group="ま"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #51</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.26</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">みっちょ☆</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">12,079,854</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="sibel" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="11922087" 
+             data-level="27"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #52</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">SiBeL</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">11,922,087</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="haya09" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="11850443" 
+             data-level="27"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #53</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">haya09</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">11,850,443</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="gяαciα" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="11835058" 
+             data-level="27"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #54</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Gяαciα</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">11,835,058</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="ウォンカ" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="11579714" 
+             data-level="27"
+             data-group="あ"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #55</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">ウォンカ</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">11,579,714</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="かあたjr" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="11534387" 
+             data-level="27"
+             data-group="か"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #56</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">かあたjr</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">11,534,387</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="※☆※《kodal》※☆※" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="11282980" 
+             data-level="27"
+             data-group="other"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #57</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">※☆※《KODAL》※☆※</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">11,282,980</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="紅桜華" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="10456945" 
+             data-level="24"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #58</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.24</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">紅桜華</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">10,456,945</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="ペコ。" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="10234286" 
+             data-level="27"
+             data-group="は"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #59</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">ペコ。</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">10,234,286</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="mo7a" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="10026491" 
+             data-level="25"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #60</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.25</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">mo7a</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">10,026,491</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="ススワタリ" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="9973328" 
+             data-level="27"
+             data-group="さ"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #61</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">ススワタリ</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">9,973,328</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="tsuki-bee" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="9914242" 
+             data-level="26"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #62</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.26</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Tsuki-bee</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">9,914,242</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="xxkkomiixx" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="9718623" 
+             data-level="26"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #63</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.26</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">xxkkomiixx</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">9,718,623</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="metafor" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="9633811" 
+             data-level="24"
+             data-group="az"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #64</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.24</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">metafor</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">9,633,811</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="ダークネスリユニオン" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="9504581" 
+             data-level="25"
+             data-group="た"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #65</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.25</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">ダークネスリユニオン</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">9,504,581</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="もぐら12" 
+             data-category="④ 燃焼後に援軍" 
+             data-power="8646562" 
+             data-level="26"
+             data-group="ま"
+             style="border-left: 4px solid #ee5253;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #66</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.26</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">もぐら12</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">8,646,562</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:#ee5253; font-weight:700; margin-left:0.2rem;">④ 燃焼後に援軍</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="szeben" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="29"
+             data-group="az"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #67</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.29</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">SzeBen</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="seniordeath" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="28"
+             data-group="az"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #68</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">SeniorDeath</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="ダーリンkesele" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="28"
+             data-group="た"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #69</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.28</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">ダーリンkeseLE</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="kasimmm1903" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="27"
+             data-group="az"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #70</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">kasimmm1903</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="トレバー" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="27"
+             data-group="た"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #71</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.27</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">トレバー</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="aki000" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="26"
+             data-group="az"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #72</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.26</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">aki000</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="strawberrybomber" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="26"
+             data-group="az"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #73</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.26</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">strawberryBomber</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="tsukune9" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="25"
+             data-group="az"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #74</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.25</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Tsukune9</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="柳たかし" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="25"
+             data-group="az"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #75</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.25</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">柳たかし</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="barabasua" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="24"
+             data-group="az"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #76</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.24</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">Barabasua</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="p-ya" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="24"
+             data-group="az"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #77</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.24</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">P-YA</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="キャベジン" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="24"
+             data-group="か"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #78</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.24</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">キャベジン</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="ユリユリ" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="24"
+             data-group="や"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #79</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.24</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">ユリユリ</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="よしはる0729" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="23"
+             data-group="や"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #80</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.23</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">よしはる0729</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="めろめ" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="22"
+             data-group="ま"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #81</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.22</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">めろめ</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="りりろず" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="22"
+             data-group="ら"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #82</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.22</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">りりろず</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="mimi1997" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="20"
+             data-group="az"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #83</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.20</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">mimi1997</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="むすみ" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="19"
+             data-group="ま"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #84</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.19</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">むすみ</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
+
+        <div class="card event-member-card" 
+             data-name="花音blue" 
+             data-category="未判定" 
+             data-power="0" 
+             data-level="15"
+             data-group="az"
+             style="border-left: 4px solid var(--text-muted);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Rank #85</span>
+            <span class="badge-val" style="font-size:0.75rem; background:rgba(0,240,255,0.1); color:var(--accent-blue);">Lv.15</span>
+          </div>
+          
+          <div style="font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">花音BLUE</div>
+          
+          <div style="background:var(--bg-primary); padding:0.6rem; border-radius:6px; margin-bottom:0.6rem; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">一軍戦力</div>
+            <div style="font-size:1.25rem; font-weight:800; color:var(--accent-gold);">-</div>
+          </div>
+
+          <div style="font-size:0.8rem; margin-bottom:0.4rem;">
+            <span style="color:var(--text-muted);">分類:</span>
+            <span style="color:var(--text-muted); font-weight:700; margin-left:0.2rem;">未判定</span>
+          </div>
+
+          
+        </div>
+    
         </div>
       </div>
 
@@ -361,7 +2776,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260831_50"></script>
-  <script src="js/event_analytics.js?v=20260831_50"></script>
+  <script src="js/main.js?v=20260831_60"></script>
+  <script src="js/event_analytics.js?v=20260831_60"></script>
 </body>
 </html>
