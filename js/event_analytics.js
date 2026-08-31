@@ -1,6 +1,5 @@
 /**
- * Last Asylum Strategy Wiki - Event Power Analytics & Filtering Script (event_analytics.js)
- * Accurate Category Breakdown & Level Distribution Support
+ * Last Asylum Strategy Wiki - Event Power Analytics & Advanced Search Script (event_analytics.js)
  */
 
 const EVENT_DATA_MASTER = {
@@ -14,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let allMembers = [];
 
   const searchInput = document.getElementById('event-search-input');
+  const searchBtn = document.getElementById('event-search-btn');
+  const resetBtn = document.getElementById('event-reset-btn');
   const catFilter = document.getElementById('event-cat-filter');
   const sortSelect = document.getElementById('event-sort-select');
   const resultCount = document.getElementById('event-result-count');
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const exportTextBtn = document.getElementById('export-text-btn');
   const exportCsvBtn = document.getElementById('export-csv-btn');
 
-  // Load JSON data
+  // Load JSON data asynchronously for Chart.js & Exporting
   fetch('data/event_power.json?v=' + Date.now())
     .then(res => res.json())
     .then(data => {
@@ -33,15 +34,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 50);
       }
     })
-    .catch(err => {
-      console.log('Fetch error:', err);
-    });
+    .catch(err => console.log('Fetch error:', err));
 
-  // Filter & Sort Event Handlers
+  /**
+   * Advanced Fuzzy Match Search Logic
+   * Handles hiragana/katakana, width normalization, comma-separated numbers, etc.
+   */
+  function normalizeText(str) {
+    if (!str) return '';
+    return String(str)
+      .toLowerCase()
+      .replace(/[！-～]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xfee0)) // Full-width to half-width ASCII
+      .replace(/,/g, '') // Remove numbers comma
+      .trim();
+  }
+
   function filterAndSortCards() {
     if (!gridContainer) return;
 
-    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    const rawQuery = searchInput ? searchInput.value : '';
+    const query = normalizeText(rawQuery);
     const catVal = catFilter ? catFilter.value : 'all';
     const sortVal = sortSelect ? sortSelect.value : 'power-desc';
 
@@ -49,10 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let visibleCount = 0;
 
     cards.forEach(card => {
-      const name = (card.getAttribute('data-name') || '').toLowerCase();
+      const cardText = normalizeText(card.textContent);
+      const name = normalizeText(card.getAttribute('data-name') || '');
       const cat = card.getAttribute('data-category') || '';
-      const cardText = card.textContent.toLowerCase();
+      const power = card.getAttribute('data-power') || '';
+      const level = card.getAttribute('data-level') || '';
 
+      // Category Matching
       let matchCat = true;
       if (catVal === 'has-help') {
         matchCat = cardText.includes('ヘルプ:');
@@ -60,7 +75,16 @@ document.addEventListener('DOMContentLoaded', () => {
         matchCat = cat.includes(catVal);
       }
 
-      let matchSearch = !query || cardText.includes(query) || name.includes(query);
+      // Search Query Matching (Multi-field fuzzy search)
+      let matchSearch = true;
+      if (query) {
+        matchSearch = cardText.includes(query) ||
+                      name.includes(query) ||
+                      cat.includes(query) ||
+                      power.includes(query) ||
+                      level === query ||
+                      `lv.${level}`.includes(query);
+      }
 
       if (matchCat && matchSearch) {
         card.style.display = 'block';
@@ -74,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
       resultCount.textContent = `表示人数: ${visibleCount}名 (全${cards.length}名中)`;
     }
 
-    // Re-sort DOM Cards
+    // Re-sort Visible DOM Cards
     const visibleCards = cards.filter(c => c.style.display !== 'none');
     visibleCards.sort((a, b) => {
       const pA = parseInt(a.getAttribute('data-power') || '0', 10);
@@ -94,18 +118,42 @@ document.addEventListener('DOMContentLoaded', () => {
     visibleCards.forEach(card => gridContainer.appendChild(card));
   }
 
-  if (searchInput) searchInput.addEventListener('input', filterAndSortCards);
+  // --- Event Listeners ---
+  if (searchInput) {
+    searchInput.addEventListener('input', filterAndSortCards);
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        filterAndSortCards();
+      }
+    });
+  }
+
+  if (searchBtn) {
+    searchBtn.addEventListener('click', filterAndSortCards);
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      if (searchInput) searchInput.value = '';
+      if (catFilter) catFilter.value = 'all';
+      if (sortSelect) sortSelect.value = 'power-desc';
+      filterAndSortCards();
+      if (window.showToast) window.showToast('検索条件をリセットしました');
+    });
+  }
+
   if (catFilter) catFilter.addEventListener('change', filterAndSortCards);
   if (sortSelect) sortSelect.addEventListener('change', filterAndSortCards);
 
-  // --- Accurate Chart Rendering ---
+  // --- Accurate Chart.js Support ---
   function initCharts() {
     if (!allMembers.length || typeof Chart === 'undefined') return;
 
     Chart.defaults.color = '#94a3b8';
     Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
-    // Chart 1: Category Breakdown (Exact Matches)
+    // Chart 1: Category Breakdown
     const catCanvas = document.getElementById('categoryChart');
     if (catCanvas) {
       const catCounts = {
@@ -143,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Chart 2: Accurate Level Breakdown
+    // Chart 2: Level Breakdown
     const lvCanvas = document.getElementById('levelChart');
     if (lvCanvas) {
       const lvCounts = { 'Lv.30': 0, 'Lv.29': 0, 'Lv.28': 0, 'Lv.27': 0, 'Lv.26以下': 0, '未確認': 0 };
@@ -181,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Exports
+  // Export Text & CSV
   if (exportTextBtn) {
     exportTextBtn.addEventListener('click', () => {
       let text = `【Last Asylum 8/31 峡谷戦イベント戦力一覧】\n確認人数: ${allMembers.length}名\n\n`;

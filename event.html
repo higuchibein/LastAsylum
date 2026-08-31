@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>イベント戦力分析ダッシュボード | Last Asylum Strategy Wiki</title>
-  <link rel="stylesheet" href="css/style.css?v=20260831_40">
+  <link rel="stylesheet" href="css/style.css?v=20260831_50">
   <!-- Chart.js CDN for Analytics Graphs -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -70,7 +70,7 @@
       <!-- ダッシュボードビジュアル分析エリア -->
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.5rem; margin-bottom:2.5rem;">
         
-        <!-- Graph 1: 正確な判定分類の内訳構成 (全85名正確反映) -->
+        <!-- Graph 1: 正確な判定分類の内訳構成 -->
         <div class="card" style="background:var(--bg-secondary);">
           <h3 style="font-size:1rem; color:var(--accent-gold); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">
             📊 判定分類の内訳構成 (全85名)
@@ -306,13 +306,19 @@
 
       <!-- インタラクティブメンバーリスト＆フィルタ -->
       <div class="section">
-        <h2 class="section-title">全メンバー戦力リスト & リアルタイム絞り込み (全85名)</h2>
+        <h2 class="section-title">全メンバー戦力リスト & 検索・絞り込み (全85名)</h2>
 
         <div class="calc-wrapper">
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-bottom:1rem;">
-            <div>
-              <label style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">メンバー名で検索</label>
-              <input type="text" id="event-search-input" class="search-input" placeholder="名前で検索..." style="margin-top:0.3rem;">
+            
+            <!-- 検索フォーム (検索ボタン + クリアボタン付き) -->
+            <div style="grid-column: 1 / -1;">
+              <label style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">メンバー名 / 戦力数値 / レベルで検索</label>
+              <div style="display:flex; gap:0.5rem; margin-top:0.3rem;">
+                <input type="text" id="event-search-input" class="search-input" placeholder="例: オリバ, 2000万, 30, 援軍..." style="flex:1;">
+                <button type="button" id="event-search-btn" class="btn btn-primary">🔍 検索</button>
+                <button type="button" id="event-reset-btn" class="btn btn-secondary">🔄 リセット</button>
+              </div>
             </div>
             
             <div>
@@ -342,7 +348,7 @@
         </div>
 
         <div id="event-members-grid" class="grid-cards">
-          <!-- Python script injects cards -->
+          <!-- Python script injects static cards -->
         </div>
       </div>
 
@@ -355,7 +361,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260831_40"></script>
-  <script src="js/event_analytics.js?v=20260831_40"></script>
+  <script src="js/main.js?v=20260831_50"></script>
+  <script src="js/event_analytics.js?v=20260831_50"></script>
 </body>
 </html>
