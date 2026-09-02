@@ -1,6 +1,6 @@
 /**
  * Last Asylum - Hero & Skill Calculator Script (js/hero_calculator.js)
- * High-precision simulator using satorimeta_heroes_full.json & skill_levels.json
+ * Faction-grouped hero selection (Warrior / Ranger / Warlock)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,6 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const starVal = document.getElementById('star-val');
   const skillLvSlider = document.getElementById('skill-lv-slider');
   const skillLvVal = document.getElementById('skill-lv-val');
+
+  // Faction Filter Buttons
+  const factionBtns = document.querySelectorAll('.faction-filter-btn');
 
   // Preset Buttons
   const btnInit = document.getElementById('preset-init');
@@ -50,23 +53,62 @@ document.addEventListener('DOMContentLoaded', () => {
       skillLevelsData = skillRes.data;
     }
 
-    populateHeroSelect();
+    populateHeroSelect('all');
     calculateAndRender();
   });
 
-  function populateHeroSelect() {
+  function populateHeroSelect(filterFaction = 'all') {
     if (!heroSelect || satorimetaHeroes.length === 0) return;
     heroSelect.innerHTML = '';
 
-    satorimetaHeroes.forEach((h, idx) => {
-      const opt = document.createElement('option');
-      opt.value = h.slug;
-      opt.textContent = `[${h.rarity}] ${h.nameJapanese || h.name} (${h.faction} / ${h.class})`;
-      if (idx === 0) opt.selected = true;
-      heroSelect.appendChild(opt);
+    // Group heroes into 3 Factions: Warrior, Ranger, Warlock (Sorcerer)
+    const warriorGroup = [];
+    const rangerGroup = [];
+    const warlockGroup = [];
+
+    satorimetaHeroes.forEach(h => {
+      const fac = (h.faction || '').toLowerCase();
+      if (fac.includes('warrior')) {
+        warriorGroup.push(h);
+      } else if (fac.includes('ranger')) {
+        rangerGroup.push(h);
+      } else {
+        warlockGroup.push(h); // Warlock / Sorcerer
+      }
     });
 
-    currentHero = satorimetaHeroes[0];
+    let selectedAlready = false;
+
+    // Helper to append OptGroup
+    const appendGroup = (groupLabel, heroesList) => {
+      if (heroesList.length === 0) return;
+      const optGroup = document.createElement('optgroup');
+      optGroup.label = groupLabel;
+
+      heroesList.forEach(h => {
+        const opt = document.createElement('option');
+        opt.value = h.slug;
+        opt.textContent = `[${h.rarity}] ${h.nameJapanese || h.name} (${h.class || ''})`;
+        if (!selectedAlready) {
+          opt.selected = true;
+          selectedAlready = true;
+          currentHero = h;
+        }
+        optGroup.appendChild(opt);
+      });
+
+      heroSelect.appendChild(optGroup);
+    };
+
+    if (filterFaction === 'all' || filterFaction === 'warrior') {
+      appendGroup('⚔️ ウォーリア (Warrior)', warriorGroup);
+    }
+    if (filterFaction === 'all' || filterFaction === 'ranger') {
+      appendGroup('🏹 レンジャー (Ranger)', rangerGroup);
+    }
+    if (filterFaction === 'all' || filterFaction === 'warlock') {
+      appendGroup('🔮 ソーサラー / ウォーロック (Sorcerer / Warlock)', warlockGroup);
+    }
   }
 
   function calculateAndRender() {
@@ -98,14 +140,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const predictedDef = Math.round(baseDef * levelMult * starMult);
     const predictedCmd = Math.round(baseCmd);
 
+    // Translate Faction Name for Display
+    let displayFaction = currentHero.faction || 'Ranger';
+    if (displayFaction.toLowerCase().includes('warrior')) displayFaction = '⚔️ ウォーリア (Warrior)';
+    else if (displayFaction.toLowerCase().includes('ranger')) displayFaction = '🏹 レンジャー (Ranger)';
+    else if (displayFaction.toLowerCase().includes('warlock')) displayFaction = '🔮 ソーサラー (Warlock)';
+
     // Update Header Text & Badges
     if (resHeroName) resHeroName.textContent = currentHero.nameJapanese || currentHero.name;
     if (resRarityBadge) resRarityBadge.textContent = currentHero.rarity || 'UR';
-    if (resFactionBadge) resFactionBadge.textContent = `${currentHero.faction || 'Ranger'} (${currentHero.defaultPlacement || 'Line'})`;
+    if (resFactionBadge) resFactionBadge.textContent = `${displayFaction} (${currentHero.defaultPlacement || 'Line'})`;
     if (resHeroRole) resHeroRole.textContent = `役割: ${currentHero.class || ''} | 属性: ${currentHero.damageType || 'Physical DMG'}`;
     if (resHonorBonus) resHonorBonus.textContent = currentHero.hallOfHonor ? `殿堂: ${currentHero.hallOfHonor}` : '殿堂ボーナス: なし';
 
-    // Update Hero Avatar Image if element exists
+    // Update Hero Avatar Image
     const heroHeaderCard = document.getElementById('hero-header-card');
     let avatarImg = document.getElementById('hero-avatar-img');
     if (!avatarImg && heroHeaderCard) {
@@ -131,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (statDef) statDef.textContent = predictedDef.toLocaleString();
     if (statCmd) statCmd.textContent = predictedCmd.toLocaleString();
 
-    // 2. Render Skills with Formula Parameter Substitution
+    // 2. Render Skills
     renderSkills(predictedAtk, skillLv, star);
 
     // 3. Render Exclusive Weapon
@@ -152,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
       let calculatedValues = [];
       let mainMultiplierPercent = 100;
 
-      // Evaluate all formulas for this skill (e.g. {0}, {1} tokens in description)
       formulas.forEach((formObj, fIdx) => {
         let valStr = formObj.value || '';
         let evalResult = 0;
@@ -174,17 +221,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Format description by replacing {0}, {1}, {2} with computed formula values
       let formattedDescription = s.description || '';
       calculatedValues.forEach((cVal, fIdx) => {
         const replacement = `<strong style="color:var(--accent-gold);">${cVal.num}${cVal.unit}</strong>`;
         formattedDescription = formattedDescription.replace(new RegExp(`\\{${fIdx}\\}`, 'g'), replacement);
       });
 
-      // Estimated DMG for attack skills
       const estimatedDamage = Math.round((atkValue * mainMultiplierPercent) / 100);
 
-      // Render Star Unlocks & Upgrade Progression
       const starUnlocks = (s.skillLevelUpProgression || []).map(st => {
         const unlockStarStr = st.mark || '0★';
         const unlockStarNum = parseInt(unlockStarStr.replace(/\D/g, '') || '0', 10);
@@ -212,18 +256,15 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
 
-          <!-- Computed Description -->
           <div style="font-size:0.9rem; color:#e0e0e0; margin-bottom:0.75rem; line-height:1.5; background:rgba(0,0,0,0.2); padding:0.75rem; border-radius:6px;">
             ${formattedDescription}
           </div>
 
-          <!-- Real-time DMG Estimate -->
           <div style="background:var(--bg-card); padding:0.6rem 0.8rem; border-radius:6px; margin-bottom:0.6rem; display:flex; justify-content:space-between; align-items:center; border:1px solid rgba(255,215,0,0.2);">
             <span style="font-size:0.8rem; color:#fff; font-weight:600;">⚡ 予想単発傷害 (攻撃力 ${atkValue.toLocaleString()} 換算):</span>
             <span style="font-size:1.15rem; font-weight:900; color:var(--accent-gold);">${estimatedDamage.toLocaleString()} DMG</span>
           </div>
 
-          <!-- Star Unlocks List -->
           ${starUnlocks ? `
             <div style="margin-top:0.6rem;">
               <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700; margin-bottom:0.2rem;">⭐ 星ランク解放効果 (Star Unlocks):</div>
@@ -234,7 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }).join('');
 
-    // Render Awakening Skills (Awaken 1 〜 Awaken 40)
     const awakenSkills = currentHero.awakeningSkills || [];
     if (awakenSkills.length > 0) {
       if (awakeningSection) awakeningSection.style.display = 'block';
@@ -299,6 +339,17 @@ document.addEventListener('DOMContentLoaded', () => {
       eqContainer.style.display = 'none';
     }
   }
+
+  // Faction Filter Tab Listeners
+  factionBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      factionBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const factionKey = btn.getAttribute('data-faction') || 'all';
+      populateHeroSelect(factionKey);
+      calculateAndRender();
+    });
+  });
 
   // Event Listeners
   if (heroSelect) heroSelect.addEventListener('change', calculateAndRender);

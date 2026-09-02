@@ -112,6 +112,29 @@
       font-weight: 700;
       display: inline-block;
     }
+    .faction-tabs {
+      display: flex;
+      gap: 0.3rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .faction-filter-btn {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .faction-filter-btn.active, .faction-filter-btn:hover {
+      background: var(--accent-gold);
+      color: #000;
+      border-color: var(--accent-gold);
+      font-weight: 800;
+    }
   </style>
 </head>
 <body>
@@ -157,13 +180,23 @@
               ⚙️ シミュレーション設定
             </h2>
 
-            <!-- 英雄選択ドロップダウン -->
+            <!-- 陣営フィルタータブ (ウォーリア・レンジャー・ソーサラー) -->
             <div style="margin-bottom: 1.25rem;">
-              <label for="hero-select" style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 0.4rem;">
-                選択英雄 (全31名)
+              <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 0.4rem;">
+                陣営グループ絞り込み
               </label>
-              <select id="hero-select" class="form-select" style="width: 100%; padding: 0.5rem; font-weight: 600;">
-                <!-- JS populates -->
+              <div class="faction-tabs">
+                <button type="button" class="faction-filter-btn active" data-faction="all">すべて</button>
+                <button type="button" class="faction-filter-btn" data-faction="warrior">⚔️ ウォーリア</button>
+                <button type="button" class="faction-filter-btn" data-faction="ranger">🏹 レンジャー</button>
+                <button type="button" class="faction-filter-btn" data-faction="warlock">🔮 ソーサラー</button>
+              </div>
+
+              <label for="hero-select" style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 0.4rem;">
+                選択英雄 (陣営別グループ)
+              </label>
+              <select id="hero-select" class="form-select" style="width: 100%; padding: 0.55rem; font-weight: 600;">
+                <!-- JS populates optgroups -->
               </select>
             </div>
 
@@ -282,7 +315,6 @@
 
   <script src="js/hero_calculator.js"></script>
   <script style="display:none;">
-    // Mobile menu toggle handler
     document.addEventListener('DOMContentLoaded', () => {
       const toggle = document.querySelector('.menu-toggle');
       const menu = document.querySelector('.nav-menu');
