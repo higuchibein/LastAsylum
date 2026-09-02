@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>英雄ステータス＆スキル計算シミュレーター | Last Asylum Wiki</title>
+  <meta name="description" content="Last Asylumの英雄レベル・スキルレベル・星/覚醒ランクを設定し、予想される攻撃力・防御力・HPおよびスキルダメージを計算するシミュレーター。">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .calc-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 900px) {
+      .grid-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    .control-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .result-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .slider-group {
+      margin-bottom: 1.25rem;
+    }
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .slider-val {
+      color: var(--accent-gold);
+      font-weight: 800;
+      font-size: 1rem;
+    }
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--bg-primary);
+      outline: none;
+      accent-color: var(--accent-gold);
+    }
+    .stat-display-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .stat-box {
+      background: var(--bg-primary);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .stat-box:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-gold);
+    }
+    .stat-lbl {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .stat-num {
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+    .skill-card {
+      background: var(--bg-primary);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--accent-blue);
+      transition: all 0.2s ease;
+    }
+    .skill-card:hover {
+      border-color: var(--accent-gold);
+    }
+    .skill-type-badge {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      background: rgba(0, 240, 255, 0.15);
+      color: var(--accent-blue);
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🛡️</span>
+        <span class="logo-text">Last Asylum <span class="logo-highlight">Wiki</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">🏠 ホーム</a>
+        <a href="database.html" class="nav-link">📚 データベース</a>
+        <a href="hero_calculator.html" class="nav-link active">⚡ 英雄計算機</a>
+        <a href="calculators.html" class="nav-link">🏗️ 建築計算機</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calc-container">
+    <!-- Section Title -->
+    <div style="margin-bottom: 2rem; text-align: center;">
+      <span class="badge" style="background: var(--accent-gold-dark); color: #fff; font-weight: 800; margin-bottom: 0.5rem; display: inline-block;">実データ連動計算エンジン</span>
+      <h1 style="font-size: 2.2rem; font-weight: 900; color: #fff; margin-bottom: 0.5rem;">⚡ 英雄ステータス＆スキル計算シミュレーター</h1>
+      <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 0.95rem;">
+        英雄レベル (Lv.1〜150)、スキルレベル (Lv.1〜30)、星・覚醒レベルを設定し、予想されるステータス（ATK・HP・DEF・CMD）およびスキルダメージ倍率・実効傷害をリアルタイムシミュレーションします。
+      </p>
+    </div>
+
+    <!-- Layout Grid -->
+    <div class="grid-layout">
+      <!-- Control Panel (Left Column) -->
+      <div class="control-panel">
+        <h2 style="font-size: 1.15rem; color: var(--accent-gold); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+          ⚙️ シミュレーション設定
+        </h2>
+
+        <!-- Hero Select Dropdown -->
+        <div style="margin-bottom: 1.25rem;">
+          <label for="hero-select" style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 0.4rem;">
+            選択英雄 (全31名)
+          </label>
+          <select id="hero-select" class="bsel" style="width: 100%; padding: 0.6rem; background: var(--bg-primary); border: 1px solid var(--border-color); color: #fff; border-radius: 6px; font-weight: 600;">
+            <!-- JS will populate -->
+          </select>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.25rem 0;">
+
+        <!-- Hero Level Slider -->
+        <div class="slider-group">
+          <div class="slider-header">
+            <span>👑 英雄レベル (Hero Lv.)</span>
+            <span class="slider-val" id="hero-lv-val">Lv. 1</span>
+          </div>
+          <input type="range" id="hero-lv-slider" min="1" max="150" value="1">
+        </div>
+
+        <!-- Star / Awakening Slider -->
+        <div class="slider-group">
+          <div class="slider-header">
+            <span>⭐ 星・覚醒ランク</span>
+            <span class="slider-val" id="star-val">0★ (未解放)</span>
+          </div>
+          <input type="range" id="star-slider" min="0" max="10" value="0">
+        </div>
+
+        <!-- Global Skill Level Slider -->
+        <div class="slider-group">
+          <div class="slider-header">
+            <span>⚡ 全スキル共通レベル</span>
+            <span class="slider-val" id="skill-lv-val">Lv. 1</span>
+          </div>
+          <input type="range" id="skill-lv-slider" min="1" max="30" value="1">
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.25rem 0;">
+
+        <!-- Quick Preset Buttons -->
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 600;">⚡ プリセット設定</div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem;">
+          <button type="button" class="tab-btn" id="preset-init" style="padding: 0.4rem 0.2rem; font-size: 0.75rem;">初期 (Lv.1)</button>
+          <button type="button" class="tab-btn" id="preset-mid" style="padding: 0.4rem 0.2rem; font-size: 0.75rem;">中盤 (Lv.60)</button>
+          <button type="button" class="tab-btn" id="preset-max" style="padding: 0.4rem 0.2rem; font-size: 0.75rem;">最大 (Lv.150)</button>
+        </div>
+      </div>
+
+      <!-- Result Panel (Right Column) -->
+      <div class="result-panel">
+        <!-- Hero Header Info -->
+        <div id="hero-header-card" style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem;">
+              <span id="res-rarity-badge" class="badge" style="background: var(--accent-gold-dark); color: #fff; font-weight: 800;">UR</span>
+              <span id="res-faction-badge" style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 600;">Ranger</span>
+            </div>
+            <h2 id="res-hero-name" style="font-size: 1.6rem; font-weight: 900; color: #fff; margin: 0;">Loading...</h2>
+            <div id="res-hero-role" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">Carry / Energy DMG</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 0.75rem; color: var(--text-muted);">殿堂ボーナス</div>
+            <div id="res-honor-bonus" style="font-size: 0.85rem; font-weight: 700; color: var(--accent-gold);">Ranger Hero DEF↑ 0.5%</div>
+          </div>
+        </div>
+
+        <!-- Predicted Stats Boxes -->
+        <h3 style="font-size: 1rem; color: #fff; margin-bottom: 0.75rem; font-weight: 700;">📊 予想成長ステータス (Predicted Stats)</h3>
+        <div class="stat-display-grid">
+          <div class="stat-box" style="border-top: 3px solid var(--accent-gold);">
+            <div class="stat-lbl">予想 ATK (攻撃力)</div>
+            <div class="stat-num" id="stat-atk" style="color: var(--accent-gold);">-</div>
+          </div>
+          <div class="stat-box" style="border-top: 3px solid var(--accent-blue);">
+            <div class="stat-lbl">予想 HP (体力)</div>
+            <div class="stat-num" id="stat-hp" style="color: var(--accent-blue);">-</div>
+          </div>
+          <div class="stat-box" style="border-top: 3px solid #10ac84;">
+            <div class="stat-lbl">予想 DEF (防御力)</div>
+            <div class="stat-num" id="stat-def" style="color: #10ac84;">-</div>
+          </div>
+          <div class="stat-box" style="border-top: 3px solid #ff9f43;">
+            <div class="stat-lbl">予想 CMD (統率)</div>
+            <div class="stat-num" id="stat-cmd" style="color: #ff9f43;">-</div>
+          </div>
+        </div>
+
+        <!-- Predicted Skill Damage & Performance -->
+        <h3 style="font-size: 1rem; color: #fff; margin-bottom: 0.75rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center;">
+          <span>⚡ 所持スキル性能＆傷害計算 (Skill DMG Simulation)</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal;">スキル数式自動適用</span>
+        </h3>
+
+        <div id="skills-list-container">
+          <!-- Skill cards populated by JS -->
+        </div>
+
+        <!-- Awakening Skill Section (if present) -->
+        <div id="awakening-section" style="margin-top: 1.5rem; display: none;">
+          <h3 style="font-size: 1rem; color: #ff6b6b; margin-bottom: 0.75rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
+            🔥 覚醒スキル変貌エフェクト (Awakening Skills)
+          </h3>
+          <div id="awakening-list-container"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; 2026 Last Asylum Strategy Wiki. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/hero_calculator.js"></script>
+</body>
+</html>
