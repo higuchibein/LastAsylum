@@ -1,8 +1,6 @@
 /**
  * Last Asylum - Hero & Skill Calculator Script (js/hero_calculator.js)
- * Data Sources:
- * 1. data/satorimeta_heroes_full.json
- * 2. data/skill_levels.json
+ * High-precision simulator using satorimeta_heroes_full.json & skill_levels.json
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -87,9 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
     skillLvVal.textContent = `Lv. ${skillLv}`;
 
     // 1. Calculate Predicted Base Stats
-    // Formula: Stat_Lv = BaseStat * (1 + (Level - 1) * 0.045) * StarMultiplier
     const baseAtk = currentHero.levelProgressionData?.defaultAttackBase || 15971;
-    const baseHp = baseAtk * 140; // HP is approx 140x Attack
+    const baseHp = baseAtk * 140;
     const baseDef = baseAtk * 1.0;
     const baseCmd = 350 + (level * 2);
 
@@ -101,12 +98,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const predictedDef = Math.round(baseDef * levelMult * starMult);
     const predictedCmd = Math.round(baseCmd);
 
-    // Update Header
+    // Update Header Text & Badges
     if (resHeroName) resHeroName.textContent = currentHero.nameJapanese || currentHero.name;
     if (resRarityBadge) resRarityBadge.textContent = currentHero.rarity || 'UR';
-    if (resFactionBadge) resFactionBadge.textContent = currentHero.faction || 'Ranger';
-    if (resHeroRole) resHeroRole.textContent = `${currentHero.class || ''} (${currentHero.damageType || 'DMG'})`;
-    if (resHonorBonus) resHonorBonus.textContent = currentHero.hallOfHonor || '—';
+    if (resFactionBadge) resFactionBadge.textContent = `${currentHero.faction || 'Ranger'} (${currentHero.defaultPlacement || 'Line'})`;
+    if (resHeroRole) resHeroRole.textContent = `役割: ${currentHero.class || ''} | 属性: ${currentHero.damageType || 'Physical DMG'}`;
+    if (resHonorBonus) resHonorBonus.textContent = currentHero.hallOfHonor ? `殿堂: ${currentHero.hallOfHonor}` : '殿堂ボーナス: なし';
+
+    // Update Hero Avatar Image if element exists
+    const heroHeaderCard = document.getElementById('hero-header-card');
+    let avatarImg = document.getElementById('hero-avatar-img');
+    if (!avatarImg && heroHeaderCard) {
+      avatarImg = document.createElement('img');
+      avatarImg.id = 'hero-avatar-img';
+      avatarImg.style.width = '64px';
+      avatarImg.style.height = '64px';
+      avatarImg.style.borderRadius = '50%';
+      avatarImg.style.border = '2px solid var(--accent-gold)';
+      avatarImg.style.objectFit = 'cover';
+      avatarImg.style.marginRight = '1rem';
+      heroHeaderCard.prepend(avatarImg);
+    }
+    if (avatarImg) {
+      const portraitPath = `https://satorimeta.com/assets/last-asylum/heroes/portraits/${currentHero.slug}.webp`;
+      avatarImg.src = portraitPath;
+      avatarImg.onerror = () => { avatarImg.style.display = 'none'; };
+    }
 
     // Update Stats UI
     if (statAtk) statAtk.textContent = predictedAtk.toLocaleString();
@@ -114,8 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (statDef) statDef.textContent = predictedDef.toLocaleString();
     if (statCmd) statCmd.textContent = predictedCmd.toLocaleString();
 
-    // 2. Render Skills & Formulas
+    // 2. Render Skills with Formula Parameter Substitution
     renderSkills(predictedAtk, skillLv, star);
+
+    // 3. Render Exclusive Weapon
+    renderExclusiveWeapon();
   }
 
   function renderSkills(atkValue, skillLv, starLevel) {
@@ -129,78 +149,154 @@ document.addEventListener('DOMContentLoaded', () => {
 
     skillsListContainer.innerHTML = skills.map((s, idx) => {
       const formulas = s.formulas || [];
-      let calculatedMultiplier = 100;
+      let calculatedValues = [];
+      let mainMultiplierPercent = 100;
 
-      // Evaluate Skill Formula if present (e.g. 0.83*(1+0.05*n1)*100)
-      if (formulas.length > 0 && formulas[0].value) {
-        try {
-          let expr = formulas[0].value.replace(/n1/g, (skillLv - 1));
-          calculatedMultiplier = Math.round(eval(expr) * 10) / 10;
-        } catch (e) {
-          calculatedMultiplier = (100 + (skillLv - 1) * 5);
+      // Evaluate all formulas for this skill (e.g. {0}, {1} tokens in description)
+      formulas.forEach((formObj, fIdx) => {
+        let valStr = formObj.value || '';
+        let evalResult = 0;
+        if (valStr) {
+          try {
+            let expr = valStr.replace(/n1/g, (skillLv - 1));
+            evalResult = Math.round(eval(expr) * 10) / 10;
+          } catch (e) {
+            evalResult = (100 + (skillLv - 1) * 5);
+          }
         }
-      } else {
-        calculatedMultiplier = (100 + (skillLv - 1) * 5);
-      }
+        calculatedValues.push({
+          num: evalResult,
+          unit: formObj.unit || ''
+        });
 
-      // Calculated DMG value
-      const estimatedDamage = Math.round((atkValue * calculatedMultiplier) / 100);
+        if (fIdx === 0 && evalResult > 0) {
+          mainMultiplierPercent = evalResult;
+        }
+      });
 
-      // Star Progression info
+      // Format description by replacing {0}, {1}, {2} with computed formula values
+      let formattedDescription = s.description || '';
+      calculatedValues.forEach((cVal, fIdx) => {
+        const replacement = `<strong style="color:var(--accent-gold);">${cVal.num}${cVal.unit}</strong>`;
+        formattedDescription = formattedDescription.replace(new RegExp(`\\{${fIdx}\\}`, 'g'), replacement);
+      });
+
+      // Estimated DMG for attack skills
+      const estimatedDamage = Math.round((atkValue * mainMultiplierPercent) / 100);
+
+      // Render Star Unlocks & Upgrade Progression
       const starUnlocks = (s.skillLevelUpProgression || []).map(st => {
-        const isUnlocked = starLevel >= parseInt(st.mark || '0', 10);
-        return `<span style="font-size:0.75rem; padding:0.15rem 0.5rem; border-radius:4px; margin-right:0.3rem; margin-top:0.3rem; display:inline-block; background:${isUnlocked ? 'rgba(0, 240, 255, 0.2)' : 'rgba(255,255,255,0.05)'}; color:${isUnlocked ? 'var(--accent-blue)' : 'var(--text-muted)'}; font-weight:${isUnlocked ? '700' : 'normal'}; border:1px solid ${isUnlocked ? 'var(--accent-blue)' : 'transparent'};">
-          ${st.mark}: ${escapeHtml(st.upgrade || st.sentence || '')}
-        </span>`;
+        const unlockStarStr = st.mark || '0★';
+        const unlockStarNum = parseInt(unlockStarStr.replace(/\D/g, '') || '0', 10);
+        const isUnlocked = starLevel >= unlockStarNum;
+        
+        return `
+          <div style="font-size:0.78rem; padding:0.3rem 0.6rem; border-radius:4px; margin-top:0.3rem; background:${isUnlocked ? 'rgba(0, 240, 255, 0.12)' : 'rgba(255,255,255,0.03)'}; color:${isUnlocked ? '#fff' : 'var(--text-muted)'}; border-left:3px solid ${isUnlocked ? 'var(--accent-blue)' : 'rgba(255,255,255,0.1)'};">
+            <span style="font-weight:800; color:${isUnlocked ? 'var(--accent-gold)' : 'inherit'};">${unlockStarStr}</span>: 
+            ${escapeHtml(st.upgrade || st.sentence || '')}
+            ${st.unlock ? `<span style="font-size:0.7rem; color:var(--text-muted); float:right;">(${escapeHtml(st.unlock)})</span>` : ''}
+          </div>
+        `;
       }).join('');
 
       return `
         <div class="skill-card">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.4rem;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:0.5rem;">
             <div>
               <span class="skill-type-badge">${escapeHtml(s.kindLabel || 'Skill')}</span>
-              <h4 style="font-size:1.1rem; font-weight:800; color:#fff; margin:0;">${escapeHtml(s.skillName)}</h4>
+              <h4 style="font-size:1.15rem; font-weight:800; color:#fff; margin:0.2rem 0 0 0;">${escapeHtml(s.skillName)}</h4>
             </div>
             <div style="text-align:right;">
-              <span style="font-size:0.75rem; color:var(--text-muted);">スキル Lv.${skillLv} 傷害倍率</span>
-              <div style="font-size:1.15rem; font-weight:800; color:var(--accent-gold);">${calculatedMultiplier}% ATK</div>
+              <span style="font-size:0.75rem; color:var(--text-muted);">スキル Lv.${skillLv} 計算倍率</span>
+              <div style="font-size:1.2rem; font-weight:800; color:var(--accent-gold);">${mainMultiplierPercent}% ATK</div>
             </div>
           </div>
 
-          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem; line-height:1.4;">
-            ${escapeHtml(s.description || '')}
-          </p>
-
-          <!-- Real-time DMG Estimate -->
-          <div style="background:rgba(0,0,0,0.3); padding:0.6rem 0.8rem; border-radius:6px; margin-bottom:0.6rem; display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-size:0.8rem; color:#fff; font-weight:600;">⚡ 予想発生ダメージ (対防御力0換算):</span>
-            <span style="font-size:1.1rem; font-weight:900; color:var(--accent-gold);">${estimatedDamage.toLocaleString()} DMG</span>
+          <!-- Computed Description -->
+          <div style="font-size:0.9rem; color:#e0e0e0; margin-bottom:0.75rem; line-height:1.5; background:rgba(0,0,0,0.2); padding:0.75rem; border-radius:6px;">
+            ${formattedDescription}
           </div>
 
-          <!-- Star Unlocks -->
-          ${starUnlocks ? `<div style="margin-top:0.4rem;">${starUnlocks}</div>` : ''}
+          <!-- Real-time DMG Estimate -->
+          <div style="background:var(--bg-card); padding:0.6rem 0.8rem; border-radius:6px; margin-bottom:0.6rem; display:flex; justify-content:space-between; align-items:center; border:1px solid rgba(255,215,0,0.2);">
+            <span style="font-size:0.8rem; color:#fff; font-weight:600;">⚡ 予想単発傷害 (攻撃力 ${atkValue.toLocaleString()} 換算):</span>
+            <span style="font-size:1.15rem; font-weight:900; color:var(--accent-gold);">${estimatedDamage.toLocaleString()} DMG</span>
+          </div>
+
+          <!-- Star Unlocks List -->
+          ${starUnlocks ? `
+            <div style="margin-top:0.6rem;">
+              <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700; margin-bottom:0.2rem;">⭐ 星ランク解放効果 (Star Unlocks):</div>
+              ${starUnlocks}
+            </div>
+          ` : ''}
         </div>
       `;
     }).join('');
 
-    // Render Awakening Skills
+    // Render Awakening Skills (Awaken 1 〜 Awaken 40)
     const awakenSkills = currentHero.awakeningSkills || [];
     if (awakenSkills.length > 0) {
       if (awakeningSection) awakeningSection.style.display = 'block';
       if (awakeningListContainer) {
-        awakeningListContainer.innerHTML = awakenSkills.map(awk => `
-          <div class="skill-card" style="border-left:4px solid #ff6b6b; background:rgba(255, 107, 107, 0.05);">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem;">
-              <strong style="color:#ff6b6b; font-size:0.9rem;">${escapeHtml(awk.awakenMark || 'Awaken')}</strong>
-              <span style="font-size:0.75rem; color:var(--text-muted);">${escapeHtml(awk.unlockCondition || '')}</span>
+        awakeningListContainer.innerHTML = awakenSkills.map(awk => {
+          let awkDesc = awk.awakenedDescription || '';
+          if (awk.formulas && awk.formulas.length > 0) {
+            awk.formulas.forEach((fObj, fIdx) => {
+              let valStr = fObj.value || '';
+              let evalResult = 0;
+              try {
+                let expr = valStr.replace(/n1/g, (skillLv - 1));
+                evalResult = Math.round(eval(expr) * 10) / 10;
+              } catch (e) {
+                evalResult = 100;
+              }
+              const replacement = `<strong style="color:var(--accent-gold);">${evalResult}${fObj.unit || ''}</strong>`;
+              awkDesc = awkDesc.replace(new RegExp(`\\{${fIdx}\\}`, 'g'), replacement);
+            });
+          }
+
+          return `
+            <div class="skill-card" style="border-left:4px solid #ff6b6b; background:rgba(255, 107, 107, 0.05);">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+                <span class="badge" style="background:#ff6b6b; color:#fff; font-weight:800;">${escapeHtml(awk.awakenMark || 'Awaken')}</span>
+                <span style="font-size:0.75rem; color:var(--accent-gold); font-weight:600;">${escapeHtml(awk.unlockCondition || '')}</span>
+              </div>
+              <div style="font-size:1.05rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">${escapeHtml(awk.skillName)} (覚醒時強化)</div>
+              <p style="font-size:0.88rem; color:#e0e0e0; margin:0; line-height:1.4;">${awkDesc}</p>
             </div>
-            <div style="font-size:0.95rem; font-weight:700; color:#fff; margin-bottom:0.3rem;">${escapeHtml(awk.skillName)}</div>
-            <p style="font-size:0.85rem; color:var(--text-muted); margin:0;">${escapeHtml(awk.awakenedDescription || '')}</p>
-          </div>
-        `).join('');
+          `;
+        }).join('');
       }
     } else {
       if (awakeningSection) awakeningSection.style.display = 'none';
+    }
+  }
+
+  function renderExclusiveWeapon() {
+    let eqContainer = document.getElementById('exclusive-weapon-container');
+    if (!eqContainer) {
+      eqContainer = document.createElement('div');
+      eqContainer.id = 'exclusive-weapon-container';
+      eqContainer.style.marginTop = '1.5rem';
+      const resultPanel = document.querySelector('.result-panel');
+      if (resultPanel) resultPanel.appendChild(eqContainer);
+    }
+
+    if (currentHero && currentHero.exclusiveWeapon) {
+      const eq = currentHero.exclusiveWeapon;
+      eqContainer.innerHTML = `
+        <h3 style="font-size: 1rem; color: var(--accent-gold); margin-bottom: 0.75rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
+          🗡️ 英雄専用武器 (Exclusive Signature Weapon)
+        </h3>
+        <div class="skill-card" style="border-left:4px solid var(--accent-gold); background:rgba(255, 215, 0, 0.03);">
+          <h4 style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">${escapeHtml(eq.weaponTitle || 'Exclusive Weapon')}</h4>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin:0; line-height:1.5;">${escapeHtml(eq.description || '')}</p>
+        </div>
+      `;
+      eqContainer.style.display = 'block';
+    } else {
+      eqContainer.style.display = 'none';
     }
   }
 
