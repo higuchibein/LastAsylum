@@ -1,0 +1,393 @@
+{
+  "total_researches_found": 41,
+  "verified": 2,
+  "partial": 39,
+  "unverified": 0,
+  "conflicting": 0,
+  "total_levels": 222,
+  "missing_researches": [],
+  "missing_levels": [
+    {
+      "research": "construction-master",
+      "missing": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "research": "research-master",
+      "missing": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "research": "shelter-building",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "hospital-expansion",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "sturdy-scrolls",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "grain-output-i",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "grain-output-ii",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "lumber-output-i",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "lumber-output-ii",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "herb-output-i",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "herb-output-ii",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "steel-output-i",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "stone-output-i",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "load-expansion",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "gathering-speed",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "infantry-training",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "shooter-training",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "rider-training",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "infantry-attack-i",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "shooter-attack-i",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "rider-attack-i",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "infantry-defense-i",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "shooter-defense-i",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "rider-defense-i",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "march-speed",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "wall-reinforcement",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "turret-attack",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "trap-master",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "defensive-formation",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "infantry-attack-ii",
+      "missing": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "research": "shooter-attack-ii",
+      "missing": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "research": "rider-attack-ii",
+      "missing": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "research": "duel-training-points",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "duel-kill-points",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "duel-building-points",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "duel-research-points",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "duel-chest-unlock",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "zone-points-boost",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "research": "super-reward-chest",
+      "missing": [
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "missing_fields": [
+    "levels[2..max].cost",
+    "levels[2..max].time_seconds",
+    "levels[2..max].effect",
+    "name.ja"
+  ]
+}

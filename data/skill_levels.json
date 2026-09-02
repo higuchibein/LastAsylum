@@ -8,192 +8,205 @@
     {
       "heroId": "hero-arthur",
       "heroName": "Arthur",
-      "heroNameJapanese": "アーサー (Arthur)",
+      "heroNameJapanese": "アーサー",
       "totalSkills": 5,
       "skills": [
         {
-          "skillName": "Battle Shield",
+          "skillName": "戦盾",
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "大盾を振り回し、単体の敵に攻撃力の 750.0% の物理ダメージを与える。",
+          "description": "大盾を振り回し、単体の敵に攻撃力の {0} の物理ダメージを与える。",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "通常攻撃"
+          "typeJapanese": "通常攻撃",
+          "skillNameJapanese": "戦盾"
         },
         {
-          "skillName": "Earthshattering",
+          "skillName": "天崩地裂",
           "type": "必殺技 (アルティメット)",
           "cooldown": "6.4s",
           "damageType": "物理ダメージ",
-          "description": "地面を叩きつけて範囲内の敵に攻撃力の 1407.5% の物理ダメージを与え、同時に5秒間味方の被物理ダメージを 32.5% 軽減する。",
+          "description": "空中に跳躍して盾で地面を強打し、範囲内の敵に攻撃力の {0} の物理ダメージを与える。",
           "levelStarUnlocks": [
             "2★: 物理ダメージ 軽減率が +3% 強化。",
             "6★: 物理ダメージ 軽減率が +4.5% 強化。",
             "10★: 物理ダメージ 軽減率が +7.5% 強化。"
           ],
-          "typeJapanese": "必殺技 (アルティメット)"
+          "typeJapanese": "必殺技 (アルティメット)",
+          "skillNameJapanese": "天崩地裂"
         },
         {
-          "skillName": "Rock Solid",
+          "skillName": "岩の如き堅固さ",
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "物理ダメージ",
-          "description": "自身の現在最大HPの 25.0% に相当するシールドを獲得し、3秒間受けるダメージを50%吸収軽減する。",
+          "description": "HPの割合が最も低い味方2体に自身の最大HPの {0} に相当するシールドを付与する。",
           "levelStarUnlocks": [
             "3★: シールド効果量が +20% 強化",
             "7★: シールド効果量が +30% 強化",
             "10★: シールド効果量が +50% 強化"
           ],
-          "typeJapanese": "アクティブスキル"
+          "typeJapanese": "アクティブスキル",
+          "skillNameJapanese": "岩の如き堅固さ"
         },
         {
-          "skillName": "Strong Will",
+          "skillName": "不屈の意志",
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "戦闘中、味方タンク英雄が受ける全ダメージを 8.25% 軽減する。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "4★: 効果量が +0.6% 強化",
             "9★: 効果量が +0.9% 強化",
             "10★: 効果量が +1.5% 強化"
           ],
-          "typeJapanese": "パッシブスキル"
+          "typeJapanese": "パッシブスキル",
+          "skillNameJapanese": "不屈の意志"
         },
         {
-          "skillName": "Tenacity",
+          "skillName": "不屈",
           "type": "サポートスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
           ],
-          "typeJapanese": "サポートスキル"
+          "typeJapanese": "サポートスキル",
+          "skillNameJapanese": "不屈"
         }
       ]
     },
     {
       "heroId": "hero-cynthia",
       "heroName": "Cynthia",
-      "heroNameJapanese": "シンシア (Cynthia)",
+      "heroNameJapanese": "シンシア",
       "totalSkills": 5,
       "skills": [
         {
-          "skillName": "Moon Blade",
+          "skillName": "月刀",
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "エネルギーダメージ",
-          "description": "月刃を放ち、単体の敵に攻撃力の 622.5% のエネルギーダメージを与える。",
+          "description": "月刃を放ち、単体の敵に攻撃力の {0} のエネルギーダメージを与える。",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "通常攻撃"
+          "typeJapanese": "通常攻撃",
+          "skillNameJapanese": "月刀"
         },
         {
-          "skillName": "Moonfall Dance",
+          "skillName": "月落の舞",
           "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
           "damageType": "エネルギーダメージ",
-          "description": "クリティカル率を 14.00% 上昇させ、巨月刃を発射して範囲内の敵に攻撃力の 2480% のエネルギーダメージを与える。",
+          "description": "クリティカル率を {0} 上昇させ、巨月刃を発射して範囲内の敵に攻撃力の {1} のエネルギーダメージを与える。",
           "levelStarUnlocks": [
             "2★: 追加ダメージ +40% 解放。",
             "6★: 攻撃対象が敵全体に拡大。",
             "10★: 追加ダメージが 100% に強化"
           ],
-          "typeJapanese": "必殺技 (アルティメット)"
+          "typeJapanese": "必殺技 (アルティメット)",
+          "skillNameJapanese": "月落の舞"
         },
         {
-          "skillName": "Lunar Hunt",
+          "skillName": "月神狩り",
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "エネルギーダメージ",
-          "description": "ランダムな3体の目標をロックオンし、3枚の月刃を投擲してそれぞれ攻撃力の 1500.0% のエネルギーダメージを与える。",
+          "description": "ランダムな3体の目標をロックオンし、3枚の月刃を投擲してそれぞれ攻撃力の {0} のエネルギーダメージを与える。",
           "levelStarUnlocks": [
             "3★: 追加ダメージ +40% 解放。",
             "7★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "アクティブスキル"
+          "typeJapanese": "アクティブスキル",
+          "skillNameJapanese": "月神狩り"
         },
         {
-          "skillName": "Moon's Blessing",
+          "skillName": "月の加護",
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "戦闘中, 上昇 22.0% クリティカル率.",
+          "description": "戦闘中、自身のクリティカル率を {0} 上昇させる。",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
             "9★: 効果量が +2.4% 強化",
             "10★: 効果量が +4.0% 強化"
           ],
-          "typeJapanese": "パッシブスキル"
+          "typeJapanese": "パッシブスキル",
+          "skillNameJapanese": "月の加護"
         },
         {
-          "skillName": "Tenacity",
+          "skillName": "不屈",
           "type": "サポートスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
           ],
-          "typeJapanese": "サポートスキル"
+          "typeJapanese": "サポートスキル",
+          "skillNameJapanese": "不屈"
         }
       ]
     },
     {
       "heroId": "hero-marlena",
       "heroName": "Marlena",
-      "heroNameJapanese": "マルレーナ (Marlena)",
+      "heroNameJapanese": "マレーナ",
       "totalSkills": 5,
       "skills": [
         {
-          "skillName": "Skybreaker Slash",
+          "skillName": "空裂斬",
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "エネルギーダメージ",
-          "description": "Unleash a sword wind, dealing 652.5% 攻撃力 as エネルギーダメージ 単体の目標に.",
+          "description": "剣風を解き放ち、単体の目標に攻撃力の {0} のエネルギーダメージを与える。",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "通常攻撃"
+          "typeJapanese": "通常攻撃",
+          "skillNameJapanese": "空裂斬"
         },
         {
-          "skillName": "Peerless Blade",
+          "skillName": "無双の刃",
           "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
           "damageType": "エネルギーダメージ",
-          "description": "Releases 3 sword winds, each randomly targeting an 敵, dealing 2818.75% 攻撃力 エネルギーダメージ.",
+          "description": "3本の剣風を連続で放ち、ランダムな敵にそれぞれ攻撃力の {0} のエネルギーダメージを与える。",
           "levelStarUnlocks": [
-            "2★: Sword Wind +1; each 追加ダメージ +20% 解放。",
-            "6★: Each 追加ダメージ +100% 解放。",
-            "10★: Sword Wind +1; each 追加ダメージ +140% 解放。"
+            "2★: 剣気 +1本。追加ダメージ +20% 解放。",
+            "6★: 追加ダメージが 100% に強化。",
+            "10★: 剣気 +1本。追加ダメージが 140% に強化。"
           ],
-          "typeJapanese": "必殺技 (アルティメット)"
+          "typeJapanese": "必殺技 (アルティメット)",
+          "skillNameJapanese": "無双の刃"
         },
         {
-          "skillName": "Crimson Bloom",
+          "skillName": "紅蓮の怒り",
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "エネルギーダメージ",
-          "description": "Throws a scarlet flower that explodes on impact, dealing 1218.75% 攻撃力 エネルギーダメージ to targets 範囲内の.",
+          "description": "着弾時に爆発する真紅の花を投げ、範囲内の目標に攻撃力の {0} のエネルギーダメージを与える。",
           "levelStarUnlocks": [
-            "3★: 追加ダメージ +20% 解放。 and 上昇 攻撃力 by 12% 3秒間.",
+            "3★: 追加ダメージ +20% 解放。3秒間自身の攻撃力が 12% 上昇。",
             "7★: 追加ダメージが 70% に強化。",
             "10★: 追加ダメージが 150% に強化。"
           ],
-          "typeJapanese": "アクティブスキル"
+          "typeJapanese": "アクティブスキル",
+          "skillNameJapanese": "紅蓮の怒り"
         },
         {
-          "skillName": "War God's Will",
+          "skillName": "武神の意志",
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
@@ -203,410 +216,439 @@
             "9★: 効果量が +2.4% 強化",
             "10★: 効果量が +4% 強化"
           ],
-          "typeJapanese": "パッシブスキル"
+          "typeJapanese": "パッシブスキル",
+          "skillNameJapanese": "武神の意志"
         },
         {
-          "skillName": "Tenacity",
+          "skillName": "不屈",
           "type": "サポートスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
           ],
-          "typeJapanese": "サポートスキル"
+          "typeJapanese": "サポートスキル",
+          "skillNameJapanese": "不屈"
         }
       ]
     },
     {
       "heroId": "hero-daskal",
       "heroName": "Daskal",
-      "heroNameJapanese": "ダスカ (Daskal)",
+      "heroNameJapanese": "ダスカール",
       "totalSkills": 5,
       "skills": [
         {
-          "skillName": "Battle Will",
+          "skillName": "戦意",
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "Slashes the target, dealing 622.5% 攻撃力 物理ダメージ to a single 敵.",
+          "description": "目標を一閃斬撃し、単体の敵に攻撃力の {0} の物理ダメージを与える。",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "通常攻撃"
+          "typeJapanese": "通常攻撃",
+          "skillNameJapanese": "戦意"
         },
         {
-          "skillName": "Bloodshed Defense",
+          "skillName": "凝血の守り",
           "type": "必殺技 (アルティメット)",
           "cooldown": "5.8s",
           "damageType": "物理ダメージ",
-          "description": "Concentrates エネルギー to grant every 味方 a shield equal to 570.0% of their max 防御力, absorbing 50% of incoming damage 5秒間.",
+          "description": "エネルギーを集中させ、味方全体にそれぞれの最大HPの {0} に相当するシールドを付与し、5秒間受けるダメージを50%吸収する。",
           "levelStarUnlocks": [
             "2★: シールド効果量が +30% 強化",
             "6★: シールド効果量が +30% 強化",
             "10★: シールド効果量が +30% 強化"
           ],
-          "typeJapanese": "必殺技 (アルティメット)"
+          "typeJapanese": "必殺技 (アルティメット)",
+          "skillNameJapanese": "凝血の守り"
         },
         {
-          "skillName": "Deadly Pierce",
+          "skillName": "致命刺撃",
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "物理ダメージ",
-          "description": "Stabs the target with a two-handed sword, dealing 770.0% 攻撃力 物理ダメージ and restoring HP equal to 400.0% 攻撃力.",
+          "description": "両手剣で目標を突き刺し、攻撃力の {0} の物理ダメージを与え、自身のHPを攻撃力の {1} 回復する。",
           "levelStarUnlocks": [
-            "3★: 回復 60% extra HP.",
-            "7★: Extra HP recovery 上昇 to 150%.",
-            "10★: Extra HP recovery 上昇 to 300%."
+            "3★: HP回復量が +60% 強化。",
+            "7★: 追加HP回復量が 150% に強化。",
+            "10★: 追加HP回復量が 300% に強化。"
           ],
-          "typeJapanese": "アクティブスキル"
+          "typeJapanese": "アクティブスキル",
+          "skillNameJapanese": "致命刺撃"
         },
         {
-          "skillName": "Resolute Fight",
+          "skillName": "血戦",
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "At the start of the battle, 獲得・付与 all 味方 タンク (防衛) heroes a shield equal to 18.75% of their max HP, absorbing 50% of incoming damage 5秒間.",
+          "description": "味方の主戦アタッカー英雄のHPが50%以下になった時、最大HPの {0} に相当するシールドを獲得し5秒間ダメージを50%吸収する。",
           "levelStarUnlocks": [
-            "4★: Shield Duration +2s.",
+            "4★: シールド持続時間 +2秒。",
             "9★: シールド効果量が +20% 強化",
             "10★: シールド効果量が +30% 強化"
           ],
-          "typeJapanese": "パッシブスキル"
+          "typeJapanese": "パッシブスキル",
+          "skillNameJapanese": "血戦"
         },
         {
-          "skillName": "Tenacity",
+          "skillName": "不屈",
           "type": "サポートスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
           ],
-          "typeJapanese": "サポートスキル"
+          "typeJapanese": "サポートスキル",
+          "skillNameJapanese": "不屈"
         }
       ]
     },
     {
       "heroId": "hero-shadow",
       "heroName": "Shadow",
-      "heroNameJapanese": "シャドウ (Shadow)",
+      "heroNameJapanese": "影",
       "totalSkills": 5,
       "skills": [
         {
-          "skillName": "Smoke Cartridge",
+          "skillName": "発煙弾",
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "Randomly throws 3 smoke bombs, each dealing 210.0% 攻撃力 物理ダメージ to a single 敵.",
+          "description": "煙幕弾を3個ランダムに投げ、単体の敵にそれぞれ攻撃力の {0} の物理ダメージを与える。",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "通常攻撃"
+          "typeJapanese": "通常攻撃",
+          "skillNameJapanese": "発煙弾"
         },
         {
-          "skillName": "Shadow Hunt",
+          "skillName": "暗影狩り",
           "type": "必殺技 (アルティメット)",
           "cooldown": "6.4s",
           "damageType": "物理ダメージ",
-          "description": "Unleashes a rolling black mist, dealing 922.5% 攻撃力 物理ダメージ to all 敵全体 and reducing their エネルギーダメージ by 20.0% 5秒間.",
+          "description": "黒い霧を連続発生させ、敵全体に攻撃力の {0} の物理ダメージを与え、5秒間敵の与エネルギーダメージを {1} 軽減させる。",
           "levelStarUnlocks": [
             "2★: 効果量が +3% 強化",
             "6★: 効果量が +3% 強化",
             "10★: 効果量が +3% 強化"
           ],
-          "typeJapanese": "必殺技 (アルティメット)"
+          "typeJapanese": "必殺技 (アルティメット)",
+          "skillNameJapanese": "暗影狩り"
         },
         {
-          "skillName": "Shadow Strike",
+          "skillName": "影陣破撃",
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "物理ダメージ",
-          "description": "Throws a large smoke cartridge, dealing 462.5% 攻撃力 物理ダメージ to 敵全体 範囲内の and reducing their 防御力 by 50.25% 3秒間.",
+          "description": "大型煙幕弾を投げ、範囲内の敵に攻撃力の {0} の物理ダメージを与え、3秒間敵の防御力を {1} 低下させる。",
           "levelStarUnlocks": [
             "3★: 効果量が +4.5% 強化",
             "7★: 効果量が +7.5% 強化",
             "10★: 効果量が +12% 強化"
           ],
-          "typeJapanese": "アクティブスキル"
+          "typeJapanese": "アクティブスキル",
+          "skillNameJapanese": "影陣破撃"
         },
         {
-          "skillName": "Shadow Veil",
+          "skillName": "黒霧の加護",
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "戦闘中, 軽減 エネルギーダメージ taken by 32.0%.",
+          "description": "戦闘中、自身の被エネルギーダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "4★: 効果量が +5% 強化",
             "9★: 効果量が +5% 強化",
             "10★: 効果量が +5% 強化"
           ],
-          "typeJapanese": "パッシブスキル"
+          "typeJapanese": "パッシブスキル",
+          "skillNameJapanese": "黒霧の加護"
         },
         {
-          "skillName": "Tenacity",
+          "skillName": "不屈",
           "type": "サポートスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
           ],
-          "typeJapanese": "サポートスキル"
+          "typeJapanese": "サポートスキル",
+          "skillNameJapanese": "不屈"
         }
       ]
     },
     {
       "heroId": "hero-nicole",
       "heroName": "Nicole",
-      "heroNameJapanese": "ニコル (Nicole)",
+      "heroNameJapanese": "ニコル",
       "totalSkills": 5,
       "skills": [
         {
-          "skillName": "Ember Dust",
+          "skillName": "灰塵",
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "Throws a flame, inflicts 622.5% 攻撃力 物理ダメージ 単体の目標に, and heals the 味方 with the lowest HP for 50% of 攻撃力.",
+          "description": "炎を放って単体の目標に攻撃力の {0} の物理ダメージを与え、最もHPが低い味方のHPを (10,000 + 攻撃力50%) 回復する。",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "通常攻撃"
+          "typeJapanese": "通常攻撃",
+          "skillNameJapanese": "灰塵"
         },
         {
-          "skillName": "Inferno Array",
+          "skillName": "烈火の陣",
           "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
           "damageType": "なし",
-          "description": "Summons a pillar of fire, dealing 2625.0% 攻撃力 物理ダメージ to all 敵全体. If targets are [Burning], damage 効果が +40.0% 増加。",
+          "description": "火柱を召喚して敵全体に攻撃力の {0} の物理ダメージを与える。目標が[火傷]状態の場合、ダメージが {1} 増加する。",
           "levelStarUnlocks": [
             "2★: 追加ダメージ +100% 解放。",
             "6★: 追加ダメージが 200%（最大値）に強化",
-            "10★: Damage from Burn status 効果が +5% 増加。"
+            "10★: 火傷状態によるダメージが +5% 増加。"
           ],
-          "typeJapanese": "必殺技 (アルティメット)"
+          "typeJapanese": "必殺技 (アルティメット)",
+          "skillNameJapanese": "烈火の陣"
         },
         {
-          "skillName": "Heartwarming Flame",
+          "skillName": "心温まる炎",
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "なし",
-          "description": "Throws 2 fireballs, healing the 2 lowest-HP 味方全体 for 387.5% 攻撃力.",
+          "description": "火の玉を2個投げ、最もHPの低い味方2体のHPを (80,000 + 攻撃力 {0}) 回復する。",
           "levelStarUnlocks": [
-            "3★: 回復 extra 70% HP.",
-            "7★: Extra HP recovery 上昇 to 140%.",
-            "10★: Extra HP recovery 上昇 to 210%."
+            "3★: HP回復量が +70% 強化。",
+            "7★: 追加HP回復量が 140% に強化。",
+            "10★: 追加HP回復量が 210% に強化。"
           ],
-          "typeJapanese": "アクティブスキル"
+          "typeJapanese": "アクティブスキル",
+          "skillNameJapanese": "心温まる炎"
         },
         {
-          "skillName": "Flame Soul Power",
+          "skillName": "熾魂の力",
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "During battle, 上昇 攻撃力 SPD of all 味方 ソーサラー / ウォーロック Heroes by 13.5%.",
+          "description": "戦闘中、味方全ソーサラー英雄の攻撃力 +{0}。",
           "levelStarUnlocks": [
-            "4★: Attack speed bonus 効果が +1.2% 増加。",
-            "9★: Attack speed bonus 効果が +1.8% 増加。",
-            "10★: All 味方 ソーサラー / ウォーロック Heroes' 攻撃力 +3%."
+            "4★: 攻撃速度ボーナスが +1.2% 増加。",
+            "9★: 攻撃速度ボーナスが +1.8% 増加。",
+            "10★: 味方すべてのソーサラー/ウォーロック英雄の攻撃力 +3%。"
           ],
-          "typeJapanese": "パッシブスキル"
+          "typeJapanese": "パッシブスキル",
+          "skillNameJapanese": "熾魂の力"
         },
         {
-          "skillName": "Tenacity",
+          "skillName": "不屈",
           "type": "サポートスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
           ],
-          "typeJapanese": "サポートスキル"
+          "typeJapanese": "サポートスキル",
+          "skillNameJapanese": "不屈"
         }
       ]
     },
     {
       "heroId": "hero-annie",
       "heroName": "Annie",
-      "heroNameJapanese": "アニー (Annie)",
+      "heroNameJapanese": "アニー",
       "totalSkills": 5,
       "skills": [
         {
-          "skillName": "Candy",
+          "skillName": "キャンディ",
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "エネルギーダメージ",
-          "description": "Waves a magic wand to conjure a candy, dealing 622.5% 攻撃力 エネルギーダメージ to a single 敵.",
+          "description": "魔法のステッキを振ってキャンディを出現させ、単体の敵に攻撃力の {0} のエネルギーダメージを与える。",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "通常攻撃"
+          "typeJapanese": "通常攻撃",
+          "skillNameJapanese": "キャンディ"
         },
         {
-          "skillName": "Candy Jar",
+          "skillName": "キャンディポット",
           "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
           "damageType": "エネルギーダメージ",
-          "description": "Summons 2 explosive candy jars, targeting the 2 敵全体 with the highest 攻撃力, dealing 2961.0% 攻撃力 ダメージ, and inflicting [Burn], causing 100% 攻撃力 damage per second 5秒間.",
+          "description": "爆破キャンディ瓶を2個召喚し、攻撃力が最も高い敵2体を標的として攻撃力の {0} の物理ダメージを与え、さらに5秒間毎秒攻撃力100%の[火傷]持続ダメージを付与する。",
           "levelStarUnlocks": [
-            "2★: Attack Target +1.",
-            "6★: If the target is Burning, 与える an additional 900% Attack Damage once.",
+            "2★: 攻撃対象 +1体。",
+            "6★: 対象が火傷状態の場合、さらに攻撃力の 900% の追加ダメージを1回与える。",
             "10★: 追加ダメージ +200% 解放。"
           ],
-          "typeJapanese": "必殺技 (アルティメット)"
+          "typeJapanese": "必殺技 (アルティメット)",
+          "skillNameJapanese": "キャンディポット"
         },
         {
-          "skillName": "Surprise Gift",
+          "skillName": "びっくり箱",
           "type": "アクティブスキル",
           "cooldown": "4.1s",
           "damageType": "エネルギーダメージ",
-          "description": "Throws a gift box, dealing 1342.5% 攻撃力 エネルギーダメージ to 敵全体 範囲内の and causing them to [Burn], inflicting 100% 攻撃力 エネルギーダメージ per second 2秒間.",
+          "description": "ギフトボックスを投げ、範囲内の敵に攻撃力の {0} のエネルギーダメージを与え、2秒間毎秒攻撃力100%の[火傷]エネルギーダメージを付与する。",
           "levelStarUnlocks": [
-            "3★: Burning Duration +2s.",
+            "3★: 火傷の持続時間 +2秒。",
             "7★: 追加ダメージ +100% 解放。",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "アクティブスキル"
+          "typeJapanese": "アクティブスキル",
+          "skillNameJapanese": "びっくり箱"
         },
         {
-          "skillName": "Charged Gummies",
+          "skillName": "チャージグミ",
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "戦闘中, 上昇 エネルギーダメージ dealt by 22.0%.",
+          "description": "戦闘中、自身の与エネルギーダメージを {0} 上昇させる。",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
             "9★: 効果量が +2.4% 強化",
             "10★: 効果量が +4% 強化"
           ],
-          "typeJapanese": "パッシブスキル"
+          "typeJapanese": "パッシブスキル",
+          "skillNameJapanese": "チャージグミ"
         },
         {
-          "skillName": "Tenacity",
+          "skillName": "不屈",
           "type": "サポートスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
           ],
-          "typeJapanese": "サポートスキル"
+          "typeJapanese": "サポートスキル",
+          "skillNameJapanese": "不屈"
         }
       ]
     },
     {
-      "heroId": "hero-jester",
-      "heroName": "Jester",
-      "heroNameJapanese": "ジェスター (Jester)",
+      "heroId": "hero-joker",
+      "heroName": "Joker",
+      "heroNameJapanese": "ピエロ",
       "totalSkills": 5,
       "skills": [
         {
-          "skillName": "Deal Cards",
+          "skillName": "ディール",
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "Throws a card, dealing 622.5% 攻撃力 物理ダメージ to the lowest HP target.",
+          "description": "カードを投げ、最もHPの低い目標に攻撃力の {0} の物理ダメージを与える。",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "通常攻撃"
+          "typeJapanese": "通常攻撃",
+          "skillNameJapanese": "ディール"
         },
         {
-          "skillName": "Joker Ace",
+          "skillName": "ジョーカーカード",
           "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
           "damageType": "物理ダメージ",
-          "description": "Throws 2 joker cards, dealing 4206.25% 攻撃力 物理ダメージ to 2 lowest-HP 敵全体.",
+          "description": "ジョーカーカードを2枚投げ、最もHPの低い敵2体にそれぞれ攻撃力の {0} の物理ダメージを与える。",
           "levelStarUnlocks": [
             "2★: 追加ダメージ +40% 解放。",
             "6★: 追加ダメージが 100% に強化",
-            "10★: Attack Target +1."
+            "10★: 攻撃対象 +1体。"
           ],
-          "typeJapanese": "必殺技 (アルティメット)"
+          "typeJapanese": "必殺技 (アルティメット)",
+          "skillNameJapanese": "ジョーカーカード"
         },
         {
-          "skillName": "Hearthunt Red Card",
+          "skillName": "ハートカード",
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "物理ダメージ",
-          "description": "Throws a heart card, dealing 1350.0% 攻撃力 as 物理ダメージ to 2 random targets.",
+          "description": "ハートのカードを投げ、ランダムな目標2体に攻撃力の {0} の物理ダメージを与える。",
           "levelStarUnlocks": [
             "3★: 追加ダメージ +40% 解放。",
             "7★: 追加ダメージが 100% に強化",
-            "10★: Inflicts [Burn] on the target, dealing 400% Attack Damage per second 3秒間."
+            "10★: 対象に【火傷】を付与し、3秒間毎秒攻撃力の 400% のダメージを与える。"
           ],
-          "typeJapanese": "アクティブスキル"
+          "typeJapanese": "アクティブスキル",
+          "skillNameJapanese": "ハートカード"
         },
         {
-          "skillName": "Frenzied Emotion",
+          "skillName": "狂乱状態",
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "戦闘中, 上昇 22.0% クリティカル率.",
+          "description": "戦闘中、自身のクリティカル率を {0} 上昇させる。",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
             "9★: 効果量が +2.4% 強化",
             "10★: 効果量が +4% 強化"
           ],
-          "typeJapanese": "パッシブスキル"
+          "typeJapanese": "パッシブスキル",
+          "skillNameJapanese": "狂乱状態"
         },
         {
-          "skillName": "Tenacity",
+          "skillName": "不屈",
           "type": "サポートスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
           ],
-          "typeJapanese": "サポートスキル"
+          "typeJapanese": "サポートスキル",
+          "skillNameJapanese": "不屈"
         }
       ]
     },
     {
       "heroId": "hero-red-lady",
       "heroName": "Red Lady",
-      "heroNameJapanese": "レッドレディ (Red Lady)",
+      "heroNameJapanese": "レッドレディ",
       "totalSkills": 5,
       "skills": [
         {
-          "skillName": "Blood Blade",
+          "skillName": "血刀",
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "エネルギーダメージ",
-          "description": "メスを投擲し、単体の敵に攻撃力の 622.5% のエネルギーダメージを与える.",
+          "description": "メスを投擲し、単体の敵に攻撃力の {0} のエネルギーダメージを与える。",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "通常攻撃"
+          "typeJapanese": "通常攻撃",
+          "skillNameJapanese": "血刀"
         },
         {
-          "skillName": "Crimson Rose",
+          "skillName": "真紅の薔薇",
           "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
           "damageType": "エネルギーダメージ",
           "description": "クリムゾンローズを召喚し、攻撃力が最も高い敵2体に攻撃力の {0} のエネルギーダメージを与え、35%の確率で5秒間スタン状態にする。",
           "levelStarUnlocks": [
             "2★: 追加ダメージ +40% 解放。",
-            "6★: Attack Target +1.",
+            "6★: 攻撃対象 +1体。",
             "10★: 追加ダメージが 140% に強化。"
           ],
-          "typeJapanese": "必殺技 (アルティメット)"
+          "typeJapanese": "必殺技 (アルティメット)",
+          "skillNameJapanese": "真紅の薔薇"
         },
         {
-          "skillName": "Bloodthirsty Slaughter",
+          "skillName": "渇血の殺戮",
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "エネルギーダメージ",
@@ -616,68 +658,73 @@
             "7★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "アクティブスキル"
+          "typeJapanese": "アクティブスキル",
+          "skillNameJapanese": "渇血の殺戮"
         },
         {
-          "skillName": "Lone Flower",
+          "skillName": "孤高の花",
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "戦闘中, 上昇 22.0% 攻撃力.",
+          "description": "戦闘中, 上昇 {0} 攻撃力.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
             "9★: 効果量が +2.4% 強化",
             "10★: 効果量が +4.0% 強化"
           ],
-          "typeJapanese": "パッシブスキル"
+          "typeJapanese": "パッシブスキル",
+          "skillNameJapanese": "孤高の花"
         },
         {
-          "skillName": "Tenacity",
+          "skillName": "不屈",
           "type": "サポートスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
           ],
-          "typeJapanese": "サポートスキル"
+          "typeJapanese": "サポートスキル",
+          "skillNameJapanese": "不屈"
         }
       ]
     },
     {
       "heroId": "hero-billy",
       "heroName": "Billy",
-      "heroNameJapanese": "ビリー (Billy)",
+      "heroNameJapanese": "ビリー",
       "totalSkills": 5,
       "skills": [
         {
-          "skillName": "Wooden Frame",
+          "skillName": "操り木枠",
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "マリオネットを振るい、攻撃力の 622.5% の 物理ダメージ to a single 敵.",
+          "description": "マリオネットを振るい、単体の敵に攻撃力の {0} の物理ダメージを与える。",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "通常攻撃"
+          "typeJapanese": "通常攻撃",
+          "skillNameJapanese": "操り木枠"
         },
         {
-          "skillName": "Truth and Lies",
+          "skillName": "真実の嘘",
           "type": "必殺技 (アルティメット)",
           "cooldown": "6.4s",
           "damageType": "物理ダメージ",
-          "description": "Lifts the marionette stand and smashes it to the ground, dealing 2430.0% 攻撃力 damage to 敵全体 範囲内の, granting the 3 highest-攻撃力 味方全体 a 70% chance to be immune to stun.",
+          "description": "マリオネットの台座を持ち上げて地面に叩きつけ、範囲内の敵に攻撃力の {0} のダメージを与え、攻撃力が高い味方3体に70%の確率でスタン無効を付与する。",
           "levelStarUnlocks": [
-            "2★: All damage received by 味方 防御力ense heroes 軽減 by 15% 5秒間.",
-            "6★: Chance of stun immunity +30%.",
-            "10★: 上昇 damage dealt on targets by 15% 5秒間."
+            "2★: 5秒間味方タンク英雄が受ける全ダメージを 15% 軽減。",
+            "6★: スタン免疫確率 +30%。",
+            "10★: 5秒間対象に与えるダメージが 15% 上昇。"
           ],
-          "typeJapanese": "必殺技 (アルティメット)"
+          "typeJapanese": "必殺技 (アルティメット)",
+          "skillNameJapanese": "真実の嘘"
         },
         {
-          "skillName": "Fate's Thread",
+          "skillName": "運命の糸",
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "物理ダメージ",
@@ -687,113 +734,121 @@
             "7★: 対象の味方数 +1。",
             "10★: ダメージ軽減率が +6% 強化。"
           ],
-          "typeJapanese": "アクティブスキル"
+          "typeJapanese": "アクティブスキル",
+          "skillNameJapanese": "運命の糸"
         },
         {
-          "skillName": "Puppet",
+          "skillName": "傀儡",
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "戦闘中, 軽減 all damage taken by 22.0%.",
+          "description": "戦闘中、自身の被全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
             "9★: 効果量が +2.4% 強化",
             "10★: 効果量が +4% 強化"
           ],
-          "typeJapanese": "パッシブスキル"
+          "typeJapanese": "パッシブスキル",
+          "skillNameJapanese": "傀儡"
         },
         {
-          "skillName": "Tenacity",
+          "skillName": "不屈",
           "type": "サポートスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
           ],
-          "typeJapanese": "サポートスキル"
+          "typeJapanese": "サポートスキル",
+          "skillNameJapanese": "不屈"
         }
       ]
     },
     {
       "heroId": "hero-zoya",
       "heroName": "Zoya",
-      "heroNameJapanese": "ゾーヤ (Zoya)",
+      "heroNameJapanese": "ゾーヤ",
       "totalSkills": 5,
       "skills": [
         {
-          "skillName": "Dagger",
+          "skillName": "短剣",
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "エネルギーダメージ",
-          "description": "Throws a forest dagger at the target, dealing 622.5% 攻撃力 エネルギーダメージ to a single 敵.",
+          "description": "目標へ森の短剣を投擲し、単体の敵に攻撃力の {0} のエネルギーダメージを与える。",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "通常攻撃"
+          "typeJapanese": "通常攻撃",
+          "skillNameJapanese": "短剣"
         },
         {
-          "skillName": "Forest Hunter",
+          "skillName": "森の狩人",
           "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
           "damageType": "エネルギーダメージ",
-          "description": "Quickly tosses 3 special daggers, randomly targeting 3 敵全体, dealing 3058.0% 攻撃力 ダメージ to each.",
+          "description": "素早く3本の特殊短剣を投げ、ランダムな敵3体にそれぞれ攻撃力の {0} のダメージを与える。",
           "levelStarUnlocks": [
-            "2★: Blade +1.",
+            "2★: 短剣 +1本。",
             "6★: 追加ダメージ +60% 解放。",
-            "10★: 追加ダメージが 120% に強化。; +1 blade."
+            "10★: 追加ダメージが 120% に強化。短剣 +1本。"
           ],
-          "typeJapanese": "必殺技 (アルティメット)"
+          "typeJapanese": "必殺技 (アルティメット)",
+          "skillNameJapanese": "森の狩人"
         },
         {
-          "skillName": "Mountain God Wrath",
+          "skillName": "山神の怒り",
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "エネルギーダメージ",
-          "description": "Clasps hands tightly and prays to the mountain god, summoning a whirlwind of green leaves that 与える 525.0% 攻撃力 エネルギーダメージ per second to 敵全体 範囲内の 3秒間. During this time, 敵全体 within the whirlwind take 20% extra エネルギーダメージ.",
+          "description": "両手を固く組んで木の葉の竜巻を召喚し、3秒間範囲内の敵に毎秒攻撃力の {0} のエネルギーダメージを与える。期間中、竜巻内の敵が受けるエネルギーダメージ +20%。",
           "levelStarUnlocks": [
             "3★: 追加ダメージ +60% 解放。",
             "7★: 追加ダメージが 130% に強化。",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "アクティブスキル"
+          "typeJapanese": "アクティブスキル",
+          "skillNameJapanese": "山神の怒り"
         },
         {
-          "skillName": "Lady of the Forest",
+          "skillName": "森の乙女",
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "戦闘中, 上昇 22.0% クリティカル率.",
+          "description": "戦闘中、自身のクリティカル率を {0} 上昇させる。",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
             "9★: 効果量が +2.4% 強化",
             "10★: 効果量が +4% 強化"
           ],
-          "typeJapanese": "パッシブスキル"
+          "typeJapanese": "パッシブスキル",
+          "skillNameJapanese": "森の乙女"
         },
         {
-          "skillName": "Tenacity",
+          "skillName": "不屈",
           "type": "サポートスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
           ],
-          "typeJapanese": "サポートスキル"
+          "typeJapanese": "サポートスキル",
+          "skillNameJapanese": "不屈"
         }
       ]
     },
     {
       "heroId": "hero-bell",
       "heroName": "Bell",
-      "heroNameJapanese": "ベル (Bell)",
+      "heroNameJapanese": "ベル",
       "totalSkills": 5,
       "skills": [
         {
-          "skillName": "Musical Note",
+          "skillName": "音符",
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
@@ -803,36 +858,39 @@
             "5★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "通常攻撃"
+          "typeJapanese": "通常攻撃",
+          "skillNameJapanese": "音符"
         },
         {
-          "skillName": "Inspiration",
+          "skillName": "士気高揚",
           "type": "必殺技 (アルティメット)",
           "cooldown": "12.7s",
           "damageType": "なし",
           "description": "攻撃力が最も高い味方2体を鼓舞し、5秒間攻撃力を {0} 上昇させる。",
           "levelStarUnlocks": [
             "2★: 効果量が +5% 強化",
-            "6★: Effect Duration +2s.",
-            "10★: Target +1."
+            "6★: 効果持続時間 +2秒。",
+            "10★: 対象 +1体。"
           ],
-          "typeJapanese": "必殺技 (アルティメット)"
+          "typeJapanese": "必殺技 (アルティメット)",
+          "skillNameJapanese": "士気高揚"
         },
         {
-          "skillName": "Healing Sound",
+          "skillName": "癒しの音色",
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "なし",
           "description": "最もHPが低い味方のHPを攻撃力の {0} 回復する。",
           "levelStarUnlocks": [
-            "3★: 回復 40% extra HP.",
-            "7★: Extra HP recovery 上昇 to 100%.",
-            "10★: Extra HP recovery 上昇 to 200%."
+            "3★: HP回復量が +40% 強化。",
+            "7★: 追加HP回復量が 100% に強化。",
+            "10★: 追加HP回復量が 200% に強化。"
           ],
-          "typeJapanese": "アクティブスキル"
+          "typeJapanese": "アクティブスキル",
+          "skillNameJapanese": "癒しの音色"
         },
         {
-          "skillName": "Battle Anthem",
+          "skillName": "戦意の曲",
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
@@ -842,68 +900,73 @@
             "9★: 効果量が +1.8% 強化",
             "10★: 効果量が +3% 強化"
           ],
-          "typeJapanese": "パッシブスキル"
+          "typeJapanese": "パッシブスキル",
+          "skillNameJapanese": "戦意の曲"
         },
         {
-          "skillName": "Tenacity",
+          "skillName": "不屈",
           "type": "サポートスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
           ],
-          "typeJapanese": "サポートスキル"
+          "typeJapanese": "サポートスキル",
+          "skillNameJapanese": "不屈"
         }
       ]
     },
     {
       "heroId": "hero-harper",
       "heroName": "Harper",
-      "heroNameJapanese": "ハーパー (Harper)",
+      "heroNameJapanese": "ハーパー",
       "totalSkills": 5,
       "skills": [
         {
-          "skillName": "Bubble",
+          "skillName": "バブル",
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "エネルギーダメージ",
-          "description": "Plays a flute to create bubbles, dealing 622.5% 攻撃力 エネルギーダメージ to a single 敵.",
+          "description": "笛を奏でて泡を発生させ、単体の敵に攻撃力の {0} のエネルギーダメージを与える。",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "通常攻撃"
+          "typeJapanese": "通常攻撃",
+          "skillNameJapanese": "バブル"
         },
         {
-          "skillName": "War Flute Sound",
+          "skillName": "戦笛の音",
           "type": "必殺技 (アルティメット)",
           "cooldown": "12.7s",
           "damageType": "エネルギーダメージ",
-          "description": "Harper plays a war flute to inspire 味方全体, increasing all 味方英雄' 攻撃力 by 21.045% 5秒間.",
+          "description": "軍笛を奏でて味方を鼓舞し、5秒間全英雄の攻撃力を {0} 上昇させる。",
           "levelStarUnlocks": [
-            "2★: After being cast, 上昇 エネルギーダメージ dealt by 味方全体 by 4.5% 7秒間.",
-            "6★: 攻撃力 bonus 効果が +4.5% 増加。",
-            "10★: 攻撃力 bonus duration +5s."
+            "2★: 発動後、7秒間味方全体が与えるエネルギーダメージを 4.5% 上昇させる。",
+            "6★: 攻撃力ボーナスが +4.5% 増加。",
+            "10★: 攻撃力ボーナスの持続時間 +5秒。"
           ],
-          "typeJapanese": "必殺技 (アルティメット)"
+          "typeJapanese": "必殺技 (アルティメット)",
+          "skillNameJapanese": "戦笛の音"
         },
         {
-          "skillName": "Vitality Bubble",
+          "skillName": "生命のバブル",
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "エネルギーダメージ",
-          "description": "Harper creates a bubble, reducing the damage received by the lowest-HP 味方 by 18.0% 4秒間.",
+          "description": "バブルバリアを展開し、4秒間最もHPの低い味方の被ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "3★: 効果量が +1.6% 強化",
             "7★: 効果量が +2.4% 強化",
-            "10★: Target +1."
+            "10★: 対象 +1体。"
           ],
-          "typeJapanese": "アクティブスキル"
+          "typeJapanese": "アクティブスキル",
+          "skillNameJapanese": "生命のバブル"
         },
         {
-          "skillName": "Warrior's Anthem",
+          "skillName": "戦士の讃歌",
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
@@ -913,100 +976,107 @@
             "9★: 効果量が +1.8% 強化",
             "10★: 効果量が +3% 強化"
           ],
-          "typeJapanese": "パッシブスキル"
+          "typeJapanese": "パッシブスキル",
+          "skillNameJapanese": "戦士の讃歌"
         },
         {
-          "skillName": "Tenacity",
+          "skillName": "不屈",
           "type": "サポートスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
           ],
-          "typeJapanese": "サポートスキル"
+          "typeJapanese": "サポートスキル",
+          "skillNameJapanese": "不屈"
         }
       ]
     },
     {
-      "heroId": "hero-brian",
-      "heroName": "Brian",
-      "heroNameJapanese": "ブライアン (Brian)",
+      "heroId": "hero-ulfric",
+      "heroName": "Ulfrid",
+      "heroNameJapanese": "ウルフレッド",
       "totalSkills": 5,
       "skills": [
         {
-          "skillName": "Sharp Claw",
+          "skillName": "鋭爪",
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "Swings sharp claws, dealing 622.5% 攻撃力 物理ダメージ to a single 敵.",
+          "description": "Swings sharp claws, dealing {0} 攻撃力 物理ダメージ 単体の敵に.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "通常攻撃"
+          "typeJapanese": "通常攻撃",
+          "skillNameJapanese": "鋭爪"
         },
         {
-          "skillName": "Throat Bite",
+          "skillName": "絶命咬",
           "type": "必殺技 (アルティメット)",
           "cooldown": "6.4s",
           "damageType": "物理ダメージ",
-          "description": "Charges up, then lunges forward and bites the target, dealing 1505.0% 攻撃力 物理ダメージ, and reducing all damage taken by all 味方英雄 by 18.75% 4秒間.",
+          "description": "Charges up, then lunges forward and bites the target, dealing {0} 攻撃力 物理ダメージ, and reducing all damage taken by all 味方英雄 by {1} 4秒間.",
           "levelStarUnlocks": [
             "2★: 効果量が +2% 強化",
             "6★: 効果量が +3% 強化",
             "10★: 効果量が +5% 強化"
           ],
-          "typeJapanese": "必殺技 (アルティメット)"
+          "typeJapanese": "必殺技 (アルティメット)",
+          "skillNameJapanese": "絶命咬"
         },
         {
-          "skillName": "Lunar Howl",
+          "skillName": "満月の咆哮",
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "物理ダメージ",
-          "description": "Howls to the sky, entering Berserk state: when taking damage, reflects 147.0% of that damage back to the attacker. This effect lasts 3秒間.",
+          "description": "Howls to the sky, entering Berserk state: when taking damage, reflects {0} of that damage back to the attacker. This effect lasts 3秒間.",
           "levelStarUnlocks": [
             "3★: 効果量が +8% 強化",
-            "7★: Effect Duration +1s.",
+            "7★: 効果持続時間 +1秒。",
             "10★: 効果量が +20% 強化"
           ],
-          "typeJapanese": "アクティブスキル"
+          "typeJapanese": "アクティブスキル",
+          "skillNameJapanese": "満月の咆哮"
         },
         {
-          "skillName": "Wolf Bloodline",
+          "skillName": "狼族の血",
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "戦闘中, 軽減 all damage taken by 22.0%.",
+          "description": "戦闘中, 軽減 all damage taken by {0}.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
             "9★: 効果量が +2.4% 強化",
             "10★: 効果量が +4% 強化"
           ],
-          "typeJapanese": "パッシブスキル"
+          "typeJapanese": "パッシブスキル",
+          "skillNameJapanese": "狼族の血"
         },
         {
-          "skillName": "Tenacity",
+          "skillName": "不屈",
           "type": "サポートスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
           ],
-          "typeJapanese": "サポートスキル"
+          "typeJapanese": "サポートスキル",
+          "skillNameJapanese": "不屈"
         }
       ]
     },
     {
       "heroId": "hero-louis",
       "heroName": "Louis",
-      "heroNameJapanese": "ルイ (Louis)",
+      "heroNameJapanese": "ルイス",
       "totalSkills": 5,
       "skills": [
         {
-          "skillName": "Shackles",
+          "skillName": "鉄鎖",
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
@@ -1016,57 +1086,62 @@
             "5★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
-          "typeJapanese": "通常攻撃"
+          "typeJapanese": "通常攻撃",
+          "skillNameJapanese": "鉄鎖"
         },
         {
-          "skillName": "Cross Whip",
+          "skillName": "十字鞭",
           "type": "必殺技 (アルティメット)",
           "cooldown": "6.4s",
           "damageType": "物理ダメージ",
           "description": "2本の鉄鎖を同時に前方に振り回し、範囲内の敵に攻撃力の {0} の物理ダメージを与え、自身のHPを攻撃力の 150% 回復し、5秒間自身の被全ダメージを {1} 軽減する。",
           "levelStarUnlocks": [
-            "2★: Damage reduction addition味方 applies to 1 nearest 味方.",
-            "6★: Damage reduction applies to all 味方全体.",
+            "2★: ダメージ軽減効果が最も近い味方1体にも適用される。",
+            "6★: ダメージ軽減効果が味方全体に適用される。",
             "10★: 追加ダメージ +60% 解放。"
           ],
-          "typeJapanese": "必殺技 (アルティメット)"
+          "typeJapanese": "必殺技 (アルティメット)",
+          "skillNameJapanese": "十字鞭"
         },
         {
-          "skillName": "Force Link",
+          "skillName": "フォースリンク",
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "物理ダメージ",
-          "description": "Charges both hands, creating an エネルギー field that 軽減 エネルギーダメージ taken by 味方全体 範囲内の by 27.75% 4秒間.",
+          "description": "両手にエネルギーを溜めて展開し、4秒間攻撃力が最も高い味方2体の被エネルギーダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "3★: 効果量が +8% 強化",
             "7★: 効果量が +12% 強化",
-            "10★: Coverage area 効果が +28.5% 増加。"
+            "10★: 影響範囲が +28.5% 拡大。"
           ],
-          "typeJapanese": "アクティブスキル"
+          "typeJapanese": "アクティブスキル",
+          "skillNameJapanese": "フォースリンク"
         },
         {
-          "skillName": "Indomitable Spirit",
+          "skillName": "不滅の闘志",
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "戦闘中, 軽減 all damage taken by 26.25% and triggers an undying state upon taking fatal damage, retaining 1 HP 2秒間. The state can only be triggered once.",
+          "description": "戦闘中、自身の被全ダメージを {0} 軽減。致死ダメージを受けた際に2秒間HP1で耐える食いしばり状態（不死）を発動する（戦闘中1回のみ）。",
           "levelStarUnlocks": [
-            "4★: Duration +1s.",
-            "9★: Duration +1s.",
-            "10★: Duration +1s."
+            "4★: 効果持続時間 +1秒。",
+            "9★: 効果持続時間 +1秒。",
+            "10★: 効果持続時間 +1秒。"
           ],
-          "typeJapanese": "パッシブスキル"
+          "typeJapanese": "パッシブスキル",
+          "skillNameJapanese": "不滅の闘志"
         },
         {
-          "skillName": "Tenacity",
+          "skillName": "不屈",
           "type": "サポートスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
+          "description": "戦闘中、味方タンク英雄が受ける全ダメージを {0} 軽減する。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
           ],
-          "typeJapanese": "サポートスキル"
+          "typeJapanese": "サポートスキル",
+          "skillNameJapanese": "不屈"
         }
       ]
     }

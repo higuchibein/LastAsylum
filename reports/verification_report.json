@@ -1,0 +1,24 @@
+{
+  "verified_at": "2026-09-02",
+  "game": "Last Asylum: Plague",
+  "strict_rule_enforced": true,
+  "guessed_values": 0,
+  "schema_compatibility": {
+    "facility_costs_json_aligned": true,
+    "resource_keys": [
+      "wood",
+      "grain",
+      "herb",
+      "steel",
+      "stone",
+      "study_scroll"
+    ],
+    "time_key": "time_seconds",
+    "null_handling": "strict_null"
+  },
+  "summary": {
+    "verified_researches_ratio": "2/41",
+    "partial_researches_ratio": "39/41",
+    "missing_levels_count": 181
+  }
+}

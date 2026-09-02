@@ -1,6 +1,6 @@
 /**
  * Last Asylum - Hero & Skill Calculator Script (js/hero_calculator.js)
- * Full Japanese Translated Skill Descriptions & Simulation Engine
+ * Full Japanese Translated Skill Descriptions & Beautiful Exclusive Weapon Layout
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Render Japanese Skills & Formulas
     renderSkills(predictedAtk, skillLv, star);
 
-    // 3. Render Exclusive Weapon
+    // 3. Render Exclusive Weapon with Beautiful Layout
     renderExclusiveWeapon();
   }
 
@@ -322,13 +322,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (currentHero && currentHero.exclusiveWeapon) {
       const eq = currentHero.exclusiveWeapon;
+      
       eqContainer.innerHTML = `
         <h3 style="font-size: 1rem; color: var(--accent-gold); margin-bottom: 0.75rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
           🗡️ 英雄専用武器 (Exclusive Signature Weapon)
         </h3>
-        <div class="skill-card" style="border-left:4px solid var(--accent-gold); background:rgba(255, 215, 0, 0.03);">
-          <h4 style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">${escapeHtml(eq.weaponTitle || 'Exclusive Weapon')}</h4>
-          <p style="font-size:0.88rem; color:var(--text-muted); margin:0; line-height:1.5;">${escapeHtml(eq.description || '')}</p>
+        <div class="skill-card" style="border-left: 4px solid var(--accent-gold); background: rgba(255, 215, 0, 0.04); padding: 1.25rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; border-bottom: 1px solid rgba(255,215,0,0.15); padding-bottom: 0.5rem;">
+            <h4 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0;">${escapeHtml(eq.weaponTitle)}</h4>
+            <span class="badge" style="background: var(--accent-gold); color: #000; font-weight: 800;">専用装備</span>
+          </div>
+
+          <p style="font-size: 0.88rem; color: #e0e0e0; margin-bottom: 0.85rem; line-height: 1.5;">
+            ${escapeHtml(eq.description || '')}
+          </p>
+
+          ${eq.stats ? `
+            <div style="background: rgba(0,0,0,0.3); padding: 0.6rem 0.8rem; border-radius: 6px; margin-bottom: 0.6rem; border: 1px solid rgba(255,255,255,0.08); font-size: 0.85rem;">
+              <strong style="color: var(--accent-blue);">📊 装備ステータス補正:</strong> 
+              <span style="color: #fff; font-weight: 700; margin-left: 0.3rem;">${escapeHtml(eq.stats)}</span>
+            </div>
+          ` : ''}
+
+          ${eq.effect ? `
+            <div style="background: rgba(255, 215, 0, 0.08); padding: 0.65rem 0.85rem; border-radius: 6px; border-left: 3px solid var(--accent-gold); font-size: 0.85rem; color: #fff;">
+              <strong style="color: var(--accent-gold);">⚡ 専用パッシブ効果:</strong> 
+              <span style="margin-left: 0.3rem;">${escapeHtml(eq.effect)}</span>
+            </div>
+          ` : ''}
         </div>
       `;
       eqContainer.style.display = 'block';

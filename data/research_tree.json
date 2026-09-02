@@ -1,0 +1,189 @@
+{
+  "categories": [
+    {
+      "id": "development",
+      "name": "Development",
+      "researches": [
+        "construction-master",
+        "research-master",
+        "shelter-building",
+        "hospital-expansion",
+        "sturdy-scrolls"
+      ]
+    },
+    {
+      "id": "economy",
+      "name": "Economy",
+      "researches": [
+        "grain-output-i",
+        "grain-output-ii",
+        "lumber-output-i",
+        "lumber-output-ii",
+        "herb-output-i",
+        "herb-output-ii",
+        "steel-output-i",
+        "stone-output-i",
+        "load-expansion",
+        "gathering-speed"
+      ]
+    },
+    {
+      "id": "basic-military",
+      "name": "Basic Military",
+      "researches": [
+        "infantry-training",
+        "shooter-training",
+        "rider-training",
+        "infantry-attack-i",
+        "shooter-attack-i",
+        "rider-attack-i",
+        "infantry-defense-i",
+        "shooter-defense-i",
+        "rider-defense-i",
+        "march-speed"
+      ]
+    },
+    {
+      "id": "city-defense",
+      "name": "City Defense",
+      "researches": [
+        "wall-reinforcement",
+        "turret-attack",
+        "trap-master",
+        "defensive-formation"
+      ]
+    },
+    {
+      "id": "advanced-military",
+      "name": "Advanced Military",
+      "researches": [
+        "tier-9-troops",
+        "tier-10-troops",
+        "infantry-attack-ii",
+        "shooter-attack-ii",
+        "rider-attack-ii"
+      ]
+    },
+    {
+      "id": "alliance-duel",
+      "name": "Alliance Duel",
+      "researches": [
+        "duel-training-points",
+        "duel-kill-points",
+        "duel-building-points",
+        "duel-research-points",
+        "duel-chest-unlock"
+      ]
+    },
+    {
+      "id": "zone-commemoration",
+      "name": "Zone Commemoration",
+      "researches": [
+        "zone-points-boost",
+        "super-reward-chest"
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "from": "construction-master",
+      "to": "research-master",
+      "required_level": 1
+    },
+    {
+      "from": "grain-output-i",
+      "to": "grain-output-ii",
+      "required_level": 5
+    },
+    {
+      "from": "lumber-output-i",
+      "to": "lumber-output-ii",
+      "required_level": 5
+    },
+    {
+      "from": "herb-output-i",
+      "to": "herb-output-ii",
+      "required_level": 5
+    },
+    {
+      "from": "load-expansion",
+      "to": "gathering-speed",
+      "required_level": 1
+    },
+    {
+      "from": "infantry-training",
+      "to": "infantry-attack-i",
+      "required_level": 1
+    },
+    {
+      "from": "shooter-training",
+      "to": "shooter-attack-i",
+      "required_level": 1
+    },
+    {
+      "from": "rider-training",
+      "to": "rider-attack-i",
+      "required_level": 1
+    },
+    {
+      "from": "infantry-attack-i",
+      "to": "infantry-defense-i",
+      "required_level": 1
+    },
+    {
+      "from": "shooter-attack-i",
+      "to": "shooter-defense-i",
+      "required_level": 1
+    },
+    {
+      "from": "rider-attack-i",
+      "to": "rider-defense-i",
+      "required_level": 1
+    },
+    {
+      "from": "wall-reinforcement",
+      "to": "turret-attack",
+      "required_level": 1
+    },
+    {
+      "from": "turret-attack",
+      "to": "trap-master",
+      "required_level": 1
+    },
+    {
+      "from": "trap-master",
+      "to": "defensive-formation",
+      "required_level": 1
+    },
+    {
+      "from": "tier-9-troops",
+      "to": "tier-10-troops",
+      "required_level": 1
+    },
+    {
+      "from": "infantry-attack-i",
+      "to": "infantry-attack-ii",
+      "required_level": 5
+    },
+    {
+      "from": "shooter-attack-i",
+      "to": "shooter-attack-ii",
+      "required_level": 5
+    },
+    {
+      "from": "rider-attack-i",
+      "to": "rider-attack-ii",
+      "required_level": 5
+    },
+    {
+      "from": "duel-research-points",
+      "to": "duel-chest-unlock",
+      "required_level": 5
+    },
+    {
+      "from": "zone-points-boost",
+      "to": "super-reward-chest",
+      "required_level": 5
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "game": "Last Asylum: Plague",
+  "last_updated": "2026-09-02",
+  "categories": [
+    {
+      "id": "development",
+      "name": {
+        "en": "Development",
+        "ja": "拠点開発"
+      },
+      "description_en": "Accelerate building construction, research speed, and hospital capacity.",
+      "description_ja": "拠点建設速度、研究速度、病院収容床数等を強化するカテゴリ。",
+      "total_researches": 5
+    },
+    {
+      "id": "economy",
+      "name": {
+        "en": "Economy",
+        "ja": "経済"
+      },
+      "description_en": "Boost resource outputs (grain, lumber, herb, steel, stone) and gathering loads.",
+      "description_ja": "食料・木材・薬草・鋼鉄・石材等の生産量や採集能力を増強するカテゴリ。",
+      "total_researches": 10
+    },
+    {
+      "id": "basic-military",
+      "name": {
+        "en": "Basic Military",
+        "ja": "基本軍事"
+      },
+      "description_en": "Enhance training speed and basic stats (Attack, Defense) for Infantry, Shooters, and Riders.",
+      "description_ja": "歩兵・射手・騎兵の訓練速度や基礎ステータス（攻撃・防御）を向上させるカテゴリ。",
+      "total_researches": 10
+    },
+    {
+      "id": "city-defense",
+      "name": {
+        "en": "City Defense",
+        "ja": "都市防衛"
+      },
+      "description_en": "Strengthen wall durability, turret firepower, traps, and defensive damage reduction.",
+      "description_ja": "拠点城壁耐久、防衛タワー火力、罠ダメージおよび防御時被害軽減を強化するカテゴリ。",
+      "total_researches": 4
+    },
+    {
+      "id": "advanced-military",
+      "name": {
+        "en": "Advanced Military",
+        "ja": "高度軍事"
+      },
+      "description_en": "Unlock high-tier troops (T9, T10) and advanced combat modifiers.",
+      "description_ja": "上位兵種（T9, T10）の解放および高度な戦闘効果を解除するカテゴリ。",
+      "total_researches": 5
+    },
+    {
+      "id": "alliance-duel",
+      "name": {
+        "en": "Alliance Duel",
+        "ja": "同盟対決"
+      },
+      "description_en": "Increase points earned during weekly Alliance Duel events and unlock reward multipliers.",
+      "description_ja": "同盟対決イベントで獲得できる各種ポイントや宝箱報酬を増加させるカテゴリ。",
+      "total_researches": 5
+    },
+    {
+      "id": "zone-commemoration",
+      "name": {
+        "en": "Zone Commemoration",
+        "ja": "ゾーン記念"
+      },
+      "description_en": "Multiply points and rewards for cross-zone and seasonal warfare events.",
+      "description_ja": "サーバー間対決・シーズン戦でのポイント乗数および超級宝箱を解禁するカテゴリ。",
+      "total_researches": 2
+    }
+  ]
+}

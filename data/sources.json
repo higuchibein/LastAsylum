@@ -1,0 +1,50 @@
+{
+  "last_updated": "2026-09-02",
+  "sources": [
+    {
+      "id": "fandom-wiki",
+      "name": "Last Asylum: Plague Wiki (Fandom)",
+      "url": "https://last-asylum-plague.fandom.com/wiki/Alliance_Duell_Guide",
+      "site": "Fandom Wiki",
+      "type": "database",
+      "reliability": "high",
+      "retrieved_at": "2026-09-02"
+    },
+    {
+      "id": "last-asylum-db",
+      "name": "Last Asylum Database",
+      "url": "https://lastasylumdatabase.com/research/",
+      "site": "Last Asylum Database",
+      "type": "database",
+      "reliability": "high",
+      "retrieved_at": "2026-09-02"
+    },
+    {
+      "id": "packsify-guide",
+      "name": "Last Asylum Research Priority Guide",
+      "url": "https://packsify.com/guides/last-asylum-research-priority/",
+      "site": "Packsify Strategy",
+      "type": "guide",
+      "reliability": "medium",
+      "retrieved_at": "2026-09-02"
+    },
+    {
+      "id": "lastasylum-guide",
+      "name": "Last Asylum Strategy & Technology Roadmap",
+      "url": "https://lastasylumguide.com/technology/",
+      "site": "Last Asylum Strategy Guide",
+      "type": "guide",
+      "reliability": "medium",
+      "retrieved_at": "2026-09-02"
+    },
+    {
+      "id": "facility-costs-json",
+      "name": "Facility Costs Local Database",
+      "url": "file:///c:/Users/yokoz/OneDrive/Desktop/LastAsylum/data/facility_costs.json",
+      "site": "Local Database",
+      "type": "local_db",
+      "reliability": "verified_local",
+      "retrieved_at": "2026-09-02"
+    }
+  ]
+}
