@@ -32,10 +32,11 @@
     <div class="container">
       <h1 class="hero-title">Last Asylum 攻略データベース</h1>
       <p class="hero-subtitle">
-        全26施設のレベルアップ資源・時間計算機 ＆ 8/31最新イベント戦力分析ダッシュボード。
+        全26施設のレベルアップ資源・時間計算機 ＆ 全31英雄ステータス・スキル計算機 ＆ 8/31最新イベント戦力分析ダッシュボード。
       </p>
-      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-        <a href="event.html" class="btn btn-primary">⚔️ イベント戦力分析を見る</a>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top: 1.25rem;">
+        <a href="hero_calculator.html" class="btn btn-primary" style="background: linear-gradient(135deg, #ffd700, #ff9f43); color: #000; font-weight: 800; border: none; box-shadow: 0 4px 15px rgba(255,215,0,0.3);">⚡ 英雄計算シミュレーター</a>
+        <a href="event.html" class="btn btn-secondary">⚔️ イベント戦力分析を見る</a>
         <a href="calculator.html" class="btn btn-secondary">🧮 施設強化・資源計算機</a>
       </div>
     </div>
@@ -48,9 +49,17 @@
         <h2 class="section-title">提供ツール & 実データ一覧</h2>
         <div class="grid-cards">
           
-          <a href="event.html" class="card" style="border-color:var(--accent-gold-dark);">
+          <a href="hero_calculator.html" class="card" style="border-color:var(--accent-gold); background: linear-gradient(180deg, rgba(255, 215, 0, 0.08), rgba(0, 0, 0, 0.4));">
+            <div style="font-size:2rem; margin-bottom:0.5rem;">⚡</div>
+            <div style="font-size:1.15rem; font-weight:800; color:var(--accent-gold); margin-bottom:0.3rem;">英雄ステータス＆スキル計算シミュレーター</div>
+            <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.4;">
+              全31名の英雄レベル (Lv.1〜150)・スキルレベル (Lv.1〜30)・星/覚醒ランクを設定し、予想攻撃力・HP・防御力・スキル実効傷害および専用武器性能をリアルタイム試算。
+            </div>
+          </a>
+
+          <a href="event.html" class="card" style="border-color:var(--accent-blue);">
             <div style="font-size:2rem; margin-bottom:0.5rem;">⚔️</div>
-            <div style="font-size:1.1rem; font-weight:700; color:var(--accent-gold); margin-bottom:0.3rem;">イベント戦力分析ダッシュボード</div>
+            <div style="font-size:1.1rem; font-weight:700; color:var(--accent-blue); margin-bottom:0.3rem;">イベント戦力分析ダッシュボード</div>
             <div style="font-size:0.85rem; color:var(--text-muted);">
               8/31峡谷戦の同盟85名の戦力分布グラフ、TOP15ランキング、分類内訳チャート、検索＆CSVエクスポート。
             </div>
