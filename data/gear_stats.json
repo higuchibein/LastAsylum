@@ -1,0 +1,52 @@
+{
+  "sword_stats": [
+    {
+      "level": 40,
+      "star": 0,
+      "hero_attack": 3162,
+      "hero_defense": 1775,
+      "hero_attack_up_percent": 7.5,
+      "crit_rate_up_percent": 20.0
+    },
+    {
+      "level": 44,
+      "star": 0,
+      "hero_attack": 3934,
+      "hero_defense": 2331,
+      "hero_attack_up_percent": 8.5,
+      "crit_rate_up_percent": 22.0
+    },
+    {
+      "level": 48,
+      "star": 1,
+      "hero_attack": 5480,
+      "hero_defense": 3250,
+      "hero_attack_up_percent": 10.0,
+      "crit_rate_up_percent": 25.0
+    },
+    {
+      "level": 52,
+      "star": 2,
+      "hero_attack": 7318,
+      "hero_defense": 4304,
+      "hero_attack_up_percent": 11.5,
+      "crit_rate_up_percent": 30.5
+    },
+    {
+      "level": 56,
+      "star": 3,
+      "hero_attack": 9776,
+      "hero_defense": 5644,
+      "hero_attack_up_percent": 13.0,
+      "crit_rate_up_percent": 33.5
+    },
+    {
+      "level": 60,
+      "star": 4,
+      "hero_attack": 12195,
+      "hero_defense": 7190,
+      "hero_attack_up_percent": 14.5,
+      "crit_rate_up_percent": 39.0
+    }
+  ]
+}

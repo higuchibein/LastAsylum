@@ -1,14 +1,15 @@
 /**
- * Last Asylum - Hero & Skill Calculator Script (js/hero_calculator.js)
- * Robust Multilingual Faction Filter & Simulation Engine
+ * Last Asylum - Hero & Gear Calculator Script (js/hero_calculator.js)
+ * Multilingual Faction Filter, Skill Simulation & Gear Level-Up Resource Calculator
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   let satorimetaHeroes = [];
   let skillLevelsData = [];
+  let gearCostsData = [];
   let currentHero = null;
 
-  // DOM Elements
+  // Hero DOM Elements
   const heroSelect = document.getElementById('hero-select');
   const heroLvSlider = document.getElementById('hero-lv-slider');
   const heroLvVal = document.getElementById('hero-lv-val');
@@ -17,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const skillLvSlider = document.getElementById('skill-lv-slider');
   const skillLvVal = document.getElementById('skill-lv-val');
 
-  // Preset Buttons
+  // Hero Preset Buttons
   const btnInit = document.getElementById('preset-init');
   const btnMid = document.getElementById('preset-mid');
   const btnMax = document.getElementById('preset-max');
 
-  // Result Elements
+  // Hero Result Elements
   const resRarityBadge = document.getElementById('res-rarity-badge');
   const resFactionBadge = document.getElementById('res-faction-badge');
   const resHeroName = document.getElementById('res-hero-name');
@@ -38,20 +39,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const awakeningSection = document.getElementById('awakening-section');
   const awakeningListContainer = document.getElementById('awakening-list-container');
 
+  // Gear DOM Elements
+  const gearTypeSelect = document.getElementById('gear-type-select');
+  const gearCountSelect = document.getElementById('gear-count-select');
+  const gearFromSlider = document.getElementById('gear-from-slider');
+  const gearFromVal = document.getElementById('gear-from-val');
+  const gearToSlider = document.getElementById('gear-to-slider');
+  const gearToVal = document.getElementById('gear-to-val');
+
+  const resGearRangeStr = document.getElementById('res-gear-range-str');
+  const resGearStone = document.getElementById('res-gear-stone');
+  const resGearGrass = document.getElementById('res-gear-grass');
+  const resGearSteel = document.getElementById('res-gear-steel');
+
   // Fetch Data Sources
   Promise.all([
     fetch('data/satorimeta_heroes_full.json?v=' + Date.now()).then(r => r.json()).catch(() => null),
-    fetch('data/skill_levels.json?v=' + Date.now()).then(r => r.json()).catch(() => null)
-  ]).then(([satoriRes, skillRes]) => {
+    fetch('data/skill_levels.json?v=' + Date.now()).then(r => r.json()).catch(() => null),
+    fetch('data/gear_upgrade_costs.json?v=' + Date.now()).then(r => r.json()).catch(() => null)
+  ]).then(([satoriRes, skillRes, gearRes]) => {
     if (satoriRes && satoriRes.heroes) {
       satorimetaHeroes = satoriRes.heroes;
     }
     if (skillRes && skillRes.data) {
       skillLevelsData = skillRes.data;
     }
+    if (gearRes && gearRes.costs) {
+      gearCostsData = gearRes.costs;
+    }
 
     populateHeroSelect('all');
     calculateAndRender();
+    calculateAndRenderGear();
   });
 
   function populateHeroSelect(filterFaction = 'all') {
@@ -64,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     satorimetaHeroes.forEach(h => {
       const fac = (h.faction || '').toLowerCase();
-      // Robust matching for both English and Japanese faction names
       if (fac.includes('warrior') || fac.includes('ウォーリア')) {
         warriorGroup.push(h);
       } else if (fac.includes('ranger') || fac.includes('レンジャー')) {
@@ -179,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Render Japanese Skills & Formulas
     renderSkills(predictedAtk, skillLv, star);
 
-    // 3. Render Exclusive Weapon with Beautiful Layout
+    // 3. Render Exclusive Weapon
     renderExclusiveWeapon();
   }
 
@@ -360,6 +378,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Gear Calculation Logic
+  function calculateAndRenderGear() {
+    if (!gearFromSlider || !gearToSlider || gearCostsData.length === 0) return;
+
+    let fromLv = parseInt(gearFromSlider.value, 10);
+    let toLv = parseInt(gearToSlider.value, 10);
+
+    // Prevent toLv < fromLv
+    if (toLv < fromLv) {
+      toLv = fromLv;
+      gearToSlider.value = toLv;
+    }
+
+    if (gearFromVal) gearFromVal.textContent = `Lv. ${fromLv}`;
+    if (gearToVal) gearToVal.textContent = `Lv. ${toLv}`;
+
+    const multiplier = parseInt(gearCountSelect?.value || '1', 10);
+
+    let totalStone = 0;
+    let totalGrassRaw = 0;
+    let totalSteel = 0;
+
+    gearCostsData.forEach(costObj => {
+      if (costObj.from_level >= fromLv && costObj.to_level <= toLv) {
+        totalStone += costObj.stone || 0;
+        totalGrassRaw += costObj.grass_raw || 0;
+        totalSteel += costObj.steel || 0;
+      }
+    });
+
+    totalStone *= multiplier;
+    totalGrassRaw *= multiplier;
+    totalSteel *= multiplier;
+
+    if (resGearRangeStr) resGearRangeStr.textContent = `${fromLv} ➔ ${toLv} (${multiplier === 4 ? '4部位フル' : '1部位'})`;
+    if (resGearStone) resGearStone.textContent = totalStone.toLocaleString();
+    if (resGearGrass) resGearGrass.textContent = formatResourceNum(totalGrassRaw);
+    if (resGearSteel) resGearSteel.textContent = totalSteel.toLocaleString();
+  }
+
+  function formatResourceNum(num) {
+    if (num >= 1_000_000) {
+      return (num / 1_000_000).toFixed(2) + ' M (' + num.toLocaleString() + ')';
+    } else if (num >= 1_000) {
+      return (num / 1_000).toFixed(1) + ' K (' + num.toLocaleString() + ')';
+    }
+    return num.toLocaleString();
+  }
+
+  // Faction Filter Buttons Event Delegation
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.faction-filter-btn');
     if (!btn) return;
@@ -373,11 +441,19 @@ document.addEventListener('DOMContentLoaded', () => {
     calculateAndRender();
   });
 
+  // Event Listeners for Hero Controls
   if (heroSelect) heroSelect.addEventListener('change', calculateAndRender);
   if (heroLvSlider) heroLvSlider.addEventListener('input', calculateAndRender);
   if (starSlider) starSlider.addEventListener('input', calculateAndRender);
   if (skillLvSlider) skillLvSlider.addEventListener('input', calculateAndRender);
 
+  // Event Listeners for Gear Controls
+  if (gearTypeSelect) gearTypeSelect.addEventListener('change', calculateAndRenderGear);
+  if (gearCountSelect) gearCountSelect.addEventListener('change', calculateAndRenderGear);
+  if (gearFromSlider) gearFromSlider.addEventListener('input', calculateAndRenderGear);
+  if (gearToSlider) gearToSlider.addEventListener('input', calculateAndRenderGear);
+
+  // Preset Handlers
   if (btnInit) {
     btnInit.addEventListener('click', () => {
       heroLvSlider.value = 1;

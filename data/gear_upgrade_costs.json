@@ -1,0 +1,491 @@
+{
+  "equipment_types": [
+    "sword",
+    "arm",
+    "armor",
+    "boots"
+  ],
+  "levels_max": 60,
+  "costs": [
+    {
+      "from_level": 0,
+      "to_level": 1,
+      "stone": 1500,
+      "grass": "180K",
+      "steel": 0,
+      "grass_raw": 180000
+    },
+    {
+      "from_level": 1,
+      "to_level": 2,
+      "stone": 1650,
+      "grass": "202K",
+      "steel": 0,
+      "grass_raw": 202000
+    },
+    {
+      "from_level": 2,
+      "to_level": 3,
+      "stone": 1800,
+      "grass": "225K",
+      "steel": 0,
+      "grass_raw": 225000
+    },
+    {
+      "from_level": 3,
+      "to_level": 4,
+      "stone": 1950,
+      "grass": "248K",
+      "steel": 0,
+      "grass_raw": 248000
+    },
+    {
+      "from_level": 4,
+      "to_level": 5,
+      "stone": 2100,
+      "grass": "270K",
+      "steel": 0,
+      "grass_raw": 270000
+    },
+    {
+      "from_level": 5,
+      "to_level": 6,
+      "stone": 2250,
+      "grass": "292K",
+      "steel": 0,
+      "grass_raw": 292000
+    },
+    {
+      "from_level": 6,
+      "to_level": 7,
+      "stone": 2400,
+      "grass": "315K",
+      "steel": 0,
+      "grass_raw": 315000
+    },
+    {
+      "from_level": 7,
+      "to_level": 8,
+      "stone": 2550,
+      "grass": "338K",
+      "steel": 0,
+      "grass_raw": 338000
+    },
+    {
+      "from_level": 8,
+      "to_level": 9,
+      "stone": 2700,
+      "grass": "360K",
+      "steel": 0,
+      "grass_raw": 360000
+    },
+    {
+      "from_level": 9,
+      "to_level": 10,
+      "stone": 2850,
+      "grass": "382K",
+      "steel": 0,
+      "grass_raw": 382000
+    },
+    {
+      "from_level": 10,
+      "to_level": 11,
+      "stone": 3000,
+      "grass": "405K",
+      "steel": 0,
+      "grass_raw": 405000
+    },
+    {
+      "from_level": 11,
+      "to_level": 12,
+      "stone": 3225,
+      "grass": "445K",
+      "steel": 0,
+      "grass_raw": 445000
+    },
+    {
+      "from_level": 12,
+      "to_level": 13,
+      "stone": 3450,
+      "grass": "485K",
+      "steel": 0,
+      "grass_raw": 485000
+    },
+    {
+      "from_level": 13,
+      "to_level": 14,
+      "stone": 3675,
+      "grass": "524K",
+      "steel": 0,
+      "grass_raw": 524000
+    },
+    {
+      "from_level": 14,
+      "to_level": 15,
+      "stone": 3900,
+      "grass": "564K",
+      "steel": 0,
+      "grass_raw": 564000
+    },
+    {
+      "from_level": 15,
+      "to_level": 16,
+      "stone": 4125,
+      "grass": "604K",
+      "steel": 0,
+      "grass_raw": 604000
+    },
+    {
+      "from_level": 16,
+      "to_level": 17,
+      "stone": 4350,
+      "grass": "644K",
+      "steel": 0,
+      "grass_raw": 644000
+    },
+    {
+      "from_level": 17,
+      "to_level": 18,
+      "stone": 4575,
+      "grass": "684K",
+      "steel": 0,
+      "grass_raw": 684000
+    },
+    {
+      "from_level": 18,
+      "to_level": 19,
+      "stone": 4800,
+      "grass": "723K",
+      "steel": 0,
+      "grass_raw": 723000
+    },
+    {
+      "from_level": 19,
+      "to_level": 20,
+      "stone": 5025,
+      "grass": "763K",
+      "steel": 0,
+      "grass_raw": 763000
+    },
+    {
+      "from_level": 20,
+      "to_level": 21,
+      "stone": 5250,
+      "grass": "803K",
+      "steel": 0,
+      "grass_raw": 803000
+    },
+    {
+      "from_level": 21,
+      "to_level": 22,
+      "stone": 5613,
+      "grass": "1.93M",
+      "steel": 0,
+      "grass_raw": 1930000
+    },
+    {
+      "from_level": 22,
+      "to_level": 23,
+      "stone": 5975,
+      "grass": "3.06M",
+      "steel": 0,
+      "grass_raw": 3060000
+    },
+    {
+      "from_level": 23,
+      "to_level": 24,
+      "stone": 6338,
+      "grass": "4.19M",
+      "steel": 0,
+      "grass_raw": 4190000
+    },
+    {
+      "from_level": 24,
+      "to_level": 25,
+      "stone": 6700,
+      "grass": "5.32M",
+      "steel": 0,
+      "grass_raw": 5320000
+    },
+    {
+      "from_level": 25,
+      "to_level": 26,
+      "stone": 7063,
+      "grass": "6.45M",
+      "steel": 0,
+      "grass_raw": 6450000
+    },
+    {
+      "from_level": 26,
+      "to_level": 27,
+      "stone": 7425,
+      "grass": "7.58M",
+      "steel": 0,
+      "grass_raw": 7580000
+    },
+    {
+      "from_level": 27,
+      "to_level": 28,
+      "stone": 7788,
+      "grass": "8.71M",
+      "steel": 0,
+      "grass_raw": 8710000
+    },
+    {
+      "from_level": 28,
+      "to_level": 29,
+      "stone": 8150,
+      "grass": "9.84M",
+      "steel": 0,
+      "grass_raw": 9840000
+    },
+    {
+      "from_level": 29,
+      "to_level": 30,
+      "stone": 8513,
+      "grass": "10.97M",
+      "steel": 0,
+      "grass_raw": 10970000
+    },
+    {
+      "from_level": 30,
+      "to_level": 31,
+      "stone": 8875,
+      "grass": "12.10M",
+      "steel": 0,
+      "grass_raw": 12100000
+    },
+    {
+      "from_level": 31,
+      "to_level": 32,
+      "stone": 9238,
+      "grass": "13.23M",
+      "steel": 0,
+      "grass_raw": 13230000
+    },
+    {
+      "from_level": 32,
+      "to_level": 33,
+      "stone": 9600,
+      "grass": "14.36M",
+      "steel": 0,
+      "grass_raw": 14360000
+    },
+    {
+      "from_level": 33,
+      "to_level": 34,
+      "stone": 9963,
+      "grass": "15.49M",
+      "steel": 0,
+      "grass_raw": 15490000
+    },
+    {
+      "from_level": 34,
+      "to_level": 35,
+      "stone": 10325,
+      "grass": "16.62M",
+      "steel": 0,
+      "grass_raw": 16620000
+    },
+    {
+      "from_level": 35,
+      "to_level": 36,
+      "stone": 10688,
+      "grass": "17.75M",
+      "steel": 0,
+      "grass_raw": 17750000
+    },
+    {
+      "from_level": 36,
+      "to_level": 37,
+      "stone": 11050,
+      "grass": "18.88M",
+      "steel": 0,
+      "grass_raw": 18880000
+    },
+    {
+      "from_level": 37,
+      "to_level": 38,
+      "stone": 11413,
+      "grass": "20.01M",
+      "steel": 0,
+      "grass_raw": 20010000
+    },
+    {
+      "from_level": 38,
+      "to_level": 39,
+      "stone": 11775,
+      "grass": "21.14M",
+      "steel": 0,
+      "grass_raw": 21140000
+    },
+    {
+      "from_level": 39,
+      "to_level": 40,
+      "stone": 12138,
+      "grass": "22.27M",
+      "steel": 0,
+      "grass_raw": 22270000
+    },
+    {
+      "from_level": 40,
+      "to_level": 41,
+      "stone": 12500,
+      "grass": "23.30M",
+      "steel": 150,
+      "grass_raw": 23300000
+    },
+    {
+      "from_level": 41,
+      "to_level": 42,
+      "stone": 12500,
+      "grass": "23.30M",
+      "steel": 150,
+      "grass_raw": 23300000
+    },
+    {
+      "from_level": 42,
+      "to_level": 43,
+      "stone": 12500,
+      "grass": "23.30M",
+      "steel": 150,
+      "grass_raw": 23300000
+    },
+    {
+      "from_level": 43,
+      "to_level": 44,
+      "stone": 12500,
+      "grass": "23.30M",
+      "steel": 150,
+      "grass_raw": 23300000
+    },
+    {
+      "from_level": 44,
+      "to_level": 45,
+      "stone": 19325,
+      "grass": "30.50M",
+      "steel": 195,
+      "grass_raw": 30500000
+    },
+    {
+      "from_level": 45,
+      "to_level": 46,
+      "stone": 19325,
+      "grass": "30.50M",
+      "steel": 195,
+      "grass_raw": 30500000
+    },
+    {
+      "from_level": 46,
+      "to_level": 47,
+      "stone": 19325,
+      "grass": "30.50M",
+      "steel": 195,
+      "grass_raw": 30500000
+    },
+    {
+      "from_level": 47,
+      "to_level": 48,
+      "stone": 19325,
+      "grass": "30.50M",
+      "steel": 195,
+      "grass_raw": 30500000
+    },
+    {
+      "from_level": 48,
+      "to_level": 49,
+      "stone": 24063,
+      "grass": "37.50M",
+      "steel": 290,
+      "grass_raw": 37500000
+    },
+    {
+      "from_level": 49,
+      "to_level": 50,
+      "stone": 24063,
+      "grass": "37.50M",
+      "steel": 290,
+      "grass_raw": 37500000
+    },
+    {
+      "from_level": 50,
+      "to_level": 51,
+      "stone": 24062,
+      "grass": "37.50M",
+      "steel": 290,
+      "grass_raw": 37500000
+    },
+    {
+      "from_level": 51,
+      "to_level": 52,
+      "stone": 24062,
+      "grass": "37.50M",
+      "steel": 290,
+      "grass_raw": 37500000
+    },
+    {
+      "from_level": 52,
+      "to_level": 53,
+      "stone": 28800,
+      "grass": "44.50M",
+      "steel": 345,
+      "grass_raw": 44500000
+    },
+    {
+      "from_level": 53,
+      "to_level": 54,
+      "stone": 28800,
+      "grass": "44.50M",
+      "steel": 345,
+      "grass_raw": 44500000
+    },
+    {
+      "from_level": 54,
+      "to_level": 55,
+      "stone": 28800,
+      "grass": "44.50M",
+      "steel": 345,
+      "grass_raw": 44500000
+    },
+    {
+      "from_level": 55,
+      "to_level": 56,
+      "stone": 28800,
+      "grass": "44.50M",
+      "steel": 345,
+      "grass_raw": 44500000
+    },
+    {
+      "from_level": 56,
+      "to_level": 57,
+      "stone": 33450,
+      "grass": "51.50M",
+      "steel": 400,
+      "grass_raw": 51500000
+    },
+    {
+      "from_level": 57,
+      "to_level": 58,
+      "stone": 33450,
+      "grass": "51.50M",
+      "steel": 400,
+      "grass_raw": 51500000
+    },
+    {
+      "from_level": 58,
+      "to_level": 59,
+      "stone": 33450,
+      "grass": "51.50M",
+      "steel": 400,
+      "grass_raw": 51500000
+    },
+    {
+      "from_level": 59,
+      "to_level": 60,
+      "stone": 33450,
+      "grass": "51.50M",
+      "steel": 400,
+      "grass_raw": 51500000
+    }
+  ]
+}

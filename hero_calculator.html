@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>⚡ 英雄ステータス＆スキル計算シミュレーター | Last Asylum Wiki</title>
-  <meta name="description" content="Last Asylumの英雄レベル(1〜150)・スキルレベル(1〜30)・星/覚醒ランクを設定し、予想攻撃力・防御力・HPおよびスキルの実効傷害をリアルタイム計算するシミュレーター。">
+  <title>⚡ 英雄ステータス＆装備強化シミュレーター | Last Asylum Wiki</title>
+  <meta name="description" content="Last Asylumの英雄レベル(1〜150)・スキルレベル(1〜30)・星/覚醒ランク・装備強化レベル(1〜60)を設定し、予想攻撃力・防御力・HPおよび必要装備強化資源(研磨石・薬草・精錬鋼)をリアルタイム計算するシミュレーター。">
   <link rel="stylesheet" href="css/style.css?v=20260831_02">
   <style>
     .calc-hero-wrapper {
@@ -25,13 +25,7 @@
         grid-template-columns: 1fr;
       }
     }
-    .control-panel {
-      background: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 1.25rem;
-    }
-    .result-panel {
+    .control-panel, .result-panel {
       background: var(--bg-primary);
       border: 1px solid var(--border-color);
       border-radius: 10px;
@@ -135,6 +129,45 @@
       border-color: var(--accent-gold);
       font-weight: 800;
     }
+
+    /* Gear Section Styles */
+    .gear-section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .gear-res-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .gear-res-box {
+      background: var(--bg-primary);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .gear-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+    }
+    .gear-table th, .gear-table td {
+      padding: 0.6rem 0.8rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+    .gear-table th {
+      background: rgba(0,240,255,0.1);
+      color: var(--accent-blue);
+      font-weight: 700;
+    }
   </style>
 </head>
 <body>
@@ -154,7 +187,7 @@
         <a href="index.html" class="nav-link">トップ</a>
         <a href="calculator.html" class="nav-link">資源計算機</a>
         <a href="database.html" class="nav-link">データベース</a>
-        <a href="hero_calculator.html" class="nav-link active">⚡ 英雄計算機</a>
+        <a href="hero_calculator.html" class="nav-link active">⚡ 英雄＆装備計算機</a>
         <a href="event.html" class="nav-link">⚔️ イベント戦力分析</a>
       </nav>
     </div>
@@ -164,8 +197,9 @@
   <main class="main-content">
     <div class="container">
       
-      <h1 class="section-title">⚡ 英雄ステータス＆スキル計算シミュレーター</h1>
+      <h1 class="section-title">⚡ 英雄ステータス＆スキル＆装備計算シミュレーター</h1>
 
+      <!-- 英雄＆スキル計算機 -->
       <div class="calc-hero-wrapper">
         <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem; text-align: center;">
           全31名の英雄レベル (Lv.1〜150)、スキルレベル (Lv.1〜30)、星・覚醒ランクを設定し、予想ステータス（ATK・HP・DEF・CMD）およびスキルダメージ倍率・実効傷害をリアルタイム計算します。
@@ -180,7 +214,7 @@
               ⚙️ シミュレーション設定
             </h2>
 
-            <!-- 陣営フィルタータブ (ウォーリア・レンジャー・ソーサラー) -->
+            <!-- 陣営フィルタータブ -->
             <div style="margin-bottom: 1.25rem;">
               <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 0.4rem;">
                 陣営グループ絞り込み
@@ -299,6 +333,150 @@
 
           </div>
 
+        </div>
+
+      </div>
+
+      <!-- 🗡️ 英雄装備強化＆リソース計算機セクション -->
+      <div class="gear-section-card">
+        <h2 style="font-size: 1.25rem; color: var(--accent-gold); margin-bottom: 0.5rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem;">
+          🛡️ 英雄装備レベルアップ＆消費リソース計算機 (Lv.0 〜 60)
+        </h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+          【剣・腕(小手)・鎧・足(具足)】の4つの装備はすべて共通の研磨石・薬草・精錬鋼を消費します。現在の装備レベルから目標レベルまでの必要リソース累計をリアルタイム計算します。
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; background: var(--bg-primary); padding: 1.25rem; border-radius: 10px; border: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+          
+          <!-- 部位選択 -->
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">
+              装備部位を選択
+            </label>
+            <select id="gear-type-select" class="form-select" style="width: 100%; padding: 0.5rem;">
+              <option value="sword" selected>🗡️ 剣 (Sword - 攻撃/クリティカル型)</option>
+              <option value="arm">🦾 腕/小手 (Gauntlet/Arm)</option>
+              <option value="armor">🛡️ 鎧 (Armor)</option>
+              <option value="boots">👢 足/具足 (Boots/Leg)</option>
+            </select>
+          </div>
+
+          <!-- 部位数 -->
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">
+              部位セット数
+            </label>
+            <select id="gear-count-select" class="form-select" style="width: 100%; padding: 0.5rem;">
+              <option value="1" selected>1 部位 (単体)</option>
+              <option value="4">4 部位 (フル装備一括)</option>
+            </select>
+          </div>
+
+          <!-- 現在レベル -->
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">
+              <span>現在の装備レベル</span>
+              <span id="gear-from-val" style="color: var(--accent-gold);">Lv. 0</span>
+            </div>
+            <input type="range" id="gear-from-slider" min="0" max="59" value="0">
+          </div>
+
+          <!-- 目標レベル -->
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">
+              <span>目標の装備レベル</span>
+              <span id="gear-to-val" style="color: var(--accent-gold);">Lv. 60</span>
+            </div>
+            <input type="range" id="gear-to-slider" min="1" max="60" value="60">
+          </div>
+
+        </div>
+
+        <!-- 累計消費リソース計算結果 -->
+        <h3 style="font-size: 1rem; color: #fff; margin-bottom: 0.75rem; font-weight: 700;">
+          💎 目標Lvまでの必要リソース合計 (Lv.<span id="res-gear-range-str">0 ➔ 60</span>)
+        </h3>
+        <div class="gear-res-grid">
+          <div class="gear-res-box" style="border-top: 3px solid var(--accent-gold);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.3rem;">🪨 研磨石 (Stone)</div>
+            <div id="res-gear-stone" style="font-size: 1.35rem; font-weight: 900; color: var(--accent-gold);">0</div>
+          </div>
+          <div class="gear-res-box" style="border-top: 3px solid #10ac84;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.3rem;">🌿 薬草 (Grass / Herb)</div>
+            <div id="res-gear-grass" style="font-size: 1.35rem; font-weight: 900; color: #10ac84;">0</div>
+          </div>
+          <div class="gear-res-box" style="border-top: 3px solid var(--accent-blue);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.3rem;">⚙️ 精錬鋼 (Steel / Lv.41〜)</div>
+            <div id="res-gear-steel" style="font-size: 1.35rem; font-weight: 900; color: var(--accent-blue);">0</div>
+          </div>
+        </div>
+
+        <!-- 【剣】高レベルステータスパラメータ参考一覧 -->
+        <div style="margin-top: 2rem;">
+          <h3 style="font-size: 1rem; color: var(--accent-gold); margin-bottom: 0.5rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
+            ⚔️ 【剣】の高レベルステータスパラメータ一覧 (Lv.40★0 〜 Lv.60★4)
+          </h3>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            ※レベル40以降は★星ランクが付与され、英雄攻撃力・英雄防御力・攻撃%・クリティカル率%が大きく跳ね上がります。
+          </p>
+
+          <div style="overflow-x: auto;">
+            <table class="gear-table">
+              <thead>
+                <tr>
+                  <th>装備レベル & 星ランク</th>
+                  <th>英雄攻撃 (数値)</th>
+                  <th>英雄防御 (数値)</th>
+                  <th>英雄攻撃 (%)</th>
+                  <th>クリティカル率 (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong style="color: #fff;">LV40 ★0</strong></td>
+                  <td style="color: var(--accent-gold); font-weight: 700;">+3,162</td>
+                  <td>+1,775</td>
+                  <td style="color: var(--accent-gold);">+7.5%</td>
+                  <td style="color: var(--accent-blue); font-weight: 700;">+20.0%</td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #fff;">LV44 ★0</strong></td>
+                  <td style="color: var(--accent-gold); font-weight: 700;">+3,934</td>
+                  <td>+2,331</td>
+                  <td style="color: var(--accent-gold);">+8.5%</td>
+                  <td style="color: var(--accent-blue); font-weight: 700;">+22.0%</td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #fff;">LV48 ★1</strong></td>
+                  <td style="color: var(--accent-gold); font-weight: 700;">+5,480</td>
+                  <td>+3,250</td>
+                  <td style="color: var(--accent-gold);">+10.0%</td>
+                  <td style="color: var(--accent-blue); font-weight: 700;">+25.0%</td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #fff;">LV52 ★2</strong></td>
+                  <td style="color: var(--accent-gold); font-weight: 700;">+7,318</td>
+                  <td>+4,304</td>
+                  <td style="color: var(--accent-gold);">+11.5%</td>
+                  <td style="color: var(--accent-blue); font-weight: 700;">+30.5%</td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #fff;">LV56 ★3</strong></td>
+                  <td style="color: var(--accent-gold); font-weight: 700;">+9,776</td>
+                  <td>+5,644</td>
+                  <td style="color: var(--accent-gold);">+13.0%</td>
+                  <td style="color: var(--accent-blue); font-weight: 700;">+33.5%</td>
+                </tr>
+                <tr style="background: rgba(255,215,0,0.06);">
+                  <td><strong style="color: var(--accent-gold);">LV60 ★4 (最大)</strong></td>
+                  <td style="color: var(--accent-gold); font-weight: 900;">+12,195</td>
+                  <td style="font-weight: 700;">+7,190</td>
+                  <td style="color: var(--accent-gold); font-weight: 900;">+14.5%</td>
+                  <td style="color: var(--accent-blue); font-weight: 900;">+39.0%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
       </div>
