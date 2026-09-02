@@ -1,6 +1,6 @@
 /**
  * Last Asylum - Hero & Skill Calculator Script (js/hero_calculator.js)
- * Robust Faction Filter Tabs & Simulation Engine
+ * Full Japanese Translated Skill Descriptions & Simulation Engine
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (resHeroName) resHeroName.textContent = currentHero.nameJapanese || currentHero.name;
     if (resRarityBadge) resRarityBadge.textContent = currentHero.rarity || 'UR';
     if (resFactionBadge) resFactionBadge.textContent = `${displayFaction} (${currentHero.defaultPlacement || 'Line'})`;
-    if (resHeroRole) resHeroRole.textContent = `役割: ${currentHero.class || ''} | 属性: ${currentHero.damageType || 'Physical DMG'}`;
+    if (resHeroRole) resHeroRole.textContent = `役割: ${currentHero.class || ''} | 属性: ${currentHero.damageType || '物理ダメージ'}`;
     if (resHonorBonus) resHonorBonus.textContent = currentHero.hallOfHonor ? `殿堂: ${currentHero.hallOfHonor}` : '殿堂ボーナス: なし';
 
     // Update Hero Avatar Image
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (statDef) statDef.textContent = predictedDef.toLocaleString();
     if (statCmd) statCmd.textContent = predictedCmd.toLocaleString();
 
-    // 2. Render Skills
+    // 2. Render Japanese Skills & Formulas
     renderSkills(predictedAtk, skillLv, star);
 
     // 3. Render Exclusive Weapon
@@ -238,11 +238,13 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
       }).join('');
 
+      const skillKindBadge = s.kindLabelJapanese || s.kindLabel || 'スキル';
+
       return `
         <div class="skill-card">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:0.5rem;">
             <div>
-              <span class="skill-type-badge">${escapeHtml(s.kindLabel || 'Skill')}</span>
+              <span class="skill-type-badge">${escapeHtml(skillKindBadge)}</span>
               <h4 style="font-size:1.15rem; font-weight:800; color:#fff; margin:0.2rem 0 0 0;">${escapeHtml(s.skillName)}</h4>
             </div>
             <div style="text-align:right;">
@@ -335,12 +337,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Robust Event Delegation for Faction Filter Buttons
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.faction-filter-btn');
     if (!btn) return;
 
-    // Toggle active class on buttons
     const allBtns = document.querySelectorAll('.faction-filter-btn');
     allBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -350,13 +350,11 @@ document.addEventListener('DOMContentLoaded', () => {
     calculateAndRender();
   });
 
-  // Event Listeners for Sliders & Select
   if (heroSelect) heroSelect.addEventListener('change', calculateAndRender);
   if (heroLvSlider) heroLvSlider.addEventListener('input', calculateAndRender);
   if (starSlider) starSlider.addEventListener('input', calculateAndRender);
   if (skillLvSlider) skillLvSlider.addEventListener('input', calculateAndRender);
 
-  // Preset Handlers
   if (btnInit) {
     btnInit.addEventListener('click', () => {
       heroLvSlider.value = 1;
