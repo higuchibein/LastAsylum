@@ -13,9 +13,9 @@
       "skills": [
         {
           "skillName": "Battle Shield",
-          "type": "Auto Attack",
+          "type": "通常攻撃",
           "cooldown": "N/A",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "大盾を振り回し、単体の敵に攻撃力の 750.0% の物理ダメージを与える。",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
@@ -26,22 +26,22 @@
         },
         {
           "skillName": "Earthshattering",
-          "type": "Ultimate Skill",
+          "type": "必殺技 (アルティメット)",
           "cooldown": "6.4s",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "地面を叩きつけて範囲内の敵に攻撃力の 1407.5% の物理ダメージを与え、同時に5秒間味方の被物理ダメージを 32.5% 軽減する。",
           "levelStarUnlocks": [
-            "2 stars: 物理ダメージ reduction increases by 3%.",
-            "6 stars: 物理ダメージ reduction increases by 4.5%.",
-            "10 stars: 物理ダメージ reduction increases by 7.5%."
+            "2★: 物理ダメージ reduction increases by 3%.",
+            "6★: 物理ダメージ reduction increases by 4.5%.",
+            "10★: 物理ダメージ reduction increases by 7.5%."
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
         {
           "skillName": "Rock Solid",
-          "type": "Active Skill",
+          "type": "アクティブスキル",
           "cooldown": "4.5s",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "自身の現在最大HPの 25.0% に相当するシールドを獲得し、3秒間受けるダメージを50%吸収軽減する。",
           "levelStarUnlocks": [
             "3★: シールド効果量が +20% 強化",
@@ -52,9 +52,9 @@
         },
         {
           "skillName": "Strong Will",
-          "type": "Passive Skill",
+          "type": "パッシブスキル",
           "cooldown": "N/A",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "戦闘中、味方タンク英雄が受ける全ダメージを 8.25% 軽減する。",
           "levelStarUnlocks": [
             "4★: 効果量が +0.6% 強化",
@@ -65,9 +65,9 @@
         },
         {
           "skillName": "Tenacity",
-          "type": "Support Skill",
+          "type": "サポートスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
@@ -84,9 +84,9 @@
       "skills": [
         {
           "skillName": "Moon Blade",
-          "type": "Auto Attack",
+          "type": "通常攻撃",
           "cooldown": "N/A",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "月刃を放ち、単体の敵に攻撃力の 622.5% のエネルギーダメージを与える。",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
@@ -97,25 +97,25 @@
         },
         {
           "skillName": "Moonfall Dance",
-          "type": "Ultimate Skill",
+          "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "クリティカル率を 14.00% 上昇させ、巨月刃を発射して範囲内の敵に攻撃力の 2480% のエネルギーダメージを与える。",
           "levelStarUnlocks": [
-            "2 stars: Deals 40% extra damage.",
-            "6 stars: Deals damage to all enemies.",
+            "2★: Deals 40% extra damage.",
+            "6★: Deals damage to all enemies.",
             "10★: 追加ダメージが 100% に強化"
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
         {
           "skillName": "Lunar Hunt",
-          "type": "Active Skill",
+          "type": "アクティブスキル",
           "cooldown": "4.5s",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "ランダムな3体の目標をロックオンし、3枚の月刃を投擲してそれぞれ攻撃力の 1500.0% のエネルギーダメージを与える。",
           "levelStarUnlocks": [
-            "3 stars: Deals 40% Extra Damage.",
+            "3★: 追加ダメージ +40% 解放。",
             "7★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
@@ -123,9 +123,9 @@
         },
         {
           "skillName": "Moon's Blessing",
-          "type": "Passive Skill",
+          "type": "パッシブスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "In combat, increases 22.0% クリティカル率.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
@@ -136,9 +136,9 @@
         },
         {
           "skillName": "Tenacity",
-          "type": "Support Skill",
+          "type": "サポートスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
@@ -155,10 +155,10 @@
       "skills": [
         {
           "skillName": "Skybreaker Slash",
-          "type": "Auto Attack",
+          "type": "通常攻撃",
           "cooldown": "N/A",
-          "damageType": "Energy DMG",
-          "description": "Unleash a sword wind, dealing 652.5% ATK as エネルギーダメージ to a single target.",
+          "damageType": "エネルギーダメージ",
+          "description": "Unleash a sword wind, dealing 652.5% ATK as エネルギーダメージ 単体の目標に.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
@@ -168,35 +168,35 @@
         },
         {
           "skillName": "Peerless Blade",
-          "type": "Ultimate Skill",
+          "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "Releases 3 sword winds, each randomly targeting an enemy, dealing 2818.75% ATK エネルギーダメージ.",
           "levelStarUnlocks": [
-            "2 stars: Sword Wind +1; each deals 20% extra damage.",
-            "6 stars: Each deals 100% extra damage.",
-            "10 stars: Sword Wind +1; each deals 140% extra damage."
+            "2★: Sword Wind +1; each deals 20% extra damage.",
+            "6★: Each deals 100% extra damage.",
+            "10★: Sword Wind +1; each deals 140% extra damage."
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
         {
           "skillName": "Crimson Bloom",
-          "type": "Active Skill",
+          "type": "アクティブスキル",
           "cooldown": "4.5s",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "Throws a scarlet flower that explodes on impact, dealing 1218.75% ATK エネルギーダメージ to targets within range.",
           "levelStarUnlocks": [
-            "3 stars: Deals 20% extra damage and increases ATK by 12% for 3s.",
-            "7 stars: Extra damage increases to 70%.",
-            "10 stars: Extra damage increases to 150%."
+            "3★: Deals 20% extra damage and increases ATK by 12% for 3s.",
+            "7★: 追加ダメージが 70% に強化。",
+            "10★: 追加ダメージが 150% に強化。"
           ],
           "typeJapanese": "アクティブスキル"
         },
         {
           "skillName": "War God's Will",
-          "type": "Passive Skill",
+          "type": "パッシブスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "In combat, increases エネルギーダメージ dealt by 22.0%.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
@@ -207,9 +207,9 @@
         },
         {
           "skillName": "Tenacity",
-          "type": "Support Skill",
+          "type": "サポートスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
@@ -226,9 +226,9 @@
       "skills": [
         {
           "skillName": "Battle Will",
-          "type": "Auto Attack",
+          "type": "通常攻撃",
           "cooldown": "N/A",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "Slashes the target, dealing 622.5% ATK 物理ダメージ to a single enemy.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
@@ -239,9 +239,9 @@
         },
         {
           "skillName": "Bloodshed Defense",
-          "type": "Ultimate Skill",
+          "type": "必殺技 (アルティメット)",
           "cooldown": "5.8s",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "Concentrates energy to grant every ally a shield equal to 570.0% of their max DEF, absorbing 50% of incoming damage for 5s.",
           "levelStarUnlocks": [
             "2★: シールド効果量が +30% 強化",
@@ -252,25 +252,25 @@
         },
         {
           "skillName": "Deadly Pierce",
-          "type": "Active Skill",
+          "type": "アクティブスキル",
           "cooldown": "4.5s",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "Stabs the target with a two-handed sword, dealing 770.0% ATK 物理ダメージ and restoring HP equal to 400.0% ATK.",
           "levelStarUnlocks": [
-            "3 stars: Restores 60% extra HP.",
-            "7 stars: Extra HP recovery increases to 150%.",
-            "10 stars: Extra HP recovery increases to 300%."
+            "3★: Restores 60% extra HP.",
+            "7★: Extra HP recovery increases to 150%.",
+            "10★: Extra HP recovery increases to 300%."
           ],
           "typeJapanese": "アクティブスキル"
         },
         {
           "skillName": "Resolute Fight",
-          "type": "Passive Skill",
+          "type": "パッシブスキル",
           "cooldown": "N/A",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "At the start of the battle, grants all allied tank heroes a shield equal to 18.75% of their max HP, absorbing 50% of incoming damage for 5s.",
           "levelStarUnlocks": [
-            "4 stars: Shield Duration +2s.",
+            "4★: Shield Duration +2s.",
             "9★: シールド効果量が +20% 強化",
             "10★: シールド効果量が +30% 強化"
           ],
@@ -278,9 +278,9 @@
         },
         {
           "skillName": "Tenacity",
-          "type": "Support Skill",
+          "type": "サポートスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
@@ -297,9 +297,9 @@
       "skills": [
         {
           "skillName": "Smoke Cartridge",
-          "type": "Auto Attack",
+          "type": "通常攻撃",
           "cooldown": "N/A",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "Randomly throws 3 smoke bombs, each dealing 210.0% ATK 物理ダメージ to a single enemy.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
@@ -310,9 +310,9 @@
         },
         {
           "skillName": "Shadow Hunt",
-          "type": "Ultimate Skill",
+          "type": "必殺技 (アルティメット)",
           "cooldown": "6.4s",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "Unleashes a rolling black mist, dealing 922.5% ATK 物理ダメージ to all enemies and reducing their エネルギーダメージ by 20.0% for 5s.",
           "levelStarUnlocks": [
             "2★: 効果量が +3% 強化",
@@ -323,9 +323,9 @@
         },
         {
           "skillName": "Shadow Strike",
-          "type": "Active Skill",
+          "type": "アクティブスキル",
           "cooldown": "4.5s",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "Throws a large smoke cartridge, dealing 462.5% ATK 物理ダメージ to enemies in range and reducing their DEF by 50.25% for 3s.",
           "levelStarUnlocks": [
             "3★: 効果量が +4.5% 強化",
@@ -336,9 +336,9 @@
         },
         {
           "skillName": "Shadow Veil",
-          "type": "Passive Skill",
+          "type": "パッシブスキル",
           "cooldown": "N/A",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "In combat, reduces エネルギーダメージ taken by 32.0%.",
           "levelStarUnlocks": [
             "4★: 効果量が +5% 強化",
@@ -349,9 +349,9 @@
         },
         {
           "skillName": "Tenacity",
-          "type": "Support Skill",
+          "type": "サポートスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
@@ -368,10 +368,10 @@
       "skills": [
         {
           "skillName": "Ember Dust",
-          "type": "Auto Attack",
+          "type": "通常攻撃",
           "cooldown": "N/A",
-          "damageType": "Physical DMG",
-          "description": "Throws a flame, inflicts 622.5% ATK 物理ダメージ to a single target, and heals the ally with the lowest HP for 50% of ATK.",
+          "damageType": "物理ダメージ",
+          "description": "Throws a flame, inflicts 622.5% ATK 物理ダメージ 単体の目標に, and heals the ally with the lowest HP for 50% of ATK.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
@@ -381,48 +381,48 @@
         },
         {
           "skillName": "Inferno Array",
-          "type": "Ultimate Skill",
+          "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "Summons a pillar of fire, dealing 2625.0% ATK 物理ダメージ to all enemies. If targets are [Burning], damage increases by 40.0%.",
           "levelStarUnlocks": [
-            "2 stars: Deals 100% extra damage.",
+            "2★: Deals 100% extra damage.",
             "6★: 追加ダメージが 200%（最大値）に強化",
-            "10 stars: Damage from Burn status increases by 5%."
+            "10★: Damage from Burn status increases by 5%."
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
         {
           "skillName": "Heartwarming Flame",
-          "type": "Active Skill",
+          "type": "アクティブスキル",
           "cooldown": "4.5s",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "Throws 2 fireballs, healing the 2 lowest-HP allies for 387.5% ATK.",
           "levelStarUnlocks": [
-            "3 stars: Restores extra 70% HP.",
-            "7 stars: Extra HP recovery increases to 140%.",
-            "10 stars: Extra HP recovery increases to 210%."
+            "3★: Restores extra 70% HP.",
+            "7★: Extra HP recovery increases to 140%.",
+            "10★: Extra HP recovery increases to 210%."
           ],
           "typeJapanese": "アクティブスキル"
         },
         {
           "skillName": "Flame Soul Power",
-          "type": "Passive Skill",
+          "type": "パッシブスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "During battle, increases ATK SPD of all allied Warlock Heroes by 13.5%.",
           "levelStarUnlocks": [
-            "4 stars: Attack speed bonus increases by 1.2%.",
-            "9 stars: Attack speed bonus increases by 1.8%.",
-            "10 stars: All allied Warlock Heroes' ATK +3%."
+            "4★: Attack speed bonus increases by 1.2%.",
+            "9★: Attack speed bonus increases by 1.8%.",
+            "10★: All allied Warlock Heroes' ATK +3%."
           ],
           "typeJapanese": "パッシブスキル"
         },
         {
           "skillName": "Tenacity",
-          "type": "Support Skill",
+          "type": "サポートスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
@@ -439,9 +439,9 @@
       "skills": [
         {
           "skillName": "Candy",
-          "type": "Auto Attack",
+          "type": "通常攻撃",
           "cooldown": "N/A",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "Waves a magic wand to conjure a candy, dealing 622.5% ATK エネルギーダメージ to a single enemy.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
@@ -452,35 +452,35 @@
         },
         {
           "skillName": "Candy Jar",
-          "type": "Ultimate Skill",
+          "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "Summons 2 explosive candy jars, targeting the 2 enemies with the highest ATK, dealing 2961.0% ATK DMG, and inflicting [Burn], causing 100% ATK damage per second for 5s.",
           "levelStarUnlocks": [
-            "2 stars: Attack Target +1.",
-            "6 stars: If the target is Burning, deals an additional 900% Attack Damage once.",
-            "10 stars: Deals 200% extra damage."
+            "2★: Attack Target +1.",
+            "6★: If the target is Burning, deals an additional 900% Attack Damage once.",
+            "10★: Deals 200% extra damage."
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
         {
           "skillName": "Surprise Gift",
-          "type": "Active Skill",
+          "type": "アクティブスキル",
           "cooldown": "4.1s",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "Throws a gift box, dealing 1342.5% ATK エネルギーダメージ to enemies within range and causing them to [Burn], inflicting 100% ATK エネルギーダメージ per second for 2s.",
           "levelStarUnlocks": [
-            "3 stars: Burning Duration +2s.",
-            "7 stars: Deals 100% extra damage.",
+            "3★: Burning Duration +2s.",
+            "7★: Deals 100% extra damage.",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
           "typeJapanese": "アクティブスキル"
         },
         {
           "skillName": "Charged Gummies",
-          "type": "Passive Skill",
+          "type": "パッシブスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "In combat, increases エネルギーダメージ dealt by 22.0%.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
@@ -491,9 +491,9 @@
         },
         {
           "skillName": "Tenacity",
-          "type": "Support Skill",
+          "type": "サポートスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
@@ -510,9 +510,9 @@
       "skills": [
         {
           "skillName": "Deal Cards",
-          "type": "Auto Attack",
+          "type": "通常攻撃",
           "cooldown": "N/A",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "Throws a card, dealing 622.5% ATK 物理ダメージ to the lowest HP target.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
@@ -523,35 +523,35 @@
         },
         {
           "skillName": "Joker Ace",
-          "type": "Ultimate Skill",
+          "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "Throws 2 joker cards, dealing 4206.25% ATK 物理ダメージ to 2 lowest-HP enemies.",
           "levelStarUnlocks": [
-            "2 stars: Deals 40% extra damage.",
+            "2★: Deals 40% extra damage.",
             "6★: 追加ダメージが 100% に強化",
-            "10 stars: Attack Target +1."
+            "10★: Attack Target +1."
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
         {
           "skillName": "Hearthunt Red Card",
-          "type": "Active Skill",
+          "type": "アクティブスキル",
           "cooldown": "4.5s",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "Throws a heart card, dealing 1350.0% ATK as 物理ダメージ to 2 random targets.",
           "levelStarUnlocks": [
-            "3 stars: Deals 40% extra damage.",
+            "3★: Deals 40% extra damage.",
             "7★: 追加ダメージが 100% に強化",
-            "10 stars: Inflicts [Burn] on the target, dealing 400% Attack Damage per second for 3s."
+            "10★: Inflicts [Burn] on the target, dealing 400% Attack Damage per second for 3s."
           ],
           "typeJapanese": "アクティブスキル"
         },
         {
           "skillName": "Frenzied Emotion",
-          "type": "Passive Skill",
+          "type": "パッシブスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "In combat, increases 22.0% クリティカル率.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
@@ -562,9 +562,9 @@
         },
         {
           "skillName": "Tenacity",
-          "type": "Support Skill",
+          "type": "サポートスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
@@ -581,9 +581,9 @@
       "skills": [
         {
           "skillName": "Blood Blade",
-          "type": "Auto Attack",
+          "type": "通常攻撃",
           "cooldown": "N/A",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "Throws a scalpel, dealing 622.5% ATK エネルギーダメージ to a single enemy.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
@@ -594,25 +594,25 @@
         },
         {
           "skillName": "Crimson Rose",
-          "type": "Ultimate Skill",
+          "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "Summons the Crimson Rose, dealing 3792.0% ATK エネルギーダメージ to the 2 highest-ATK enemies, with a 35% chance to stun targets for 5s.",
           "levelStarUnlocks": [
-            "2 stars: Deals 40% extra damage.",
-            "6 stars: Attack Target +1.",
-            "10 stars: Extra damage increases to 140%."
+            "2★: Deals 40% extra damage.",
+            "6★: Attack Target +1.",
+            "10★: 追加ダメージが 140% に強化。"
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
         {
           "skillName": "Bloodthirsty Slaughter",
-          "type": "Active Skill",
+          "type": "アクティブスキル",
           "cooldown": "4.5s",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "Locks onto a target, dealing 2445.0% ATK as エネルギーダメージ to them, and increasing damage they take by 14.0% for 3s.",
           "levelStarUnlocks": [
-            "3 stars: Deals 40% Extra Damage.",
+            "3★: 追加ダメージ +40% 解放。",
             "7★: 追加ダメージが 100% に強化",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
@@ -620,9 +620,9 @@
         },
         {
           "skillName": "Lone Flower",
-          "type": "Passive Skill",
+          "type": "パッシブスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "In combat, increases 22.0% ATK.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
@@ -633,9 +633,9 @@
         },
         {
           "skillName": "Tenacity",
-          "type": "Support Skill",
+          "type": "サポートスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
@@ -652,10 +652,10 @@
       "skills": [
         {
           "skillName": "Wooden Frame",
-          "type": "Auto Attack",
+          "type": "通常攻撃",
           "cooldown": "N/A",
-          "damageType": "Physical DMG",
-          "description": "Swings the marionette, dealing 622.5% ATK 物理ダメージ to a single enemy.",
+          "damageType": "物理ダメージ",
+          "description": "マリオネットを振るい、攻撃力の 622.5% の 物理ダメージ to a single enemy.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
@@ -665,35 +665,35 @@
         },
         {
           "skillName": "Truth and Lies",
-          "type": "Ultimate Skill",
+          "type": "必殺技 (アルティメット)",
           "cooldown": "6.4s",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "Lifts the marionette stand and smashes it to the ground, dealing 2430.0% ATK damage to enemies within range, granting the 3 highest-ATK allies a 70% chance to be immune to stun.",
           "levelStarUnlocks": [
-            "2 stars: All damage received by allied defense heroes reduces by 15% for 5s.",
-            "6 stars: Chance of stun immunity +30%.",
-            "10 stars: Increases damage dealt on targets by 15% for 5s."
+            "2★: All damage received by allied defense heroes reduces by 15% for 5s.",
+            "6★: Chance of stun immunity +30%.",
+            "10★: Increases damage dealt on targets by 15% for 5s."
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
         {
           "skillName": "Fate's Thread",
-          "type": "Active Skill",
+          "type": "アクティブスキル",
           "cooldown": "4.5s",
-          "damageType": "Physical DMG",
-          "description": "Swings the marionette, dealing 515.0% ATK 物理ダメージ to a single target, reducing エネルギーダメージ received by the 2 highest-ATK allies by 33.0% for 4s.",
+          "damageType": "物理ダメージ",
+          "description": "マリオネットを振るい、単体の目標に攻撃力の 515.0% の物理ダメージを与え、4秒間攻撃力が高い味方2体の被エネルギーダメージを 33.0% 軽減する。",
           "levelStarUnlocks": [
-            "3 stars: Damage reduction increases by 6%.",
-            "7 stars: Allied target +1.",
-            "10 stars: Damage reduction increases by 6%."
+            "3★: ダメージ軽減率が +6% 強化。",
+            "7★: 対象の味方数 +1。",
+            "10★: ダメージ軽減率が +6% 強化。"
           ],
           "typeJapanese": "アクティブスキル"
         },
         {
           "skillName": "Puppet",
-          "type": "Passive Skill",
+          "type": "パッシブスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "In combat, reduces all damage taken by 22.0%.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
@@ -704,9 +704,9 @@
         },
         {
           "skillName": "Tenacity",
-          "type": "Support Skill",
+          "type": "サポートスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
@@ -723,9 +723,9 @@
       "skills": [
         {
           "skillName": "Dagger",
-          "type": "Auto Attack",
+          "type": "通常攻撃",
           "cooldown": "N/A",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "Throws a forest dagger at the target, dealing 622.5% ATK エネルギーダメージ to a single enemy.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
@@ -736,35 +736,35 @@
         },
         {
           "skillName": "Forest Hunter",
-          "type": "Ultimate Skill",
+          "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "Quickly tosses 3 special daggers, randomly targeting 3 enemies, dealing 3058.0% ATK DMG to each.",
           "levelStarUnlocks": [
-            "2 stars: Blade +1.",
-            "6 stars: Deals 60% extra damage.",
-            "10 stars: Extra damage increases to 120%; +1 blade."
+            "2★: Blade +1.",
+            "6★: Deals 60% extra damage.",
+            "10★: Extra damage increases to 120%; +1 blade."
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
         {
           "skillName": "Mountain God Wrath",
-          "type": "Active Skill",
+          "type": "アクティブスキル",
           "cooldown": "4.5s",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "Clasps hands tightly and prays to the mountain god, summoning a whirlwind of green leaves that deals 525.0% ATK エネルギーダメージ per second to enemies within range for 3s. During this time, enemies within the whirlwind take 20% extra エネルギーダメージ.",
           "levelStarUnlocks": [
-            "3 stars: Deals 60% extra damage.",
-            "7 stars: Extra damage increases to 130%.",
+            "3★: Deals 60% extra damage.",
+            "7★: 追加ダメージが 130% に強化。",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
           "typeJapanese": "アクティブスキル"
         },
         {
           "skillName": "Lady of the Forest",
-          "type": "Passive Skill",
+          "type": "パッシブスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "In combat, increases 22.0% クリティカル率.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
@@ -775,9 +775,9 @@
         },
         {
           "skillName": "Tenacity",
-          "type": "Support Skill",
+          "type": "サポートスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
@@ -794,10 +794,10 @@
       "skills": [
         {
           "skillName": "Musical Note",
-          "type": "Auto Attack",
+          "type": "通常攻撃",
           "cooldown": "N/A",
-          "damageType": "Physical DMG",
-          "description": "Waves a bell to release musical notes, dealing 622.5% ATK 物理ダメージ to a single target.",
+          "damageType": "物理ダメージ",
+          "description": "Waves a bell to release musical notes, dealing 622.5% ATK 物理ダメージ 単体の目標に.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
@@ -807,35 +807,35 @@
         },
         {
           "skillName": "Inspiration",
-          "type": "Ultimate Skill",
+          "type": "必殺技 (アルティメット)",
           "cooldown": "12.7s",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "Inspires the 2 highest-ATK allies, increasing their ATK by 48.75% for 5s.",
           "levelStarUnlocks": [
             "2★: 効果量が +5% 強化",
-            "6 stars: Effect Duration +2s.",
-            "10 stars: Target +1."
+            "6★: Effect Duration +2s.",
+            "10★: Target +1."
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
         {
           "skillName": "Healing Sound",
-          "type": "Active Skill",
+          "type": "アクティブスキル",
           "cooldown": "4.5s",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "Heals the lowest-HP ally for 450.0% ATK.",
           "levelStarUnlocks": [
-            "3 stars: Restores 40% extra HP.",
-            "7 stars: Extra HP recovery increases to 100%.",
-            "10 stars: Extra HP recovery increases to 200%."
+            "3★: Restores 40% extra HP.",
+            "7★: Extra HP recovery increases to 100%.",
+            "10★: Extra HP recovery increases to 200%."
           ],
           "typeJapanese": "アクティブスキル"
         },
         {
           "skillName": "Battle Anthem",
-          "type": "Passive Skill",
+          "type": "パッシブスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "During battle, increases ATK of all allied Ranger Heroes by 16.5%.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.2% 強化",
@@ -846,9 +846,9 @@
         },
         {
           "skillName": "Tenacity",
-          "type": "Support Skill",
+          "type": "サポートスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
@@ -865,9 +865,9 @@
       "skills": [
         {
           "skillName": "Bubble",
-          "type": "Auto Attack",
+          "type": "通常攻撃",
           "cooldown": "N/A",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "Plays a flute to create bubbles, dealing 622.5% ATK エネルギーダメージ to a single enemy.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
@@ -878,35 +878,35 @@
         },
         {
           "skillName": "War Flute Sound",
-          "type": "Ultimate Skill",
+          "type": "必殺技 (アルティメット)",
           "cooldown": "12.7s",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "Harper plays a war flute to inspire allies, increasing all allied heroes' ATK by 21.045% for 5s.",
           "levelStarUnlocks": [
-            "2 stars: After being cast, increases エネルギーダメージ dealt by allies by 4.5% for 7s.",
-            "6 stars: ATK bonus increases by 4.5%.",
-            "10 stars: ATK bonus duration +5s."
+            "2★: After being cast, increases エネルギーダメージ dealt by allies by 4.5% for 7s.",
+            "6★: ATK bonus increases by 4.5%.",
+            "10★: ATK bonus duration +5s."
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
         {
           "skillName": "Vitality Bubble",
-          "type": "Active Skill",
+          "type": "アクティブスキル",
           "cooldown": "4.5s",
-          "damageType": "Energy DMG",
+          "damageType": "エネルギーダメージ",
           "description": "Harper creates a bubble, reducing the damage received by the lowest-HP ally by 18.0% for 4s.",
           "levelStarUnlocks": [
             "3★: 効果量が +1.6% 強化",
             "7★: 効果量が +2.4% 強化",
-            "10 stars: Target +1."
+            "10★: Target +1."
           ],
           "typeJapanese": "アクティブスキル"
         },
         {
           "skillName": "Warrior's Anthem",
-          "type": "Passive Skill",
+          "type": "パッシブスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "In battle, increases ATK of all allied Warrior Heroes by 16.5%.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.2% 強化",
@@ -917,9 +917,9 @@
         },
         {
           "skillName": "Tenacity",
-          "type": "Support Skill",
+          "type": "サポートスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
@@ -936,9 +936,9 @@
       "skills": [
         {
           "skillName": "Sharp Claw",
-          "type": "Auto Attack",
+          "type": "通常攻撃",
           "cooldown": "N/A",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "Swings sharp claws, dealing 622.5% ATK 物理ダメージ to a single enemy.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
@@ -949,9 +949,9 @@
         },
         {
           "skillName": "Throat Bite",
-          "type": "Ultimate Skill",
+          "type": "必殺技 (アルティメット)",
           "cooldown": "6.4s",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "Charges up, then lunges forward and bites the target, dealing 1505.0% ATK 物理ダメージ, and reducing all damage taken by all allied heroes by 18.75% for 4s.",
           "levelStarUnlocks": [
             "2★: 効果量が +2% 強化",
@@ -962,22 +962,22 @@
         },
         {
           "skillName": "Lunar Howl",
-          "type": "Active Skill",
+          "type": "アクティブスキル",
           "cooldown": "4.5s",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "Howls to the sky, entering Berserk state: when taking damage, reflects 147.0% of that damage back to the attacker. This effect lasts for 3s.",
           "levelStarUnlocks": [
             "3★: 効果量が +8% 強化",
-            "7 stars: Effect Duration +1s.",
+            "7★: Effect Duration +1s.",
             "10★: 効果量が +20% 強化"
           ],
           "typeJapanese": "アクティブスキル"
         },
         {
           "skillName": "Wolf Bloodline",
-          "type": "Passive Skill",
+          "type": "パッシブスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "In combat, reduces all damage taken by 22.0%.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
@@ -988,9 +988,9 @@
         },
         {
           "skillName": "Tenacity",
-          "type": "Support Skill",
+          "type": "サポートスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
@@ -1007,10 +1007,10 @@
       "skills": [
         {
           "skillName": "Shackles",
-          "type": "Auto Attack",
+          "type": "通常攻撃",
           "cooldown": "N/A",
-          "damageType": "Physical DMG",
-          "description": "Swings the iron chain, dealing 622.5% ATK 物理ダメージ to a single target.",
+          "damageType": "物理ダメージ",
+          "description": "Swings the iron chain, dealing 622.5% ATK 物理ダメージ 単体の目標に.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
@@ -1020,48 +1020,48 @@
         },
         {
           "skillName": "Cross Whip",
-          "type": "Ultimate Skill",
+          "type": "必殺技 (アルティメット)",
           "cooldown": "6.4s",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "Simultaneously swings 2 chains forward, dealing 1140.0% ATK damage to enemies within range, healing self for 150% ATK, and reducing all damage taken by 26.25% for 5s.",
           "levelStarUnlocks": [
-            "2 stars: Damage reduction additionally applies to 1 nearest ally.",
-            "6 stars: Damage reduction applies to all allies.",
-            "10 stars: Deals 60% extra damage."
+            "2★: Damage reduction additionally applies to 1 nearest ally.",
+            "6★: Damage reduction applies to all allies.",
+            "10★: Deals 60% extra damage."
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
         {
           "skillName": "Force Link",
-          "type": "Active Skill",
+          "type": "アクティブスキル",
           "cooldown": "4.5s",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "Charges both hands, creating an energy field that reduces エネルギーダメージ taken by allies within range by 27.75% for 4s.",
           "levelStarUnlocks": [
             "3★: 効果量が +8% 強化",
             "7★: 効果量が +12% 強化",
-            "10 stars: Coverage area increases by 28.5%."
+            "10★: Coverage area increases by 28.5%."
           ],
           "typeJapanese": "アクティブスキル"
         },
         {
           "skillName": "Indomitable Spirit",
-          "type": "Passive Skill",
+          "type": "パッシブスキル",
           "cooldown": "N/A",
-          "damageType": "Physical DMG",
+          "damageType": "物理ダメージ",
           "description": "In combat, reduces all damage taken by 26.25% and triggers an undying state upon taking fatal damage, retaining 1 HP for 2s. The state can only be triggered once.",
           "levelStarUnlocks": [
-            "4 stars: Duration +1s.",
-            "9 stars: Duration +1s.",
-            "10 stars: Duration +1s."
+            "4★: Duration +1s.",
+            "9★: Duration +1s.",
+            "10★: Duration +1s."
           ],
           "typeJapanese": "パッシブスキル"
         },
         {
           "skillName": "Tenacity",
-          "type": "Support Skill",
+          "type": "サポートスキル",
           "cooldown": "N/A",
-          "damageType": "N/A",
+          "damageType": "なし",
           "description": "攻撃力・HP・防御力 +20%。スキルのクールダウン速度 +10%。",
           "levelStarUnlocks": [
             "英雄レベル30 および 8★ でアンロック"
