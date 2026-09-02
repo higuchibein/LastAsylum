@@ -31,9 +31,9 @@
           "damageType": "物理ダメージ",
           "description": "地面を叩きつけて範囲内の敵に攻撃力の 1407.5% の物理ダメージを与え、同時に5秒間味方の被物理ダメージを 32.5% 軽減する。",
           "levelStarUnlocks": [
-            "2★: 物理ダメージ reduction increases by 3%.",
-            "6★: 物理ダメージ reduction increases by 4.5%.",
-            "10★: 物理ダメージ reduction increases by 7.5%."
+            "2★: 物理ダメージ 軽減率が +3% 強化。",
+            "6★: 物理ダメージ 軽減率が +4.5% 強化。",
+            "10★: 物理ダメージ 軽減率が +7.5% 強化。"
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
@@ -102,8 +102,8 @@
           "damageType": "エネルギーダメージ",
           "description": "クリティカル率を 14.00% 上昇させ、巨月刃を発射して範囲内の敵に攻撃力の 2480% のエネルギーダメージを与える。",
           "levelStarUnlocks": [
-            "2★: Deals 40% extra damage.",
-            "6★: Deals damage to all enemies.",
+            "2★: 追加ダメージ +40% 解放。",
+            "6★: 攻撃対象が敵全体に拡大。",
             "10★: 追加ダメージが 100% に強化"
           ],
           "typeJapanese": "必殺技 (アルティメット)"
@@ -126,7 +126,7 @@
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "In combat, increases 22.0% クリティカル率.",
+          "description": "戦闘中, 上昇 22.0% クリティカル率.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
             "9★: 効果量が +2.4% 強化",
@@ -171,11 +171,11 @@
           "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
           "damageType": "エネルギーダメージ",
-          "description": "Releases 3 sword winds, each randomly targeting an enemy, dealing 2818.75% ATK エネルギーダメージ.",
+          "description": "Releases 3 sword winds, each randomly targeting an 敵, dealing 2818.75% ATK エネルギーダメージ.",
           "levelStarUnlocks": [
-            "2★: Sword Wind +1; each deals 20% extra damage.",
-            "6★: Each deals 100% extra damage.",
-            "10★: Sword Wind +1; each deals 140% extra damage."
+            "2★: Sword Wind +1; each 追加ダメージ +20% 解放。",
+            "6★: Each 追加ダメージ +100% 解放。",
+            "10★: Sword Wind +1; each 追加ダメージ +140% 解放。"
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
@@ -184,9 +184,9 @@
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "エネルギーダメージ",
-          "description": "Throws a scarlet flower that explodes on impact, dealing 1218.75% ATK エネルギーダメージ to targets within range.",
+          "description": "Throws a scarlet flower that explodes on impact, dealing 1218.75% ATK エネルギーダメージ to targets 範囲内の.",
           "levelStarUnlocks": [
-            "3★: Deals 20% extra damage and increases ATK by 12% for 3s.",
+            "3★: 追加ダメージ +20% 解放。 and 上昇 ATK by 12% 3秒間.",
             "7★: 追加ダメージが 70% に強化。",
             "10★: 追加ダメージが 150% に強化。"
           ],
@@ -197,7 +197,7 @@
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "In combat, increases エネルギーダメージ dealt by 22.0%.",
+          "description": "戦闘中, 上昇 エネルギーダメージ dealt by 22.0%.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
             "9★: 効果量が +2.4% 強化",
@@ -229,7 +229,7 @@
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "Slashes the target, dealing 622.5% ATK 物理ダメージ to a single enemy.",
+          "description": "Slashes the target, dealing 622.5% ATK 物理ダメージ to a single 敵.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
@@ -242,7 +242,7 @@
           "type": "必殺技 (アルティメット)",
           "cooldown": "5.8s",
           "damageType": "物理ダメージ",
-          "description": "Concentrates energy to grant every ally a shield equal to 570.0% of their max DEF, absorbing 50% of incoming damage for 5s.",
+          "description": "Concentrates エネルギー to grant every 味方 a shield equal to 570.0% of their max DEF, absorbing 50% of incoming damage 5秒間.",
           "levelStarUnlocks": [
             "2★: シールド効果量が +30% 強化",
             "6★: シールド効果量が +30% 強化",
@@ -257,9 +257,9 @@
           "damageType": "物理ダメージ",
           "description": "Stabs the target with a two-handed sword, dealing 770.0% ATK 物理ダメージ and restoring HP equal to 400.0% ATK.",
           "levelStarUnlocks": [
-            "3★: Restores 60% extra HP.",
-            "7★: Extra HP recovery increases to 150%.",
-            "10★: Extra HP recovery increases to 300%."
+            "3★: 回復 60% extra HP.",
+            "7★: Extra HP recovery 上昇 to 150%.",
+            "10★: Extra HP recovery 上昇 to 300%."
           ],
           "typeJapanese": "アクティブスキル"
         },
@@ -268,7 +268,7 @@
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "At the start of the battle, grants all allied tank heroes a shield equal to 18.75% of their max HP, absorbing 50% of incoming damage for 5s.",
+          "description": "At the start of the battle, 獲得・付与 all allied タンク (防衛) heroes a shield equal to 18.75% of their max HP, absorbing 50% of incoming damage 5秒間.",
           "levelStarUnlocks": [
             "4★: Shield Duration +2s.",
             "9★: シールド効果量が +20% 強化",
@@ -300,7 +300,7 @@
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "Randomly throws 3 smoke bombs, each dealing 210.0% ATK 物理ダメージ to a single enemy.",
+          "description": "Randomly throws 3 smoke bombs, each dealing 210.0% ATK 物理ダメージ to a single 敵.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
@@ -313,7 +313,7 @@
           "type": "必殺技 (アルティメット)",
           "cooldown": "6.4s",
           "damageType": "物理ダメージ",
-          "description": "Unleashes a rolling black mist, dealing 922.5% ATK 物理ダメージ to all enemies and reducing their エネルギーダメージ by 20.0% for 5s.",
+          "description": "Unleashes a rolling black mist, dealing 922.5% ATK 物理ダメージ to all 敵全体 and reducing their エネルギーダメージ by 20.0% 5秒間.",
           "levelStarUnlocks": [
             "2★: 効果量が +3% 強化",
             "6★: 効果量が +3% 強化",
@@ -326,7 +326,7 @@
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "物理ダメージ",
-          "description": "Throws a large smoke cartridge, dealing 462.5% ATK 物理ダメージ to enemies in range and reducing their DEF by 50.25% for 3s.",
+          "description": "Throws a large smoke cartridge, dealing 462.5% ATK 物理ダメージ to 敵全体 範囲内の and reducing their DEF by 50.25% 3秒間.",
           "levelStarUnlocks": [
             "3★: 効果量が +4.5% 強化",
             "7★: 効果量が +7.5% 強化",
@@ -339,7 +339,7 @@
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "In combat, reduces エネルギーダメージ taken by 32.0%.",
+          "description": "戦闘中, 軽減 エネルギーダメージ taken by 32.0%.",
           "levelStarUnlocks": [
             "4★: 効果量が +5% 強化",
             "9★: 効果量が +5% 強化",
@@ -371,7 +371,7 @@
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "Throws a flame, inflicts 622.5% ATK 物理ダメージ 単体の目標に, and heals the ally with the lowest HP for 50% of ATK.",
+          "description": "Throws a flame, inflicts 622.5% ATK 物理ダメージ 単体の目標に, and heals the 味方 with the lowest HP for 50% of ATK.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
@@ -384,11 +384,11 @@
           "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
           "damageType": "なし",
-          "description": "Summons a pillar of fire, dealing 2625.0% ATK 物理ダメージ to all enemies. If targets are [Burning], damage increases by 40.0%.",
+          "description": "Summons a pillar of fire, dealing 2625.0% ATK 物理ダメージ to all 敵全体. If targets are [Burning], damage 効果が +40.0% 増加。",
           "levelStarUnlocks": [
-            "2★: Deals 100% extra damage.",
+            "2★: 追加ダメージ +100% 解放。",
             "6★: 追加ダメージが 200%（最大値）に強化",
-            "10★: Damage from Burn status increases by 5%."
+            "10★: Damage from Burn status 効果が +5% 増加。"
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
@@ -397,11 +397,11 @@
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "なし",
-          "description": "Throws 2 fireballs, healing the 2 lowest-HP allies for 387.5% ATK.",
+          "description": "Throws 2 fireballs, healing the 2 lowest-HP 味方全体 for 387.5% ATK.",
           "levelStarUnlocks": [
-            "3★: Restores extra 70% HP.",
-            "7★: Extra HP recovery increases to 140%.",
-            "10★: Extra HP recovery increases to 210%."
+            "3★: 回復 extra 70% HP.",
+            "7★: Extra HP recovery 上昇 to 140%.",
+            "10★: Extra HP recovery 上昇 to 210%."
           ],
           "typeJapanese": "アクティブスキル"
         },
@@ -410,11 +410,11 @@
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "During battle, increases ATK SPD of all allied Warlock Heroes by 13.5%.",
+          "description": "During battle, 上昇 ATK SPD of all allied ソーサラー / ウォーロック Heroes by 13.5%.",
           "levelStarUnlocks": [
-            "4★: Attack speed bonus increases by 1.2%.",
-            "9★: Attack speed bonus increases by 1.8%.",
-            "10★: All allied Warlock Heroes' ATK +3%."
+            "4★: Attack speed bonus 効果が +1.2% 増加。",
+            "9★: Attack speed bonus 効果が +1.8% 増加。",
+            "10★: All allied ソーサラー / ウォーロック Heroes' ATK +3%."
           ],
           "typeJapanese": "パッシブスキル"
         },
@@ -442,7 +442,7 @@
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "エネルギーダメージ",
-          "description": "Waves a magic wand to conjure a candy, dealing 622.5% ATK エネルギーダメージ to a single enemy.",
+          "description": "Waves a magic wand to conjure a candy, dealing 622.5% ATK エネルギーダメージ to a single 敵.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
@@ -455,11 +455,11 @@
           "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
           "damageType": "エネルギーダメージ",
-          "description": "Summons 2 explosive candy jars, targeting the 2 enemies with the highest ATK, dealing 2961.0% ATK DMG, and inflicting [Burn], causing 100% ATK damage per second for 5s.",
+          "description": "Summons 2 explosive candy jars, targeting the 2 敵全体 with the highest ATK, dealing 2961.0% ATK ダメージ, and inflicting [Burn], causing 100% ATK damage per second 5秒間.",
           "levelStarUnlocks": [
             "2★: Attack Target +1.",
-            "6★: If the target is Burning, deals an additional 900% Attack Damage once.",
-            "10★: Deals 200% extra damage."
+            "6★: If the target is Burning, 与える an additional 900% Attack Damage once.",
+            "10★: 追加ダメージ +200% 解放。"
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
@@ -468,10 +468,10 @@
           "type": "アクティブスキル",
           "cooldown": "4.1s",
           "damageType": "エネルギーダメージ",
-          "description": "Throws a gift box, dealing 1342.5% ATK エネルギーダメージ to enemies within range and causing them to [Burn], inflicting 100% ATK エネルギーダメージ per second for 2s.",
+          "description": "Throws a gift box, dealing 1342.5% ATK エネルギーダメージ to 敵全体 範囲内の and causing them to [Burn], inflicting 100% ATK エネルギーダメージ per second 2秒間.",
           "levelStarUnlocks": [
             "3★: Burning Duration +2s.",
-            "7★: Deals 100% extra damage.",
+            "7★: 追加ダメージ +100% 解放。",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
           "typeJapanese": "アクティブスキル"
@@ -481,7 +481,7 @@
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "In combat, increases エネルギーダメージ dealt by 22.0%.",
+          "description": "戦闘中, 上昇 エネルギーダメージ dealt by 22.0%.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
             "9★: 効果量が +2.4% 強化",
@@ -526,9 +526,9 @@
           "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
           "damageType": "物理ダメージ",
-          "description": "Throws 2 joker cards, dealing 4206.25% ATK 物理ダメージ to 2 lowest-HP enemies.",
+          "description": "Throws 2 joker cards, dealing 4206.25% ATK 物理ダメージ to 2 lowest-HP 敵全体.",
           "levelStarUnlocks": [
-            "2★: Deals 40% extra damage.",
+            "2★: 追加ダメージ +40% 解放。",
             "6★: 追加ダメージが 100% に強化",
             "10★: Attack Target +1."
           ],
@@ -541,9 +541,9 @@
           "damageType": "物理ダメージ",
           "description": "Throws a heart card, dealing 1350.0% ATK as 物理ダメージ to 2 random targets.",
           "levelStarUnlocks": [
-            "3★: Deals 40% extra damage.",
+            "3★: 追加ダメージ +40% 解放。",
             "7★: 追加ダメージが 100% に強化",
-            "10★: Inflicts [Burn] on the target, dealing 400% Attack Damage per second for 3s."
+            "10★: Inflicts [Burn] on the target, dealing 400% Attack Damage per second 3秒間."
           ],
           "typeJapanese": "アクティブスキル"
         },
@@ -552,7 +552,7 @@
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "In combat, increases 22.0% クリティカル率.",
+          "description": "戦闘中, 上昇 22.0% クリティカル率.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
             "9★: 効果量が +2.4% 強化",
@@ -584,7 +584,7 @@
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "エネルギーダメージ",
-          "description": "Throws a scalpel, dealing 622.5% ATK エネルギーダメージ to a single enemy.",
+          "description": "メスを投擲し、単体の敵に攻撃力の 622.5% のエネルギーダメージを与える.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
@@ -597,9 +597,9 @@
           "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
           "damageType": "エネルギーダメージ",
-          "description": "Summons the Crimson Rose, dealing 3792.0% ATK エネルギーダメージ to the 2 highest-ATK enemies, with a 35% chance to stun targets for 5s.",
+          "description": "Summons the Crimson Rose, dealing 3792.0% ATK エネルギーダメージ to the 2 highest-ATK 敵全体, with a 35% chance to stun targets 5秒間.",
           "levelStarUnlocks": [
-            "2★: Deals 40% extra damage.",
+            "2★: 追加ダメージ +40% 解放。",
             "6★: Attack Target +1.",
             "10★: 追加ダメージが 140% に強化。"
           ],
@@ -610,7 +610,7 @@
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "エネルギーダメージ",
-          "description": "Locks onto a target, dealing 2445.0% ATK as エネルギーダメージ to them, and increasing damage they take by 14.0% for 3s.",
+          "description": "Locks onto a target, dealing 2445.0% ATK as エネルギーダメージ to them, and increasing damage they take by 14.0% 3秒間.",
           "levelStarUnlocks": [
             "3★: 追加ダメージ +40% 解放。",
             "7★: 追加ダメージが 100% に強化",
@@ -623,7 +623,7 @@
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "In combat, increases 22.0% ATK.",
+          "description": "戦闘中, 上昇 22.0% ATK.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
             "9★: 効果量が +2.4% 強化",
@@ -655,7 +655,7 @@
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "マリオネットを振るい、攻撃力の 622.5% の 物理ダメージ to a single enemy.",
+          "description": "マリオネットを振るい、攻撃力の 622.5% の 物理ダメージ to a single 敵.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
@@ -668,11 +668,11 @@
           "type": "必殺技 (アルティメット)",
           "cooldown": "6.4s",
           "damageType": "物理ダメージ",
-          "description": "Lifts the marionette stand and smashes it to the ground, dealing 2430.0% ATK damage to enemies within range, granting the 3 highest-ATK allies a 70% chance to be immune to stun.",
+          "description": "Lifts the marionette stand and smashes it to the ground, dealing 2430.0% ATK damage to 敵全体 範囲内の, granting the 3 highest-ATK 味方全体 a 70% chance to be immune to stun.",
           "levelStarUnlocks": [
-            "2★: All damage received by allied defense heroes reduces by 15% for 5s.",
+            "2★: All damage received by allied defense heroes 軽減 by 15% 5秒間.",
             "6★: Chance of stun immunity +30%.",
-            "10★: Increases damage dealt on targets by 15% for 5s."
+            "10★: 上昇 damage dealt on targets by 15% 5秒間."
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
@@ -694,7 +694,7 @@
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "In combat, reduces all damage taken by 22.0%.",
+          "description": "戦闘中, 軽減 all damage taken by 22.0%.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
             "9★: 効果量が +2.4% 強化",
@@ -726,7 +726,7 @@
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "エネルギーダメージ",
-          "description": "Throws a forest dagger at the target, dealing 622.5% ATK エネルギーダメージ to a single enemy.",
+          "description": "Throws a forest dagger at the target, dealing 622.5% ATK エネルギーダメージ to a single 敵.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
@@ -739,11 +739,11 @@
           "type": "必殺技 (アルティメット)",
           "cooldown": "13.6s",
           "damageType": "エネルギーダメージ",
-          "description": "Quickly tosses 3 special daggers, randomly targeting 3 enemies, dealing 3058.0% ATK DMG to each.",
+          "description": "Quickly tosses 3 special daggers, randomly targeting 3 敵全体, dealing 3058.0% ATK ダメージ to each.",
           "levelStarUnlocks": [
             "2★: Blade +1.",
-            "6★: Deals 60% extra damage.",
-            "10★: Extra damage increases to 120%; +1 blade."
+            "6★: 追加ダメージ +60% 解放。",
+            "10★: 追加ダメージが 120% に強化。; +1 blade."
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
@@ -752,9 +752,9 @@
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "エネルギーダメージ",
-          "description": "Clasps hands tightly and prays to the mountain god, summoning a whirlwind of green leaves that deals 525.0% ATK エネルギーダメージ per second to enemies within range for 3s. During this time, enemies within the whirlwind take 20% extra エネルギーダメージ.",
+          "description": "Clasps hands tightly and prays to the mountain god, summoning a whirlwind of green leaves that 与える 525.0% ATK エネルギーダメージ per second to 敵全体 範囲内の 3秒間. During this time, 敵全体 within the whirlwind take 20% extra エネルギーダメージ.",
           "levelStarUnlocks": [
-            "3★: Deals 60% extra damage.",
+            "3★: 追加ダメージ +60% 解放。",
             "7★: 追加ダメージが 130% に強化。",
             "10★: 追加ダメージが 200%（最大値）に強化"
           ],
@@ -765,7 +765,7 @@
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "In combat, increases 22.0% クリティカル率.",
+          "description": "戦闘中, 上昇 22.0% クリティカル率.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
             "9★: 効果量が +2.4% 強化",
@@ -810,7 +810,7 @@
           "type": "必殺技 (アルティメット)",
           "cooldown": "12.7s",
           "damageType": "なし",
-          "description": "Inspires the 2 highest-ATK allies, increasing their ATK by 48.75% for 5s.",
+          "description": "Inspires the 2 highest-ATK 味方全体, increasing their ATK by 48.75% 5秒間.",
           "levelStarUnlocks": [
             "2★: 効果量が +5% 強化",
             "6★: Effect Duration +2s.",
@@ -823,11 +823,11 @@
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "なし",
-          "description": "Heals the lowest-HP ally for 450.0% ATK.",
+          "description": "Heals the lowest-HP 味方 for 450.0% ATK.",
           "levelStarUnlocks": [
-            "3★: Restores 40% extra HP.",
-            "7★: Extra HP recovery increases to 100%.",
-            "10★: Extra HP recovery increases to 200%."
+            "3★: 回復 40% extra HP.",
+            "7★: Extra HP recovery 上昇 to 100%.",
+            "10★: Extra HP recovery 上昇 to 200%."
           ],
           "typeJapanese": "アクティブスキル"
         },
@@ -836,7 +836,7 @@
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "During battle, increases ATK of all allied Ranger Heroes by 16.5%.",
+          "description": "During battle, 上昇 ATK of all allied レンジャー Heroes by 16.5%.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.2% 強化",
             "9★: 効果量が +1.8% 強化",
@@ -868,7 +868,7 @@
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "エネルギーダメージ",
-          "description": "Plays a flute to create bubbles, dealing 622.5% ATK エネルギーダメージ to a single enemy.",
+          "description": "Plays a flute to create bubbles, dealing 622.5% ATK エネルギーダメージ to a single 敵.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
@@ -881,10 +881,10 @@
           "type": "必殺技 (アルティメット)",
           "cooldown": "12.7s",
           "damageType": "エネルギーダメージ",
-          "description": "Harper plays a war flute to inspire allies, increasing all allied heroes' ATK by 21.045% for 5s.",
+          "description": "Harper plays a war flute to inspire 味方全体, increasing all 味方英雄' ATK by 21.045% 5秒間.",
           "levelStarUnlocks": [
-            "2★: After being cast, increases エネルギーダメージ dealt by allies by 4.5% for 7s.",
-            "6★: ATK bonus increases by 4.5%.",
+            "2★: After being cast, 上昇 エネルギーダメージ dealt by 味方全体 by 4.5% 7秒間.",
+            "6★: ATK bonus 効果が +4.5% 増加。",
             "10★: ATK bonus duration +5s."
           ],
           "typeJapanese": "必殺技 (アルティメット)"
@@ -894,7 +894,7 @@
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "エネルギーダメージ",
-          "description": "Harper creates a bubble, reducing the damage received by the lowest-HP ally by 18.0% for 4s.",
+          "description": "Harper creates a bubble, reducing the damage received by the lowest-HP 味方 by 18.0% 4秒間.",
           "levelStarUnlocks": [
             "3★: 効果量が +1.6% 強化",
             "7★: 効果量が +2.4% 強化",
@@ -907,7 +907,7 @@
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "In battle, increases ATK of all allied Warrior Heroes by 16.5%.",
+          "description": "In battle, 上昇 ATK of all allied ウォーリア Heroes by 16.5%.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.2% 強化",
             "9★: 効果量が +1.8% 強化",
@@ -939,7 +939,7 @@
           "type": "通常攻撃",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "Swings sharp claws, dealing 622.5% ATK 物理ダメージ to a single enemy.",
+          "description": "Swings sharp claws, dealing 622.5% ATK 物理ダメージ to a single 敵.",
           "levelStarUnlocks": [
             "1★: 追加ダメージ +40% 解放",
             "5★: 追加ダメージが 100% に強化",
@@ -952,7 +952,7 @@
           "type": "必殺技 (アルティメット)",
           "cooldown": "6.4s",
           "damageType": "物理ダメージ",
-          "description": "Charges up, then lunges forward and bites the target, dealing 1505.0% ATK 物理ダメージ, and reducing all damage taken by all allied heroes by 18.75% for 4s.",
+          "description": "Charges up, then lunges forward and bites the target, dealing 1505.0% ATK 物理ダメージ, and reducing all damage taken by all 味方英雄 by 18.75% 4秒間.",
           "levelStarUnlocks": [
             "2★: 効果量が +2% 強化",
             "6★: 効果量が +3% 強化",
@@ -965,7 +965,7 @@
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "物理ダメージ",
-          "description": "Howls to the sky, entering Berserk state: when taking damage, reflects 147.0% of that damage back to the attacker. This effect lasts for 3s.",
+          "description": "Howls to the sky, entering Berserk state: when taking damage, reflects 147.0% of that damage back to the attacker. This effect lasts 3秒間.",
           "levelStarUnlocks": [
             "3★: 効果量が +8% 強化",
             "7★: Effect Duration +1s.",
@@ -978,7 +978,7 @@
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "なし",
-          "description": "In combat, reduces all damage taken by 22.0%.",
+          "description": "戦闘中, 軽減 all damage taken by 22.0%.",
           "levelStarUnlocks": [
             "4★: 効果量が +1.6% 強化",
             "9★: 効果量が +2.4% 強化",
@@ -1023,11 +1023,11 @@
           "type": "必殺技 (アルティメット)",
           "cooldown": "6.4s",
           "damageType": "物理ダメージ",
-          "description": "Simultaneously swings 2 chains forward, dealing 1140.0% ATK damage to enemies within range, healing self for 150% ATK, and reducing all damage taken by 26.25% for 5s.",
+          "description": "Simultaneously swings 2 chains forward, dealing 1140.0% ATK damage to 敵全体 範囲内の, healing self for 150% ATK, and reducing all damage taken by 26.25% 5秒間.",
           "levelStarUnlocks": [
-            "2★: Damage reduction additionally applies to 1 nearest ally.",
-            "6★: Damage reduction applies to all allies.",
-            "10★: Deals 60% extra damage."
+            "2★: Damage reduction additionally applies to 1 nearest 味方.",
+            "6★: Damage reduction applies to all 味方全体.",
+            "10★: 追加ダメージ +60% 解放。"
           ],
           "typeJapanese": "必殺技 (アルティメット)"
         },
@@ -1036,11 +1036,11 @@
           "type": "アクティブスキル",
           "cooldown": "4.5s",
           "damageType": "物理ダメージ",
-          "description": "Charges both hands, creating an energy field that reduces エネルギーダメージ taken by allies within range by 27.75% for 4s.",
+          "description": "Charges both hands, creating an エネルギー field that 軽減 エネルギーダメージ taken by 味方全体 範囲内の by 27.75% 4秒間.",
           "levelStarUnlocks": [
             "3★: 効果量が +8% 強化",
             "7★: 効果量が +12% 強化",
-            "10★: Coverage area increases by 28.5%."
+            "10★: Coverage area 効果が +28.5% 増加。"
           ],
           "typeJapanese": "アクティブスキル"
         },
@@ -1049,7 +1049,7 @@
           "type": "パッシブスキル",
           "cooldown": "N/A",
           "damageType": "物理ダメージ",
-          "description": "In combat, reduces all damage taken by 26.25% and triggers an undying state upon taking fatal damage, retaining 1 HP for 2s. The state can only be triggered once.",
+          "description": "戦闘中, 軽減 all damage taken by 26.25% and triggers an undying state upon taking fatal damage, retaining 1 HP 2秒間. The state can only be triggered once.",
           "levelStarUnlocks": [
             "4★: Duration +1s.",
             "9★: Duration +1s.",
