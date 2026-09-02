@@ -1,6 +1,6 @@
 /**
  * Last Asylum - Hero & Skill Calculator Script (js/hero_calculator.js)
- * Faction-grouped hero selection (Warrior / Ranger / Warlock)
+ * Robust Faction Filter Tabs & Simulation Engine
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,9 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const starVal = document.getElementById('star-val');
   const skillLvSlider = document.getElementById('skill-lv-slider');
   const skillLvVal = document.getElementById('skill-lv-val');
-
-  // Faction Filter Buttons
-  const factionBtns = document.querySelectorAll('.faction-filter-btn');
 
   // Preset Buttons
   const btnInit = document.getElementById('preset-init');
@@ -61,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!heroSelect || satorimetaHeroes.length === 0) return;
     heroSelect.innerHTML = '';
 
-    // Group heroes into 3 Factions: Warrior, Ranger, Warlock (Sorcerer)
     const warriorGroup = [];
     const rangerGroup = [];
     const warlockGroup = [];
@@ -73,13 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (fac.includes('ranger')) {
         rangerGroup.push(h);
       } else {
-        warlockGroup.push(h); // Warlock / Sorcerer
+        warlockGroup.push(h);
       }
     });
 
     let selectedAlready = false;
 
-    // Helper to append OptGroup
     const appendGroup = (groupLabel, heroesList) => {
       if (heroesList.length === 0) return;
       const optGroup = document.createElement('optgroup');
@@ -340,18 +335,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Faction Filter Tab Listeners
-  factionBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      factionBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const factionKey = btn.getAttribute('data-faction') || 'all';
-      populateHeroSelect(factionKey);
-      calculateAndRender();
-    });
+  // Robust Event Delegation for Faction Filter Buttons
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.faction-filter-btn');
+    if (!btn) return;
+
+    // Toggle active class on buttons
+    const allBtns = document.querySelectorAll('.faction-filter-btn');
+    allBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const factionKey = btn.getAttribute('data-faction') || 'all';
+    populateHeroSelect(factionKey);
+    calculateAndRender();
   });
 
-  // Event Listeners
+  // Event Listeners for Sliders & Select
   if (heroSelect) heroSelect.addEventListener('change', calculateAndRender);
   if (heroLvSlider) heroLvSlider.addEventListener('input', calculateAndRender);
   if (starSlider) starSlider.addEventListener('input', calculateAndRender);
