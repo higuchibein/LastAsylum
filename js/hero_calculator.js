@@ -1,6 +1,6 @@
 /**
  * Last Asylum - Hero & Skill Calculator Script (js/hero_calculator.js)
- * Full Japanese Translated Skill Descriptions & Beautiful Exclusive Weapon Layout
+ * Robust Multilingual Faction Filter & Simulation Engine
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -64,9 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     satorimetaHeroes.forEach(h => {
       const fac = (h.faction || '').toLowerCase();
-      if (fac.includes('warrior')) {
+      // Robust matching for both English and Japanese faction names
+      if (fac.includes('warrior') || fac.includes('ウォーリア')) {
         warriorGroup.push(h);
-      } else if (fac.includes('ranger')) {
+      } else if (fac.includes('ranger') || fac.includes('レンジャー')) {
         rangerGroup.push(h);
       } else {
         warlockGroup.push(h);
@@ -137,9 +138,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Translate Faction Name for Display
     let displayFaction = currentHero.faction || 'Ranger';
-    if (displayFaction.toLowerCase().includes('warrior')) displayFaction = '⚔️ ウォーリア (Warrior)';
-    else if (displayFaction.toLowerCase().includes('ranger')) displayFaction = '🏹 レンジャー (Ranger)';
-    else if (displayFaction.toLowerCase().includes('warlock')) displayFaction = '🔮 ソーサラー (Warlock)';
+    const facLower = displayFaction.toLowerCase();
+    if (facLower.includes('warrior') || facLower.includes('ウォーリア')) displayFaction = '⚔️ ウォーリア (Warrior)';
+    else if (facLower.includes('ranger') || facLower.includes('レンジャー')) displayFaction = '🏹 レンジャー (Ranger)';
+    else if (facLower.includes('warlock') || facLower.includes('ソーサラー') || facLower.includes('ウォーロック')) displayFaction = '🔮 ソーサラー (Warlock)';
 
     // Update Header Text & Badges
     if (resHeroName) resHeroName.textContent = currentHero.nameJapanese || currentHero.name;
