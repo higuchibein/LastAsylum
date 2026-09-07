@@ -254,6 +254,59 @@
       color: var(--text-muted);
       margin-bottom: 0.35rem;
     }
+
+    /* Quick Jump Tag List Styling */
+    html {
+      scroll-behavior: smooth;
+    }
+    .quick-jump-tags-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .quick-jump-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .quick-jump-tags-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .quick-tag-btn {
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.4rem 0.85rem;
+      border-radius: 20px;
+      background: var(--bg-primary);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .quick-tag-btn:hover {
+      background: var(--accent-gold);
+      color: #000;
+      border-color: var(--accent-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255,215,0,0.25);
+    }
+    .quick-tag-btn.tag-warrior { border-color: rgba(255, 215, 0, 0.4); }
+    .quick-tag-btn.tag-ranger { border-color: rgba(0, 240, 255, 0.4); }
+    .quick-tag-btn.tag-sorcerer { border-color: rgba(155, 89, 182, 0.4); }
+    .quick-tag-btn.tag-demon { border-color: rgba(255, 107, 107, 0.4); }
   </style>
 </head>
 <body>
@@ -485,6 +538,19 @@
       <!-- ==================== 項目2: 編成 (Team Compositions) ==================== -->
       <div id="tab-team-compositions" class="ranking-tab-content">
         
+        <!-- カテゴリクイックジャンプ・タグリスト -->
+        <div class="quick-jump-tags-wrapper">
+          <div class="quick-jump-title">📌 編成カテゴリ即時アクセス (クイックジャンプ):</div>
+          <div class="quick-jump-tags-grid">
+            <a href="#comp-warrior-pay" class="quick-tag-btn tag-warrior">⚔️ ウォーリア (課金)</a>
+            <a href="#comp-warrior-low" class="quick-tag-btn tag-warrior">⚔️ ウォーリア (低課金)</a>
+            <a href="#comp-warrior-free" class="quick-tag-btn tag-warrior">⚔️ ウォーリア (無課金)</a>
+            <a href="#comp-ranger" class="quick-tag-btn tag-ranger">🏹 レンジャー</a>
+            <a href="#comp-sorcerer" class="quick-tag-btn tag-sorcerer">🔮 ソーサラー</a>
+            <a href="#comp-demon-king" class="quick-tag-btn tag-demon">😈 魔王特化 (Boss)</a>
+          </div>
+        </div>
+
         <div style="margin-bottom: 1.5rem; background: var(--bg-card); padding: 1.2rem; border-radius: 10px; border: 1px solid var(--border-color);">
           <h2 style="font-size: 1.1rem; color: var(--accent-gold); margin-bottom: 0.5rem; font-weight: 800;">
             📐 台形編成の配置ルール
@@ -496,7 +562,7 @@
         </div>
 
         <!-- 1. ウォーリア編成 -->
-        <h3 class="comp-section-title">⚔️ ウォーリア (Warrior) 編成</h3>
+        <h3 id="comp-warrior-pay" class="comp-section-title">⚔️ ウォーリア (Warrior) 編成</h3>
 
         <!-- 課金 -->
         <div style="margin-bottom: 0.5rem; font-size: 0.88rem; font-weight: 700; color: var(--accent-gold);">【課金編成】</div>
@@ -535,7 +601,7 @@
         </div>
 
         <!-- 低課金 -->
-        <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 0.88rem; font-weight: 700; color: var(--accent-blue);">【低課金編成】</div>
+        <div id="comp-warrior-low" style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 0.88rem; font-weight: 700; color: var(--accent-blue);">【低課金編成】</div>
         
         <div class="trapezoid-card">
           <div class="trapezoid-card-header">
@@ -571,7 +637,7 @@
         </div>
 
         <!-- 無課金 (ルネサンス適用後) -->
-        <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 0.88rem; font-weight: 700; color: #10ac84;">【無課金（ルネサンス適用後）編成】</div>
+        <div id="comp-warrior-free" style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 0.88rem; font-weight: 700; color: #10ac84;">【無課金（ルネサンス適用後）編成】</div>
 
         <!-- おすすめ① -->
         <div class="trapezoid-card">
@@ -943,7 +1009,7 @@
         </div>
 
         <!-- 2. レンジャー編成 -->
-        <h3 class="comp-section-title">🏹 レンジャー (Ranger) 編成</h3>
+        <h3 id="comp-ranger" class="comp-section-title">🏹 レンジャー (Ranger) 編成</h3>
 
         <div class="trapezoid-card">
           <div class="trapezoid-card-header">
@@ -979,7 +1045,7 @@
         </div>
 
         <!-- 3. ソーサラー編成 -->
-        <h3 class="comp-section-title">🔮 ソーサラー (Sorcerer) 編成</h3>
+        <h3 id="comp-sorcerer" class="comp-section-title">🔮 ソーサラー (Sorcerer) 編成</h3>
 
         <div class="trapezoid-card">
           <div class="trapezoid-card-header">
@@ -1048,7 +1114,7 @@
         </div>
 
         <!-- 4. 魔王 (Demon King) 特化編成 -->
-        <h3 class="comp-section-title">😈 魔王特化編成 (Boss Raid)</h3>
+        <h3 id="comp-demon-king" class="comp-section-title">😈 魔王特化編成 (Boss Raid)</h3>
 
         <!-- ウォーリア -->
         <div class="trapezoid-card">
