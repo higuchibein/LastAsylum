@@ -1,6 +1,7 @@
 /**
  * Last Asylum - Individual Hero Details & Editable Notes Script (js/hero_detail.js)
- * Manages full hero specifications, skill trees, exclusive weapons, and LocalStorage-based wiki note editing.
+ * Manages full hero specifications, initial vs max stat comparison, skill formulas (Lv.1 vs Lv.30/Max),
+ * exclusive weapons, and LocalStorage-based wiki note editing.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -89,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const portraitUrl = `https://satorimeta.com/assets/last-asylum/heroes/portraits/${hero.slug}.webp`;
 
     // Document Title Update
-    document.title = `${jaName} (${hero.name}) 評価・スキル・ステータス個別図鑑 | Last Asylum Wiki`;
+    document.title = `${jaName} (${hero.name}) 初期・Maxステータス＆全スキル個別図鑑 | Last Asylum Wiki`;
 
     // Faction Badge
     let facLabel = hero.faction || 'Ranger';
@@ -98,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (fLower.includes('ranger') || fLower.includes('レンジャー')) facLabel = '🏹 レンジャー';
     else if (fLower.includes('warlock') || fLower.includes('ソーサラー') || fLower.includes('ウォーロック')) facLabel = '🔮 ソーサラー';
 
-    // Tier badge class
+    // Tier badge style
     let tierBadgeStyle = 'background: linear-gradient(135deg, #444, #222); border: 1px solid #666; color: #fff;';
     if (tierInfo.overall === 'S') tierBadgeStyle = 'background: linear-gradient(135deg, #ffd700, #ff8c00); border: 1px solid #ffe066; color: #000; box-shadow: 0 0 15px rgba(255,215,0,0.4);';
     else if (tierInfo.overall === 'A') tierBadgeStyle = 'background: linear-gradient(135deg, #e0e0e0, #888888); border: 1px solid #ffffff; color: #000;';
@@ -149,30 +150,55 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }
 
-    // 2. Render Base Stats
+    // 2. Calculate & Render Initial (Lv.1) vs Max (Lv.150, 10★ 覚醒) Stats
+    const baseAtk = hero.levelProgressionData?.defaultAttackBase || 15971;
+    const baseHp = baseAtk * 140;
+    const baseDef = Math.round(baseAtk * 1.0);
+    const baseCmd = 350;
+
+    // Max multiplier: Lv.150 mult (8.152) * 10★ star mult (1.80) = 14.6736
+    const statMultMax = 8.152 * 1.80;
+    const maxAtk = Math.round(baseAtk * statMultMax);
+    const maxHp = Math.round(baseHp * statMultMax);
+    const maxDef = Math.round(baseDef * statMultMax);
+    const maxCmd = 350 + (150 * 2); // 650
+
     if (statsContainer) {
-      const baseAtk = hero.levelProgressionData?.defaultAttackBase || 15971;
-      const baseHp = baseAtk * 140;
-      const baseDef = Math.round(baseAtk * 1.0);
-
       statsContainer.innerHTML = `
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 0.75rem; margin-bottom: 1.25rem;">
-          <div style="background:var(--bg-primary); padding:0.75rem; border-radius:8px; border:1px solid var(--border-color); text-align:center;">
-            <div style="font-size:0.72rem; color:var(--text-muted);">初期 ATK</div>
-            <div style="font-size:1.2rem; font-weight:800; color:var(--accent-gold);">${baseAtk.toLocaleString()}</div>
-          </div>
-          <div style="background:var(--bg-primary); padding:0.75rem; border-radius:8px; border:1px solid var(--border-color); text-align:center;">
-            <div style="font-size:0.72rem; color:var(--text-muted);">初期 HP</div>
-            <div style="font-size:1.2rem; font-weight:800; color:var(--accent-blue);">${baseHp.toLocaleString()}</div>
-          </div>
-          <div style="background:var(--bg-primary); padding:0.75rem; border-radius:8px; border:1px solid var(--border-color); text-align:center;">
-            <div style="font-size:0.72rem; color:var(--text-muted);">初期 DEF</div>
-            <div style="font-size:1.2rem; font-weight:800; color:#10ac84;">${baseDef.toLocaleString()}</div>
-          </div>
-        </div>
+        <table class="stats-table">
+          <thead>
+            <tr>
+              <th>ステータス項目</th>
+              <th>🟢 初期 (Lv.1 / 0★)</th>
+              <th>👑 Max (Lv.150 / 10★覚醒)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>⚔️ 攻撃力 (ATK)</strong></td>
+              <td><span style="color:var(--accent-gold); font-weight:700;">${baseAtk.toLocaleString()}</span></td>
+              <td><span style="color:var(--accent-gold); font-weight:900; font-size:0.95rem;">${maxAtk.toLocaleString()}</span></td>
+            </tr>
+            <tr>
+              <td><strong>❤️ 体力 (HP)</strong></td>
+              <td><span style="color:var(--accent-blue); font-weight:700;">${baseHp.toLocaleString()}</span></td>
+              <td><span style="color:var(--accent-blue); font-weight:900; font-size:0.95rem;">${maxHp.toLocaleString()}</span></td>
+            </tr>
+            <tr>
+              <td><strong>🛡️ 防御力 (DEF)</strong></td>
+              <td><span style="color:#10ac84; font-weight:700;">${baseDef.toLocaleString()}</span></td>
+              <td><span style="color:#10ac84; font-weight:900; font-size:0.95rem;">${maxDef.toLocaleString()}</span></td>
+            </tr>
+            <tr>
+              <td><strong>🪖 指揮力 (兵員数)</strong></td>
+              <td><span style="color:#fff; font-weight:700;">${baseCmd.toLocaleString()}</span></td>
+              <td><span style="color:#fff; font-weight:900; font-size:0.95rem;">${maxCmd.toLocaleString()}</span></td>
+            </tr>
+          </tbody>
+        </table>
 
-        <ul style="font-size: 0.85rem; color: var(--text-color); line-height: 1.7; padding-left: 1.2rem; margin: 0;">
-          <li><strong>最大到達レベル:</strong> Lv.150 (UR英雄補正適用)</li>
+        <ul style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; padding-left: 1.2rem; margin-top: 0.75rem; margin-bottom: 0;">
+          <li><strong>最大成長補正:</strong> 初期ステータスの <strong style="color:var(--accent-gold);">約14.67倍</strong> (Lv.150 補正 8.15倍 × 10★覚醒 1.80倍)</li>
           <li><strong>ダメージタイプ:</strong> ${escapeHtml(hero.damageType || '物理ダメージ')}</li>
           <li><strong>推奨配置:</strong> ${escapeHtml(hero.defaultPlacement || '前衛')}</li>
           ${hero.hallOfHonor ? `<li><strong>殿堂バフ (Hall of Honor):</strong> <span style="color:var(--accent-gold);">${escapeHtml(hero.hallOfHonor)}</span></li>` : ''}
@@ -204,30 +230,106 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // 4. Render Skills
+    // 4. Render Skills with Initial vs Max Multipliers
     if (skillsContainer) {
       const skills = hero.skills || [];
       if (skills.length === 0) {
         skillsContainer.innerHTML = '<div style="color:var(--text-muted); padding:1rem; text-align:center;">スキルデータが存在しません。</div>';
       } else {
-        skillsContainer.innerHTML = skills.map((s, idx) => `
-          <div class="skill-detail-card">
-            <div class="skill-detail-header">
-              <span class="skill-name-txt">${idx + 1}. ⚡ ${escapeHtml(s.skillName)}</span>
-              <span class="skill-badge-kind">${escapeHtml(s.kindLabelJapanese || s.kindLabel || 'スキル')}</span>
+        skillsContainer.innerHTML = skills.map((s, idx) => {
+          const { initMult, maxMult, maxStarLabel } = extractSkillMultipliers(s);
+
+          const initDmgStr = (initMult && baseAtk) ? Math.round(baseAtk * (initMult / 100)).toLocaleString() : '―';
+          const maxDmgStr = (maxMult && maxAtk) ? Math.round(maxAtk * (maxMult / 100)).toLocaleString() : '―';
+
+          const initMultStr = initMult ? `${initMult.toFixed(1)}%` : 'Lv.1 基本効果';
+          const maxMultStr = maxMult ? `${maxMult.toFixed(1)}%` : 'Max強化適用';
+
+          return `
+            <div class="skill-detail-card">
+              <div class="skill-detail-header">
+                <span class="skill-name-txt">${idx + 1}. ⚡ ${escapeHtml(s.skillName)}</span>
+                <span class="skill-badge-kind">${escapeHtml(s.kindLabelJapanese || s.kindLabel || 'スキル')}</span>
+              </div>
+              <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.6rem; line-height:1.5;">
+                ${escapeHtml(s.description || '')}
+              </p>
+
+              <!-- 初期 vs Max 効果比較ボックス -->
+              <div class="skill-comparison-grid">
+                <div class="skill-level-box init-box">
+                  <div class="box-title">🟢 初期効果 (Skill Lv.1 / 未強化)</div>
+                  <div style="font-size:0.85rem; font-weight:700; color:#fff;">ダメージ倍率: <strong style="color:#10ac84;">${initMultStr}</strong></div>
+                  <div style="font-size:0.78rem; color:var(--text-muted); margin-top:0.2rem;">Lv.1 初期予想傷害: <strong style="color:#fff;">${initDmgStr}</strong></div>
+                </div>
+
+                <div class="skill-level-box max-box">
+                  <div class="box-title">👑 ${escapeHtml(maxStarLabel)}</div>
+                  <div style="font-size:0.85rem; font-weight:700; color:#fff;">最大倍率: <strong style="color:var(--accent-gold);">${maxMultStr}</strong></div>
+                  <div style="font-size:0.78rem; color:var(--text-muted); margin-top:0.2rem;">Max 予想傷害: <strong style="color:#ff6b6b; font-weight:800;">${maxDmgStr}</strong></div>
+                </div>
+              </div>
+
+              ${s.unlockRequirement ? `<div style="font-size:0.75rem; color:var(--accent-gold); margin-top:0.4rem;">🔓 <strong>解放条件:</strong> ${escapeHtml(s.unlockRequirement)}</div>` : ''}
             </div>
-            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.5rem; line-height:1.5;">
-              ${escapeHtml(s.description || '')}
-            </p>
-            ${s.unlockRequirement ? `<div style="font-size:0.75rem; color:var(--accent-gold);">🔓 <strong>解放条件:</strong> ${escapeHtml(s.unlockRequirement)}</div>` : ''}
-          </div>
-        `).join('');
+          `;
+        }).join('');
       }
     }
 
     // Initialize Notes and Comments for this hero
     initHeroNotes(hero);
     initHeroComments(hero);
+  }
+
+  // ==========================================
+  // Helper: Extract Initial & Max Multipliers
+  // ==========================================
+  function extractSkillMultipliers(s) {
+    let initMult = null;
+    let maxMult = null;
+    let maxStarLabel = 'Max効果 (Skill Lv.30)';
+
+    const parseVal = (formulaStr, n1Val) => {
+      if (!formulaStr) return null;
+      try {
+        const expr = formulaStr.replace(/n1/g, String(n1Val));
+        const res = Function('"use strict"; return (' + expr + ')')();
+        return typeof res === 'number' && !isNaN(res) ? res : null;
+      } catch (e) {
+        return null;
+      }
+    };
+
+    // Base formula (n1 = 0 for Lv.1, n1 = 29 for Lv.30)
+    if (s.formulas) {
+      for (const f of s.formulas) {
+        if (f.value && f.value.includes('n1')) {
+          initMult = parseVal(f.value, 0);
+          maxMult = parseVal(f.value, 29);
+          break;
+        }
+      }
+    }
+
+    // Check star level up progression
+    if (s.skillLevelUpProgression && s.skillLevelUpProgression.length > 0) {
+      for (const prog of s.skillLevelUpProgression) {
+        if (prog.formulas) {
+          for (const f of prog.formulas) {
+            if (f.value && f.value.includes('n1')) {
+              const starMaxVal = parseVal(f.value, 29);
+              if (starMaxVal && starMaxVal > (maxMult || 0)) {
+                maxMult = starMaxVal;
+                maxStarLabel = `Max効果 (Skill Lv.30 / ${prog.mark || '10★覚醒'})`;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    return { initMult, maxMult, maxStarLabel };
   }
 
   // ==========================================

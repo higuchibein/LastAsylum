@@ -157,6 +157,60 @@
       font-weight: 700;
     }
 
+    /* Stats & Skill Comparison Styles */
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    .stats-table th, .stats-table td {
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .stats-table th {
+      background: rgba(0,0,0,0.3);
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.78rem;
+    }
+    .stats-table tr:hover {
+      background: rgba(255,215,0,0.03);
+    }
+
+    .skill-comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin: 0.75rem 0;
+    }
+    @media (max-width: 540px) {
+      .skill-comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .skill-level-box {
+      border-radius: 8px;
+      padding: 0.75rem;
+      font-size: 0.82rem;
+    }
+    .skill-level-box.init-box {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .skill-level-box.max-box {
+      background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,107,107,0.08));
+      border: 1px solid rgba(255,215,0,0.4);
+    }
+    .skill-level-box .box-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+    }
+    .skill-level-box.init-box .box-title { color: #10ac84; }
+    .skill-level-box.max-box .box-title { color: var(--accent-gold); }
+
     /* Editable Notes & Comments Section */
     .editable-notes-box {
       background: var(--bg-primary);
