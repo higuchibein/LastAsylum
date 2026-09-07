@@ -514,22 +514,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   function initHeroComments(hero) {
     const commentsStorageKey = `last_asylum_hero_comments_${hero.slug}`;
-    
-    // Default initial reviews for popular heroes
-    const defaultComments = [
-      {
-        user: '指揮官α',
-        star: 5,
-        date: '2026/09/01 14:20',
-        text: `${hero.nameJapanese || hero.name}は前衛タンクとして抜群の安定感。育成優先度SSクラスです！`
-      },
-      {
-        user: '避難所ランカー',
-        star: 4,
-        date: '2026/09/03 09:15',
-        text: `スキル2の範囲デバフが強い。PvP防衛編成に必須の一人。`
-      }
-    ];
 
     let commentsList = [];
     const saved = localStorage.getItem(commentsStorageKey);
@@ -537,10 +521,10 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         commentsList = JSON.parse(saved);
       } catch(e) {
-        commentsList = defaultComments;
+        commentsList = [];
       }
     } else {
-      commentsList = defaultComments;
+      commentsList = [];
     }
 
     renderCommentsList(commentsList);
