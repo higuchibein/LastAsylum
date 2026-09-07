@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT1ZPGW2Y3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZT1ZPGW2Y3');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🛡️ 英雄装備レベルアップ＆消費リソース計算機 (Lv.0 〜 60) | Last Asylum Wiki</title>
+  <meta name="description" content="Last Asylumの英雄装備レベルアップ強化コスト(Lv.0〜60)をリアルタイム試算。研磨石・薬草・精錬鋼の累計必要リソース計算および【剣】の★星ランク高レベルステータス(Lv.40〜60)参照一覧。">
+  <link rel="stylesheet" href="css/style.css?v=20260831_02">
+  <style>
+    .calc-gear-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      margin-bottom: 2rem;
+    }
+    .gear-grid-layout {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 900px) {
+      .gear-grid-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    .control-panel, .result-panel {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .slider-group {
+      margin-bottom: 1.2rem;
+    }
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .slider-val {
+      color: var(--accent-gold);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--bg-card);
+      outline: none;
+      accent-color: var(--accent-gold);
+    }
+    .preset-btn-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .btn-preset {
+      flex: 1;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text-muted);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-preset:hover {
+      background: var(--accent-gold);
+      color: #000;
+      border-color: var(--accent-gold);
+    }
+    .gear-res-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .gear-res-box {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 1.2rem;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .gear-res-box:hover {
+      transform: translateY(-2px);
+    }
+    .gear-res-val {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-top: 0.2rem;
+    }
+    .gear-res-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+    .gear-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+    }
+    .gear-table th, .gear-table td {
+      padding: 0.65rem 0.85rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+    .gear-table th {
+      background: rgba(0,240,255,0.1);
+      color: var(--accent-blue);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 共通ヘッダー -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo">
+        🛡️ LAST ASYLUM <span class="badge">WIKI</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">トップ</a>
+        <a href="calculator.html" class="nav-link">資源計算機</a>
+        <a href="database.html" class="nav-link">データベース</a>
+        <a href="hero_calculator.html" class="nav-link">⚡ 英雄計算機</a>
+        <a href="gear_calculator.html" class="nav-link active">🛡️ 装備計算機</a>
+        <a href="event.html" class="nav-link">⚔️ イベント戦力分析</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="main-content">
+    <div class="container">
+      
+      <h1 class="section-title">🛡️ 英雄装備レベルアップ＆消費リソース計算機 (Lv.0 〜 60)</h1>
+
+      <div class="calc-gear-card">
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem; text-align: center;">
+          Last Asylumの英雄装備（剣・腕・鎧・足）のレベルアップに必要な<strong>研磨石 (Stone)</strong>・<strong>薬草 (Grass/Herb)</strong>・<strong>精錬鋼 (Steel)</strong> の消費コストをLv.0〜60まで正確に計算します。
+        </p>
+
+        <div class="gear-grid-layout">
+          
+          <!-- 左カラム：設定コントロール -->
+          <div class="control-panel">
+            <h2 style="font-size: 1.05rem; color: var(--accent-gold); margin-bottom: 1rem; font-weight: 700;">
+              ⚙️ 装備強化パラメータ設定
+            </h2>
+
+            <!-- 装備部位の選択 -->
+            <div style="margin-bottom: 1.2rem;">
+              <label for="gear-type-select" style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 0.4rem;">
+                対象装備の部位
+              </label>
+              <select id="gear-type-select" class="form-select" style="width: 100%; padding: 0.55rem; font-weight: 600;">
+                <option value="all" selected>⚔️ ALL (全4部位: 剣・腕・鎧・足 共通コスト)</option>
+                <option value="sword">⚔️ 剣 (Weapon / ATK & Critical)</option>
+                <option value="arm">🦾 腕 (Gauntlet / ATK & DEF)</option>
+                <option value="armor">🛡️ 鎧 (Armor / HP & DEF)</option>
+                <option value="boots">👢 足 (Boots / HP & Speed)</option>
+              </select>
+              <span style="display: block; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">
+                ※全部位（剣・腕・鎧・足）ともレベルごとの消費コストは同一です。
+              </span>
+            </div>
+
+            <!-- 計算部位数 -->
+            <div style="margin-bottom: 1.2rem;">
+              <label for="gear-count-select" style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 0.4rem;">
+                計算対象の部位数
+              </label>
+              <select id="gear-count-select" class="form-select" style="width: 100%; padding: 0.55rem; font-weight: 600;">
+                <option value="1" selected>1部位のみ計算</option>
+                <option value="4">4部位フルセット分（× 4倍）</option>
+              </select>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.2rem 0;">
+
+            <!-- 現在のレベル -->
+            <div class="slider-group">
+              <div class="slider-header">
+                <span>現在の装備レベル</span>
+                <span id="gear-from-val" class="slider-val">Lv.0</span>
+              </div>
+              <input type="range" id="gear-from-slider" min="0" max="59" value="0">
+            </div>
+
+            <!-- 目標のレベル -->
+            <div class="slider-group">
+              <div class="slider-header">
+                <span>目標の装備レベル</span>
+                <span id="gear-to-val" class="slider-val">Lv.60</span>
+              </div>
+              <input type="range" id="gear-to-slider" min="1" max="60" value="60">
+            </div>
+
+            <!-- プリセットボタン -->
+            <div style="margin-top: 1rem;">
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.4rem;">▼ クイックレベル設定プリセット</div>
+              <div class="preset-btn-group">
+                <button type="button" id="btn-gear-0-60" class="btn-preset">0 ➔ 60</button>
+                <button type="button" id="btn-gear-40-60" class="btn-preset">40 ➔ 60</button>
+                <button type="button" id="btn-gear-50-60" class="btn-preset">50 ➔ 60</button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 右カラム：結果パネル -->
+          <div class="result-panel">
+            <h2 style="font-size: 1.05rem; color: #fff; margin-bottom: 1rem; font-weight: 700; display: flex; align-items: center; justify-content: space-between;">
+              <span>💎 必要強化リソース合計 (Lv.<span id="res-gear-range-str" style="color: var(--accent-gold);">0 ➔ 60</span>)</span>
+              <span id="res-gear-count-str" style="font-size: 0.8rem; color: var(--accent-blue); font-weight: 600;">（1部位）</span>
+            </h2>
+
+            <div class="gear-res-grid">
+              <div class="gear-res-box" style="border-top: 4px solid var(--accent-gold);">
+                <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">🪨 研磨石 (Stone)</div>
+                <div id="res-gear-stone" class="gear-res-val" style="color: var(--accent-gold);">0</div>
+                <div id="res-gear-stone-sub" class="gear-res-sub">(0)</div>
+              </div>
+
+              <div class="gear-res-box" style="border-top: 4px solid #10ac84;">
+                <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">🌿 薬草 (Grass / Herb)</div>
+                <div id="res-gear-grass" class="gear-res-val" style="color: #10ac84;">0</div>
+                <div id="res-gear-grass-sub" class="gear-res-sub">(0)</div>
+              </div>
+
+              <div class="gear-res-box" style="border-top: 4px solid var(--accent-blue);">
+                <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">⚙️ 精錬鋼 (Steel / Lv.41〜)</div>
+                <div id="res-gear-steel" class="gear-res-val" style="color: var(--accent-blue);">0</div>
+                <div id="res-gear-steel-sub" class="gear-res-sub">(0)</div>
+              </div>
+            </div>
+
+            <!-- 注記 -->
+            <div style="margin-top: 1.5rem; background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06); font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+              💡 <strong>強化のポイント:</strong><br>
+              ・Lv.1〜40までは研磨石と薬草のみで強化可能です。<br>
+              ・Lv.41以降からは「<strong>精錬鋼 (Steel)</strong>」が必要となり、レベル上昇毎のコストが大幅に増加します。<br>
+              ・レベル40以降は★星ランクが付与され、英雄ステータス（攻撃力・防御力・クリティカル率等）が飛躍的に伸びます。
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- 【剣】高レベルステータスパラメータ参考一覧 -->
+        <div style="margin-top: 2.5rem;">
+          <h2 style="font-size: 1.1rem; color: var(--accent-gold); margin-bottom: 0.5rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
+            ⚔️ 【剣】の高レベルステータス上昇一覧 (Lv.40★0 〜 Lv.60★4)
+          </h2>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+            ※レベル40以降の【剣】を対象としたステータス実測参考表です。★星ランクに伴いクリティカル率や攻撃%の上昇量が大幅に強化されます。
+          </p>
+
+          <div style="overflow-x: auto;">
+            <table class="gear-table">
+              <thead>
+                <tr>
+                  <th>装備レベル & 星ランク</th>
+                  <th>英雄攻撃 (数値)</th>
+                  <th>英雄防御 (数値)</th>
+                  <th>英雄攻撃 (%)</th>
+                  <th>クリティカル率 (%)</th>
+                </tr>
+              </thead>
+              <tbody id="gear-sword-stats-tbody">
+                <!-- Dynamically populated by js/gear_calculator.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 他ツールへの誘導リンクカード -->
+      <section style="margin-top: 3rem;">
+        <h2 class="section-title">📌 関連攻略シミュレーター & データベース</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+          <a href="hero_calculator.html" class="card" style="border-color: var(--accent-gold); background: linear-gradient(180deg, rgba(255, 215, 0, 0.08), rgba(0, 0, 0, 0.4));">
+            <div style="font-size: 1.8rem; margin-bottom: 0.4rem;">⚡</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: var(--accent-gold); margin-bottom: 0.3rem;">英雄ステータス＆スキル計算シミュレーター</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted);">全31名の英雄レベル・スキルレベル・星覚醒ランクによる実戦ステータス試算。</div>
+          </a>
+          
+          <a href="calculator.html" class="card" style="border-color: var(--accent-blue);">
+            <div style="font-size: 1.8rem; margin-bottom: 0.4rem;">🧮</div>
+            <div style="font-size: 1.05rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.3rem;">施設強化・資源時間計算機</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted);">全26施設（協会・兵士訓練所等）のLv.1〜30強化必要リソースと建築時間計算。</div>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- 共通フッター -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Last Asylum Strategy Wiki Project. Non-official Fan Site based on real extracted data.</p>
+    </div>
+  </footer>
+
+  <script src="js/gear_calculator.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.querySelector('.menu-toggle');
+      const menu = document.querySelector('.nav-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
