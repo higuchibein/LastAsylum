@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT1ZPGW2Y3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZT1ZPGW2Y3');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏆 英雄Tierランキング ＆ おすすめチーム編成ガイド | Last Asylum Wiki</title>
+  <meta name="description" content="Last Asylumの最新英雄総合Tierランキング(S/A/B/C)およびアタッカー(DPS・PvP)・タンク・バッファー別ランキング、最強チームおすすめ編成ガイド。">
+  <link rel="stylesheet" href="css/style.css?v=20260831_02">
+  <style>
+    .ranking-nav-tabs {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid rgba(255,255,255,0.08);
+      padding-bottom: 0.75rem;
+    }
+    .ranking-tab-btn {
+      padding: 0.65rem 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-muted);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.25 ease;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .ranking-tab-btn:hover, .ranking-tab-btn.active {
+      background: linear-gradient(135deg, #ffd700, #ff9f43);
+      color: #000;
+      border-color: var(--accent-gold);
+      box-shadow: 0 4px 15px rgba(255,215,0,0.25);
+    }
+    .ranking-tab-content {
+      display: none;
+    }
+    .ranking-tab-content.active {
+      display: block;
+    }
+
+    /* Tier Table Custom Styling */
+    .tier-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      margin-bottom: 2rem;
+    }
+    .tier-row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1rem;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 0.85rem;
+      transition: transform 0.2s ease;
+    }
+    .tier-row:hover {
+      transform: translateX(4px);
+    }
+    .tier-row-s {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.12), rgba(255, 159, 67, 0.08));
+      border: 1px solid var(--accent-gold);
+    }
+    .tier-row-a {
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid var(--accent-blue);
+    }
+    .tier-row-b {
+      background: rgba(16, 172, 132, 0.08);
+      border: 1px solid #10ac84;
+    }
+    .tier-row-c {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tier-badge-label {
+      font-size: 1.8rem;
+      font-weight: 900;
+      text-align: center;
+      border-radius: 8px;
+      padding: 0.4rem 0;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .tier-badge-s { color: var(--accent-gold); }
+    .tier-badge-a { color: var(--accent-blue); }
+    .tier-badge-b { color: #10ac84; }
+    .tier-badge-c { color: var(--text-muted); }
+
+    .hero-chip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 0.35rem 0.75rem 0.35rem 0.4rem;
+      border-radius: 20px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+      transition: all 0.2s ease;
+    }
+    .hero-chip:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255,215,0,0.2);
+    }
+    .hero-chip-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent-gold);
+      object-fit: cover;
+    }
+
+    /* Role Tier Grid */
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+    }
+    .role-card {
+      background: var(--bg-primary);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .role-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 0.5rem;
+    }
+
+    /* Team Composition Card Styles */
+    .comp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .comp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .comp-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      margin: 0;
+    }
+    .comp-tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-weight: 800;
+      background: rgba(0,240,255,0.15);
+      color: var(--accent-blue);
+    }
+    .comp-team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 768px) {
+      .comp-team-grid {
+        grid-template-columns: 1fr;
+      }
+      .tier-row {
+        grid-template-columns: 60px 1fr;
+      }
+    }
+    .comp-pos-box {
+      background: var(--bg-primary);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 0.85rem;
+    }
+    .comp-pos-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 共通ヘッダー -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo">
+        🛡️ LAST ASYLUM <span class="badge">WIKI</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">トップ</a>
+        <a href="calculator.html" class="nav-link">資源計算機</a>
+        <a href="database.html" class="nav-link">データベース</a>
+        <a href="hero_calculator.html" class="nav-link">⚡ 英雄計算機</a>
+        <a href="gear_calculator.html" class="nav-link">🛡️ 装備計算機</a>
+        <a href="ranking.html" class="nav-link active">🏆 ランキング・編成</a>
+        <a href="event.html" class="nav-link">⚔️ イベント戦力分析</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="main-content">
+    <div class="container">
+      
+      <h1 class="section-title">🏆 英雄Tierランキング ＆ おすすめチーム編成ガイド</h1>
+
+      <!-- タブ切替ナビ -->
+      <div class="ranking-nav-tabs">
+        <button type="button" class="ranking-tab-btn active" data-tab="tab-tier-ranking">
+          🥇 英雄Tierランキング (総合・役割別)
+        </button>
+        <button type="button" class="ranking-tab-btn" data-tab="tab-team-compositions">
+          🛡️ おすすめパーティ編成・シナジー
+        </button>
+      </div>
+
+      <!-- ==================== 項目1: TierRanking ==================== -->
+      <div id="tab-tier-ranking" class="ranking-tab-content active">
+        
+        <!-- 英雄総合Tierランキング -->
+        <div class="tier-card">
+          <h2 style="font-size: 1.25rem; color: var(--accent-gold); margin-bottom: 1.25rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem;">
+            👑 英雄総合 Tier ランキング
+          </h2>
+          
+          <!-- S Tier -->
+          <div class="tier-row tier-row-s">
+            <div class="tier-badge-label tier-badge-s">S</div>
+            <div class="hero-chip-grid">
+              <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+              <span class="hero-chip" data-hero="ルイス">ルイス</span>
+              <span class="hero-chip" data-hero="ウルフレッド">ウルフレッド</span>
+            </div>
+          </div>
+
+          <!-- A Tier -->
+          <div class="tier-row tier-row-a">
+            <div class="tier-badge-label tier-badge-a">A</div>
+            <div class="hero-chip-grid">
+              <span class="hero-chip" data-hero="アーサー">アーサー</span>
+              <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              <span class="hero-chip" data-hero="シャドウ">シャドウ</span>
+              <span class="hero-chip" data-hero="シンシア">シンシア</span>
+              <span class="hero-chip" data-hero="ベル">ベル</span>
+              <span class="hero-chip" data-hero="レッドレディ">レッドレディ</span>
+              <span class="hero-chip" data-hero="ピエロ">ピエロ</span>
+              <span class="hero-chip" data-hero="アニー">アニー</span>
+              <span class="hero-chip" data-hero="ニコル">ニコル</span>
+            </div>
+          </div>
+
+          <!-- B Tier -->
+          <div class="tier-row tier-row-b">
+            <div class="tier-badge-label tier-badge-b">B</div>
+            <div class="hero-chip-grid">
+              <span class="hero-chip" data-hero="ダスカール">ダスカール</span>
+              <span class="hero-chip" data-hero="クレア">クレア</span>
+              <span class="hero-chip" data-hero="シリア">シリア</span>
+              <span class="hero-chip" data-hero="アッシュ">アッシュ</span>
+              <span class="hero-chip" data-hero="グリンウォルド">グリンウォルド</span>
+            </div>
+          </div>
+
+          <!-- C Tier -->
+          <div class="tier-row tier-row-c">
+            <div class="tier-badge-label tier-badge-c">C</div>
+            <div class="hero-chip-grid">
+              <span class="hero-chip" data-hero="ゾーヤ">ゾーヤ</span>
+              <span class="hero-chip" data-hero="ビリー">ビリー</span>
+              <span class="hero-chip" data-hero="ベラ">ベラ</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 種別・役割別ランキング -->
+        <div class="tier-card" style="margin-top: 2rem;">
+          <h2 style="font-size: 1.25rem; color: #fff; margin-bottom: 1.25rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem;">
+            🎯 種別・役割別ランキング
+          </h2>
+
+          <div class="role-grid">
+            
+            <!-- アタッカー（DPS / 継続火力） -->
+            <div class="role-card">
+              <div class="role-title">
+                <span>🗡️ アタッカー（DPS / 継続火力）</span>
+              </div>
+              
+              <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <strong style="color: var(--accent-gold); width: 24px;">S</strong>
+                  <div class="hero-chip-grid"><span class="hero-chip" data-hero="マレーナ">マレーナ</span></div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <strong style="color: var(--accent-blue); width: 24px;">A</strong>
+                  <div class="hero-chip-grid">
+                    <span class="hero-chip" data-hero="シンシア">シンシア</span>
+                    <span class="hero-chip" data-hero="レッドレディ">レッドレディ</span>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <strong style="color: #10ac84; width: 24px;">B</strong>
+                  <div class="hero-chip-grid"><span class="hero-chip" data-hero="アニー">アニー</span></div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <strong style="color: var(--text-muted); width: 24px;">C</strong>
+                  <div class="hero-chip-grid">
+                    <span class="hero-chip" data-hero="ゾーヤ">ゾーヤ</span>
+                    <span class="hero-chip" data-hero="ピエロ">ピエロ</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- アタッカー（PvP / 対人特化） -->
+            <div class="role-card">
+              <div class="role-title">
+                <span>💥 アタッカー（PvP / 対人特化）</span>
+              </div>
+              
+              <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <strong style="color: var(--accent-gold); width: 24px;">S</strong>
+                  <div class="hero-chip-grid">
+                    <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+                    <span class="hero-chip" data-hero="ピエロ">ピエロ</span>
+                    <span class="hero-chip" data-hero="アニー">アニー</span>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <strong style="color: var(--accent-blue); width: 24px;">A</strong>
+                  <div class="hero-chip-grid">
+                    <span class="hero-chip" data-hero="レッドレディ">レッドレディ</span>
+                    <span class="hero-chip" data-hero="シンシア">シンシア</span>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <strong style="color: #10ac84; width: 24px;">B</strong>
+                  <div class="hero-chip-grid"><span class="hero-chip" data-hero="ゾーヤ">ゾーヤ</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- タンク（耐久・防衛） -->
+            <div class="role-card">
+              <div class="role-title">
+                <span>🛡️ タンク（耐久・防衛）</span>
+              </div>
+              
+              <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <strong style="color: var(--accent-gold); width: 24px;">S</strong>
+                  <div class="hero-chip-grid">
+                    <span class="hero-chip" data-hero="ウルフレッド">ウルフレッド</span>
+                    <span class="hero-chip" data-hero="ルイス">ルイス</span>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <strong style="color: var(--accent-blue); width: 24px;">A</strong>
+                  <div class="hero-chip-grid">
+                    <span class="hero-chip" data-hero="シャドウ">シャドウ</span>
+                    <span class="hero-chip" data-hero="アーサー">アーサー</span>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <strong style="color: #10ac84; width: 24px;">B</strong>
+                  <div class="hero-chip-grid"><span class="hero-chip" data-hero="ダスカール">ダスカール</span></div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <strong style="color: var(--text-muted); width: 24px;">C</strong>
+                  <div class="hero-chip-grid"><span class="hero-chip" data-hero="ビリー">ビリー</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- バッファー（支援・強化） -->
+            <div class="role-card">
+              <div class="role-title">
+                <span>🪄 バッファー（支援・強化）</span>
+              </div>
+              
+              <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <strong style="color: var(--accent-gold); width: 24px;">S</strong>
+                  <div class="hero-chip-grid">
+                    <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+                    <span class="hero-chip" data-hero="ベル">ベル</span>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <strong style="color: var(--accent-blue); width: 24px;">A</strong>
+                  <div class="hero-chip-grid"><span class="hero-chip" data-hero="ニコル">ニコル</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================== 項目2: 編成 (Team Compositions) ==================== -->
+      <div id="tab-team-compositions" class="ranking-tab-content">
+        
+        <div style="margin-bottom: 1.5rem; background: var(--bg-card); padding: 1.2rem; border-radius: 10px; border: 1px solid var(--border-color);">
+          <h2 style="font-size: 1.1rem; color: var(--accent-gold); margin-bottom: 0.5rem; font-weight: 800;">
+            💡 チーム編成の基本原則
+          </h2>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+            Last Asylumのパーティ構成は「<strong>前衛タンク 2名 ＋ 後衛アタッカー/バッファー 3名</strong>」のバランスが基本となります。<br>
+            前衛に高い耐久性を持つタンクを配置し、後衛で強力なDPSアタッカーと攻撃力・クリティカルバフを付与するバッファーを配置することで、戦闘での勝率が大幅に向上します。
+          </p>
+        </div>
+
+        <!-- おすすめ編成 1 -->
+        <div class="comp-card">
+          <div class="comp-header">
+            <h3 class="comp-title">👑 最凶バランス構成 (PvP / 汎用最強パーティ)</h3>
+            <span class="comp-tag">S Tier 英雄集中</span>
+          </div>
+
+          <div class="comp-team-grid">
+            <div class="comp-pos-box" style="border-left: 3px solid var(--accent-blue);">
+              <div class="comp-pos-title">🛡️ 前衛 (Front Line / タンク)</div>
+              <div class="hero-chip-grid">
+                <span class="hero-chip" data-hero="ウルフレッド">ウルフレッド</span>
+                <span class="hero-chip" data-hero="ルイス">ルイス</span>
+              </div>
+            </div>
+
+            <div class="comp-pos-box" style="border-left: 3px solid var(--accent-gold);">
+              <div class="comp-pos-title">⚡ 後衛 (Back Line / メインDPS & サポート)</div>
+              <div class="hero-chip-grid">
+                <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+                <span class="hero-chip" data-hero="ベル">ベル</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; background: rgba(0,0,0,0.2); padding: 0.75rem; border-radius: 6px;">
+            📝 <strong>構成解説:</strong> Sランクタンクのウルフレッドとルイスで前線を強固に維持しつつ、ハーパーとベルによる重複攻撃バフ・回復支援を受けたマレーナが圧倒的火力で敵全体を即座に壊滅させます。
+          </div>
+        </div>
+
+        <!-- おすすめ編成 2 -->
+        <div class="comp-card">
+          <div class="comp-header">
+            <h3 class="comp-title">💥 瞬間爆発DPS撃滅パーティ (ボス・対人速攻特化)</h3>
+            <span class="comp-tag" style="background: rgba(255,107,107,0.15); color: #ff6b6b;">高火力アタッカー</span>
+          </div>
+
+          <div class="comp-team-grid">
+            <div class="comp-pos-box" style="border-left: 3px solid var(--accent-blue);">
+              <div class="comp-pos-title">🛡️ 前衛 (Front Line)</div>
+              <div class="hero-chip-grid">
+                <span class="hero-chip" data-hero="シャドウ">シャドウ</span>
+                <span class="hero-chip" data-hero="アーサー">アーサー</span>
+              </div>
+            </div>
+
+            <div class="comp-pos-box" style="border-left: 3px solid var(--accent-gold);">
+              <div class="comp-pos-title">⚡ 後衛 (Back Line)</div>
+              <div class="hero-chip-grid">
+                <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+                <span class="hero-chip" data-hero="ピエロ">ピエロ</span>
+                <span class="hero-chip" data-hero="アニー">アニー</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; background: rgba(0,0,0,0.2); padding: 0.75rem; border-radius: 6px;">
+            📝 <strong>構成解説:</strong> PvPにおいて高い適性を持つピエロとアニーの範囲爆発攻撃に加え、マレーナの確定高火力で戦闘開始直後に敵主要アタッカーを落とす超攻撃的パーティです。
+          </div>
+        </div>
+
+        <!-- おすすめ編成 3 -->
+        <div class="comp-card">
+          <div class="comp-header">
+            <h3 class="comp-title">🔰 育成安定・序盤おすすめコストバランス編成</h3>
+            <span class="comp-tag" style="background: rgba(16,172,132,0.15); color: #10ac84;">初心者・無課金推薦</span>
+          </div>
+
+          <div class="comp-team-grid">
+            <div class="comp-pos-box" style="border-left: 3px solid var(--accent-blue);">
+              <div class="comp-pos-title">🛡️ 前衛 (Front Line)</div>
+              <div class="hero-chip-grid">
+                <span class="hero-chip" data-hero="ダスカール">ダスカール</span>
+                <span class="hero-chip" data-hero="ビリー">ビリー</span>
+              </div>
+            </div>
+
+            <div class="comp-pos-box" style="border-left: 3px solid var(--accent-gold);">
+              <div class="comp-pos-title">⚡ 後衛 (Back Line)</div>
+              <div class="hero-chip-grid">
+                <span class="hero-chip" data-hero="シンシア">シンシア</span>
+                <span class="hero-chip" data-hero="ニコル">ニコル</span>
+                <span class="hero-chip" data-hero="レッドレディ">レッドレディ</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; background: rgba(0,0,0,0.2); padding: 0.75rem; border-radius: 6px;">
+            📝 <strong>構成解説:</strong> 入手しやすく育てやすい英雄を中心にした構成。ニコルの支援バフを受けつつシンシアとレッドレディが安定した単体・範囲ダメージを叩き出します。
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- 共通フッター -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Last Asylum Strategy Wiki Project. Non-official Fan Site based on real extracted data.</p>
+    </div>
+  </footer>
+
+  <script src="js/ranking.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.querySelector('.menu-toggle');
+      const menu = document.querySelector('.nav-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
