@@ -236,6 +236,27 @@
 
             <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 1rem 0;">
 
+            <!-- 装備【剣】レベル選択 -->
+            <div style="margin-bottom: 1.2rem;">
+              <label for="sword-level-select" style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 0.4rem;">
+                ⚔️ 装備【剣】レベル選択 (ステータス反映)
+              </label>
+              <select id="sword-level-select" class="form-select" style="width: 100%; padding: 0.55rem; font-weight: 600;">
+                <option value="0" selected>Lv. 0 (未装備 - 補正なし)</option>
+                <option value="40">Lv. 40 ★0 (+3,162 ATK / +1,775 DEF / +7.5% ATK / +20% Crit)</option>
+                <option value="44">Lv. 44 ★0 (+3,934 ATK / +2,331 DEF / +8.5% ATK / +22% Crit)</option>
+                <option value="48">Lv. 48 ★1 (+5,480 ATK / +3,250 DEF / +10.0% ATK / +25% Crit)</option>
+                <option value="52">Lv. 52 ★2 (+7,318 ATK / +4,304 DEF / +11.5% ATK / +30.5% Crit)</option>
+                <option value="56">Lv. 56 ★3 (+9,776 ATK / +5,644 DEF / +13.0% ATK / +33.5% Crit)</option>
+                <option value="60">Lv. 60 ★4 (+12,195 ATK / +7,190 DEF / +14.5% ATK / +39% Crit)</option>
+              </select>
+              <span style="display: block; font-size: 0.74rem; color: var(--text-muted); margin-top: 0.3rem;">
+                ※【剣】の装備レベルによる数値・%上昇が英雄予想ステータスおよびスキル傷害計算に直接反映されます。
+              </span>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 1rem 0;">
+
             <!-- プリセットボタン -->
             <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 600;">⚡ プリセット設定</div>
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem;">
@@ -264,11 +285,12 @@
             </div>
 
             <!-- 予想ステータス -->
-            <h3 style="font-size: 0.95rem; color: #fff; margin-bottom: 0.65rem; font-weight: 700;">📊 予想成長ステータス</h3>
+            <h3 style="font-size: 0.95rem; color: #fff; margin-bottom: 0.65rem; font-weight: 700;">📊 予想成長ステータス (【剣】補正連動)</h3>
             <div class="stat-display-grid">
               <div class="stat-box" style="border-top: 3px solid var(--accent-gold);">
                 <div class="stat-lbl">予想 ATK (攻撃)</div>
                 <div class="stat-num" id="stat-atk" style="color: var(--accent-gold);">-</div>
+                <div id="stat-atk-sub" style="font-size:0.72rem; color:var(--text-muted); margin-top:0.1rem;"></div>
               </div>
               <div class="stat-box" style="border-top: 3px solid var(--accent-blue);">
                 <div class="stat-lbl">予想 HP (体力)</div>
@@ -277,10 +299,15 @@
               <div class="stat-box" style="border-top: 3px solid #10ac84;">
                 <div class="stat-lbl">予想 DEF (防御)</div>
                 <div class="stat-num" id="stat-def" style="color: #10ac84;">-</div>
+                <div id="stat-def-sub" style="font-size:0.72rem; color:var(--text-muted); margin-top:0.1rem;"></div>
               </div>
               <div class="stat-box" style="border-top: 3px solid #ff9f43;">
                 <div class="stat-lbl">予想 CMD (統率)</div>
                 <div class="stat-num" id="stat-cmd" style="color: #ff9f43;">-</div>
+              </div>
+              <div class="stat-box" style="border-top: 3px solid #9b59b6;">
+                <div class="stat-lbl">🎯 剣 Crit% (会心)</div>
+                <div class="stat-num" id="stat-crit" style="color: #9b59b6;">+0.0%</div>
               </div>
             </div>
 

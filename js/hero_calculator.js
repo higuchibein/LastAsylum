@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const skillLvSlider = document.getElementById('skill-lv-slider');
   const skillLvVal = document.getElementById('skill-lv-val');
 
+  // Sword DOM Elements
+  const swordLevelSelect = document.getElementById('sword-level-select');
+
   // Hero Preset Buttons
   const btnInit = document.getElementById('preset-init');
   const btnMid = document.getElementById('preset-mid');
@@ -33,10 +36,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const statHp = document.getElementById('stat-hp');
   const statDef = document.getElementById('stat-def');
   const statCmd = document.getElementById('stat-cmd');
+  const statAtkSub = document.getElementById('stat-atk-sub');
+  const statDefSub = document.getElementById('stat-def-sub');
+  const statCrit = document.getElementById('stat-crit');
 
   const skillsListContainer = document.getElementById('skills-list-container');
   const awakeningSection = document.getElementById('awakening-section');
   const awakeningListContainer = document.getElementById('awakening-list-container');
+
+  // Sword Level Stats Map (data/gear_stats.json)
+  const SWORD_STATS_MAP = {
+    0:  { hero_attack: 0,     hero_defense: 0,    hero_attack_up_percent: 0.0,  crit_rate_up_percent: 0.0 },
+    40: { hero_attack: 3162,  hero_defense: 1775, hero_attack_up_percent: 7.5,  crit_rate_up_percent: 20.0 },
+    44: { hero_attack: 3934,  hero_defense: 2331, hero_attack_up_percent: 8.5,  crit_rate_up_percent: 22.0 },
+    48: { hero_attack: 5480,  hero_defense: 3250, hero_attack_up_percent: 10.0, crit_rate_up_percent: 25.0 },
+    52: { hero_attack: 7318,  hero_defense: 4304, hero_attack_up_percent: 11.5, crit_rate_up_percent: 30.5 },
+    56: { hero_attack: 9776,  hero_defense: 5644, hero_attack_up_percent: 13.0, crit_rate_up_percent: 33.5 },
+    60: { hero_attack: 12195, hero_defense: 7190, hero_attack_up_percent: 14.5, crit_rate_up_percent: 39.0 }
+  };
 
   // Fetch Data Sources
   Promise.all([
@@ -121,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     starVal.textContent = star === 0 ? '0★ (未解放)' : `${star}★ ${star >= 10 ? '(覚醒解放)' : ''}`;
     skillLvVal.textContent = `Lv. ${skillLv}`;
 
-    // 1. Calculate Predicted Base Stats
+    // 1. Calculate Predicted Base & Sword-Boosted Stats
     const baseAtk = currentHero.levelProgressionData?.defaultAttackBase || 15971;
     const baseHp = baseAtk * 140;
     const baseDef = baseAtk * 1.0;
@@ -130,10 +147,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const levelMult = 1 + ((level - 1) * 0.048);
     const starMult = 1 + (star * 0.08);
 
-    const predictedAtk = Math.round(baseAtk * levelMult * starMult);
-    const predictedHp = Math.round(baseHp * levelMult * starMult);
-    const predictedDef = Math.round(baseDef * levelMult * starMult);
+    const rawAtk = Math.round(baseAtk * levelMult * starMult);
+    const rawHp = Math.round(baseHp * levelMult * starMult);
+    const rawDef = Math.round(baseDef * levelMult * starMult);
     const predictedCmd = Math.round(baseCmd);
+
+    // Apply Sword Equipment Stat Boost
+    const swordLv = parseInt(swordLevelSelect ? swordLevelSelect.value : '0', 10) || 0;
+    const sStat = SWORD_STATS_MAP[swordLv] || SWORD_STATS_MAP[0];
+
+    const predictedAtk = Math.round((rawAtk + sStat.hero_attack) * (1 + (sStat.hero_attack_up_percent / 100)));
+    const predictedDef = Math.round(rawDef + sStat.hero_defense);
+    const predictedHp = rawHp;
 
     // Translate Faction Name for Display
     let displayFaction = currentHero.faction || 'Ranger';
@@ -174,6 +199,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (statHp) statHp.textContent = predictedHp.toLocaleString();
     if (statDef) statDef.textContent = predictedDef.toLocaleString();
     if (statCmd) statCmd.textContent = predictedCmd.toLocaleString();
+    if (statCrit) statCrit.textContent = `+${sStat.crit_rate_up_percent.toFixed(1)}%`;
+
+    if (statAtkSub) {
+      statAtkSub.textContent = swordLv > 0 ? `(素:${rawAtk.toLocaleString()} + 剣)` : '(剣補正なし)';
+    }
+    if (statDefSub) {
+      statDefSub.textContent = swordLv > 0 ? `(素:${rawDef.toLocaleString()} + 剣)` : '(剣補正なし)';
+    }
 
     // 2. Render Japanese Skills & Formulas
     renderSkills(predictedAtk, skillLv, star);
@@ -378,7 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroLvSlider) heroLvSlider.addEventListener('input', calculateAndRender);
   if (starSlider) starSlider.addEventListener('input', calculateAndRender);
   if (skillLvSlider) skillLvSlider.addEventListener('input', calculateAndRender);
-
+  if (swordLevelSelect) swordLevelSelect.addEventListener('change', calculateAndRender);
 
   // Preset Handlers
   if (btnInit) {
@@ -386,6 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
       heroLvSlider.value = 1;
       starSlider.value = 0;
       skillLvSlider.value = 1;
+      if (swordLevelSelect) swordLevelSelect.value = '0';
       calculateAndRender();
     });
   }
@@ -394,6 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
       heroLvSlider.value = 60;
       starSlider.value = 5;
       skillLvSlider.value = 15;
+      if (swordLevelSelect) swordLevelSelect.value = '40';
       calculateAndRender();
     });
   }
@@ -402,6 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
       heroLvSlider.value = 150;
       starSlider.value = 10;
       skillLvSlider.value = 30;
+      if (swordLevelSelect) swordLevelSelect.value = '60';
       calculateAndRender();
     });
   }
