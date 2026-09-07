@@ -413,13 +413,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "🩸 緋紅のメス (Scarlet Scalpel)",
-        "description": "レッドレディ専用の精密な医療メス。致命的な切り傷を与え、出血効果を高める。",
-        "stats": "攻撃力 +18.0% / エネルギーダメージ補正 +12.0%",
-        "effect": "スキル発動時、50%の確率で目標の被ダメージを3秒間 +15% 増加させる。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "cynthia",
@@ -980,13 +974,7 @@
           ],
           "skillNameJapanese": "月の加護"
         }
-      ],
-      "exclusiveWeapon": {
-        "weaponTitle": "🌙 月影の双刃 (Moonlight Twinblades)",
-        "description": "シンシア専用の伝説の武器。月光エネルギーと共鳴し、攻撃力を大幅に強化する。",
-        "stats": "攻撃力 +15.5% / クリティカル率 +10.0%",
-        "effect": "[月光] スタック獲得時、さらに自身の与エネルギーダメージ +2%（最大10スタック）。"
-      }
+      ]
     },
     {
       "slug": "bell",
@@ -1390,13 +1378,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "🔔 聖光の神鈴 (Sacred Bell)",
-        "description": "ベル専用の清らかな神鈴。癒しの鈴音で傷ついた味方を包み込む。",
-        "stats": "HP +18.0% / 回復量補正 +15.0%",
-        "effect": "聖域展開時、回復対象のデバフを1つ解除する。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "louis",
@@ -2210,13 +2192,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "💨 影潜の煙幕筒 (Shadow Cartridge)",
-        "description": "シャドウ専用の特製煙幕発生装置。暗闇の中から一撃を見舞う。",
-        "stats": "攻撃力 +15.0% / 被エネルギーダメージ軽減 +12.0%",
-        "effect": "煙幕内での攻撃時、クリティカル率 +20%。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "joker",
@@ -2620,13 +2596,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "🃏 運命のトランプ (Joker's Deck)",
-        "description": "ジェスター専用の仕込みトランプ。不確定な運命の力で敵の急所を穿つ。",
-        "stats": "攻撃力 +17.0% / クリティカル率 +12.0%",
-        "effect": "ジョーカーカード命中時、30%の確率で即座にスキルクールダウンをリセット。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "annie",
@@ -3186,13 +3156,7 @@
           ],
           "skillNameJapanese": "びっくり箱"
         }
-      ],
-      "exclusiveWeapon": {
-        "weaponTitle": "🍭 爆破キャンディ砲 (Candy Cannon)",
-        "description": "アニー専用の特製キャンディ砲。甘く危険な爆発で敵陣を焼き払う。",
-        "stats": "攻撃力 +18.5% / 火傷ダメージ +20.0%",
-        "effect": "[火傷] 状態の敵に対する自身の与エネルギーダメージ +15%。"
-      }
+      ]
     },
     {
       "slug": "nicole",
@@ -3596,13 +3560,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "🔥 灼熱の焔玉 (Blazing Orb)",
-        "description": "ニコル専用の魔法宝玉。無限の火炎エネルギーを供給する。",
-        "stats": "攻撃力 +16.0% / HP +14.0%",
-        "effect": "火柱スキル発動時、敵の火傷持続時間を +2秒 延長。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "billy",
@@ -4006,13 +3964,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "🎪 傀儡の操糸機 (Puppeter Core)",
-        "description": "ビリー専用の傀儡制御コア。糸の強度を高め、操り人形の打撃力を跳ね上げる。",
-        "stats": "攻撃力 +15.0% / 防御力 +10.0%",
-        "effect": "台座攻撃時、スタン無効付与確率が 70% ⇒ 100% に上昇。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "ulfrid",
@@ -4983,13 +4935,7 @@
           ],
           "skillNameJapanese": "武神の意志"
         }
-      ],
-      "exclusiveWeapon": {
-        "weaponTitle": "🌸 絢爛の真紅剣 (Crimson Bloom Blade)",
-        "description": "マルレーナ専用の優美な名剣。一閃の剣風で華麗に敵を討つ。",
-        "stats": "攻撃力 +19.0% / 与エネルギーダメージ +15.0%",
-        "effect": "剣風スキル命中時、目標のエネルギー防御力を3秒間 15% 低下。"
-      }
+      ]
     },
     {
       "slug": "zoya",
@@ -5393,13 +5339,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "🗡️ 翡翠の森刃 (Forest Emerald Blade)",
-        "description": "ゾーヤ専用の精霊の短剣。迅速な連続攻撃で敵の陣形を崩壊させる。",
-        "stats": "攻撃力 +16.5% / クリティカルダメージ +25.0%",
-        "effect": "竜巻スキル発動時、敵の移動速度を3秒間 30% 低下させる。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "harper",
@@ -5803,13 +5743,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "🎵 戦歌の魔笛 (Anthem Flute)",
-        "description": "ハーパー専用の神秘的な魔笛。演奏により味方の士気を極限まで高める。",
-        "stats": "攻撃力 +12.0% / HP +12.0%",
-        "effect": "軍笛スキル発動時、味方全体の攻撃力上昇効果が +20% ⇒ +30% に強化。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "arthur",
@@ -6213,13 +6147,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "🛡️ 聖騎士の誓い盾 (Paladin Oath Shield)",
-        "description": "アーサー専用の大盾。高い防御力で味方前線を受け止める。",
-        "stats": "HP +20.0% / 物理ダメージ軽減 +12.0%",
-        "effect": "スキル発動時、5秒間周囲の味方の防御力を +15% 上昇。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "daskal",
@@ -7023,13 +6951,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ アッシュ 専用武器",
-        "description": "アッシュの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "bestar",
@@ -7423,13 +7345,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ ベスター 専用武器",
-        "description": "ベスターの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "griffith",
@@ -7823,13 +7739,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ グリフィス 専用武器",
-        "description": "グリフィスの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "grenwald",
@@ -8223,13 +8133,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ グリンウォルド 専用武器",
-        "description": "グリンウォルドの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "stellar",
@@ -8623,13 +8527,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ ステラ 専用武器",
-        "description": "ステラの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "hastar",
@@ -9023,13 +8921,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ ハスター 専用武器",
-        "description": "ハスターの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "claire",
@@ -9423,13 +9315,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ クレア 専用武器",
-        "description": "クレアの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "kesso",
@@ -9823,13 +9709,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ ケイソ 専用武器",
-        "description": "ケイソの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "sivir",
@@ -10223,13 +10103,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ シヴィア 専用武器",
-        "description": "シヴィアの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "celia",
@@ -10629,13 +10503,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ シリア 専用武器",
-        "description": "シリアの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "bella",
@@ -11029,13 +10897,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ ベラ 専用武器",
-        "description": "ベラの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "lucius",
@@ -11429,13 +11291,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ ルシウス 専用武器",
-        "description": "ルシウスの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "robin",
@@ -11743,13 +11599,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ ロビン 専用武器",
-        "description": "ロビンの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "kafa",
@@ -12057,13 +11907,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ カファ 専用武器",
-        "description": "カファの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "william",
@@ -12371,13 +12215,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ ウィリアムズ 専用武器",
-        "description": "ウィリアムズの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     },
     {
       "slug": "durant",
@@ -12685,13 +12523,7 @@
         }
       ],
       "totalAwakeningStages": 0,
-      "awakeningSkills": [],
-      "exclusiveWeapon": {
-        "weaponTitle": "⚔️ デュラント 専用武器",
-        "description": "デュラントの潜在能力を限界まで引き出す専用装備。ステータスとスキル効果が大幅に強化される。",
-        "stats": "攻撃力 +15.0% / HP +15.0%",
-        "effect": "戦闘中、英雄のスキル効果と戦闘能力が強化される。"
-      }
+      "awakeningSkills": []
     }
   ],
   "translationLanguage": "ja",
