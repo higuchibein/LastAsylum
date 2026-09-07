@@ -12,11 +12,183 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>実データ検索・図鑑 ＆ イベント戦力 | Last Asylum Strategy Wiki</title>
+  <title>📖 英雄評価図鑑・データベース (全20名評価ランク＆スキル一覧) | Last Asylum Wiki</title>
+  <meta name="description" content="Last Asylumの全20名評価対象英雄の総合Tierランク(S/A/B/C)・役割別評価・初期ステータス・全スキル性能および専用装備一覧データベース。">
   <link rel="stylesheet" href="css/style.css?v=20260831_02">
+  <style>
+    .db-filter-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .filter-group-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+    .filter-btn-group {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .faction-filter-btn, .tier-filter-btn {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      background: var(--bg-primary);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .faction-filter-btn.active, .faction-filter-btn:hover,
+    .tier-filter-btn.active, .tier-filter-btn:hover {
+      background: var(--accent-gold);
+      color: #000;
+      border-color: var(--accent-gold);
+      font-weight: 800;
+    }
+
+    /* Grid layout for hero rating cards */
+    .heroes-db-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 1.5rem;
+    }
+    @media (max-width: 480px) {
+      .heroes-db-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .hero-db-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .hero-db-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-gold);
+    }
+    .hero-db-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 0.85rem;
+      margin-bottom: 0.85rem;
+    }
+    .hero-db-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-gold);
+      object-fit: cover;
+    }
+    .hero-db-name {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #fff;
+      margin: 0;
+    }
+    .hero-db-tier-box {
+      border-radius: 8px;
+      padding: 0.35rem 0.75rem;
+      text-align: center;
+      min-width: 60px;
+    }
+    .tier-badge-s { background: linear-gradient(135deg, rgba(255, 215, 0, 0.25), rgba(255, 159, 67, 0.2)); border: 1.5px solid var(--accent-gold); color: var(--accent-gold); }
+    .tier-badge-a { background: rgba(0, 240, 255, 0.15); border: 1.5px solid var(--accent-blue); color: var(--accent-blue); }
+    .tier-badge-b { background: rgba(16, 172, 132, 0.15); border: 1.5px solid #10ac84; color: #10ac84; }
+    .tier-badge-c { background: rgba(255, 255, 255, 0.05); border: 1.5px solid rgba(255, 255, 255, 0.15); color: var(--text-muted); }
+
+    .role-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.85rem;
+    }
+    .role-badge {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 12px;
+      background: var(--bg-primary);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #fff;
+    }
+
+    .hero-db-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      background: var(--bg-primary);
+      padding: 0.6rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 0.85rem;
+    }
+    .hero-db-stat {
+      text-align: center;
+    }
+    .hero-db-stat .lbl {
+      display: block;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-bottom: 0.1rem;
+    }
+    .hero-db-stat .val {
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .db-skill-item {
+      background: var(--bg-primary);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 6px;
+      padding: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+    .db-skill-name {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .db-skill-kind {
+      font-size: 0.65rem;
+      color: var(--accent-blue);
+      background: rgba(0,240,255,0.1);
+      padding: 0.1rem 0.4rem;
+      border-radius: 10px;
+    }
+    .db-skill-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin: 0.2rem 0 0 0;
+      line-height: 1.4;
+    }
+    .db-weapon-card {
+      margin-top: 0.85rem;
+      background: rgba(255, 215, 0, 0.05);
+      border: 1px solid rgba(255, 215, 0, 0.25);
+      border-radius: 8px;
+      padding: 0.75rem;
+    }
+  </style>
 </head>
 <body>
 
+  <!-- 共通ヘッダー -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="site-logo">
@@ -39,66 +211,80 @@
     </div>
   </header>
 
+  <!-- メインコンテンツ -->
   <main class="main-content">
     <div class="container">
       
-      <h1 class="section-title">実データ一覧・検索 & イベント戦力</h1>
+      <h1 class="section-title">📖 英雄評価図鑑 ＆ スキル・ステータスデータベース</h1>
 
-      <div class="calc-wrapper">
-        <input type="text" id="search-input" class="search-input" placeholder="名称・メンバー名・カテゴリ・コードで即時検索..." style="margin-bottom:1rem;">
+      <!-- フィルター・検索コントロール -->
+      <div class="db-filter-card">
         
-        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:space-between; align-items:center;">
-          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-            <button class="btn btn-secondary btn-sm tab-btn active" data-category="all">すべて</button>
-            <button class="btn btn-secondary btn-sm tab-btn" data-category="event_power">⚔️ イベント戦力一覧</button>
-            <button class="btn btn-secondary btn-sm tab-btn" data-category="facility">🏰 施設</button>
-            <button class="btn btn-secondary btn-sm tab-btn" data-category="hero">🦁 ヒーロー</button>
-            <button class="btn btn-secondary btn-sm tab-btn" data-category="gift_code">🎁 ギフトコード</button>
-          </div>
-
-          <div id="sort-control-wrapper" style="display:none; align-items:center; gap:0.4rem; margin-top:0.4rem;">
-            <span style="font-size:0.8rem; color:var(--text-muted);">並び順:</span>
-            <select id="sort-select" class="form-select" style="padding:0.3rem 0.6rem; font-size:0.85rem; width:auto;">
-              <option value="power-desc">一軍戦力 (高い順)</option>
-              <option value="power-asc">一軍戦力 (低い順)</option>
-              <option value="level-desc">レベル (高い順)</option>
-            </select>
-          </div>
+        <!-- 検索フォーム -->
+        <div style="margin-bottom: 1rem;">
+          <label for="hero-search-input" class="filter-group-title">🔍 英雄名リアルタイム検索</label>
+          <input type="text" id="hero-search-input" class="form-input" placeholder="英雄名（例: マレーナ, ルイス, アーサー...）を入力" style="width: 100%; padding: 0.6rem 0.85rem; border-radius: 8px;">
         </div>
-        
-        <div id="result-count" style="font-size:0.85rem; color:var(--text-muted); margin-top:0.75rem;">読み込み中...</div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+          
+          <!-- 陣営フィルター -->
+          <div>
+            <div class="filter-group-title">🛡️ 陣営グループ絞り込み</div>
+            <div class="filter-btn-group">
+              <button type="button" class="faction-filter-btn active" data-faction="all">すべて</button>
+              <button type="button" class="faction-filter-btn" data-faction="warrior">⚔️ ウォーリア</button>
+              <button type="button" class="faction-filter-btn" data-faction="ranger">🏹 レンジャー</button>
+              <button type="button" class="faction-filter-btn" data-faction="warlock">🔮 ソーサラー</button>
+            </div>
+          </div>
+
+          <!-- Tier評価フィルター -->
+          <div>
+            <div class="filter-group-title">🏆 総合Tier評価絞り込み</div>
+            <div class="filter-btn-group">
+              <button type="button" class="tier-filter-btn active" data-tier="all">すべて</button>
+              <button type="button" class="tier-filter-btn" data-tier="S">👑 S ランク</button>
+              <button type="button" class="tier-filter-btn" data-tier="A">🥇 A ランク</button>
+              <button type="button" class="tier-filter-btn" data-tier="B">🥈 B ランク</button>
+              <button type="button" class="tier-filter-btn" data-tier="C">🥉 C ランク</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="heroes-total-count" style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700; margin-top: 0.5rem; text-align: right;">
+          全20名の評価対象英雄
+        </div>
+
       </div>
 
-      <!-- イベント戦力一覧ヘッダーサマリーパネル -->
-      <div id="event-summary-panel" style="display:none; background:var(--bg-secondary); border:1px solid var(--accent-gold-dark); border-radius:10px; padding:1.2rem; margin-bottom:1.5rem;">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.5rem;">
-          <h2 style="font-size:1.15rem; color:var(--accent-gold); font-weight:800;" id="event-title">⚔️ イベント戦力一覧 (8/31峡谷戦最新)</h2>
-          <div style="display:flex; gap:0.5rem; align-items:center;">
-            <a href="event.html" class="btn btn-primary btn-sm">📊 グラフ分析ダッシュボードを開く →</a>
-          </div>
-        </div>
-        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;" id="event-desc">
-          8/31峡谷戦リストから最新戦力を更新。分類は17M／14.5M基準で自動判定。
-        </p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap; font-size:0.85rem;">
-          <span>👥 確認済み: <strong id="event-stat-count" style="color:#fff;">85名</strong></span>
-          <span>📊 レベル記入: <strong id="event-stat-lv" style="color:var(--accent-blue);">84名</strong></span>
-          <span>🏷️ 分類済み: <strong id="event-stat-cat" style="color:var(--accent-gold);">66名</strong></span>
-        </div>
+      <!-- 英雄評価カード一覧グリッド -->
+      <div id="heroes-db-grid" class="heroes-db-grid">
+        <!-- Dynamically populated by js/database.js -->
       </div>
-
-      <div id="items-container" class="grid-cards"></div>
 
     </div>
   </main>
 
+  <!-- 共通フッター -->
   <footer class="site-footer">
     <div class="container">
       <p>© 2026 Last Asylum Strategy Wiki Project. Non-official Fan Site based on real extracted data.</p>
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260831_02"></script>
-  <script src="js/database.js?v=20260831_02"></script>
+  <script src="js/database.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.querySelector('.menu-toggle');
+      const menu = document.querySelector('.nav-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('active');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
