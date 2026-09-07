@@ -134,32 +134,30 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `).join('');
 
-      // Exclusive Weapon HTML (Only for Daskal, Louis, Ulfrid)
+      // Exclusive Weapon Tag (Only for Daskal, Louis, Ulfrid)
       const eq = hero.exclusiveWeapon;
-      const weaponHtml = eq ? `
-        <div class="db-weapon-card">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem;">
-            <strong style="color:var(--accent-gold); font-size:0.85rem;">${escapeHtml(eq.weaponTitle)}</strong>
-            <span class="badge" style="background:var(--accent-gold); color:#000; font-size:0.68rem; font-weight:800;">専用装備</span>
-          </div>
-          <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:0.4rem;">${escapeHtml(eq.description || '')}</p>
-          ${eq.stats ? `<div style="font-size:0.75rem; color:#fff;">📊 ${escapeHtml(eq.stats)}</div>` : ''}
-          ${eq.effect ? `<div style="font-size:0.75rem; color:var(--accent-gold); margin-top:0.2rem;">⚡ ${escapeHtml(eq.effect)}</div>` : ''}
-        </div>
-      ` : '';
+      const weaponTagHtml = eq ? `<span class="badge" style="background:var(--accent-gold); color:#000; font-size:0.7rem; font-weight:800; margin-top:0.5rem; display:inline-block;">🗡️ 専用装備: ${escapeHtml(eq.weaponTitle)}</span>` : '';
+
+      const detailUrl = `hero_detail.html?id=${hero.slug}`;
+      const calcUrl = `hero_calculator.html?hero=${encodeURIComponent(jaName)}`;
 
       return `
         <div class="hero-db-card">
           <!-- Header Area -->
-          <div class="hero-db-header">
+          <div class="hero-db-header" style="border-bottom: none; margin-bottom: 0.5rem; padding-bottom: 0;">
             <div style="display:flex; align-items:center; gap:0.85rem;">
-              <img src="${portraitUrl}" alt="${jaName}" class="hero-db-avatar" onerror="this.style.display='none'">
+              <a href="${detailUrl}">
+                <img src="${portraitUrl}" alt="${jaName}" class="hero-db-avatar" onerror="this.src='https://via.placeholder.com/56?text=Hero'">
+              </a>
               <div>
                 <div style="display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem;">
                   <span class="badge" style="background:var(--accent-gold-dark); color:#fff; font-weight:800;">${hero.rarity || 'UR'}</span>
                   <span style="font-size:0.78rem; color:var(--accent-blue); font-weight:600;">${facLabel}</span>
                 </div>
-                <h3 class="hero-db-name">${escapeHtml(jaName)} <span style="font-size:0.8rem; font-weight:normal; color:var(--text-muted);">(${hero.name})</span></h3>
+                <h3 class="hero-db-name">
+                  <a href="${detailUrl}" style="color:#fff; text-decoration:none;">${escapeHtml(jaName)}</a>
+                  <span style="font-size:0.8rem; font-weight:normal; color:var(--text-muted);">(${hero.name})</span>
+                </h3>
               </div>
             </div>
             <div class="hero-db-tier-box ${tierBadgeClass}">
@@ -169,39 +167,18 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
 
           <!-- Role Rankings Bar -->
-          ${roleBadges.length > 0 ? `<div class="role-badges-row">${roleBadges.join('')}</div>` : ''}
+          ${roleBadges.length > 0 ? `<div class="role-badges-row" style="margin-bottom:0.6rem;">${roleBadges.join('')}</div>` : ''}
 
-          <!-- Base Stats Grid -->
-          <div class="hero-db-stats-grid">
-            <div class="hero-db-stat">
-              <span class="lbl">初期 ATK</span>
-              <span class="val" style="color:var(--accent-gold);">${baseAtk.toLocaleString()}</span>
-            </div>
-            <div class="hero-db-stat">
-              <span class="lbl">初期 HP</span>
-              <span class="val" style="color:var(--accent-blue);">${baseHp.toLocaleString()}</span>
-            </div>
-            <div class="hero-db-stat">
-              <span class="lbl">初期 DEF</span>
-              <span class="val" style="color:#10ac84;">${baseDef.toLocaleString()}</span>
-            </div>
-          </div>
+          <!-- Exclusive Weapon Tag -->
+          ${weaponTagHtml}
 
-          <!-- Skills Section -->
-          <div style="margin-top:1rem;">
-            <div style="font-size:0.82rem; font-weight:700; color:#fff; margin-bottom:0.5rem; display:flex; justify-content:space-between;">
-              <span>⚡ 所持スキル (${skills.length})</span>
-            </div>
-            ${skillsHtml}
-          </div>
-
-          <!-- Exclusive Weapon (If available) -->
-          ${weaponHtml}
-
-          <!-- Footer Action Button -->
-          <div style="margin-top:1.2rem; text-align:right;">
-            <a href="hero_calculator.html" class="btn btn-secondary btn-sm" style="font-size:0.8rem; padding:0.4rem 0.85rem; border-color:var(--accent-gold); color:var(--accent-gold);">
-              ⚡ シミュレーターで試算 ➔
+          <!-- Footer Action Buttons -->
+          <div style="margin-top:1rem; padding-top:0.75rem; border-top:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; align-items:center; gap:0.5rem; flex-wrap:wrap;">
+            <a href="${detailUrl}" class="btn btn-primary btn-sm" style="font-size:0.82rem; padding:0.45rem 0.9rem; background:linear-gradient(135deg, #ffd700, #ff9f43); color:#000; font-weight:800; border:none; text-decoration:none;">
+              📖 個別図鑑＆メモ編集 ➔
+            </a>
+            <a href="${calcUrl}" class="btn btn-secondary btn-sm" style="font-size:0.78rem; padding:0.4rem 0.75rem;">
+              ⚡ 試算 ➔
             </a>
           </div>
         </div>

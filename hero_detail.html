@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT1ZPGW2Y3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZT1ZPGW2Y3');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>英雄個別詳細図鑑 ＆ 攻略メモ編集 | Last Asylum Wiki</title>
+  <meta name="description" content="Last Asylumの英雄個別詳細図鑑。ステータス・全スキル性能・専用装備、およびプレイヤー個別の攻略メモ編集機能とみんなの評価コメント掲示板。">
+  <link rel="stylesheet" href="css/style.css?v=20260831_02">
+  <style>
+    .hero-detail-header-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-detail-header-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: radial-gradient(circle at top right, rgba(255,215,0,0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-profile-flex {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .hero-profile-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-gold);
+      box-shadow: 0 0 25px rgba(255,215,0,0.3);
+      object-fit: cover;
+    }
+    .hero-profile-info {
+      flex: 1;
+      min-width: 260px;
+    }
+    .hero-profile-name-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+    .hero-ja-title {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #fff;
+      margin: 0;
+    }
+    .hero-en-title {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .hero-tags-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .tier-large-badge {
+      padding: 0.6rem 1.2rem;
+      border-radius: 12px;
+      text-align: center;
+      min-width: 90px;
+    }
+    .tier-large-badge .lbl {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.8);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .tier-large-badge .val {
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    /* Detail Grid Layout */
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 768px) {
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .detail-section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .section-card-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 0.6rem;
+    }
+
+    /* Skill detail item */
+    .skill-detail-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .skill-detail-card:last-child {
+      margin-bottom: 0;
+    }
+    .skill-detail-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+    .skill-name-txt {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #fff;
+    }
+    .skill-badge-kind {
+      font-size: 0.72rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(255,215,0,0.15);
+      color: var(--accent-gold);
+      border: 1px solid rgba(255,215,0,0.3);
+      font-weight: 700;
+    }
+
+    /* Editable Notes & Comments Section */
+    .editable-notes-box {
+      background: var(--bg-primary);
+      border: 1px solid var(--accent-gold);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-top: 1rem;
+    }
+    .notes-textarea {
+      width: 100%;
+      min-height: 140px;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: #fff;
+      padding: 0.85rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      resize: vertical;
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+    }
+    .notes-textarea:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 10px rgba(255,215,0,0.2);
+    }
+    .notes-display-content {
+      background: rgba(0,0,0,0.3);
+      border: 1px dashed rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: 1rem;
+      color: var(--text-color);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Comment item */
+    .comment-item {
+      background: var(--bg-primary);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+    .comment-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 共通ヘッダーナビゲーション -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo">
+        🛡️ LAST ASYLUM <span class="badge">WIKI</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">トップ</a>
+        <a href="calculator.html" class="nav-link">資源計算機</a>
+        <a href="database.html" class="nav-link">データ検索</a>
+        <a href="hero_database.html" class="nav-link active">📖 英雄評価図鑑</a>
+        <a href="hero_calculator.html" class="nav-link">⚡ 英雄計算機</a>
+        <a href="gear_calculator.html" class="nav-link">🛡️ 装備計算機</a>
+        <a href="ranking.html" class="nav-link">🏆 ランキング・編成</a>
+        <a href="event.html" class="nav-link">⚔️ イベント戦力分析</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- 戻るリンク -->
+      <div style="margin-bottom: 1.25rem;">
+        <a href="hero_database.html" class="btn btn-secondary btn-sm" style="font-size: 0.85rem;">
+          ← 📖 英雄評価図鑑一覧に戻る
+        </a>
+      </div>
+
+      <!-- 英雄プロファイルヘッダーカード -->
+      <div id="hero-profile-container">
+        <!-- Dynamically rendered via js/hero_detail.js -->
+        <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
+          英雄データを読み込んでいます...
+        </div>
+      </div>
+
+      <!-- 詳細情報グリッド -->
+      <div class="detail-grid">
+        
+        <!-- 左カラム：ステータス & 専用装備 -->
+        <div>
+          <!-- ステータス情報 -->
+          <div class="detail-section-card" style="margin-bottom: 1.5rem;">
+            <h2 class="section-card-title">📊 初期ステータス ＆ 基本仕様</h2>
+            <div id="hero-stats-content">
+              <!-- JS rendered -->
+            </div>
+          </div>
+
+          <!-- 専用装備 (該当者のみ) -->
+          <div class="detail-section-card">
+            <h2 class="section-card-title">🗡️ 専用装備 ＆ アーティファクト</h2>
+            <div id="hero-weapon-content">
+              <!-- JS rendered -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 右カラム：所持スキル一覧 -->
+        <div>
+          <div class="detail-section-card">
+            <h2 class="section-card-title">⚡ 所持スキル詳細一覧</h2>
+            <div id="hero-skills-content">
+              <!-- JS rendered -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 下部：書き込み・編集エリア (プレイヤーメモ ＆ みんなの口コミ) -->
+      <div class="detail-section-card" style="margin-bottom: 2rem;">
+        <h2 class="section-card-title">📝 プレイヤー考察・個別Wikiノート ＆ 編集機能</h2>
+        
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+          この英雄に関する独自の立ち回り・おすすめ編成・ギア選択・考察を自由に入力して保存できます。（データはお使いのブラウザに安全に保存されます）
+        </p>
+
+        <!-- プレイヤーメモ編集エリア -->
+        <div class="editable-notes-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <strong style="color: var(--accent-gold); font-size: 0.95rem;">✏️ 自分専用 攻略Wikiノート (LocalStorage保存)</strong>
+            <div id="notes-actions">
+              <button type="button" id="btn-edit-note" class="btn btn-secondary btn-sm" style="font-size: 0.78rem;">✏️ 編集する</button>
+              <button type="button" id="btn-save-note" class="btn btn-primary btn-sm" style="font-size: 0.78rem; display: none; background: var(--accent-gold); color: #000; font-weight: 800;">💾 保存する</button>
+              <button type="button" id="btn-reset-note" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; display: none;">🔄 リセット</button>
+            </div>
+          </div>
+
+          <div id="notes-display-area" class="notes-display-content">
+            <!-- Rendered note content -->
+          </div>
+
+          <textarea id="notes-editor-area" class="notes-textarea" style="display: none;" placeholder="【例】\n・前衛タンクとしてアーサーとペアを組ませると生存率が大幅に向上。\n・スキル2のデバフが強力なため、PvPでは素早さを意識した装備構成がおすすめ。"></textarea>
+
+          <div id="notes-status-msg" style="font-size: 0.78rem; color: var(--accent-gold); font-weight: 700; text-align: right; height: 1rem;"></div>
+        </div>
+
+        <!-- コミュニティ評価・投稿掲示板 -->
+        <div style="margin-top: 2rem;">
+          <h3 style="font-size: 1rem; font-weight: 800; color: #fff; margin-bottom: 1rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+            💬 みんなの英雄評価 ＆ 口コミ掲示板
+          </h3>
+
+          <!-- 投稿フォーム -->
+          <div style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem; margin-bottom: 1.5rem;">
+            <div style="display: grid; grid-template-columns: 1fr 140px; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <input type="text" id="comment-user-name" class="form-input" placeholder="お名前 (例: 避難所参謀A)" style="padding: 0.5rem 0.75rem; border-radius: 6px;">
+              <select id="comment-rating-star" class="form-input" style="padding: 0.5rem 0.75rem; border-radius: 6px;">
+                <option value="5">★★★★★ (5/5)</option>
+                <option value="4">★★★★☆ (4/5)</option>
+                <option value="3">★★★☆☆ (3/5)</option>
+                <option value="2">★★☆☆☆ (2/5)</option>
+                <option value="1">★☆☆☆☆ (1/5)</option>
+              </select>
+            </div>
+            <textarea id="comment-text-body" class="form-input" placeholder="この英雄の使用感・おすすめパーティ・評価コメントを入力してください..." style="width: 100%; min-height: 70px; padding: 0.6rem 0.75rem; border-radius: 6px; margin-bottom: 0.75rem; font-family: inherit; font-size: 0.85rem;"></textarea>
+            <div style="text-align: right;">
+              <button type="button" id="btn-submit-comment" class="btn btn-primary btn-sm" style="background: var(--accent-gold); color: #000; font-weight: 800;">💬 コメントを投稿する</button>
+            </div>
+          </div>
+
+          <!-- コメント一覧表示コンテナ -->
+          <div id="comments-list-container">
+            <!-- Dynamic comments -->
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- 共通フッター -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Last Asylum Strategy Wiki Project. Non-official Fan Site based on real extracted data.</p>
+    </div>
+  </footer>
+
+  <script src="js/hero_detail.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.querySelector('.menu-toggle');
+      const menu = document.querySelector('.nav-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
