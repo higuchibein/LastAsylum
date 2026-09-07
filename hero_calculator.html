@@ -28,17 +28,47 @@
       display: grid;
       grid-template-columns: 340px 1fr;
       gap: 1.5rem;
+      align-items: start;
+    }
+    .control-panel {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.25rem;
+      position: sticky;
+      top: 85px;
+      max-height: calc(100vh - 105px);
+      overflow-y: auto;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-gold) var(--bg-card);
+    }
+    .control-panel::-webkit-scrollbar {
+      width: 6px;
+    }
+    .control-panel::-webkit-scrollbar-track {
+      background: var(--bg-card);
+      border-radius: 3px;
+    }
+    .control-panel::-webkit-scrollbar-thumb {
+      background: var(--accent-gold);
+      border-radius: 3px;
+    }
+    .result-panel {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.25rem;
     }
     @media (max-width: 900px) {
       .hero-grid-layout {
         grid-template-columns: 1fr;
       }
-    }
-    .control-panel, .result-panel {
-      background: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 1.25rem;
+      .control-panel {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
     }
     .slider-group {
       margin-bottom: 1.2rem;
