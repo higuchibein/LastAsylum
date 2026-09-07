@@ -1,7 +1,7 @@
 /**
  * Last Asylum - Individual Hero Details & Editable Notes Script (js/hero_detail.js)
  * Manages full hero specifications, initial vs max stat comparison, skill formulas (Lv.1 vs Lv.30/Max),
- * exclusive weapons, and LocalStorage-based wiki note editing.
+ * exclusive weapons, and Administrator Password Protected Wiki Notes.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -42,9 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Editable Notes Elements
   const notesDisplayArea = document.getElementById('notes-display-area');
   const notesEditorArea = document.getElementById('notes-editor-area');
-  const btnEditNote = document.getElementById('btn-edit-note');
-  const btnSaveNote = document.getElementById('btn-save-note');
-  const btnResetNote = document.getElementById('btn-reset-note');
   const notesStatusMsg = document.getElementById('notes-status-msg');
 
   // Comment Elements
@@ -277,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Initialize Notes and Comments for this hero
+    // Initialize Admin Password Protected Notes and Comments
     initHeroNotes(hero);
     initHeroComments(hero);
   }
@@ -333,71 +330,176 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // LocalStorage Hero Wiki Notes Management
+  // Admin Password Protected Wiki Notes System
   // ==========================================
   function initHeroNotes(hero) {
     const storageKey = `last_asylum_hero_notes_${hero.slug}`;
+    const adminPassKey = `last_asylum_admin_password`;
+    const authSessionKey = `last_asylum_admin_auth`;
+
     const defaultNote = `【立ち回り・編成考察】\n・${hero.nameJapanese || hero.name}の強みを生かしたおすすめ前衛・後衛構成。\n・特定コンテンツ（PvP/PVE/同盟戦）での評価メモ。\n\n【おすすめ装備・ギア構成】\n・優先ステータス: 攻撃力％ / 会心補正\n・専用装備との相性メモ。`;
 
-    // Load saved note or default
-    let currentNoteText = localStorage.getItem(storageKey);
-    if (!currentNoteText) {
-      currentNoteText = defaultNote;
-    }
+    // UI Elements
+    const adminAuthStatus = document.getElementById('admin-auth-status');
+    const btnAdminAuth = document.getElementById('btn-admin-auth');
+    const btnEditNote = document.getElementById('btn-edit-note');
+    const btnSaveNote = document.getElementById('btn-save-note');
+    const btnChangePass = document.getElementById('btn-change-pass');
+    const btnAdminLogout = document.getElementById('btn-admin-logout');
 
+    // Modal elements
+    const adminPassModal = document.getElementById('admin-pass-modal');
+    const adminPassInput = document.getElementById('admin-pass-input');
+    const adminPassError = document.getElementById('admin-pass-error');
+    const btnModalCancel = document.getElementById('btn-modal-cancel');
+    const btnModalSubmit = document.getElementById('btn-modal-submit');
+
+    // Helper: Admin Password (Default: 'admin')
+    const getAdminPassword = () => localStorage.getItem(adminPassKey) || 'admin';
+    const isAuth = () => sessionStorage.getItem(authSessionKey) === 'true';
+
+    // Load Note Text
+    let currentNoteText = localStorage.getItem(storageKey) || defaultNote;
     renderNoteDisplay(currentNoteText);
 
-    // Event handlers for Notes
-    if (btnEditNote) {
-      btnEditNote.addEventListener('click', () => {
-        notesDisplayArea.style.display = 'none';
-        notesEditorArea.style.display = 'block';
-        notesEditorArea.value = currentNoteText;
-        btnEditNote.style.display = 'none';
-        btnSaveNote.style.display = 'inline-block';
-        btnResetNote.style.display = 'inline-block';
-        if (notesStatusMsg) notesStatusMsg.textContent = '';
-      });
+    // Update UI according to Auth State
+    function updateAuthUI() {
+      const authenticated = isAuth();
+      if (authenticated) {
+        if (adminAuthStatus) {
+          adminAuthStatus.textContent = '🔓 管理者ログイン中 (編集可能)';
+          adminAuthStatus.style.background = 'rgba(255,215,0,0.15)';
+          adminAuthStatus.style.color = 'var(--accent-gold)';
+          adminAuthStatus.style.borderColor = 'var(--accent-gold)';
+        }
+        if (btnAdminAuth) btnAdminAuth.style.display = 'none';
+        if (btnEditNote) btnEditNote.style.display = 'inline-block';
+        if (btnChangePass) btnChangePass.style.display = 'inline-block';
+        if (btnAdminLogout) btnAdminLogout.style.display = 'inline-block';
+      } else {
+        if (adminAuthStatus) {
+          adminAuthStatus.textContent = '🔒 閲覧モード (保護中)';
+          adminAuthStatus.style.background = 'rgba(255,255,255,0.1)';
+          adminAuthStatus.style.color = 'var(--text-muted)';
+          adminAuthStatus.style.borderColor = 'rgba(255,255,255,0.15)';
+        }
+        if (btnAdminAuth) btnAdminAuth.style.display = 'inline-block';
+        if (btnEditNote) btnEditNote.style.display = 'none';
+        if (btnSaveNote) btnSaveNote.style.display = 'none';
+        if (btnChangePass) btnChangePass.style.display = 'none';
+        if (btnAdminLogout) btnAdminLogout.style.display = 'none';
+
+        // Ensure display mode
+        if (notesDisplayArea) notesDisplayArea.style.display = 'block';
+        if (notesEditorArea) notesEditorArea.style.display = 'none';
+      }
     }
 
+    updateAuthUI();
+
+    // Open Auth Modal
+    if (btnAdminAuth) {
+      btnAdminAuth.onclick = () => {
+        if (adminPassModal) {
+          adminPassModal.style.display = 'flex';
+          if (adminPassInput) {
+            adminPassInput.value = '';
+            adminPassInput.focus();
+          }
+          if (adminPassError) adminPassError.textContent = '';
+        }
+      };
+    }
+
+    // Cancel Modal
+    if (btnModalCancel) {
+      btnModalCancel.onclick = () => {
+        if (adminPassModal) adminPassModal.style.display = 'none';
+      };
+    }
+
+    // Submit Auth Modal
+    const handleAuthSubmit = () => {
+      const inputPass = adminPassInput ? adminPassInput.value.trim() : '';
+      const correctPass = getAdminPassword();
+
+      if (inputPass === correctPass) {
+        sessionStorage.setItem(authSessionKey, 'true');
+        if (adminPassModal) adminPassModal.style.display = 'none';
+        updateAuthUI();
+        startEditing();
+      } else {
+        if (adminPassError) adminPassError.textContent = '❌ パスワードが正しくありません。';
+      }
+    };
+
+    if (btnModalSubmit) btnModalSubmit.onclick = handleAuthSubmit;
+    if (adminPassInput) {
+      adminPassInput.onkeydown = (e) => {
+        if (e.key === 'Enter') handleAuthSubmit();
+      };
+    }
+
+    // Start Editing Note
+    function startEditing() {
+      if (!isAuth()) return;
+      if (notesDisplayArea) notesDisplayArea.style.display = 'none';
+      if (notesEditorArea) {
+        notesEditorArea.style.display = 'block';
+        notesEditorArea.value = currentNoteText;
+        notesEditorArea.focus();
+      }
+      if (btnEditNote) btnEditNote.style.display = 'none';
+      if (btnSaveNote) btnSaveNote.style.display = 'inline-block';
+      if (notesStatusMsg) notesStatusMsg.textContent = '';
+    }
+
+    if (btnEditNote) {
+      btnEditNote.onclick = startEditing;
+    }
+
+    // Save Note
     if (btnSaveNote) {
-      btnSaveNote.addEventListener('click', () => {
+      btnSaveNote.onclick = () => {
+        if (!isAuth()) return;
         currentNoteText = notesEditorArea.value.trim();
         localStorage.setItem(storageKey, currentNoteText);
         renderNoteDisplay(currentNoteText);
-        
+
         notesEditorArea.style.display = 'none';
         notesDisplayArea.style.display = 'block';
         btnSaveNote.style.display = 'none';
-        btnResetNote.style.display = 'none';
         btnEditNote.style.display = 'inline-block';
-        
+
         if (notesStatusMsg) {
-          notesStatusMsg.textContent = '✓ メモをローカルストレージに保存しました！';
+          notesStatusMsg.textContent = '✓ 管理者権限でWikiノートを更新保存しました！';
           setTimeout(() => notesStatusMsg.textContent = '', 3000);
         }
-      });
+      };
     }
 
-    if (btnResetNote) {
-      btnResetNote.addEventListener('click', () => {
-        if (confirm('保存されたメモをデフォルトにリセットしますか？')) {
-          localStorage.removeItem(storageKey);
-          currentNoteText = defaultNote;
-          renderNoteDisplay(currentNoteText);
-          
-          notesEditorArea.style.display = 'none';
-          notesDisplayArea.style.display = 'block';
-          btnSaveNote.style.display = 'none';
-          btnResetNote.style.display = 'none';
-          btnEditNote.style.display = 'inline-block';
-
-          if (notesStatusMsg) {
-            notesStatusMsg.textContent = '✓ デフォルトメモにリセットしました。';
-            setTimeout(() => notesStatusMsg.textContent = '', 3000);
-          }
+    // Change Admin Password
+    if (btnChangePass) {
+      btnChangePass.onclick = () => {
+        if (!isAuth()) return;
+        const newPass = prompt('新しい管理者パスワードを入力してください:');
+        if (newPass && newPass.trim().length > 0) {
+          localStorage.setItem(adminPassKey, newPass.trim());
+          alert('管理者パスワードを正常に変更・更新しました。');
         }
-      });
+      };
+    }
+
+    // Logout Admin
+    if (btnAdminLogout) {
+      btnAdminLogout.onclick = () => {
+        sessionStorage.removeItem(authSessionKey);
+        updateAuthUI();
+        if (notesStatusMsg) {
+          notesStatusMsg.textContent = 'ログアウトしました。';
+          setTimeout(() => notesStatusMsg.textContent = '', 2000);
+        }
+      };
     }
   }
 

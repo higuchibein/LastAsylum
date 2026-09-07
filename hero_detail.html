@@ -211,6 +211,33 @@
     .skill-level-box.init-box .box-title { color: #10ac84; }
     .skill-level-box.max-box .box-title { color: var(--accent-gold); }
 
+    /* Admin Password Modal Overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-card {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-gold);
+      border-radius: 14px;
+      padding: 1.5rem;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+      animation: modalFadeIn 0.2s ease-out;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
     /* Editable Notes & Comments Section */
     .editable-notes-box {
       background: var(--bg-primary);
@@ -348,20 +375,25 @@
 
       <!-- 下部：書き込み・編集エリア (プレイヤーメモ ＆ みんなの口コミ) -->
       <div class="detail-section-card" style="margin-bottom: 2rem;">
-        <h2 class="section-card-title">📝 プレイヤー考察・個別Wikiノート ＆ 編集機能</h2>
+        <h2 class="section-card-title">📝 英雄公式・攻略Wikiノート ＆ 管理者編集機能</h2>
         
         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-          この英雄に関する独自の立ち回り・おすすめ編成・ギア選択・考察を自由に入力して保存できます。（データはお使いのブラウザに安全に保存されます）
+          全プレイヤー共通の英雄攻略Wikiノートです。（※ページの編集・更新には管理者パスワード認証が必要です）
         </p>
 
         <!-- プレイヤーメモ編集エリア -->
         <div class="editable-notes-box">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <strong style="color: var(--accent-gold); font-size: 0.95rem;">✏️ 自分専用 攻略Wikiノート (LocalStorage保存)</strong>
-            <div id="notes-actions">
-              <button type="button" id="btn-edit-note" class="btn btn-secondary btn-sm" style="font-size: 0.78rem;">✏️ 編集する</button>
-              <button type="button" id="btn-save-note" class="btn btn-primary btn-sm" style="font-size: 0.78rem; display: none; background: var(--accent-gold); color: #000; font-weight: 800;">💾 保存する</button>
-              <button type="button" id="btn-reset-note" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; display: none;">🔄 リセット</button>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <strong style="color: var(--accent-gold); font-size: 0.95rem;">📖 英雄攻略Wikiノート</strong>
+              <span id="admin-auth-status" class="badge" style="background: rgba(255,255,255,0.1); color: var(--text-muted); font-size: 0.72rem; border: 1px solid rgba(255,255,255,0.15);">🔒 閲覧モード (保護中)</span>
+            </div>
+            <div id="notes-actions" style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+              <button type="button" id="btn-admin-auth" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; border-color: var(--accent-gold); color: var(--accent-gold);">🔐 管理者認証・編集</button>
+              <button type="button" id="btn-edit-note" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; display: none;">✏️ 編集開始</button>
+              <button type="button" id="btn-save-note" class="btn btn-primary btn-sm" style="font-size: 0.78rem; display: none; background: var(--accent-gold); color: #000; font-weight: 800;">💾 変更を保存公開</button>
+              <button type="button" id="btn-change-pass" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; display: none;">⚙️ パスワード変更</button>
+              <button type="button" id="btn-admin-logout" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; display: none;">🔒 ログアウト</button>
             </div>
           </div>
 
@@ -409,6 +441,27 @@
 
     </div>
   </main>
+
+  <!-- 管理者パスワード入力モーダル -->
+  <div id="admin-pass-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-card">
+      <h3 style="font-size: 1.1rem; color: var(--accent-gold); margin-bottom: 0.5rem; font-weight: 800;">🔐 管理者パスワード認証</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+        この英雄の攻略Wikiノートを編集するには管理者パスワードを入力してください。<br>
+        <span style="font-size: 0.78rem; color: rgba(255,255,255,0.5);">（初期管理者パスワード: <strong style="color:var(--accent-gold);">admin</strong>）</span>
+      </p>
+      
+      <div style="margin-bottom: 1rem;">
+        <input type="password" id="admin-pass-input" class="form-input" placeholder="管理者パスワードを入力" style="width: 100%; padding: 0.65rem; border-radius: 8px; font-size: 0.95rem;">
+        <div id="admin-pass-error" style="color: #ff6b6b; font-size: 0.8rem; font-weight: 700; margin-top: 0.4rem; min-height: 1.2rem;"></div>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+        <button type="button" id="btn-modal-cancel" class="btn btn-secondary btn-sm">キャンセル</button>
+        <button type="button" id="btn-modal-submit" class="btn btn-primary btn-sm" style="background: var(--accent-gold); color: #000; font-weight: 800;">🔓 認証して編集を開始</button>
+      </div>
+    </div>
+  </div>
 
   <!-- 共通フッター -->
   <footer class="site-footer">
