@@ -12,8 +12,8 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🏆 英雄Tierランキング ＆ おすすめチーム編成ガイド | Last Asylum Wiki</title>
-  <meta name="description" content="Last Asylumの最新英雄総合Tierランキング(S/A/B/C)およびアタッカー(DPS・PvP)・タンク・バッファー別ランキング、最強チームおすすめ編成ガイド。">
+  <title>🏆 英雄Tierランキング ＆ おすすめパーティ台形編成ガイド | Last Asylum Wiki</title>
+  <meta name="description" content="Last Asylumの最新英雄総合Tierランキング(S/A/B/C)および役割別ランキング、台形配置(前衛2名・後衛3名)によるウォーリア・レンジャー・ソーサラー・魔王おすすめパーティ編成一覧。">
   <link rel="stylesheet" href="css/style.css?v=20260831_02">
   <style>
     .ranking-nav-tabs {
@@ -32,7 +32,7 @@
       color: var(--text-muted);
       border-radius: 8px;
       cursor: pointer;
-      transition: all 0.25 ease;
+      transition: all 0.2s ease;
       display: flex;
       align-items: center;
       gap: 0.4rem;
@@ -105,18 +105,19 @@
     .hero-chip-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.65rem;
+      gap: 0.5rem;
       align-items: center;
+      justify-content: center;
     }
     .hero-chip {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: rgba(0,0,0,0.4);
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 0.35rem 0.75rem 0.35rem 0.4rem;
+      gap: 0.4rem;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.3rem 0.65rem 0.3rem 0.35rem;
       border-radius: 20px;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 700;
       color: #fff;
       transition: all 0.2s ease;
@@ -127,8 +128,8 @@
       box-shadow: 0 4px 12px rgba(255,215,0,0.2);
     }
     .hero-chip-avatar {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       border: 1.5px solid var(--accent-gold);
       object-fit: cover;
@@ -158,63 +159,100 @@
       padding-bottom: 0.5rem;
     }
 
-    /* Team Composition Card Styles */
-    .comp-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    }
-    .comp-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .comp-title {
+    /* Trapezoid Formation Styling */
+    .comp-section-title {
       font-size: 1.2rem;
       font-weight: 800;
       color: var(--accent-gold);
-      margin: 0;
+      margin: 1.75rem 0 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 2px solid rgba(255,215,0,0.3);
+      padding-bottom: 0.4rem;
     }
-    .comp-tag {
-      font-size: 0.75rem;
+    .trapezoid-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .trapezoid-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.85rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .trapezoid-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .trapezoid-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
       padding: 0.2rem 0.6rem;
       border-radius: 12px;
-      font-weight: 800;
-      background: rgba(0,240,255,0.15);
+      background: rgba(0, 240, 255, 0.15);
       color: var(--accent-blue);
+      border: 1px solid rgba(0, 240, 255, 0.3);
     }
-    .comp-team-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 1rem;
+    .trapezoid-badge-rec {
+      background: rgba(255, 215, 0, 0.2);
+      color: var(--accent-gold);
+      border: 1px solid var(--accent-gold);
     }
-    @media (max-width: 768px) {
-      .comp-team-grid {
-        grid-template-columns: 1fr;
-      }
-      .tier-row {
-        grid-template-columns: 60px 1fr;
-      }
+
+    .formation-trapezoid-box {
+      background: linear-gradient(180deg, rgba(0,240,255,0.03), rgba(0,0,0,0.4));
+      border: 1px dashed rgba(255, 215, 0, 0.25);
+      border-radius: 12px;
+      padding: 1rem;
+      max-width: 620px;
+      margin: 0 auto;
     }
-    .comp-pos-box {
+    .formation-row-front {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 0.85rem;
+    }
+    .formation-row-back {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.4rem;
+    }
+    .formation-slot {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       background: var(--bg-primary);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 8px;
-      padding: 0.85rem;
+      padding: 0.5rem 0.2rem;
+      text-align: center;
     }
-    .comp-pos-title {
-      font-size: 0.8rem;
-      font-weight: 700;
+    .formation-slot-front {
+      border-top: 3px solid var(--accent-gold);
+      max-width: 170px;
+    }
+    .formation-slot-back {
+      border-top: 3px solid var(--accent-blue);
+    }
+    .slot-pos-tag {
+      font-size: 0.65rem;
+      font-weight: 800;
       color: var(--text-muted);
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
+      margin-bottom: 0.35rem;
     }
   </style>
 </head>
@@ -247,7 +285,7 @@
   <main class="main-content">
     <div class="container">
       
-      <h1 class="section-title">🏆 英雄Tierランキング ＆ おすすめチーム編成ガイド</h1>
+      <h1 class="section-title">🏆 英雄Tierランキング ＆ おすすめパーティ台形編成ガイド</h1>
 
       <!-- タブ切替ナビ -->
       <div class="ranking-nav-tabs">
@@ -255,7 +293,7 @@
           🥇 英雄Tierランキング (総合・役割別)
         </button>
         <button type="button" class="ranking-tab-btn" data-tab="tab-team-compositions">
-          🛡️ おすすめパーティ編成・シナジー
+          📐 台形おすすめパーティ編成一覧 (前衛2名 / 後衛3名)
         </button>
       </div>
 
@@ -449,104 +487,702 @@
         
         <div style="margin-bottom: 1.5rem; background: var(--bg-card); padding: 1.2rem; border-radius: 10px; border: 1px solid var(--border-color);">
           <h2 style="font-size: 1.1rem; color: var(--accent-gold); margin-bottom: 0.5rem; font-weight: 800;">
-            💡 チーム編成の基本原則
+            📐 台形編成の配置ルール
           </h2>
           <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
-            Last Asylumのパーティ構成は「<strong>前衛タンク 2名 ＋ 後衛アタッカー/バッファー 3名</strong>」のバランスが基本となります。<br>
-            前衛に高い耐久性を持つタンクを配置し、後衛で強力なDPSアタッカーと攻撃力・クリティカルバフを付与するバッファーを配置することで、戦闘での勝率が大幅に向上します。
+            パーティ編成は<strong>「台形」</strong>の形に並び、指定順に【<strong>1.左上 ➔ 2.右上 ➔ 3.左下 ➔ 4.真ん中下 ➔ 5.右下</strong>】へ自動配置されます。<br>
+            上に配置される<strong>左上・右上（1〜2枠目）が【前衛】</strong>、下に配置される<strong>左下・真ん中下・右下（3〜5枠目）が【後衛】</strong>となります。
           </p>
         </div>
 
-        <!-- おすすめ編成 1 -->
-        <div class="comp-card">
-          <div class="comp-header">
-            <h3 class="comp-title">👑 最凶バランス構成 (PvP / 汎用最強パーティ)</h3>
-            <span class="comp-tag">S Tier 英雄集中</span>
-          </div>
+        <!-- 1. ウォーリア編成 -->
+        <h3 class="comp-section-title">⚔️ ウォーリア (Warrior) 編成</h3>
 
-          <div class="comp-team-grid">
-            <div class="comp-pos-box" style="border-left: 3px solid var(--accent-blue);">
-              <div class="comp-pos-title">🛡️ 前衛 (Front Line / タンク)</div>
-              <div class="hero-chip-grid">
-                <span class="hero-chip" data-hero="ウルフレッド">ウルフレッド</span>
-                <span class="hero-chip" data-hero="ルイス">ルイス</span>
+        <!-- 課金 -->
+        <div style="margin-bottom: 0.5rem; font-size: 0.88rem; font-weight: 700; color: var(--accent-gold);">【課金編成】</div>
+        
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【アーサー・ダスカール・マレーナ・ハーパー・ゾーヤ】</h4>
+            <span class="trapezoid-badge trapezoid-badge-rec">課金特化</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="アーサー">アーサー</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ダスカール">ダスカール</span>
               </div>
             </div>
-
-            <div class="comp-pos-box" style="border-left: 3px solid var(--accent-gold);">
-              <div class="comp-pos-title">⚡ 後衛 (Back Line / メインDPS & サポート)</div>
-              <div class="hero-chip-grid">
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
                 <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
                 <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
-                <span class="hero-chip" data-hero="ベル">ベル</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="ゾーヤ">ゾーヤ</span>
               </div>
             </div>
-          </div>
-
-          <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; background: rgba(0,0,0,0.2); padding: 0.75rem; border-radius: 6px;">
-            📝 <strong>構成解説:</strong> Sランクタンクのウルフレッドとルイスで前線を強固に維持しつつ、ハーパーとベルによる重複攻撃バフ・回復支援を受けたマレーナが圧倒的火力で敵全体を即座に壊滅させます。
           </div>
         </div>
 
-        <!-- おすすめ編成 2 -->
-        <div class="comp-card">
-          <div class="comp-header">
-            <h3 class="comp-title">💥 瞬間爆発DPS撃滅パーティ (ボス・対人速攻特化)</h3>
-            <span class="comp-tag" style="background: rgba(255,107,107,0.15); color: #ff6b6b;">高火力アタッカー</span>
+        <!-- 低課金 -->
+        <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 0.88rem; font-weight: 700; color: var(--accent-blue);">【低課金編成】</div>
+        
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【アーサー・ハーパー・マレーナ・ゾーヤ・クレア】</h4>
+            <span class="trapezoid-badge">低課金バランス</span>
           </div>
-
-          <div class="comp-team-grid">
-            <div class="comp-pos-box" style="border-left: 3px solid var(--accent-blue);">
-              <div class="comp-pos-title">🛡️ 前衛 (Front Line)</div>
-              <div class="hero-chip-grid">
-                <span class="hero-chip" data-hero="シャドウ">シャドウ</span>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
                 <span class="hero-chip" data-hero="アーサー">アーサー</span>
               </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              </div>
             </div>
-
-            <div class="comp-pos-box" style="border-left: 3px solid var(--accent-gold);">
-              <div class="comp-pos-title">⚡ 後衛 (Back Line)</div>
-              <div class="hero-chip-grid">
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
                 <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="ゾーヤ">ゾーヤ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="クレア">クレア</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 無課金 (ルネサンス適用後) -->
+        <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 0.88rem; font-weight: 700; color: #10ac84;">【無課金（ルネサンス適用後）編成】</div>
+
+        <!-- おすすめ① -->
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【アーサー・ハーパー・マレーナ・クレア・シリア】</h4>
+            <span class="trapezoid-badge trapezoid-badge-rec">★ おすすめ①</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="アーサー">アーサー</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="クレア">クレア</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="シリア">シリア</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- おすすめ② -->
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【アーサー・ハーパー・マレーナ・ベラ・クレア】</h4>
+            <span class="trapezoid-badge trapezoid-badge-rec">★ おすすめ②</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="アーサー">アーサー</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="ベラ">ベラ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="クレア">クレア</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 後半おすすめ① -->
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【アーサー・ハーパー・マレーナ・ピエロ・アニー】</h4>
+            <span class="trapezoid-badge trapezoid-badge-rec">★ 後半おすすめ①</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="アーサー">アーサー</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
                 <span class="hero-chip" data-hero="ピエロ">ピエロ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
                 <span class="hero-chip" data-hero="アニー">アニー</span>
               </div>
             </div>
           </div>
+        </div>
 
-          <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; background: rgba(0,0,0,0.2); padding: 0.75rem; border-radius: 6px;">
-            📝 <strong>構成解説:</strong> PvPにおいて高い適性を持つピエロとアニーの範囲爆発攻撃に加え、マレーナの確定高火力で戦闘開始直後に敵主要アタッカーを落とす超攻撃的パーティです。
+        <!-- 後半おすすめ② -->
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【アーサー・ダスカール・マレーナ・ハーパー・クレア】</h4>
+            <span class="trapezoid-badge trapezoid-badge-rec">★ 後半おすすめ②</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="アーサー">アーサー</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ダスカール">ダスカール</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="クレア">クレア</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- おすすめ編成 3 -->
-        <div class="comp-card">
-          <div class="comp-header">
-            <h3 class="comp-title">🔰 育成安定・序盤おすすめコストバランス編成</h3>
-            <span class="comp-tag" style="background: rgba(16,172,132,0.15); color: #10ac84;">初心者・無課金推薦</span>
+        <!-- 後半おすすめ③ -->
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【アーサー・ハーパー・マレーナ・シャドウ・クレア】</h4>
+            <span class="trapezoid-badge trapezoid-badge-rec">★ 後半おすすめ③</span>
           </div>
-
-          <div class="comp-team-grid">
-            <div class="comp-pos-box" style="border-left: 3px solid var(--accent-blue);">
-              <div class="comp-pos-title">🛡️ 前衛 (Front Line)</div>
-              <div class="hero-chip-grid">
-                <span class="hero-chip" data-hero="ダスカール">ダスカール</span>
-                <span class="hero-chip" data-hero="ビリー">ビリー</span>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="アーサー">アーサー</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
               </div>
             </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="シャドウ">シャドウ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="クレア">クレア</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-            <div class="comp-pos-box" style="border-left: 3px solid var(--accent-gold);">
-              <div class="comp-pos-title">⚡ 後衛 (Back Line)</div>
-              <div class="hero-chip-grid">
+        <!-- その他の無課金バリエーション -->
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【アーサー・シャドウ・マレーナ・ハーパー・シンシア】</h4>
+            <span class="trapezoid-badge">無課金バリエーション</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="アーサー">アーサー</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="シャドウ">シャドウ</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
                 <span class="hero-chip" data-hero="シンシア">シンシア</span>
-                <span class="hero-chip" data-hero="ニコル">ニコル</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【アーサー・ハーパー・マレーナ・シャドウ・シンシア】</h4>
+            <span class="trapezoid-badge">無課金バリエーション</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="アーサー">アーサー</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="シャドウ">シャドウ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="シンシア">シンシア</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【アーサー・シャドウ・マレーナ・ハーパー・レッドレディ】</h4>
+            <span class="trapezoid-badge">無課金バリエーション</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="アーサー">アーサー</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="シャドウ">シャドウ</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
                 <span class="hero-chip" data-hero="レッドレディ">レッドレディ</span>
               </div>
             </div>
           </div>
+        </div>
 
-          <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; background: rgba(0,0,0,0.2); padding: 0.75rem; border-radius: 6px;">
-            📝 <strong>構成解説:</strong> 入手しやすく育てやすい英雄を中心にした構成。ニコルの支援バフを受けつつシンシアとレッドレディが安定した単体・範囲ダメージを叩き出します。
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【アーサー・ハーパー・マレーナ・シャドウ・レッドレディ】</h4>
+            <span class="trapezoid-badge">無課金バリエーション</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="アーサー">アーサー</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="シャドウ">シャドウ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="レッドレディ">レッドレディ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【アーサー・ハーパー・マレーナ・アニー・レッドレディ】</h4>
+            <span class="trapezoid-badge">無課金バリエーション</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="アーサー">アーサー</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="アニー">アニー</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="レッドレディ">レッドレディ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【アーサー・ハーパー・マレーナ・ピエロ・レッドレディ】</h4>
+            <span class="trapezoid-badge">無課金バリエーション</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="アーサー">アーサー</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="ピエロ">ピエロ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="レッドレディ">レッドレディ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. レンジャー編成 -->
+        <h3 class="comp-section-title">🏹 レンジャー (Ranger) 編成</h3>
+
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【ルイス・シャドウ・シンシア・ベル・レッドレディ】</h4>
+            <span class="trapezoid-badge trapezoid-badge-rec">レンジャー主力</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="ルイス">ルイス</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="シャドウ">シャドウ</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="シンシア">シンシア</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="ベル">ベル</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="レッドレディ">レッドレディ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. ソーサラー編成 -->
+        <h3 class="comp-section-title">🔮 ソーサラー (Sorcerer) 編成</h3>
+
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【ウルフレッド・ビリー・ピエロ・ニコル・アニー】</h4>
+            <span class="trapezoid-badge">ソーサラー構成 ①</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="ウルフレッド">ウルフレッド</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ビリー">ビリー</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="ピエロ">ピエロ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="ニコル">ニコル</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="アニー">アニー</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【ウルフレッド・ルイス・ピエロ・ニコル・アニー】</h4>
+            <span class="trapezoid-badge trapezoid-badge-rec">ソーサラー耐久特化</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="ウルフレッド">ウルフレッド</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ルイス">ルイス</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="ピエロ">ピエロ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="ニコル">ニコル</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="アニー">アニー</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. 魔王 (Demon King) 特化編成 -->
+        <h3 class="comp-section-title">😈 魔王特化編成 (Boss Raid)</h3>
+
+        <!-- ウォーリア -->
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【ベル・ハーパー・クレア・マレーナ・ゾーヤ】</h4>
+            <span class="trapezoid-badge trapezoid-badge-rec">魔王・ウォーリア</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="ベル">ベル</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="クレア">クレア</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="マレーナ">マレーナ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="ゾーヤ">ゾーヤ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- レンジャー -->
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【ベル・ハーパー・アッシュ・シンシア・レッドレディ】</h4>
+            <span class="trapezoid-badge trapezoid-badge-rec">魔王・レンジャー</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="ベル">ベル</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="アッシュ">アッシュ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="シンシア">シンシア</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="レッドレディ">レッドレディ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ソーサラー 1 -->
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【ベル・ハーパー・ニコル・ピエロ・アニー】</h4>
+            <span class="trapezoid-badge">魔王・ソーサラー ①</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="ベル">ベル</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="ニコル">ニコル</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="ピエロ">ピエロ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="アニー">アニー</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ソーサラー 2 -->
+        <div class="trapezoid-card">
+          <div class="trapezoid-card-header">
+            <h4 class="trapezoid-title">【グリンウォルド・ハーパー・ニコル・ピエロ・アニー】</h4>
+            <span class="trapezoid-badge">魔王・ソーサラー ②</span>
+          </div>
+          <div class="formation-trapezoid-box">
+            <div class="formation-row-front">
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↖ 前衛・左</span>
+                <span class="hero-chip" data-hero="グリンウォルド">グリンウォルド</span>
+              </div>
+              <div class="formation-slot formation-slot-front">
+                <span class="slot-pos-tag" style="color: var(--accent-gold);">↗ 前衛・右</span>
+                <span class="hero-chip" data-hero="ハーパー">ハーパー</span>
+              </div>
+            </div>
+            <div class="formation-row-back">
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↙ 後衛・左</span>
+                <span class="hero-chip" data-hero="ニコル">ニコル</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↓ 後衛・中央</span>
+                <span class="hero-chip" data-hero="ピエロ">ピエロ</span>
+              </div>
+              <div class="formation-slot formation-slot-back">
+                <span class="slot-pos-tag">↘ 後衛・右</span>
+                <span class="hero-chip" data-hero="アニー">アニー</span>
+              </div>
+            </div>
           </div>
         </div>
 
