@@ -441,28 +441,28 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentNoteText = localSaved || defaultNote;
     renderNoteDisplay(currentNoteText);
 
-    // Helper to upload note text to Cloud DB
+    // Helper to upload note text to Cloud DB while preserving comments
     function uploadNoteToCloud(text) {
       if (!cloudEndpoint) return Promise.resolve(false);
-      const payload = {
-        name: `last_asylum_note_${hero.slug}`,
-        data: {
-          slug: hero.slug,
-          note: text,
-          isCustomized: true,
-          updatedAt: Date.now()
-        }
-      };
-      return fetch(cloudEndpoint, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      })
-      .then(res => res.ok)
-      .catch(err => {
-        console.warn('Cloud sync upload error:', err);
-        return false;
-      });
+      return fetch(cloudEndpoint)
+        .then(res => res.ok ? res.json() : null)
+        .then(existing => {
+          const currentData = (existing && existing.data) ? existing.data : {};
+          currentData.slug = hero.slug;
+          currentData.note = text;
+          currentData.isCustomized = true;
+          currentData.updatedAt = Date.now();
+          return fetch(cloudEndpoint, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: `last_asylum_note_${hero.slug}`, data: currentData })
+          });
+        })
+        .then(res => res.ok)
+        .catch(err => {
+          console.warn('Cloud sync upload error:', err);
+          return false;
+        });
     }
 
     // 2. Fetch latest Note from Cloud DB (Multi-device shared sync)
@@ -632,10 +632,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // LocalStorage Community Comments Management
+  // Cloud Synced Community Comments Management
   // ==========================================
   function initHeroComments(hero) {
     const commentsStorageKey = `last_asylum_hero_comments_${hero.slug}`;
+    const cloudRecordId = cloudDbMapping[hero.slug];
+    const cloudEndpoint = cloudRecordId ? `https://api.restful-api.dev/objects/${cloudRecordId}` : null;
 
     let commentsList = [];
     const saved = localStorage.getItem(commentsStorageKey);
@@ -645,11 +647,44 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch(e) {
         commentsList = [];
       }
-    } else {
-      commentsList = [];
     }
 
     renderCommentsList(commentsList);
+
+    // Fetch cloud comments asynchronously for all visitors
+    if (cloudEndpoint) {
+      fetch(cloudEndpoint)
+        .then(res => res.ok ? res.json() : null)
+        .then(data => {
+          if (data && data.data && Array.isArray(data.data.comments)) {
+            const cloudComments = data.data.comments;
+            if (cloudComments.length > 0) {
+              commentsList = cloudComments;
+              localStorage.setItem(commentsStorageKey, JSON.stringify(commentsList));
+              renderCommentsList(commentsList);
+            }
+          }
+        })
+        .catch(err => console.log('Cloud comments fetch fallback to local:', err));
+    }
+
+    function syncCommentsToCloud(list) {
+      if (!cloudEndpoint) return;
+      fetch(cloudEndpoint)
+        .then(res => res.ok ? res.json() : null)
+        .then(existing => {
+          const currentData = (existing && existing.data) ? existing.data : {};
+          currentData.slug = hero.slug;
+          currentData.comments = list;
+          currentData.updatedAt = Date.now();
+          return fetch(cloudEndpoint, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: `last_asylum_note_${hero.slug}`, data: currentData })
+          });
+        })
+        .catch(err => console.warn('Cloud comments sync error:', err));
+    }
 
     // Submit handler
     if (btnSubmitComment) {
@@ -677,9 +712,12 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem(commentsStorageKey, JSON.stringify(commentsList));
         renderCommentsList(commentsList);
 
+        // Sync to Cloud DB (Shared across all visitors)
+        syncCommentsToCloud(commentsList);
+
         // Reset input form
         if (commentTextInput) commentTextInput.value = '';
-        alert('評価コメントを投稿しました！');
+        alert('評価コメントを投稿しました！（全端末・全ユーザーに公開されます）');
       };
     }
   }
