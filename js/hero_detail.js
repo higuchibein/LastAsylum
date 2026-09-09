@@ -354,8 +354,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnModalCancel = document.getElementById('btn-modal-cancel');
     const btnModalSubmit = document.getElementById('btn-modal-submit');
 
-    // Helper: Admin Password (Default: 'admin')
-    const getAdminPassword = () => localStorage.getItem(adminPassKey) || 'admin';
+    // Helper: Fixed Admin Password ('kickoff')
+    const getAdminPassword = () => 'kickoff';
     const isAuth = () => sessionStorage.getItem(authSessionKey) === 'true';
 
     // Load Note Text
@@ -374,7 +374,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (btnAdminAuth) btnAdminAuth.style.display = 'none';
         if (btnEditNote) btnEditNote.style.display = 'inline-block';
-        if (btnChangePass) btnChangePass.style.display = 'inline-block';
         if (btnAdminLogout) btnAdminLogout.style.display = 'inline-block';
       } else {
         if (adminAuthStatus) {
@@ -386,7 +385,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btnAdminAuth) btnAdminAuth.style.display = 'inline-block';
         if (btnEditNote) btnEditNote.style.display = 'none';
         if (btnSaveNote) btnSaveNote.style.display = 'none';
-        if (btnChangePass) btnChangePass.style.display = 'none';
         if (btnAdminLogout) btnAdminLogout.style.display = 'none';
 
         // Ensure display mode
@@ -474,18 +472,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (notesStatusMsg) {
           notesStatusMsg.textContent = '✓ 管理者権限でWikiノートを更新保存しました！';
           setTimeout(() => notesStatusMsg.textContent = '', 3000);
-        }
-      };
-    }
-
-    // Change Admin Password
-    if (btnChangePass) {
-      btnChangePass.onclick = () => {
-        if (!isAuth()) return;
-        const newPass = prompt('新しい管理者パスワードを入力してください:');
-        if (newPass && newPass.trim().length > 0) {
-          localStorage.setItem(adminPassKey, newPass.trim());
-          alert('管理者パスワードを正常に変更・更新しました。');
         }
       };
     }
