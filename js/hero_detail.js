@@ -449,6 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data: {
           slug: hero.slug,
           note: text,
+          isCustomized: true,
           updatedAt: Date.now()
         }
       };
@@ -469,15 +470,18 @@ document.addEventListener('DOMContentLoaded', () => {
       fetch(cloudEndpoint)
         .then(res => res.ok ? res.json() : null)
         .then(data => {
-          if (data && data.data && data.data.note) {
+          if (data && data.data) {
             const cloudNote = data.data.note;
-            // If local storage has a customized note that hasn't been synced to cloud, upload it first
-            if (localSaved && localSaved !== cloudNote && localSaved !== defaultNote) {
-              uploadNoteToCloud(localSaved);
-            } else if (cloudNote && cloudNote !== defaultNote) {
+            const isCustomized = data.data.isCustomized;
+
+            if (isCustomized && cloudNote) {
+              // Admin saved a customized note to cloud DB -> use cloud note across all devices!
               currentNoteText = cloudNote;
               localStorage.setItem(storageKey, cloudNote);
               renderNoteDisplay(cloudNote);
+            } else if (localSaved && localSaved !== defaultNote) {
+              // Cloud record is not customized yet, but local browser has a customized note -> sync local note to cloud!
+              uploadNoteToCloud(localSaved);
             }
           }
         })
