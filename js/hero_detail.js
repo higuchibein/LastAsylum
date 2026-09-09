@@ -373,48 +373,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // Admin Password Protected Wiki Notes System (Cloud Synced Across Devices)
+  // Official Firebase Realtime Database Integration (100k requests/day, 100% Free & Unlimited)
   // ==========================================
-  const cloudDbMapping = {
-    "red-lady": "ff808181a067127101a08698bd7b5900",
-    "cynthia": "ff808181a067127101a08698bf275902",
-    "bell": "ff808181a067127101a08698c0695903",
-    "louis": "ff808181a067127101a08698c1865904",
-    "shadow": "ff808181a067127101a08698c34d5905",
-    "joker": "ff808181a067127101a08698c4785906",
-    "annie": "ff808181a067127101a08698c5b65907",
-    "nicole": "ff808181a067127101a08698c6f25908",
-    "billy": "ff808181a067127101a08698c89a5909",
-    "ulfrid": "ff808181a067127101a08698cb78590a",
-    "marlena": "ff808181a067127101a08698ccf2590b",
-    "zoya": "ff808181a067127101a08698ce1d590c",
-    "harper": "ff808181a067127101a08698cf80590d",
-    "arthur": "ff808181a067127101a08698d0b4590e",
-    "daskal": "ff808181a067127101a08698d1f1590f",
-    "ash": "ff808181a067127101a08698d3355910",
-    "bestar": "ff808181a067127101a08698d4605911",
-    "griffith": "ff808181a067127101a08698d5f35912",
-    "grenwald": "ff808181a067127101a08698d7c15913",
-    "stellar": "ff808181a067127101a08698d9005914",
-    "hastar": "ff808181a067127101a08698da705915",
-    "claire": "ff808181a067127101a08698dba15916",
-    "kesso": "ff808181a067127101a08698dcea5917",
-    "sivir": "ff808181a067127101a08698dfd85918",
-    "celia": "ff808181a067127101a08698e2e55919",
-    "bella": "ff808181a067127101a08698e42d591a",
-    "lucius": "ff808181a067127101a08698e57b591b",
-    "robin": "ff808181a067127101a08698e6bd591c",
-    "kafa": "ff808181a067127101a08698eca5591d",
-    "william": "ff808181a067127101a08698eebb591e",
-    "durant": "ff808181a067127101a08698f039591f"
-  };
+  const FIREBASE_BASE_URL = 'https://lastasylum-wiki-default-rtdb.asia-southeast1.firebasedatabase.app';
 
   function initHeroNotes(hero) {
     const storageKey = `last_asylum_hero_notes_${hero.slug}`;
     const authSessionKey = `last_asylum_admin_auth`;
 
-    const cloudRecordId = cloudDbMapping[hero.slug];
-    const cloudEndpoint = cloudRecordId ? `https://api.restful-api.dev/objects/${cloudRecordId}` : null;
+    const firebaseNoteUrl = `${FIREBASE_BASE_URL}/hero_notes/${hero.slug}.json`;
 
     const defaultNote = `【立ち回り・編成考察】\n・${hero.nameJapanese || hero.name}の強みを生かしたおすすめ前衛・後衛構成。\n・特定コンテンツ（PvP/PVE/同盟戦）での評価メモ。\n\n【おすすめ装備・ギア構成】\n・優先ステータス: 攻撃力％ / 会心補正\n・専用装備との相性メモ。`;
 
@@ -441,31 +408,27 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentNoteText = localSaved || defaultNote;
     renderNoteDisplay(currentNoteText);
 
-    // Helper to upload note text to Cloud DB while preserving comments
-    function uploadNoteToCloud(text) {
-      if (!cloudEndpoint) return Promise.resolve(false);
-      return fetch(cloudEndpoint)
-        .then(res => res.ok ? res.json() : null)
-        .then(existing => {
-          const currentData = (existing && existing.data) ? existing.data : {};
-          currentData.slug = hero.slug;
-          currentData.note = text;
-          currentData.isCustomized = true;
-          currentData.updatedAt = Date.now();
-          return fetch(cloudEndpoint, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: `last_asylum_note_${hero.slug}`, data: currentData })
-          });
-        })
-        .then(res => res.ok)
-        .catch(err => {
-          console.warn('Cloud sync upload error:', err);
-          return false;
-        });
+    // Helper to upload note text to Firebase DB
+    function uploadNoteToFirebase(text) {
+      const payload = {
+        slug: hero.slug,
+        note: text,
+        isCustomized: true,
+        updatedAt: Date.now()
+      };
+      return fetch(firebaseNoteUrl, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(res => res.ok)
+      .catch(err => {
+        console.warn('Firebase note upload error:', err);
+        return false;
+      });
     }
 
-    // 2. Fetch static repository note store first (Zero rate-limit fallback)
+    // 2. Fetch static repository store note first (Zero rate-limit fallback)
     fetch('data/hero_notes_store.json?v=20260910')
       .then(res => res.ok ? res.json() : null)
       .then(store => {
@@ -476,35 +439,28 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(e => {});
 
-    // 3. Fetch latest Note from Cloud DB (Multi-device shared sync)
-    if (cloudEndpoint) {
-      fetch(cloudEndpoint)
-        .then(res => res.ok ? res.json() : null)
-        .then(data => {
-          if (data && data.data && !data.error) {
-            const cloudNote = data.data.note;
-            const isCustomized = data.data.isCustomized;
-
-            if (isCustomized && cloudNote) {
-              // Admin saved a customized note to cloud DB -> use cloud note across all devices!
-              currentNoteText = cloudNote;
-              localStorage.setItem(storageKey, cloudNote);
-              renderNoteDisplay(cloudNote);
-            } else if (localSaved && localSaved !== defaultNote) {
-              // Cloud record is not customized yet, but local browser has a customized note -> sync local note to cloud!
-              uploadNoteToCloud(localSaved);
-            }
-          }
-        })
-        .catch(err => console.log('Cloud note fetch fallback to local:', err));
-    }
+    // 3. Fetch latest Note from Firebase Realtime Database
+    fetch(firebaseNoteUrl)
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        if (data && data.isCustomized && data.note) {
+          // Admin saved a customized note in Firebase -> sync across all devices!
+          currentNoteText = data.note;
+          localStorage.setItem(storageKey, currentNoteText);
+          renderNoteDisplay(currentNoteText);
+        } else if (localSaved && localSaved !== defaultNote) {
+          // Local note exists, upload to Firebase
+          uploadNoteToFirebase(localSaved);
+        }
+      })
+      .catch(err => console.log('Firebase note fetch fallback:', err));
 
     // Update UI according to Auth State
     function updateAuthUI() {
       const authenticated = isAuth();
       if (authenticated) {
         if (adminAuthStatus) {
-          adminAuthStatus.textContent = '🔓 管理者ログイン中 (全端末共通編集)';
+          adminAuthStatus.textContent = '🔓 管理者ログイン中 (Firebaseリアルタイム同期中)';
           adminAuthStatus.style.background = 'rgba(255,215,0,0.15)';
           adminAuthStatus.style.color = 'var(--accent-gold)';
           adminAuthStatus.style.borderColor = 'var(--accent-gold)';
@@ -514,7 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btnAdminLogout) btnAdminLogout.style.display = 'inline-block';
       } else {
         if (adminAuthStatus) {
-          adminAuthStatus.textContent = '🔒 閲覧モード (全端末共通同期中)';
+          adminAuthStatus.textContent = '🔒 閲覧モード (Firebase全端末同期中)';
           adminAuthStatus.style.background = 'rgba(255,255,255,0.1)';
           adminAuthStatus.style.color = 'var(--text-muted)';
           adminAuthStatus.style.borderColor = 'rgba(255,255,255,0.15)';
@@ -593,7 +549,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btnEditNote.onclick = startEditing;
     }
 
-    // Save Note to both local and Cloud DB
+    // Save Note to both local and Firebase Realtime DB
     if (btnSaveNote) {
       btnSaveNote.onclick = () => {
         if (!isAuth()) return;
@@ -607,15 +563,15 @@ document.addEventListener('DOMContentLoaded', () => {
         btnEditNote.style.display = 'inline-block';
 
         if (notesStatusMsg) {
-          notesStatusMsg.textContent = '⏳ 全端末へ同期保存中...';
+          notesStatusMsg.textContent = '⏳ Firebaseへ同期保存中...';
         }
 
-        uploadNoteToCloud(currentNoteText).then(success => {
+        uploadNoteToFirebase(currentNoteText).then(success => {
           if (notesStatusMsg) {
             if (success) {
-              notesStatusMsg.textContent = '✓ 管理者権限でWikiノートを更新し、全端末へ同期保存しました！';
+              notesStatusMsg.textContent = '✓ 管理者権限でWikiノートを更新し、Firebaseへ同期保存しました！';
             } else {
-              notesStatusMsg.textContent = '✓ ローカル保存完了（ネットワーク状況をご確認ください）';
+              notesStatusMsg.textContent = '✓ ローカル保存完了（Firebaseのルール設定をご確認ください）';
             }
             setTimeout(() => notesStatusMsg.textContent = '', 4000);
           }
@@ -643,12 +599,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // Cloud Synced Community Comments Management
+  // Firebase Synced Community Comments Management
   // ==========================================
   function initHeroComments(hero) {
     const commentsStorageKey = `last_asylum_hero_comments_${hero.slug}`;
-    const cloudRecordId = cloudDbMapping[hero.slug];
-    const cloudEndpoint = cloudRecordId ? `https://api.restful-api.dev/objects/${cloudRecordId}` : null;
+    const firebaseCommentsUrl = `${FIREBASE_BASE_URL}/hero_comments/${hero.slug}.json`;
 
     let commentsList = [];
     const saved = localStorage.getItem(commentsStorageKey);
@@ -662,39 +617,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderCommentsList(commentsList);
 
-    // Fetch cloud comments asynchronously for all visitors
-    if (cloudEndpoint) {
-      fetch(cloudEndpoint)
-        .then(res => res.ok ? res.json() : null)
-        .then(data => {
-          if (data && data.data && !data.error && Array.isArray(data.data.comments)) {
-            const cloudComments = data.data.comments;
-            if (cloudComments.length > 0) {
-              commentsList = cloudComments;
-              localStorage.setItem(commentsStorageKey, JSON.stringify(commentsList));
-              renderCommentsList(commentsList);
-            }
-          }
-        })
-        .catch(err => console.log('Cloud comments fetch fallback to local:', err));
-    }
+    // Fetch Firebase comments for all visitors
+    fetch(firebaseCommentsUrl)
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        if (data && Array.isArray(data) && data.length > 0) {
+          commentsList = data;
+          localStorage.setItem(commentsStorageKey, JSON.stringify(commentsList));
+          renderCommentsList(commentsList);
+        }
+      })
+      .catch(err => console.log('Firebase comments fetch fallback:', err));
 
-    function syncCommentsToCloud(list) {
-      if (!cloudEndpoint) return;
-      fetch(cloudEndpoint)
-        .then(res => res.ok ? res.json() : null)
-        .then(existing => {
-          const currentData = (existing && existing.data) ? existing.data : {};
-          currentData.slug = hero.slug;
-          currentData.comments = list;
-          currentData.updatedAt = Date.now();
-          return fetch(cloudEndpoint, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: `last_asylum_note_${hero.slug}`, data: currentData })
-          });
-        })
-        .catch(err => console.warn('Cloud comments sync error:', err));
+    function syncCommentsToFirebase(list) {
+      return fetch(firebaseCommentsUrl, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(list)
+      })
+      .catch(err => console.warn('Firebase comments sync error:', err));
     }
 
     // Submit handler
@@ -723,8 +664,8 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem(commentsStorageKey, JSON.stringify(commentsList));
         renderCommentsList(commentsList);
 
-        // Sync to Cloud DB (Shared across all visitors)
-        syncCommentsToCloud(commentsList);
+        // Sync to Firebase DB (Shared across all visitors)
+        syncCommentsToFirebase(commentsList);
 
         // Reset input form
         if (commentTextInput) commentTextInput.value = '';
