@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://higuchibein.github.io/LastAsylum/sitemap.xml
