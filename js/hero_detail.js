@@ -373,12 +373,48 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // Admin Password Protected Wiki Notes System
+  // Admin Password Protected Wiki Notes System (Cloud Synced Across Devices)
   // ==========================================
+  const cloudDbMapping = {
+    "red-lady": "ff808181a067127101a08698bd7b5900",
+    "cynthia": "ff808181a067127101a08698bf275902",
+    "bell": "ff808181a067127101a08698c0695903",
+    "louis": "ff808181a067127101a08698c1865904",
+    "shadow": "ff808181a067127101a08698c34d5905",
+    "joker": "ff808181a067127101a08698c4785906",
+    "annie": "ff808181a067127101a08698c5b65907",
+    "nicole": "ff808181a067127101a08698c6f25908",
+    "billy": "ff808181a067127101a08698c89a5909",
+    "ulfrid": "ff808181a067127101a08698cb78590a",
+    "marlena": "ff808181a067127101a08698ccf2590b",
+    "zoya": "ff808181a067127101a08698ce1d590c",
+    "harper": "ff808181a067127101a08698cf80590d",
+    "arthur": "ff808181a067127101a08698d0b4590e",
+    "daskal": "ff808181a067127101a08698d1f1590f",
+    "ash": "ff808181a067127101a08698d3355910",
+    "bestar": "ff808181a067127101a08698d4605911",
+    "griffith": "ff808181a067127101a08698d5f35912",
+    "grenwald": "ff808181a067127101a08698d7c15913",
+    "stellar": "ff808181a067127101a08698d9005914",
+    "hastar": "ff808181a067127101a08698da705915",
+    "claire": "ff808181a067127101a08698dba15916",
+    "kesso": "ff808181a067127101a08698dcea5917",
+    "sivir": "ff808181a067127101a08698dfd85918",
+    "celia": "ff808181a067127101a08698e2e55919",
+    "bella": "ff808181a067127101a08698e42d591a",
+    "lucius": "ff808181a067127101a08698e57b591b",
+    "robin": "ff808181a067127101a08698e6bd591c",
+    "kafa": "ff808181a067127101a08698eca5591d",
+    "william": "ff808181a067127101a08698eebb591e",
+    "durant": "ff808181a067127101a08698f039591f"
+  };
+
   function initHeroNotes(hero) {
     const storageKey = `last_asylum_hero_notes_${hero.slug}`;
-    const adminPassKey = `last_asylum_admin_password`;
     const authSessionKey = `last_asylum_admin_auth`;
+
+    const cloudRecordId = cloudDbMapping[hero.slug];
+    const cloudEndpoint = cloudRecordId ? `https://api.restful-api.dev/objects/${cloudRecordId}` : null;
 
     const defaultNote = `【立ち回り・編成考察】\n・${hero.nameJapanese || hero.name}の強みを生かしたおすすめ前衛・後衛構成。\n・特定コンテンツ（PvP/PVE/同盟戦）での評価メモ。\n\n【おすすめ装備・ギア構成】\n・優先ステータス: 攻撃力％ / 会心補正\n・専用装備との相性メモ。`;
 
@@ -387,7 +423,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnAdminAuth = document.getElementById('btn-admin-auth');
     const btnEditNote = document.getElementById('btn-edit-note');
     const btnSaveNote = document.getElementById('btn-save-note');
-    const btnChangePass = document.getElementById('btn-change-pass');
     const btnAdminLogout = document.getElementById('btn-admin-logout');
 
     // Modal elements
@@ -401,16 +436,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const getAdminPassword = () => 'kickoff';
     const isAuth = () => sessionStorage.getItem(authSessionKey) === 'true';
 
-    // Load Note Text
-    let currentNoteText = localStorage.getItem(storageKey) || defaultNote;
+    // 1. Initial Render from localStorage or defaultNote
+    let localSaved = localStorage.getItem(storageKey);
+    let currentNoteText = localSaved || defaultNote;
     renderNoteDisplay(currentNoteText);
+
+    // Helper to upload note text to Cloud DB
+    function uploadNoteToCloud(text) {
+      if (!cloudEndpoint) return Promise.resolve(false);
+      const payload = {
+        name: `last_asylum_note_${hero.slug}`,
+        data: {
+          slug: hero.slug,
+          note: text,
+          updatedAt: Date.now()
+        }
+      };
+      return fetch(cloudEndpoint, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(res => res.ok)
+      .catch(err => {
+        console.warn('Cloud sync upload error:', err);
+        return false;
+      });
+    }
+
+    // 2. Fetch latest Note from Cloud DB (Multi-device shared sync)
+    if (cloudEndpoint) {
+      fetch(cloudEndpoint)
+        .then(res => res.ok ? res.json() : null)
+        .then(data => {
+          if (data && data.data && data.data.note) {
+            const cloudNote = data.data.note;
+            // If local storage has a customized note that hasn't been synced to cloud, upload it first
+            if (localSaved && localSaved !== cloudNote && localSaved !== defaultNote) {
+              uploadNoteToCloud(localSaved);
+            } else if (cloudNote && cloudNote !== defaultNote) {
+              currentNoteText = cloudNote;
+              localStorage.setItem(storageKey, cloudNote);
+              renderNoteDisplay(cloudNote);
+            }
+          }
+        })
+        .catch(err => console.log('Cloud note fetch fallback to local:', err));
+    }
 
     // Update UI according to Auth State
     function updateAuthUI() {
       const authenticated = isAuth();
       if (authenticated) {
         if (adminAuthStatus) {
-          adminAuthStatus.textContent = '🔓 管理者ログイン中 (編集可能)';
+          adminAuthStatus.textContent = '🔓 管理者ログイン中 (全端末共通編集)';
           adminAuthStatus.style.background = 'rgba(255,215,0,0.15)';
           adminAuthStatus.style.color = 'var(--accent-gold)';
           adminAuthStatus.style.borderColor = 'var(--accent-gold)';
@@ -420,7 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btnAdminLogout) btnAdminLogout.style.display = 'inline-block';
       } else {
         if (adminAuthStatus) {
-          adminAuthStatus.textContent = '🔒 閲覧モード (保護中)';
+          adminAuthStatus.textContent = '🔒 閲覧モード (全端末共通同期中)';
           adminAuthStatus.style.background = 'rgba(255,255,255,0.1)';
           adminAuthStatus.style.color = 'var(--text-muted)';
           adminAuthStatus.style.borderColor = 'rgba(255,255,255,0.15)';
@@ -499,7 +578,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btnEditNote.onclick = startEditing;
     }
 
-    // Save Note
+    // Save Note to both local and Cloud DB
     if (btnSaveNote) {
       btnSaveNote.onclick = () => {
         if (!isAuth()) return;
@@ -513,9 +592,19 @@ document.addEventListener('DOMContentLoaded', () => {
         btnEditNote.style.display = 'inline-block';
 
         if (notesStatusMsg) {
-          notesStatusMsg.textContent = '✓ 管理者権限でWikiノートを更新保存しました！';
-          setTimeout(() => notesStatusMsg.textContent = '', 3000);
+          notesStatusMsg.textContent = '⏳ 全端末へ同期保存中...';
         }
+
+        uploadNoteToCloud(currentNoteText).then(success => {
+          if (notesStatusMsg) {
+            if (success) {
+              notesStatusMsg.textContent = '✓ 管理者権限でWikiノートを更新し、全端末へ同期保存しました！';
+            } else {
+              notesStatusMsg.textContent = '✓ ローカル保存完了（ネットワーク状況をご確認ください）';
+            }
+            setTimeout(() => notesStatusMsg.textContent = '', 4000);
+          }
+        });
       };
     }
 
