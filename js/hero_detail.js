@@ -203,25 +203,39 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }
 
-    // 3. Render Exclusive Weapon (if present)
+    // 3. Render Exclusive Weapon or Awakening Skill (if present)
     if (weaponContainer) {
       const eq = hero.exclusiveWeapon;
+      const awk = hero.awakeningSkill;
+
       if (eq) {
         weaponContainer.innerHTML = `
           <div style="background: linear-gradient(180deg, rgba(255,215,0,0.1), rgba(0,0,0,0.4)); border: 1px solid var(--accent-gold); border-radius: 10px; padding: 1.1rem;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
               <strong style="color:var(--accent-gold); font-size:1.05rem;">🗡️ ${escapeHtml(eq.weaponTitle)}</strong>
-              <span class="badge" style="background:var(--accent-gold); color:#000; font-weight:900;">専用アーティファクト</span>
+              <span class="badge" style="background:var(--accent-gold); color:#000; font-weight:900;">専用装備</span>
             </div>
             <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem; line-height:1.5;">${escapeHtml(eq.description || '')}</p>
             ${eq.stats ? `<div style="font-size:0.82rem; color:#fff; margin-bottom:0.3rem;">📊 <strong>ステータス補正:</strong> ${escapeHtml(eq.stats)}</div>` : ''}
             ${eq.effect ? `<div style="font-size:0.82rem; color:var(--accent-gold); font-weight:700;">⚡ <strong>特殊パッシブ効果:</strong> ${escapeHtml(eq.effect)}</div>` : ''}
           </div>
         `;
+      } else if (awk) {
+        weaponContainer.innerHTML = `
+          <div style="background: linear-gradient(180deg, rgba(16,172,132,0.15), rgba(0,0,0,0.4)); border: 1px solid #10ac84; border-radius: 10px; padding: 1.1rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+              <strong style="color:#10ac84; font-size:1.05rem;">${escapeHtml(awk.skillTitle)}</strong>
+              <span class="badge" style="background:#10ac84; color:#000; font-weight:900;">覚醒スキル</span>
+            </div>
+            <p style="font-size:0.85rem; color:var(--text-color); margin-bottom:0.75rem; line-height:1.5;">${escapeHtml(awk.description || '')}</p>
+            ${awk.stats ? `<div style="font-size:0.82rem; color:#fff; margin-bottom:0.3rem;">📊 <strong>覚醒ステータス補正:</strong> ${escapeHtml(awk.stats)}</div>` : ''}
+            ${awk.effect ? `<div style="font-size:0.82rem; color:var(--accent-gold); font-weight:700;">⚡ <strong>覚醒追加効果:</strong> ${escapeHtml(awk.effect)}</div>` : ''}
+          </div>
+        `;
       } else {
         weaponContainer.innerHTML = `
           <div style="color: var(--text-muted); font-size: 0.85rem; padding: 1rem; text-align: center; background: var(--bg-primary); border-radius: 8px;">
-            現在、${escapeHtml(jaName)} の専用装備データは未開放または未実装です。
+            現在、${escapeHtml(jaName)} の専用装備および覚醒スキルデータは未開放または未実装です。
           </div>
         `;
       }

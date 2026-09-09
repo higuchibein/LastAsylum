@@ -134,9 +134,15 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `).join('');
 
-      // Exclusive Weapon Tag (Only for Daskal, Louis, Ulfrid)
+      // Exclusive Weapon Tag (Only for Daskal, Louis, Ulfrid) or Awakening Skill Tag (For Marlena, Cynthia, Annie)
       const eq = hero.exclusiveWeapon;
-      const weaponTagHtml = eq ? `<span class="badge" style="background:var(--accent-gold); color:#000; font-size:0.7rem; font-weight:800; margin-top:0.5rem; display:inline-block;">🗡️ 専用装備: ${escapeHtml(eq.weaponTitle)}</span>` : '';
+      const awk = hero.awakeningSkill;
+      let specialTagHtml = '';
+      if (eq) {
+        specialTagHtml = `<span class="badge" style="background:var(--accent-gold); color:#000; font-size:0.7rem; font-weight:800; margin-top:0.5rem; display:inline-block;">🗡️ 専用装備: ${escapeHtml(eq.weaponTitle)}</span>`;
+      } else if (awk) {
+        specialTagHtml = `<span class="badge" style="background:#10ac84; color:#000; font-size:0.7rem; font-weight:800; margin-top:0.5rem; display:inline-block;">🔮 覚醒スキル適用</span>`;
+      }
 
       const detailUrl = `hero_detail.html?id=${hero.slug}`;
       const calcUrl = `hero_calculator.html?hero=${encodeURIComponent(jaName)}`;
@@ -169,8 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <!-- Role Rankings Bar -->
           ${roleBadges.length > 0 ? `<div class="role-badges-row" style="margin-bottom:0.6rem;">${roleBadges.join('')}</div>` : ''}
 
-          <!-- Exclusive Weapon Tag -->
-          ${weaponTagHtml}
+          <!-- Exclusive Weapon / Awakening Skill Tag -->
+          ${specialTagHtml}
 
           <!-- Footer Action Buttons -->
           <div style="margin-top:1rem; padding-top:0.75rem; border-top:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; align-items:center; gap:0.5rem; flex-wrap:wrap;">
