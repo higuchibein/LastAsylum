@@ -465,12 +465,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Fetch latest Note from Cloud DB (Multi-device shared sync)
+    // 2. Fetch static repository note store first (Zero rate-limit fallback)
+    fetch('data/hero_notes_store.json?v=20260910')
+      .then(res => res.ok ? res.json() : null)
+      .then(store => {
+        if (store && store.notes && store.notes[hero.slug] && !localSaved) {
+          currentNoteText = store.notes[hero.slug];
+          renderNoteDisplay(currentNoteText);
+        }
+      })
+      .catch(e => {});
+
+    // 3. Fetch latest Note from Cloud DB (Multi-device shared sync)
     if (cloudEndpoint) {
       fetch(cloudEndpoint)
         .then(res => res.ok ? res.json() : null)
         .then(data => {
-          if (data && data.data) {
+          if (data && data.data && !data.error) {
             const cloudNote = data.data.note;
             const isCustomized = data.data.isCustomized;
 
@@ -656,7 +667,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fetch(cloudEndpoint)
         .then(res => res.ok ? res.json() : null)
         .then(data => {
-          if (data && data.data && Array.isArray(data.data.comments)) {
+          if (data && data.data && !data.error && Array.isArray(data.data.comments)) {
             const cloudComments = data.data.comments;
             if (cloudComments.length > 0) {
               commentsList = cloudComments;
