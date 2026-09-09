@@ -203,10 +203,10 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }
 
-    // 3. Render Exclusive Weapon or Awakening Skill (if present)
+    // 3. Render Exclusive Weapon or Awakening Skills (if present)
     if (weaponContainer) {
       const eq = hero.exclusiveWeapon;
-      const awk = hero.awakeningSkill;
+      const awkSkills = hero.awakeningSkills || [];
 
       if (eq) {
         weaponContainer.innerHTML = `
@@ -220,16 +220,45 @@ document.addEventListener('DOMContentLoaded', () => {
             ${eq.effect ? `<div style="font-size:0.82rem; color:var(--accent-gold); font-weight:700;">⚡ <strong>特殊パッシブ効果:</strong> ${escapeHtml(eq.effect)}</div>` : ''}
           </div>
         `;
-      } else if (awk) {
-        weaponContainer.innerHTML = `
-          <div style="background: linear-gradient(180deg, rgba(16,172,132,0.15), rgba(0,0,0,0.4)); border: 1px solid #10ac84; border-radius: 10px; padding: 1.1rem;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-              <strong style="color:#10ac84; font-size:1.05rem;">${escapeHtml(awk.skillTitle)}</strong>
-              <span class="badge" style="background:#10ac84; color:#000; font-weight:900;">覚醒スキル</span>
+      } else if (awkSkills.length > 0) {
+        const awkListHtml = awkSkills.map(item => {
+          let desc = escapeHtml(item.awakenedDescription || item.description || '');
+          // Format placeholders if formulas exist
+          if (item.formulas && item.formulas.length > 0) {
+            item.formulas.forEach((f, fIdx) => {
+              if (f.value) {
+                let fVal = f.value;
+                if (fVal.includes('n1')) {
+                  try {
+                    const parsed = Function('"use strict"; return (' + fVal.replace(/n1/g, '29') + ')')();
+                    if (typeof parsed === 'number' && !isNaN(parsed)) {
+                      fVal = parsed.toFixed(1) + (f.unit || '%');
+                    }
+                  } catch(e) {}
+                }
+                desc = desc.replace(new RegExp('\\{' + fIdx + '\\}', 'g'), `<strong style="color:var(--accent-gold);">${fVal}</strong>`);
+              }
+            });
+          }
+          return `
+            <div style="background: rgba(16,172,132,0.12); border: 1px solid rgba(16,172,132,0.35); border-radius: 8px; padding: 0.85rem; margin-bottom: 0.75rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+                <strong style="color:#10ac84; font-size:0.92rem;">🔮 覚醒強化: ${escapeHtml(item.skillNameJapanese || item.skillName)}</strong>
+                <span class="badge" style="background:#10ac84; color:#000; font-size:0.7rem; font-weight:800;">${escapeHtml(item.awakenMark || '10★覚醒')}</span>
+              </div>
+              <p style="font-size:0.83rem; color:var(--text-color); margin-bottom:0.35rem; line-height:1.5;">${desc}</p>
+              ${item.unlockCondition ? `<div style="font-size:0.75rem; color:var(--accent-gold);">🔓 <strong>解放条件:</strong> ${escapeHtml(item.unlockCondition)}</div>` : ''}
             </div>
-            <p style="font-size:0.85rem; color:var(--text-color); margin-bottom:0.75rem; line-height:1.5;">${escapeHtml(awk.description || '')}</p>
-            ${awk.stats ? `<div style="font-size:0.82rem; color:#fff; margin-bottom:0.3rem;">📊 <strong>覚醒ステータス補正:</strong> ${escapeHtml(awk.stats)}</div>` : ''}
-            ${awk.effect ? `<div style="font-size:0.82rem; color:var(--accent-gold); font-weight:700;">⚡ <strong>覚醒追加効果:</strong> ${escapeHtml(awk.effect)}</div>` : ''}
+          `;
+        }).join('');
+
+        weaponContainer.innerHTML = `
+          <div style="background: linear-gradient(180deg, rgba(16,172,132,0.08), rgba(0,0,0,0.4)); border: 1px solid #10ac84; border-radius: 10px; padding: 1.1rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+              <strong style="color:#10ac84; font-size:1.05rem;">🔮 覚醒スキル・段階強化一覧</strong>
+              <span class="badge" style="background:#10ac84; color:#000; font-weight:900;">全${awkSkills.length}段階 覚醒適用</span>
+            </div>
+            ${awkListHtml}
           </div>
         `;
       } else {

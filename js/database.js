@@ -136,12 +136,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Exclusive Weapon Tag (Only for Daskal, Louis, Ulfrid) or Awakening Skill Tag (For Marlena, Cynthia, Annie)
       const eq = hero.exclusiveWeapon;
-      const awk = hero.awakeningSkill;
+      const awkSkills = hero.awakeningSkills || [];
       let specialTagHtml = '';
       if (eq) {
         specialTagHtml = `<span class="badge" style="background:var(--accent-gold); color:#000; font-size:0.7rem; font-weight:800; margin-top:0.5rem; display:inline-block;">🗡️ 専用装備: ${escapeHtml(eq.weaponTitle)}</span>`;
-      } else if (awk) {
-        specialTagHtml = `<span class="badge" style="background:#10ac84; color:#000; font-size:0.7rem; font-weight:800; margin-top:0.5rem; display:inline-block;">🔮 覚醒スキル適用</span>`;
+      } else if (awkSkills.length > 0) {
+        specialTagHtml = `<span class="badge" style="background:#10ac84; color:#000; font-size:0.7rem; font-weight:800; margin-top:0.5rem; display:inline-block;">🔮 覚醒スキル (${awkSkills.length}段階適用)</span>`;
       }
 
       const detailUrl = `hero_detail.html?id=${hero.slug}`;
