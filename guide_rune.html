@@ -161,30 +161,35 @@
         <section class="guide-section">
           <h2 class="guide-h2">🛡️ 陣営アイコンの見分け方</h2>
           <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
-            ルーンに付いているアイコンの見た目で、どの陣営用かが判別できます。
+            ルーンに付いているアイコンの見た目（中央のマーク）で、どの陣営用かが一目で判別できます。
           </p>
-          <div class="faction-box">
-            <div class="faction-card">
-              <div style="font-size: 1.8rem;">⚔️</div>
-              <div>
-                <div style="font-weight: 800; color: var(--accent-gold);">ウォーリア</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">盾と剣マーク</div>
-              </div>
+          
+          <div class="faction-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin: 1.25rem 0;">
+            
+            <!-- ウォーリア -->
+            <div class="faction-card" style="background: rgba(19, 23, 34, 0.9); border: 1px solid var(--accent-gold); border-radius: 10px; padding: 1.25rem; text-align: center; box-shadow: 0 4px 15px rgba(255,215,0,0.15);">
+              <img src="images/rune/rune_warrior.png" alt="ウォーリア ルーンアイコン (盾と剣マーク)" style="width: 120px; height: 120px; border-radius: 12px; border: 2px solid var(--accent-gold); margin-bottom: 0.75rem; box-shadow: 0 0 12px rgba(255,215,0,0.3); object-fit: contain;">
+              <div style="font-weight: 800; font-size: 1.1rem; color: var(--accent-gold); margin-bottom: 0.25rem;">⚔️ ウォーリア</div>
+              <div style="font-size: 0.9rem; color: #fff; font-weight: 700;">盾と剣マーク</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; line-height: 1.4;">近接・前衛防衛（タンク/戦士）陣営専用</div>
             </div>
-            <div class="faction-card">
-              <div style="font-size: 1.8rem;">🏹</div>
-              <div>
-                <div style="font-weight: 800; color: var(--accent-blue);">レンジャー</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">槍マーク</div>
-              </div>
+
+            <!-- レンジャー -->
+            <div class="faction-card" style="background: rgba(19, 23, 34, 0.9); border: 1px solid var(--accent-blue); border-radius: 10px; padding: 1.25rem; text-align: center; box-shadow: 0 4px 15px rgba(0,240,255,0.15);">
+              <img src="images/rune/rune_ranger.png" alt="レンジャー ルーンアイコン (槍マーク)" style="width: 120px; height: 120px; border-radius: 12px; border: 2px solid var(--accent-blue); margin-bottom: 0.75rem; box-shadow: 0 0 12px rgba(0,240,255,0.3); object-fit: contain;">
+              <div style="font-weight: 800; font-size: 1.1rem; color: var(--accent-blue); margin-bottom: 0.25rem;">🏹 レンジャー</div>
+              <div style="font-size: 0.9rem; color: #fff; font-weight: 700;">槍マーク</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; line-height: 1.4;">遠距離・DPS主力アタッカー陣営専用</div>
             </div>
-            <div class="faction-card">
-              <div style="font-size: 1.8rem;">📖</div>
-              <div>
-                <div style="font-weight: 800; color: #a855f7;">ソーサラー</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">本マーク</div>
-              </div>
+
+            <!-- ソーサラー -->
+            <div class="faction-card" style="background: rgba(19, 23, 34, 0.9); border: 1px solid #a855f7; border-radius: 10px; padding: 1.25rem; text-align: center; box-shadow: 0 4px 15px rgba(168,85,247,0.15);">
+              <img src="images/rune/rune_sorcerer.png" alt="ソーサラー ルーンアイコン (本マーク)" style="width: 120px; height: 120px; border-radius: 12px; border: 2px solid #a855f7; margin-bottom: 0.75rem; box-shadow: 0 0 12px rgba(168,85,247,0.3); object-fit: contain;">
+              <div style="font-weight: 800; font-size: 1.1rem; color: #c084fc; margin-bottom: 0.25rem;">📖 ソーサラー</div>
+              <div style="font-size: 0.9rem; color: #fff; font-weight: 700;">本マーク</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; line-height: 1.4;">魔法・補助バッファー/デバッファー陣営専用</div>
             </div>
+
           </div>
         </section>
 
