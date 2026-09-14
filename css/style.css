@@ -570,17 +570,22 @@ ul, ol {
 /* Faction Icon Grid (Strict 3-column layout on all screens without flex) */
 .faction-box {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.35rem;
   margin: 1.25rem 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .faction-card {
   background: rgba(19, 23, 34, 0.9);
   border-radius: 10px;
-  padding: 0.75rem 0.4rem;
+  padding: 0.5rem 0.2rem;
   text-align: center;
   display: block;
+  box-sizing: border-box;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .faction-card-warrior {
@@ -600,10 +605,12 @@ ul, ol {
 
 .faction-title {
   font-weight: 800;
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
+  font-size: clamp(0.72rem, 3.2vw, 0.95rem);
+  margin-bottom: 0.35rem;
   white-space: nowrap;
   display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .faction-title-warrior { color: var(--accent-gold); }
@@ -611,12 +618,14 @@ ul, ol {
 .faction-title-sorcerer { color: #c084fc; }
 
 .faction-img {
-  width: 85px;
-  height: 85px;
+  width: 100%;
+  max-width: 85px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   border-radius: 10px;
   object-fit: contain;
-  max-width: 100%;
   display: inline-block;
+  box-sizing: border-box;
 }
 
 .faction-img-warrior {
@@ -867,5 +876,18 @@ ul, ol {
 .guide-tag-white {
   background: rgba(255, 255, 255, 0.08);
   color: var(--text-main);
+}
+
+@media (max-width: 600px) {
+  .guide-container {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+  .guide-article {
+    padding: 1.25rem 0.6rem;
+  }
+  .container {
+    padding: 0 0.5rem;
+  }
 }
 
