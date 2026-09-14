@@ -14,99 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>【ラストアサイラム】ルーン工房~育成ガイド~ | Last Asylum Strategy Wiki</title>
   <meta name="description" content="Last Asylum（ラストアサイラム）のルーン工房・ルーン育成完全ガイド。陣営ルーンの見分け方、おすすめルーン評価一覧、星上げ（凸）必要数16個ルール、レイヴン進化仕様を徹底解説。">
-  <link rel="stylesheet" href="css/style.css?v=20260914_01">
-  <style>
-    .guide-article {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: var(--shadow-card);
-    }
-    .guide-section {
-      margin-bottom: 2.5rem;
-    }
-    .guide-h2 {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--accent-gold);
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .guide-h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--accent-blue);
-      margin: 1.25rem 0 0.5rem 0;
-    }
-    .faction-box {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-    .faction-card {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .rule-list {
-      background: rgba(0, 240, 255, 0.04);
-      border-left: 4px solid var(--accent-blue);
-      padding: 1rem 1.25rem;
-      border-radius: 0 8px 8px 0;
-      margin: 1rem 0;
-    }
-    .rule-list li {
-      margin-bottom: 0.5rem;
-      line-height: 1.6;
-    }
-    .rule-list li:last-child {
-      margin-bottom: 0;
-    }
-    .highlight-badge {
-      background: linear-gradient(135deg, #ffd700, #ff9f43);
-      color: #000;
-      font-weight: 800;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      display: inline-block;
-    }
-    .table-container {
-      overflow-x: auto;
-      margin: 1rem 0;
-    }
-    .rune-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      text-align: left;
-    }
-    .rune-table th {
-      background: rgba(0, 240, 255, 0.1);
-      color: var(--accent-blue);
-      padding: 0.8rem 1rem;
-      border: 1px solid var(--border-color);
-      font-weight: 700;
-    }
-    .rune-table td {
-      padding: 0.8rem 1rem;
-      border: 1px solid var(--border-color);
-      background: rgba(19, 23, 34, 0.6);
-    }
-    .rune-table tr:hover td {
-      background: rgba(38, 46, 69, 0.8);
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css?v=20260914_02">
 </head>
 <body>
 
@@ -137,21 +45,21 @@
 
   <!-- メインコンテンツ -->
   <main class="main-content">
-    <div class="container" style="padding-top: 2rem; padding-bottom: 3rem;">
+    <div class="container guide-container">
       
       <!-- パンくずリスト -->
-      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
-        <a href="index.html">トップ</a> &gt; <a href="guide.html">育成ガイド</a> &gt; <span style="color: var(--accent-gold);">ルーン工房~育成ガイド~</span>
+      <div class="breadcrumb">
+        <a href="index.html">トップ</a> &gt; <a href="guide.html">育成ガイド</a> &gt; <span class="breadcrumb-current">ルーン工房~育成ガイド~</span>
       </div>
 
       <article class="guide-article">
         
         <!-- タイトル＆サマリー -->
-        <div style="margin-bottom: 2rem;">
-          <h1 style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 0.75rem;">
+        <div class="guide-header">
+          <h1 class="guide-main-title">
             【ラストアサイラム】ルーン工房~育成ガイド~
           </h1>
-          <div style="background: rgba(255, 215, 0, 0.08); border: 1px solid var(--accent-gold); padding: 1.25rem; border-radius: 8px; font-size: 0.95rem; line-height: 1.7; color: var(--text-main);">
+          <div class="guide-summary-box">
             💡 <strong>重要ポイント:</strong><br>
             ルーンの有無やレアリティ差が戦力差を覆すほど重要なシステムのため、仕様を把握して効率的に育成を進めましょう！
           </div>
@@ -160,28 +68,28 @@
         <!-- セクション1: 陣営アイコンの見分け方 -->
         <section class="guide-section">
           <h2 class="guide-h2">🛡️ 陣営アイコンの見分け方</h2>
-          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+          <p class="guide-desc-text">
             ルーンに付いているアイコンの見た目（中央のマーク）で、どの陣営用かが一目で判別できます。
           </p>
           
-          <div class="faction-box" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin: 1.25rem 0;">
+          <div class="faction-box">
             
             <!-- ウォーリア -->
-            <div class="faction-card" style="background: rgba(19, 23, 34, 0.9); border: 1px solid var(--accent-gold); border-radius: 10px; padding: 0.75rem 0.4rem; text-align: center; box-shadow: 0 4px 15px rgba(255,215,0,0.15);">
-              <div style="font-weight: 800; font-size: 0.95rem; color: var(--accent-gold); margin-bottom: 0.5rem; white-space: nowrap;">⚔️ ウォーリア</div>
-              <img src="images/rune/rune_warrior.png" alt="ウォーリア ルーンアイコン" style="width: 85px; height: 85px; border-radius: 10px; border: 2px solid var(--accent-gold); box-shadow: 0 0 10px rgba(255,215,0,0.3); object-fit: contain; max-width: 100%;">
+            <div class="faction-card faction-card-warrior">
+              <div class="faction-title faction-title-warrior">⚔️ ウォーリア</div>
+              <img src="images/rune/rune_warrior.png" alt="ウォーリア ルーンアイコン" class="faction-img faction-img-warrior">
             </div>
 
             <!-- レンジャー -->
-            <div class="faction-card" style="background: rgba(19, 23, 34, 0.9); border: 1px solid var(--accent-blue); border-radius: 10px; padding: 0.75rem 0.4rem; text-align: center; box-shadow: 0 4px 15px rgba(0,240,255,0.15);">
-              <div style="font-weight: 800; font-size: 0.95rem; color: var(--accent-blue); margin-bottom: 0.5rem; white-space: nowrap;">🏹 レンジャー</div>
-              <img src="images/rune/rune_ranger.png" alt="レンジャー ルーンアイコン" style="width: 85px; height: 85px; border-radius: 10px; border: 2px solid var(--accent-blue); box-shadow: 0 0 10px rgba(0,240,255,0.3); object-fit: contain; max-width: 100%;">
+            <div class="faction-card faction-card-ranger">
+              <div class="faction-title faction-title-ranger">🏹 レンジャー</div>
+              <img src="images/rune/rune_ranger.png" alt="レンジャー ルーンアイコン" class="faction-img faction-img-ranger">
             </div>
 
             <!-- ソーサラー -->
-            <div class="faction-card" style="background: rgba(19, 23, 34, 0.9); border: 1px solid #a855f7; border-radius: 10px; padding: 0.75rem 0.4rem; text-align: center; box-shadow: 0 4px 15px rgba(168,85,247,0.15);">
-              <div style="font-weight: 800; font-size: 0.95rem; color: #c084fc; margin-bottom: 0.5rem; white-space: nowrap;">📖 ソーサラー</div>
-              <img src="images/rune/rune_sorcerer.png" alt="ソーサラー ルーンアイコン" style="width: 85px; height: 85px; border-radius: 10px; border: 2px solid #a855f7; box-shadow: 0 0 10px rgba(168,85,247,0.3); object-fit: contain; max-width: 100%;">
+            <div class="faction-card faction-card-sorcerer">
+              <div class="faction-title faction-title-sorcerer">📖 ソーサラー</div>
+              <img src="images/rune/rune_sorcerer.png" alt="ソーサラー ルーンアイコン" class="faction-img faction-img-sorcerer">
             </div>
 
           </div>
@@ -190,7 +98,7 @@
         <!-- セクション2: 装備枠と各ルーンの特徴（4スロット） -->
         <section class="guide-section">
           <h2 class="guide-h2">🔮 装備枠と各ルーンの特徴（4スロット）</h2>
-          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+          <p class="guide-desc-text">
             「レイヴンルーンプラン」から最大4種類のルーンを装着可能です。
           </p>
 
@@ -207,46 +115,46 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="font-weight: 700; color: #fff;">三角形の頂点</td>
-                  <td style="font-weight: 800; color: var(--accent-gold);">狂乱の鴉</td>
+                  <td class="td-bold-white">三角形の頂点</td>
+                  <td class="td-bold-gold">狂乱の鴉</td>
                   <td>通常 / 超強力</td>
                   <td>攻撃力UP ＋ レイヴンの攻撃ターゲット数増加</td>
                   <td><span class="highlight-badge">最優先</span></td>
                 </tr>
                 <tr>
-                  <td style="font-weight: 700; color: #fff;">中央</td>
-                  <td style="font-weight: 800; color: var(--accent-gold);">自然守護</td>
+                  <td class="td-bold-white">中央</td>
+                  <td class="td-bold-gold">自然守護</td>
                   <td>高め / 強力</td>
                   <td>シールド付与 ＋ 被ダメージ軽減</td>
                   <td><span class="highlight-badge">最優先</span></td>
                 </tr>
                 <tr>
-                  <td style="font-weight: 700; color: #fff;">三角形の右下</td>
-                  <td style="font-weight: 700; color: var(--accent-blue);">逆転の力</td>
+                  <td class="td-bold-white">三角形の右下</td>
+                  <td class="td-bold-blue">逆転の力</td>
                   <td>通常 / 通常</td>
                   <td>与ダメージUP ＋ スキルダメージ軽減</td>
-                  <td style="color: var(--accent-blue); font-weight: 700;">優先</td>
+                  <td class="td-bold-blue">優先</td>
                 </tr>
                 <tr>
-                  <td style="font-weight: 700; color: #fff;">三角形の左下</td>
+                  <td class="td-bold-white">三角形の左下</td>
                   <td>護衛呪術</td>
                   <td>通常 / 控えめ</td>
                   <td>防御力UP</td>
-                  <td style="color: var(--text-muted);">状況に応じて</td>
+                  <td class="td-muted">状況に応じて</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <!-- レイヴンルーンプラン スロット画像 & ワンポイントアドバイス -->
-          <div style="margin-top: 1.5rem; text-align: center;">
-            <img src="images/rune/rune_slots_plan.png" alt="レイヴンルーンプラン 4スロット配置" style="max-width: 100%; width: 420px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 20px rgba(0,0,0,0.4); margin-bottom: 0.75rem;">
+          <div class="rune-slot-wrapper">
+            <img src="images/rune/rune_slots_plan.png" alt="レイヴンルーンプラン 4スロット配置" class="rune-slot-img">
             
-            <div style="background: rgba(0, 240, 255, 0.06); border-left: 4px solid var(--accent-blue); padding: 1.25rem; border-radius: 6px; text-align: left; margin-top: 0.5rem;">
-              <div style="font-weight: 800; font-size: 1rem; color: var(--accent-blue); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
-                <span>💡</span> 初心者ワンポイントアドバイス
+            <div class="advice-box">
+              <div class="advice-title">
+                💡 初心者ワンポイントアドバイス
               </div>
-              <p style="font-size: 0.92rem; line-height: 1.7; color: var(--text-main); margin: 0;">
+              <p class="advice-text">
                 狂乱の鴉はUR星2を目指し、自然守護はURを目指しましょう。逆転の力はSSRの星を重点的に上昇させ、護衛呪術は後回しでOK！
               </p>
             </div>
@@ -256,12 +164,12 @@
         <!-- セクション3: ルーンの作成と星上げ（工房仕様） -->
         <section class="guide-section">
           <h2 class="guide-h2">⚙️ ルーンの作成と星上げ（工房仕様）</h2>
-          <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+          <p class="guide-body-text">
             ルーン工房では「ルーンの欠片」を消費してルーンを作成します。URの欠片はギルドバトル報酬などで獲得可能です。
           </p>
 
           <h3 class="guide-h3">✨ 優先して作るべきルーン</h3>
-          <p style="font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem;">
+          <p class="guide-body-text">
             まずは <strong>「狂乱の鴉」</strong> と <strong>「自然守護」</strong> を最優先で獲得・育成しましょう。特に「狂乱の鴉」は敵への殲滅力に直結するため非常に強力です。
           </p>
 
@@ -270,34 +178,34 @@
             <li>・星は <strong>1 → 2 → 3 → 4 → 5（MAX）</strong> まで上昇。</li>
             <li>・強化素材として <strong>「同レベル・同種類のルーン」</strong> が必要。</li>
             <li>・星が1つ上がるごとに必要素材数が1個ずつ増加します。</li>
-            <li>・<strong style="color: var(--accent-gold); font-size: 1rem;">星MAXまでに必要な同種ルーンの総数は 16個</strong> です。</li>
+            <li>・<strong class="highlight-gold-text">星MAXまでに必要な同種ルーンの総数は 16個</strong> です。</li>
           </ul>
         </section>
 
         <!-- セクション4: レイヴン進化（レベルアップ仕様） -->
         <section class="guide-section">
           <h2 class="guide-h2">🦅 レイヴン進化（レベルアップ仕様）</h2>
-          <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+          <p class="guide-body-text">
             不要になったルーンを素材として消費することで、レイヴン自体のレベルアップが可能です。
           </p>
 
           <ul class="rule-list">
-            <li>・<strong>ルーン増幅:</strong> レベルが <strong style="color: var(--accent-gold);">150の倍数</strong> に達するごとにルーン効果が大幅にUPします。</li>
+            <li>・<strong>ルーン増幅:</strong> レベルが <strong class="highlight-gold-text">150の倍数</strong> に達するごとにルーン効果が大幅にUPします。</li>
             <li>・<strong>育成方針:</strong> 1軍で使用するメインルーン以外は、すべて進化素材にして問題ありません。</li>
           </ul>
         </section>
 
         <!-- セクション5: ルーンの強さと課金・育成における評価 -->
-        <section class="guide-section" style="margin-bottom: 0;">
+        <section class="guide-section guide-section-last">
           <h2 class="guide-h2">💎 ルーンの強さと課金・育成における評価</h2>
 
           <h3 class="guide-h3">🔥 圧倒的な戦力差を生むゲームチェンジャー</h3>
-          <p style="font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem;">
+          <p class="guide-body-text">
             他のステータスで負けていても、ルーンの質（SSRとURの差）で覆せるほど極めて強力です。UR内でも「星MAX」と「無星」の間には圧倒的な性能差が生まれます。
           </p>
 
           <h3 class="guide-h3">📈 育成上限と課金効率</h3>
-          <p style="font-size: 0.9rem; line-height: 1.7;">
+          <p class="guide-body-text">
             星MAX（16個）という明確な上限が存在するため、長期的に見るといつかは育成限界を迎えます。<br>
             ただし、戦力に直結する恩恵が非常に大きいため、短期間で大幅に戦力を引き上げるための<strong>課金効率・育成効率は極めて高い</strong>です。
           </p>
@@ -306,8 +214,8 @@
       </article>
 
       <!-- 戻るボタン -->
-      <div style="margin-top: 2rem; text-align: center;">
-        <a href="guide.html" class="btn btn-secondary" style="padding: 0.75rem 2rem;">📘 育成ガイド一覧に戻る</a>
+      <div class="back-btn-wrapper">
+        <a href="guide.html" class="btn btn-secondary btn-back">📘 育成ガイド一覧に戻る</a>
       </div>
 
     </div>

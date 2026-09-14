@@ -442,3 +442,430 @@ ul, ol {
   }
   .nav-menu.open { right: 0; }
 }
+
+/* ==========================================================================
+   Guide System Component Styles
+   ========================================================================== */
+
+.guide-container {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+/* Breadcrumb navigation */
+.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.breadcrumb-current {
+  color: var(--accent-gold);
+}
+
+/* Guide headers & intro summary */
+.guide-header {
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.guide-header-centered {
+  margin-bottom: 2rem;
+  text-align: center;
+  display: block;
+}
+
+.guide-main-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.guide-list-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  display: block;
+}
+
+.guide-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  display: block;
+}
+
+.guide-summary-box {
+  background: rgba(255, 215, 0, 0.08);
+  border: 1px solid var(--accent-gold);
+  padding: 1.25rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-main);
+  display: block;
+}
+
+/* Guide article & section containers */
+.guide-article {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+  display: block;
+}
+
+.guide-section {
+  margin-bottom: 2.5rem;
+  display: block;
+}
+
+.guide-section-last {
+  margin-bottom: 0;
+  display: block;
+}
+
+.guide-h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--accent-gold);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.guide-h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  margin: 1.25rem 0 0.5rem 0;
+  display: block;
+}
+
+.guide-desc-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  display: block;
+}
+
+.guide-body-text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Faction Icon Grid (Strict 3-column layout on all screens without flex) */
+.faction-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin: 1.25rem 0;
+}
+
+.faction-card {
+  background: rgba(19, 23, 34, 0.9);
+  border-radius: 10px;
+  padding: 0.75rem 0.4rem;
+  text-align: center;
+  display: block;
+}
+
+.faction-card-warrior {
+  border: 1px solid var(--accent-gold);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.15);
+}
+
+.faction-card-ranger {
+  border: 1px solid var(--accent-blue);
+  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.15);
+}
+
+.faction-card-sorcerer {
+  border: 1px solid #a855f7;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.15);
+}
+
+.faction-title {
+  font-weight: 800;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  display: block;
+}
+
+.faction-title-warrior { color: var(--accent-gold); }
+.faction-title-ranger { color: var(--accent-blue); }
+.faction-title-sorcerer { color: #c084fc; }
+
+.faction-img {
+  width: 85px;
+  height: 85px;
+  border-radius: 10px;
+  object-fit: contain;
+  max-width: 100%;
+  display: inline-block;
+}
+
+.faction-img-warrior {
+  border: 2px solid var(--accent-gold);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.faction-img-ranger {
+  border: 2px solid var(--accent-blue);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.faction-img-sorcerer {
+  border: 2px solid #a855f7;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+}
+
+/* Rule lists */
+.rule-list {
+  background: rgba(0, 240, 255, 0.04);
+  border-left: 4px solid var(--accent-blue);
+  padding: 1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1rem 0;
+  display: block;
+}
+
+.rule-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  display: block;
+}
+
+.rule-list li:last-child {
+  margin-bottom: 0;
+}
+
+.highlight-gold-text {
+  color: var(--accent-gold);
+  font-size: 1rem;
+}
+
+/* Badges & Tables */
+.highlight-badge {
+  background: linear-gradient(135deg, #ffd700, #ff9f43);
+  color: #000000;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  display: inline-block;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin: 1rem 0;
+  display: block;
+}
+
+.rune-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.rune-table th {
+  background: rgba(0, 240, 255, 0.1);
+  color: var(--accent-blue);
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  font-weight: 700;
+}
+
+.rune-table td {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  background: rgba(19, 23, 34, 0.6);
+}
+
+.rune-table tr:hover td {
+  background: rgba(38, 46, 69, 0.8);
+}
+
+.td-bold-white { font-weight: 700; color: #ffffff; }
+.td-bold-gold { font-weight: 800; color: var(--accent-gold); }
+.td-bold-blue { font-weight: 700; color: var(--accent-blue); }
+.td-muted { color: var(--text-muted); }
+
+/* Slot plan image & Advice box */
+.rune-slot-wrapper {
+  margin-top: 1.5rem;
+  text-align: center;
+  display: block;
+}
+
+.rune-slot-img {
+  max-width: 100%;
+  width: 420px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.advice-box {
+  background: rgba(0, 240, 255, 0.06);
+  border-left: 4px solid var(--accent-blue);
+  padding: 1.25rem;
+  border-radius: 6px;
+  text-align: left;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.advice-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--accent-blue);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.advice-text {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-main);
+  margin: 0;
+  display: block;
+}
+
+/* Footer / back button wrapper */
+.back-btn-wrapper {
+  margin-top: 2rem;
+  text-align: center;
+  display: block;
+}
+
+.btn-back {
+  padding: 0.75rem 2rem;
+  display: inline-block;
+}
+
+/* Guide List Page (guide.html) specific classes */
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.guide-card-active {
+  border-color: var(--accent-gold);
+  background: linear-gradient(180deg, rgba(255, 215, 0, 0.08), rgba(28, 34, 51, 0.9));
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: block;
+}
+
+.guide-card-disabled {
+  border: 1px dashed var(--border-color);
+  opacity: 0.6;
+  background: rgba(0, 0, 0, 0.2);
+  display: block;
+}
+
+.guide-card-top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  margin-bottom: 0.75rem;
+}
+
+.guide-card-icon {
+  font-size: 2.2rem;
+  display: block;
+}
+
+.guide-card-icon-mb {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.guide-badge-priority {
+  background: var(--accent-gold);
+  color: #000000;
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.guide-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent-gold);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.guide-card-title-muted {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.guide-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.guide-card-desc-no-mb {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  display: block;
+}
+
+.guide-tag-box {
+  display: block;
+}
+
+.guide-tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin-right: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.guide-tag-blue {
+  background: rgba(0, 240, 255, 0.1);
+  color: var(--accent-blue);
+}
+
+.guide-tag-gold {
+  background: rgba(255, 215, 0, 0.1);
+  color: var(--accent-gold);
+}
+
+.guide-tag-white {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
+}
+

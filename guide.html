@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>各種育成攻略ガイド一覧 | Last Asylum Strategy Wiki</title>
   <meta name="description" content="Last Asylum（ラストアサイラム）の各種育成要素・育成システムの詳細攻略ガイド一覧。ルーン工房・装備強化・レイヴン進化などの仕様と効率的な育成方針を解説。">
-  <link rel="stylesheet" href="css/style.css?v=20260914_01">
+  <link rel="stylesheet" href="css/style.css?v=20260914_02">
 </head>
 <body>
 
@@ -45,49 +45,49 @@
 
   <!-- メインコンテンツ -->
   <main class="main-content">
-    <div class="container" style="padding-top: 2rem; padding-bottom: 3rem;">
+    <div class="container guide-container">
       
       <!-- ページヘッダー -->
-      <div style="margin-bottom: 2rem; text-align: center;">
-        <h1 class="section-title" style="font-size: 2rem; margin-bottom: 0.5rem;">📘 各種育成攻略ガイド一覧</h1>
-        <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 700px; margin: 0 auto;">
+      <div class="guide-header-centered">
+        <h1 class="guide-list-title">📘 各種育成攻略ガイド一覧</h1>
+        <p class="guide-subtitle">
           戦力を効率的に向上させるための各育成システム・強化攻略ガイドです。<br>初心者から上級者まで役立つ仕様解説と優先度を順次掲載していきます。
         </p>
       </div>
 
       <!-- ガイド項目グリッド -->
-      <div class="grid-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;">
+      <div class="guide-grid">
 
         <!-- 項1: ルーン工房~育成ガイド~ -->
-        <a href="guide_rune.html" class="card" style="border-color: var(--accent-gold); background: linear-gradient(180deg, rgba(255, 215, 0, 0.08), rgba(28, 34, 51, 0.9)); transition: transform 0.2s ease, box-shadow 0.2s ease;">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
-            <div style="font-size: 2.2rem;">🔮</div>
-            <span class="badge" style="background: var(--accent-gold); color: #000; font-weight: 800; font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: 4px;">おすすめ最優先</span>
+        <a href="guide_rune.html" class="card guide-card-active">
+          <div class="guide-card-top">
+            <span class="guide-card-icon">🔮</span>
+            <span class="guide-badge-priority">おすすめ最優先</span>
           </div>
-          <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--accent-gold); margin-bottom: 0.5rem;">ルーン工房 ~育成ガイド~</h2>
-          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
+          <h2 class="guide-card-title">ルーン工房 ~育成ガイド~</h2>
+          <p class="guide-card-desc">
             陣営アイコンの見分け方、4つの装備スロットの特徴、凸（星上げ）ルール、レイヴン進化仕様と課金・育成における重要性を徹底解説。
           </p>
-          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
-            <span style="font-size: 0.75rem; background: rgba(0, 240, 255, 0.1); color: var(--accent-blue); padding: 0.2rem 0.5rem; border-radius: 4px;">ルーン工房</span>
-            <span style="font-size: 0.75rem; background: rgba(255, 215, 0, 0.1); color: var(--accent-gold); padding: 0.2rem 0.5rem; border-radius: 4px;">狂乱の鴉</span>
-            <span style="font-size: 0.75rem; background: rgba(255, 255, 255, 0.08); color: var(--text-main); padding: 0.2rem 0.5rem; border-radius: 4px;">星上げ上限16個</span>
+          <div class="guide-tag-box">
+            <span class="guide-tag guide-tag-blue">ルーン工房</span>
+            <span class="guide-tag guide-tag-gold">狂乱の鴉</span>
+            <span class="guide-tag guide-tag-white">星上げ上限16個</span>
           </div>
         </a>
 
         <!-- 今後追加予定枠（カードプレースホルダー） -->
-        <div class="card" style="border: 1px dashed var(--border-color); opacity: 0.6; background: rgba(0,0,0,0.2);">
-          <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">🛡️</div>
-          <h2 style="font-size: 1.15rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.5rem;">装備強化・精錬ガイド（準備中）</h2>
-          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+        <div class="card guide-card-disabled">
+          <span class="guide-card-icon-mb">🛡️</span>
+          <h2 class="guide-card-title-muted">装備強化・精錬ガイド（準備中）</h2>
+          <p class="guide-card-desc-no-mb">
             研磨石・精錬鋼の効率的な集め方と各部位優先度の詳細ガイドを追加予定です。
           </p>
         </div>
 
-        <div class="card" style="border: 1px dashed var(--border-color); opacity: 0.6; background: rgba(0,0,0,0.2);">
-          <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">🏰</div>
-          <h2 style="font-size: 1.15rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.5rem;">施設レベルアップ優先度（準備中）</h2>
-          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+        <div class="card guide-card-disabled">
+          <span class="guide-card-icon-mb">🏰</span>
+          <h2 class="guide-card-title-muted">施設レベルアップ優先度（準備中）</h2>
+          <p class="guide-card-desc-no-mb">
             本部・協会・兵舎・各種研究施設の最短成長ロードマップを追加予定です。
           </p>
         </div>
