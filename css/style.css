@@ -1050,4 +1050,83 @@ ul, ol {
   display: block;
 }
 
+/* ==========================================================================
+   Gear Guide Components
+   ========================================================================== */
+
+.gear-parts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.gear-part-card {
+  background: rgba(19, 23, 34, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  display: block;
+}
+
+.gear-part-name {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--accent-gold);
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.gear-part-stats {
+  font-size: 0.88rem;
+  color: #ffffff;
+  font-weight: 700;
+  display: block;
+}
+
+.stage-box {
+  background: rgba(19, 23, 34, 0.85);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  display: block;
+}
+
+.stage-box-highlight {
+  border-color: var(--accent-blue);
+  background: linear-gradient(145deg, rgba(0, 240, 255, 0.06), rgba(19, 23, 34, 0.95));
+}
+
+.star-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.star-card {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.6rem;
+  text-align: center;
+  display: block;
+}
+
+.star-label {
+  font-weight: 800;
+  color: var(--accent-gold);
+  font-size: 0.9rem;
+  display: block;
+}
+
+.star-level {
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-weight: 700;
+  display: block;
+}
+
+
 
